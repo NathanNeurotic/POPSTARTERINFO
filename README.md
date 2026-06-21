@@ -6,7 +6,7 @@ The site is intentionally source-driven. Claims are tagged by confidence and ver
 
 ## Legal Boundary
 
-This repository must not include Sony POPS emulator binaries, BIOS files, decrypted libraries, or proprietary packages. Do not add or link directly to files such as:
+This repository must not include Sony POPS emulator binaries, BIOS files, decrypted libraries, proprietary packages, or direct binary download links. Do not add or link directly to files such as:
 
 - `POPS.ELF`
 - `POPS.PAK`
@@ -14,7 +14,7 @@ This repository must not include Sony POPS emulator binaries, BIOS files, decryp
 - `IOPRP252.IMG`
 - PS1 BIOS files
 
-The documentation may say that users need legally obtained copies and may describe where those files belong.
+The documentation may say that users need legally obtained copies and may describe where those files belong. When proprietary components need identification, use filenames, hashes, or source-reference identifiers only.
 
 ## Quick Start
 

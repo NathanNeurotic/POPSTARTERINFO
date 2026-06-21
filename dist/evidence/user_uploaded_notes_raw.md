@@ -1,11 +1,11 @@
 More information I have - some of the links are likely dead though:
-# **Official POPStarter Pages :** ([Download Here](https://discord.com/channels/1275875800318476381/1276714424337567764/1292650901307396199))
+# **Official POPStarter Pages :** (download link omitted)
 ** * [ShaolinAssassin](https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home)'s Official Guide.** **  * [krHACKen](https://www.psx-place.com/threads/popstarter.19139/)'s release thread. **
-**Official POPSLoader Page :** ([Download Here](https://discord.com/channels/1275875800318476381/1276714424337567764/1292650901307396199))
+**Official POPSLoader Page :** (download link omitted)
 * https://www.psx-place.com/resources/popsloader.1396/
-**BDM Assault (Adding exFAT compatibility to POPStarter) :** ([Download Here](https://discord.com/channels/1275875800318476381/1276714424337567764/1292650901307396199))
+**BDM Assault (Adding exFAT compatibility to POPStarter) :** (download link omitted)
 * https://github.com/israpps/BDMAssault
-**Latest wLE_kHn (20200810) :** ([Download Here](https://discord.com/channels/1275875800318476381/1276714424337567764/1294364959563845743))
+**Latest wLE_kHn (20200810) :** (download link omitted)
 **HugoPocked POPStarter Fixes :**
 * https://www.psx-place.com/threads/hugopocked-fixes-for-popstarter.39750/
 
@@ -257,15 +257,15 @@ __**VMCDIR.TXT**__ *contains:*
 
 ---------------------------------------------------------------
 
-**Official POPStarter Pages :** [(Download Here)](https://discord.com/channels/652861436992946216/1234858857092874313/1287297792053612585)
+**Official POPStarter Pages :** (download link omitted)
 * https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home
 * https://www.psx-place.com/threads/popstarter.19139/
-**Official POPSLoader Page :** [(Download Here)](https://discord.com/channels/652861436992946216/1234858857092874313/1287528892290039898)
+**Official POPSLoader Page :** (download link omitted)
 * https://www.psx-place.com/resources/popsloader.1396/
 **BDM Assault (Adding exFAT compatibility to POPStarter) :**
 * https://github.com/israpps/BDMAssault
 **Latest wLE_kHn (20200810) :** 
-* https://discord.com/channels/652861436992946216/1234858857092874313/1267111956809252897
+* wLE_kHn Discord download link omitted
 **HugoPocked POPStarter Fixes :**
 * https://www.youtube.com/@hugopocked6695
 * https://www.psx-place.com/threads/hugopocked-fixes-for-popstarter.39750/

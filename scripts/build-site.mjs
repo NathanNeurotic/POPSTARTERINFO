@@ -50,11 +50,23 @@ function badge(value, kind = "") {
   return `<span class="badge ${kind}">${esc(value)}</span>`;
 }
 
+function isLinkableUrl(url) {
+  return Boolean(url && !String(url).startsWith("mention-only:") && !String(url).startsWith("no-public-link:"));
+}
+
+function sourceLabel(source) {
+  const url = String(source.url || "");
+  if (url.startsWith("mention-only:")) return `${source.title} (mention only)`;
+  if (url.startsWith("no-public-link:")) return `${source.title} (link omitted)`;
+  return source.title;
+}
+
 function sourceLinks(ids) {
   return ids
     .map((id) => {
       const source = sourceById.get(id);
       if (!source) return badge(`missing:${id}`, "risk");
+      if (!isLinkableUrl(source.url)) return `<span class="source-chip">${esc(sourceLabel(source))}</span>`;
       return `<a class="source-chip" href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.title)}</a>`;
     })
     .join(" ");
@@ -73,7 +85,19 @@ function inlineMarkdown(text) {
   return esc(text)
     .replace(/`([^`]+)`/g, "<code>$1</code>")
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, url) => {
+      if (/discord\.com\/channels/i.test(url)) return `${label} (download link omitted)`;
+      if (/elotrolado\.net/i.test(url)) return `${label} (source mention only)`;
+      return `<a href="${url}" target="_blank" rel="noreferrer">${label}</a>`;
+    });
+}
+
+function sanitizePublicText(text) {
+  return String(text)
+    .replace(/\[([^\]]+)\]\(https?:\/\/(?:www\.)?elotrolado\.net[^)]*\)/gi, "$1 (source mention only)")
+    .replace(/https?:\/\/(?:www\.)?elotrolado\.net\/\S+/gi, "ElOtroLado source mention only")
+    .replace(/\[([^\]]+)\]\(https?:\/\/discord\.com\/channels\/[^)]*\)/gi, "$1 (download link omitted)")
+    .replace(/https?:\/\/discord\.com\/channels\/\S+/gi, "Discord download link omitted");
 }
 
 function renderMarkdown(markdown) {
@@ -170,13 +194,21 @@ const archiveSourceFiles = [
 ];
 
 const archiveEntries = [];
+const archiveSlugCounts = new Map();
+function uniqueArchiveSlug(baseSlug) {
+  const count = archiveSlugCounts.get(baseSlug) || 0;
+  archiveSlugCounts.set(baseSlug, count + 1);
+  return count === 0 ? baseSlug : `${baseSlug}-${count + 1}`;
+}
+
 for (const file of archiveSourceFiles) {
-  const raw = await readFile(file.absolutePath, "utf8");
+  const raw = sanitizePublicText(await readFile(file.absolutePath, "utf8"));
   const title = file.relativePath.replace(/_/g, " ");
+  const slug = uniqueArchiveSlug(`archive-${slugify(file.relativePath)}`);
   archiveEntries.push({
     title,
-    slug: `archive-${slugify(file.relativePath)}`,
-    href: `archive-${slugify(file.relativePath)}.html`,
+    slug,
+    href: `${slug}.html`,
     sourcePath: file.relativePath,
     raw,
     html: renderMarkdown(raw)
@@ -244,7 +276,7 @@ function storageMatrix() {
       </dl>
       <h4>Required files</h4>${list(layout.requiredFiles)}
       <h4>Exact paths</h4>${codeBlock(layout.exactPaths)}
-      ${layout.sampleConfig ? `<h4>Sample config</h4>${codeBlock(layout.sampleConfig)}` : ""}
+${layout.sampleConfig ? `      <h4>Sample config</h4>${codeBlock(layout.sampleConfig)}` : ""}
       <h4>Warnings</h4>${list(layout.warnings)}
       <p class="sources">${sourceLinks(layout.sourceIds)}</p>
     </article>`)
@@ -287,7 +319,7 @@ function issueList() {
 
 function sourceArchive() {
   return `<div class="grid sources-grid">${data.sources.map((source) => `<article class="source-card">
-    <h3><a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.title)}</a></h3>
+    <h3>${isLinkableUrl(source.url) ? `<a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.title)}</a>` : esc(sourceLabel(source))}</h3>
     <p>${esc(source.notes)}</p>
     <p>${badge(source.type)} ${badge(source.status)} ${badge(source.reliability)}</p>
   </article>`).join("")}</div>`;
@@ -507,7 +539,7 @@ function searchIndex() {
     title: source.title,
     href: "source-archive.html",
     type: "source",
-    text: `${source.url} ${source.type} ${source.status} ${source.reliability} ${source.notes}`
+    text: `${isLinkableUrl(source.url) ? source.url : sourceLabel(source)} ${source.type} ${source.status} ${source.reliability} ${source.notes}`
   }));
   const glossaryRows = data.glossary.map((item) => ({
     title: item.term,
@@ -528,8 +560,8 @@ for (const page of allPages) {
 
 await copyFile(path.join(srcDir, "styles.css"), path.join(distDir, "assets", "styles.css"));
 await copyFile(path.join(srcDir, "client.js"), path.join(distDir, "assets", "client.js"));
-await copyFile(path.join(root, "source_notes", "user_uploaded_notes_raw.md"), path.join(distDir, "evidence", "user_uploaded_notes_raw.md"));
-await copyFile(path.join(root, "source_notes", "assistant_research_notes.md"), path.join(distDir, "evidence", "assistant_research_notes.md"));
+await writeFile(path.join(distDir, "evidence", "user_uploaded_notes_raw.md"), sanitizePublicText(await readFile(path.join(root, "source_notes", "user_uploaded_notes_raw.md"), "utf8")), "utf8");
+await writeFile(path.join(distDir, "evidence", "assistant_research_notes.md"), sanitizePublicText(await readFile(path.join(root, "source_notes", "assistant_research_notes.md"), "utf8")), "utf8");
 await copyFile(path.join(root, "media", "discord_popstarter_test_screenshot.png"), path.join(distDir, "evidence", "discord_popstarter_test_screenshot.png"));
 await writeFile(path.join(distDir, "search-index.json"), JSON.stringify(searchIndex(), null, 2), "utf8");
 await writeFile(path.join(distDir, ".nojekyll"), "", "utf8");

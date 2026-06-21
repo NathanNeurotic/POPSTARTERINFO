@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>docs/COMMAND REFERENCE DRAFT.md - POPStarter Docs</title>
-  <meta name="description" content="Rendered local archive file: docs/COMMAND_REFERENCE_DRAFT.md">
+  <title>Internal HDD Setup - POPStarter Docs</title>
+  <meta name="description" content="Internal APA/PFS POPStarter setup for OPL Apps, OPL DB/PS1 page, wLE_kHn, multi-disc, Hugopocked fixes, and APA-Jail boundaries.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -20,16 +20,71 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="storage-matrix.html">Storage Matrix</a><a  href="launcher-matrix.html">Launcher Matrix</a><a  href="command-reference.html">Command Reference</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="smb-network.html">SMB / Network</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></nav>
+    <nav class="sidebar"><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a><a  href="usb-storage.html">USB</a><a aria-current="page" href="internal-hdd.html">HDD</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="storage-matrix.html">Storage Matrix</a><a  href="launcher-matrix.html">Launcher Matrix</a><a  href="command-reference.html">Command Reference</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="smb-network.html">SMB / Network</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></nav>
     <main>
       <section class="hero">
-        <h1>docs/COMMAND REFERENCE DRAFT.md</h1>
-        <p>Rendered local archive file: docs/COMMAND_REFERENCE_DRAFT.md</p>
+        <h1>Internal HDD Setup</h1>
+        <p>Internal APA/PFS POPStarter setup for OPL Apps, OPL DB/PS1 page, wLE_kHn, multi-disc, Hugopocked fixes, and APA-Jail boundaries.</p>
       </section>
-      <section class="callout"><h2>Source file</h2><p><code>docs/COMMAND_REFERENCE_DRAFT.md</code></p></section>
-<article class="archive-doc"><h2>POPStarter Command Reference Draft</h2>
-<p>Generated from the research seed. Verify each command against primary/archived sources before publishing as final.</p>
-<p>| Command | Category | Effect | Notes | Confidence | |---|---|---|---|---| | <code>$SAFEMODE</code> | Cheat engine | Delays activation of raw GameShark/Action Replay style cheat codes until after game startup. | Recommended when using raw cheat codes; not required for special POPStarter commands such as $SMOOTH or $NOPAL. | high | | <code>$SMOOTH</code> | Video/texture | Enables texture smoothing by default. | Runtime hotkeys: Select+L1+R2 enables; Select+L2+R1 disables. Equivalent raw code observed: $S0003390 00000001. | high | | <code>$NOPAL</code> | Region/video | Disables automatic PAL patch; used to force PAL games into NTSC/240p behavior. | Often requires $YPOS_## such as $YPOS_10 to recenter PAL games after NTSC conversion. | high | | <code>$FAKELC</code> | LibCrypt | Loads a null LibCrypt value into COP0 register. | Mentioned for games with broken LibCrypt behavior, e.g. some Jackie Chan discs. | high | | <code>$COMPATIBILITY_0x##</code> | Compatibility | Enables compatibility modes as an alternative to PATCH_X.BIN files. | Example: $COMPATIBILITY_0x01 activates Mode 1. | high | | <code>$USBDELAY_#</code> | USB | Sets startup delay for USB device initialization. | Increase by 2–3 seconds for devices that work elsewhere but fail in POPStarter. | high | | <code>$FORCEPAL</code> | Region/video | Forces PAL patch and BIOS region behavior for VCDs missing valid PAL license text in boot sector. | POPS runs in PAL mode and BIOS region code is patched to Europe. | high | | <code>$XPOS_####</code> | Video geometry | Moves horizontal screen position. | Default observed: 640. Increase moves image left; decrease moves image right. | high | | <code>$YPOS_##</code> | Video geometry | Moves vertical screen position. | Common PAL-to-NTSC centering example: $YPOS_10. | high | | <code>$DWSTRETCH_####</code> | Video geometry | Horizontally stretches display. | Default observed: 2559. | high | | <code>$DWCROP_####</code> | Video geometry | Reduces/expands display width area. | Max observed: 2560. Decrease to adjust image right. | high | | <code>$HDTVFIX</code> | Video/output | Activates SetGsCrt hack for modern HDTV/component-display issues. | Uses 480i for NTSC or 576i for PAL; helps displays that do not handle 240p/288p. Avoid as a default on CRT/composite because it can cause interlace flicker/problems. | high | | <code>$480p</code> | Video/output | Forces 480p video mode. | Low compatibility. Not compatible with $XPOS, $YPOS, $DWSTRETCH, or $DWCROP. | high | | <code>$SCANLINES</code> | Video/filter | Enables scanline generator. | Needs testing/visual examples. | medium | | <code>$CODECACHE_ADDON_0</code> | Recompiler/cache | Recompiler/code-cache related option for slowdowns or random hangs. | Do not use globally; can make many games fail. | high | | <code>$CACHE1</code> | CD/cache | Sets POPS buffer to 1 sector instead of 16. | May help some videos that hang. | high | | <code>$SUBCDSTATUS</code> | CD/status | Probably related to game hangs and CDROM timeouts; variant of compatibility Mode 5. | Needs primary old-wiki confirmation. | medium | | <code>$MUTE_VAB</code> | Audio | Mutes VAB/VAG/VB+VH based music/SFX. | Can diagnose crashes caused by old game SFX/audio behavior. | high | | <code>$WIDESCREEN</code> | Video/widescreen | Enables GTE widescreen hack; changes apparent aspect/FOV. | Does not fix HUDs, fonts, menus, 2D backgrounds, or render correction. Not compatible with every game. | high | | <code>$ULTRA_WIDESCREEN</code> | Video/widescreen | Like $WIDESCREEN but with wider FOV. | Non-standard aspect. Same 2D/HUD caveats as $WIDESCREEN. | high | | <code>$EYEFINITY</code> | Video/widescreen | Like $WIDESCREEN but with 3x16:9 style aspect. | Same 2D/HUD caveats as $WIDESCREEN. | high | | <code>$MUTE_CDDA</code> | Audio/CDDA | Mutes/disables CDDA audio tracks. | Applied automatically for physical PS1 CDROM mode according to ElOtroLado. | high | | <code>$UNDO_MUTE_CDDA</code> | Audio/CDDA | Re-enables CDDA audio. | Counteracts $MUTE_CDDA behavior. | high | | <code>$NOVMC0</code> | VMC | Disables VMC0; uses only VMC1. | Confirm interaction with physical cards and per-game VMC naming. | high | | <code>$NOVMC1</code> | VMC | Disables VMC1; uses only VMC0. | Confirm interaction with physical cards and per-game VMC naming. | high | | <code>$UNDO_GAME_FIXES</code> | Compatibility/fixes | Disables built-in game fixes integrated in POPStarter. | May not fully restore original broken behavior for games whose issues were fixed by core POPS patches or later changes. | high | | <code>$D2LS</code> | Controller/input | Forces left analog stick to digital D-pad behavior for games without analog support. | Leaves controller in digital behavior according to Spanish source. | high | | <code>$D2LS_ALT</code> | Controller/input | Alternative to $D2LS for games where $D2LS does not work. | Leaves controller in analog behavior according to Spanish source. | high | | <code>$IGR0</code> | IGR | L1+L2+R1+R2+X+Down opens IGR menu. | Opens menu. | high | | <code>$IGR1</code> | IGR | Start+Select opens IGR menu. | Opens menu. | high | | <code>$IGR2</code> | IGR | L1+L2+R1+R2+Start+Select opens IGR menu. | Opens menu. | high | | <code>$IGR3</code> | IGR | L1+L2+R1+R2+X+Down closes POPS without IGR menu. | Direct close/no menu. | high | | <code>$IGR4</code> | IGR | Start+Select closes POPS without IGR menu. | Direct close/no menu. | high | | <code>$IGR5</code> | IGR | L1+L2+R1+R2+Start+Select closes POPS without IGR menu. | krHACKen described this as OPL-like IGR with no popup. Last beta likely fixed this command. | high | | <code>$NOIGR</code> | IGR | Disables IGR menu. | Do not confuse with the separate 'disable ELF loader' workaround used to prevent POPStarter exit from chaining into BOOT.ELF. | high |</p></article>
+      <section class="callout">
+        <h2>The spelling matters</h2>
+        <p>Internal HDD setups revolve around two locations: <code>hdd:/__.POPS/</code> for VCDs and <code>hdd:/__common/POPS/</code> for common POPS files and per-game support folders. The dot in <code>__.POPS</code> is part of the name.</p>
+      </section>
+<section>
+        <h2>OPL Apps page: per-game renamed ELF</h2>
+        <p>This mirrors the USB OPL Apps model, but the game image and POPS files are on APA/PFS paths while the visible app entry is under <code>+OPL/APPS</code>.</p>
+        <pre><code>hdd:/__.POPS/SLUS_002.40.Soul Blade.VCD
+hdd:/__common/POPS/IOPRP252.IMG
+hdd:/__common/POPS/POPS.ELF
+hdd:/__common/POPS/POPSTARTER.ELF
+hdd:/__common/POPS/SLUS_002.40.Soul Blade/
+hdd:/+OPL/APPS/Soul Blade/SLUS_002.40.Soul Blade.ELF
+hdd:/+OPL/APPS/Soul Blade/title.cfg</code></pre>
+        <pre><code>title=[PS1] Soul Blade
+boot=SLUS_002.40.Soul Blade.ELF</code></pre>
+        <p>ElOtroLado and PSX-Place support discussion warn that OPL network/BDM/SMB Auto start modes can hang HDD POPStarter Apps launch. Set unused devices to Manual or Disabled when troubleshooting a black screen with the HDD LED stuck.</p>
+      </section>
+<section>
+        <h2>OPL DB / PS1 page</h2>
+        <p>This modern OPL/fork path keeps the launcher files in <code>__common/POPS</code> and VCDs in <code>__.POPS</code>.</p>
+        <pre><code>hdd:/__.POPS/SLUS_002.40.Soul Blade.VCD
+hdd:/__common/POPS/IOPRP252.IMG
+hdd:/__common/POPS/POPS.ELF
+hdd:/__common/POPS/POPSTARTER.ELF
+hdd:/__common/POPS/POPS_IOX.PAK</code></pre>
+        <p>The local Discord screenshot records <code>hdd0:/__common/POPS/POPSTARTER.ELF</code> as a working POPStarter path in that user's test. Keep it as user-tested evidence, not as a replacement for every frontend's own path rules.</p>
+      </section>
+<section>
+        <h2>wLE_kHn on HDD</h2>
+        <p>wLE_kHn can be installed as a BOOT.ELF target and/or launched through OPL Apps while VCDs remain under <code>__.POPS</code>.</p>
+        <pre><code>mc0:/BOOT/BOOT.ELF
+hdd:/__.POPS/SLUS_002.40.Soul Blade.VCD
+hdd:/__common/POPS/IOPRP252.IMG
+hdd:/__common/POPS/POPS.ELF
+hdd:/__common/POPS/POPSTARTER.ELF
+hdd:/__common/POPS/POPS_IOX.PAK
+hdd:/+OPL/APPS/wLE_kHn_20200810/wLE_kHn_20200810.ELF
+hdd:/+OPL/APPS/wLE_kHn_20200810/title.cfg</code></pre>
+      </section>
+<section>
+        <h2>Hugopocked fixes on HDD</h2>
+        <p>Use the per-game support folder under <code>__common/POPS</code>, not <code>__.POPS</code>:</p>
+        <pre><code>hdd:/__common/POPS/SLUS_002.40.Soul Blade/</code></pre>
+      </section>
+<section class="callout warning">
+        <h2>Internal exFAT boundary</h2>
+        <p>The raw notes are explicit: POPStarter core does not support internal exFAT storage for the POPS/VCD side. APA-Jail can be used as a hybrid app-side convenience, but the POPS data remains on APA/PFS paths.</p>
+      </section>
+<section>
+        <h2>APA-Jail hybrid example</h2>
+        <pre><code>exfat:hdd:APPS/Soul Blade/SLUS_002.40.Soul Blade.ELF
+exfat:hdd:APPS/Soul Blade/title.cfg
+apa:hdd:/__.POPS/SLUS_002.40.Soul Blade.VCD
+apa:hdd:/__common/POPS/IOPRP252.IMG
+apa:hdd:/__common/POPS/POPS.ELF
+apa:hdd:/__common/POPS/POPSTARTER.ELF
+apa:hdd:/__common/POPS/POPS_IOX.PAK</code></pre>
+      </section>
     </main>
   </div>
   <footer class="site-footer">

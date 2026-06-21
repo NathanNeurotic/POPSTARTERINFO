@@ -1,6 +1,6 @@
 # Source Notes: ElOtroLado First Post
 
-URL: https://www.elotrolado.net/hilo_ho-pops-emulador-de-psx-para-ps2_1874054
+URL: mention-only source; no public outbound link
 
 Checked: 2026-06-21
 
@@ -15,6 +15,22 @@ Checked: 2026-06-21
 - It shows `poweroff.irx` in the memory-card POPSTARTER network module file tree.
 - It says SMB debug text cannot be disabled in SMB mode because it is forced to show connection/error status.
 - It warns OPL network Auto mode can cause HDD POPStarter Apps launch black-screen hangs.
+- SMB direct-launch route:
+  - Share a PC/NAS folder named `POPSTARTER`.
+  - Keep VCDs under `POPSTARTER/POPS/`.
+  - Rename per-game launchers with the `SB.` prefix, for example `SB.Medievil.ELF`.
+  - Copy the network module/config folder to `mc?:/POPSTARTER/`.
+- SMB OPL Apps route:
+  - Share a PC/NAS folder named `PS2SMB`.
+  - Use `PS2SMB/POPS`, `PS2SMB/APPS`, and `PS2SMB/ART`.
+  - Put `SB.`-prefixed renamed POPStarter ELFs in `APPS`.
+  - `conf_apps.cfg` examples use `smb:/APPS/SB.<Game>.ELF`, with a note that newer OPL betas may require `smb0:`.
+- `SMBCONFIG.DAT` examples:
+  - `192.168.0.254 POPSTARTER`
+  - `192.168.0.254:139 POPSTARTER`
+  - optional username/password lines for authenticated shares.
+- `IPCONFIG.DAT` example format is one line with PS2 IP, subnet mask, and gateway/router IP.
+- SMB VMC files are created on the PC/NAS share, so the share must be writable.
 
 ## Site Decision
 

@@ -45,7 +45,7 @@ This audit tracks which sources were used, what each source is reliable for, and
 
 ### ElOtroLado First Post
 
-- URL: https://www.elotrolado.net/hilo_ho-pops-emulador-de-psx-para-ps2_1874054
+- URL: mention-only source; no public outbound link
 - Status: live, checked 2026-06-21
 - Reliability: high for Spanish long-form operational guide, but still secondary to package inspection for exact bundled file trees.
 - Used for:

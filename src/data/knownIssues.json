@@ -70,6 +70,76 @@
     "verificationStatus": "verified-cross-source"
   },
   {
+    "id": "opl-apps-title-cfg-txt",
+    "title": "OPL Apps entry missing because title.cfg was saved as .txt",
+    "symptom": "The app entry does not appear, or the entry launches nothing.",
+    "likelyCauses": ["File is named title.cfg.txt", "title.cfg is in the wrong APPS folder", "boot= does not match the renamed ELF filename"],
+    "mitigation": "Save the file as plain text named exactly title.cfg, put it beside the renamed ELF, and make boot= match only that ELF filename.",
+    "sourceIds": ["user-notes"],
+    "confidence": "high",
+    "verificationStatus": "verified-hardware-user"
+  },
+  {
+    "id": "per-game-folder-basename-mismatch",
+    "title": "CHEATS, VMC, or fixes ignored because the per-game folder name is wrong",
+    "symptom": "The game boots, but CHEATS.TXT, VMC sharing, or Hugopocked fixes do not apply.",
+    "likelyCauses": ["Support folder includes .VCD extension", "Support folder uses display title instead of VCD basename", "HDD fixes placed under __.POPS instead of __common/POPS"],
+    "mitigation": "Name the support folder after the VCD basename without .VCD: mass:/POPS/<Game>/ on USB, hdd:/__common/POPS/<Game>/ on HDD, and smb:/POPS/<Game>/ on SMB.",
+    "sourceIds": ["user-notes", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "verified-cross-source"
+  },
+  {
+    "id": "smb-prefix-or-protocol-mismatch",
+    "title": "SMB launch fails because the prefix or OPL SMB protocol name is wrong",
+    "symptom": "The SMB app entry starts then black-screens, or OPL Apps does not launch the ELF.",
+    "likelyCauses": ["Renamed ELF lacks SB. prefix", "conf_apps.cfg uses smb: on an OPL beta expecting smb0:", "Path has trailing spaces", "APPS path does not match the renamed ELF exactly"],
+    "mitigation": "Use SB.<Game>.ELF for SMB POPStarter launchers. For newer OPL betas, try smb0:/APPS/SB.<Game>.ELF if smb:/APPS/SB.<Game>.ELF does not work.",
+    "sourceIds": ["elotrolado-pops-thread", "user-notes"],
+    "confidence": "high",
+    "verificationStatus": "verified-cross-source"
+  },
+  {
+    "id": "smb-vmc-write-failure",
+    "title": "SMB game boots but VMC saves fail",
+    "symptom": "The game launches over SMB, but memory card files are not created or saves do not persist.",
+    "likelyCauses": ["Share is read-only", "Guest user lacks write permission", "NAS blocks anonymous writes", "Per-game folder cannot be created"],
+    "mitigation": "Give the configured SMB user or guest account write permission on the share. POPStarter creates/updates SLOT0.VMC and SLOT1.VMC over SMB.",
+    "sourceIds": ["elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "verified-single-source"
+  },
+  {
+    "id": "bdm-exfat-wrong-driver-names",
+    "title": "USB exFAT does not work because BDM modules were not renamed into POPStarter's driver names",
+    "symptom": "FAT32 USB works, but exFAT USB is not detected by POPStarter.",
+    "likelyCauses": ["bdm_assault.irx not renamed to usbd.irx", "usbd_bd_assault.irx not renamed to usbhdfsd.irx", "Files placed only in SYS-CONF and not mc?:/POPSTARTER", "Using BDM for internal HDD exFAT expectation"],
+    "mitigation": "Place bdm_assault.irx as mc?:/POPSTARTER/usbd.irx and usbd_bd_assault.irx as mc?:/POPSTARTER/usbhdfsd.irx. Keep internal HDD POPS data on APA/PFS.",
+    "sourceIds": ["bdm-assault", "user-notes"],
+    "confidence": "high",
+    "verificationStatus": "verified-primary"
+  },
+  {
+    "id": "multi-disc-vmc-placement",
+    "title": "Multi-disc swap or shared VMC does not work",
+    "symptom": "Later discs cannot find the disc set, or each disc creates separate saves.",
+    "likelyCauses": ["DISCS.TXT missing from one or more disc support folders", "VMCDIR.TXT not placed in later-disc folders", "VMCDIR.TXT points at a title instead of the first disc VCD filename", "Filenames differ from the actual VCD names"],
+    "mitigation": "Put DISCS.TXT in every disc support folder and VMCDIR.TXT in later-disc support folders. List exact VCD filenames, one per line.",
+    "sourceIds": ["user-notes", "shaolin-bitbucket-wiki"],
+    "confidence": "medium",
+    "verificationStatus": "verified-hardware-user"
+  },
+  {
+    "id": "popsloader-folder-separation",
+    "title": "POPSLoader starts incorrectly because its support folder is misplaced",
+    "symptom": "POPSLoader launches to a blank screen, cannot list games, or loses expected UI/resources.",
+    "likelyCauses": ["POPSLDR folder not beside POPSLOADER.ELF", "POPSLoader paths mixed with original POPStarter OPL DB paths", "Fork-only settings assumed to work in original POPSLoader"],
+    "mitigation": "Keep POPSLOADER.ELF and the POPSLDR folder together under the POPSLoader app folder, and document fork-specific behavior separately from original POPStarter core.",
+    "sourceIds": ["popsloader-el-isra", "popsloader-fork-ripto", "user-notes"],
+    "confidence": "high",
+    "verificationStatus": "verified-cross-source"
+  },
+  {
     "id": "popsloader-fork-bdma-mode",
     "title": "POPSLoader fork device missing because BDMA mode is wrong",
     "symptom": "USB/MX4SIO/MMCE games do not appear or launch from the fork.",

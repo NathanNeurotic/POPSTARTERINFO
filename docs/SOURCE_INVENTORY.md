@@ -80,7 +80,7 @@ This is a seed inventory for Codex or another research agent. It is not complete
 
 ### ElOtroLado POPS/POPStarter thread by El_Patas
 - URL:
-  - `https://www.elotrolado.net/hilo_ho-pops-emulador-de-psx-para-ps2_1874054`
+  - mention-only source; no public outbound link
 - Importance:
   - Long-running Spanish scene documentation.
   - Observed first post edited many times, last edit visible as 2026-06-07 during research.

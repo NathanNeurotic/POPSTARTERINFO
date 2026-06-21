@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>index.html</loc></url>
   <url><loc>quick-start.html</loc></url>
+  <url><loc>usb-storage.html</loc></url>
+  <url><loc>internal-hdd.html</loc></url>
+  <url><loc>bdm-exfat.html</loc></url>
   <url><loc>storage-matrix.html</loc></url>
   <url><loc>launcher-matrix.html</loc></url>
   <url><loc>command-reference.html</loc></url>
@@ -39,7 +42,7 @@
   <url><loc>archive-research-source-audit.html</loc></url>
   <url><loc>archive-readme.html</loc></url>
   <url><loc>archive-codex-copy-paste-prompt.html</loc></url>
-  <url><loc>archive-codex-copy-paste-prompt.html</loc></url>
+  <url><loc>archive-codex-copy-paste-prompt-2.html</loc></url>
   <url><loc>data-sources.html</loc></url>
   <url><loc>data-commands.html</loc></url>
   <url><loc>data-storagelayouts.html</loc></url>

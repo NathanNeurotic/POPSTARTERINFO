@@ -63,7 +63,7 @@ Primary research targets:
    - This mirror preserves the table of contents and may preserve translated pages.
 
 5. ElOtroLado / El_Patas thread
-   - https://www.elotrolado.net/hilo_ho-pops-emulador-de-psx-para-ps2_1874054
+   - mention-only source; no public outbound link
    - Fully capture the first post.
    - Preserve Spanish original snippets and translate into English.
    - Extract version list, install layouts, CHEATS.TXT syntax, commands, IGR list, troubleshooting.

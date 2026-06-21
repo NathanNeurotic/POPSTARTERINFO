@@ -65,6 +65,36 @@
     "sourceIds": ["elotrolado-pops-thread", "user-notes"]
   },
   {
+    "term": "SB. prefix",
+    "definition": "SMB-mode prefix used when renaming POPSTARTER.ELF for a network launch, for example SB.Crash Bandicoot.ELF.",
+    "sourceIds": ["elotrolado-pops-thread", "user-notes"]
+  },
+  {
+    "term": "IPCONFIG.DAT",
+    "definition": "POPStarter SMB memory-card config file containing PS2 IP address, subnet mask, and gateway/router IP on one line.",
+    "sourceIds": ["elotrolado-pops-thread"]
+  },
+  {
+    "term": "SMBCONFIG.DAT",
+    "definition": "POPStarter SMB memory-card config file containing SMB host IP/share name, with optional username and password lines.",
+    "sourceIds": ["elotrolado-pops-thread"]
+  },
+  {
+    "term": "smb0:",
+    "definition": "OPL Apps SMB path prefix reportedly required by some later OPL betas instead of smb: for conf_apps.cfg entries.",
+    "sourceIds": ["elotrolado-pops-thread"]
+  },
+  {
+    "term": "title.cfg",
+    "definition": "OPL Apps metadata file placed beside an app ELF. For these workflows it normally contains a visible title line and a boot= line matching the ELF filename.",
+    "sourceIds": ["user-notes"]
+  },
+  {
+    "term": "BDMA",
+    "definition": "BDM/BDM Assault mode used by modern workflows to support non-HDD devices such as USB exFAT, MX4SIO, or MMCE through replacement device drivers.",
+    "sourceIds": ["bdm-assault", "popsloader-fork-ripto"]
+  },
+  {
     "term": "PATCH_X.BIN",
     "definition": "External POPStarter patch file family. Individual numbers map to different behaviors; the full map still requires package/archive verification.",
     "sourceIds": ["psx-place-popstarter-page-4", "popsloader-el-isra", "user-notes"]
