@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>research/raw/web/psx-place-igr-loader-disable.md - POPStarter Docs</title>
-  <meta name="description" content="Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md">
+  <title>Safe Archive Inventory - POPStarter Docs</title>
+  <meta name="description" content="Recovered package names, roles, statuses, and hashes without public binary or proprietary download links.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -20,23 +20,249 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">Start</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">Storage and Launch</div><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="smb-network.html">SMB / Network</a><a  href="storage-matrix.html">Storage Matrix</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">Reference</div><a  href="command-reference.html">Command Reference</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a></div><div class="nav-group"><div class="nav-heading">Archive</div><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
+    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">Start</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">Storage and Launch</div><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="smb-network.html">SMB / Network</a><a  href="storage-matrix.html">Storage Matrix</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">Reference</div><a  href="command-reference.html">Command Reference</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a></div><div class="nav-group"><div class="nav-heading">Archive</div><a aria-current="page" href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>research/raw/web/psx-place-igr-loader-disable.md</h1>
-          <p>Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md</p>
+          <h1>Safe Archive Inventory</h1>
+          <p>Recovered package names, roles, statuses, and hashes without public binary or proprietary download links.</p>
         </div>
       </section>
-      <section class="callout"><h2>Source file</h2><p><code>research/raw/web/psx-place-igr-loader-disable.md</code></p></section>
-<article class="archive-doc"><h2>Source Notes: PSX-Place IGR / Loader Disable</h2>
-<p>URLs:</p>
-<ul><li>https://www.psx-place.com/threads/popstarter.19139/page-4</li><li>https://www.psx-place.com/threads/popstarter.19139/page-15</li></ul>
-<p>Checked: 2026-06-21</p>
-<h3>Captured Observations</h3>
-<ul><li>Page 4, post #64: krHACKen tells Peppe90 to try attached <code>PATCH_9.BIN</code> in the POPS folder.</li><li>The stated purpose is to disable the bugged ELF loader and allow IGR to exit normally.</li><li>Page 15, post #285: krHACKen recommends <code>$IGR5</code> in <code>CHEATS.TXT</code> for OPL-like IGR with no popup.</li><li>The same page explains black-screen exit as likely incompatible <code>BOOT.ELF</code> and suggests disabling POPStarter's ELF loader or recompressing/replacing <code>BOOT.ELF</code>.</li><li>BloodRaynare clarifies that users can still launch POPStarter from OPL; the risky part is IGR-ing back into the incompatible target.</li><li>A user later reports that placing &quot;that bin&quot; in the POPS folder avoids the black-screen freeze but exits to the PS2 Browser instead of OPL.</li></ul>
-<h3>Site Decision</h3>
-<p>The site treats <code>PATCH_9.BIN</code> as the high-confidence loader-disable artifact, but keeps the <code>$NOPAL</code>/<code>PATCH_9.BIN</code> seed mapping as a conflict pending archive/package recovery.</p></article>
+      <section class="callout legal">
+        <h2>No binary mirrors here</h2>
+        <p>This page records package identity, role, recovery status, and hashes where they help verification. It intentionally omits direct POPS binary links, proprietary mirrors, and excluded tools.</p>
+      </section>
+<section class="tool-panel">
+    <div class="filters" data-filter-table="download-inventory-table">
+      <label>Search <input type="search" data-search placeholder="package, hash, role"></label>
+      <label>Status <select data-filter="status"><option value="">All</option><option>homebrew identifier</option><option>identifier-only</option><option>lost</option><option>mirror-only reference</option><option>recovered</option><option>recovered but not recommended</option></select></label>
+    </div>
+    <div class="table-wrap"><table id="download-inventory-table"><thead><tr><th>Name</th><th>Status</th><th>Role</th><th>Safe reference</th><th>Notes</th><th>Sources</th></tr></thead><tbody><tr data-status="identifier-only" data-search="pops_iox.pak identifier-only usb/smb support package expected by popstarter. md5 a625d0b3036823cdbf04a3c0e1648901 document path requirements, never mirror the binary.">
+    <td><code>POPS_IOX.PAK</code></td>
+    <td><span class="badge ">identifier-only</span></td>
+    <td>USB/SMB support package expected by POPStarter.</td>
+    <td>MD5 a625d0b3036823cdbf04a3c0e1648901</td>
+    <td>Document path requirements, never mirror the binary.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr data-status="identifier-only" data-search="pops.elf identifier-only sony pops emulator payload used by hdd workflows. md5 355a892a8ce4e4a105469d4ef6f39a42 proprietary emulator file. mention by filename/hash only.">
+    <td><code>POPS.ELF</code></td>
+    <td><span class="badge ">identifier-only</span></td>
+    <td>Sony POPS emulator payload used by HDD workflows.</td>
+    <td>MD5 355a892a8ce4e4a105469d4ef6f39a42</td>
+    <td>Proprietary emulator file. Mention by filename/hash only.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr data-status="identifier-only" data-search="ioprp252.img identifier-only iop reset image expected in hdd pops workflows. md5 1db9c6020a2cd445a7bb176a1a3dd418 mention by filename/hash only.">
+    <td><code>IOPRP252.IMG</code></td>
+    <td><span class="badge ">identifier-only</span></td>
+    <td>IOP reset image expected in HDD POPS workflows.</td>
+    <td>MD5 1db9c6020a2cd445a7bb176a1a3dd418</td>
+    <td>Mention by filename/hash only.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr data-status="homebrew identifier" data-search="popstarter.elf homebrew identifier main popstarter launcher elf. r13 beta 2019-06-05 final public build; md5 97afa02d25f37fa1e2f602dd6c48d442 in recovered reference. public homebrew artifact, but this site still does not host package downloads.">
+    <td><code>POPSTARTER.ELF</code></td>
+    <td><span class="badge ">homebrew identifier</span></td>
+    <td>Main POPStarter launcher ELF.</td>
+    <td>r13 Beta 2019-06-05 final public build; MD5 97afa02d25f37fa1e2f602dd6c48d442 in recovered reference.</td>
+    <td>Public homebrew artifact, but this site still does not host package downloads.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/" target="_blank" rel="noreferrer">PSX-Place POPStarter release thread</a></td>
+  </tr><tr data-status="homebrew identifier" data-search="popstarter.kelf homebrew identifier hddosd/sony browser 2.00 launchable popstarter kelf. r13 beta 2019-06-05 final public build; md5 a654a0a9093ce7be8767b708bc8cb8a1 in recovered reference. used for hddosd-visible partition installs.">
+    <td><code>POPSTARTER.KELF</code></td>
+    <td><span class="badge ">homebrew identifier</span></td>
+    <td>HDDOSD/Sony Browser 2.00 launchable POPStarter KELF.</td>
+    <td>r13 Beta 2019-06-05 final public build; MD5 a654a0a9093ce7be8767b708bc8cb8a1 in recovered reference.</td>
+    <td>Used for HDDOSD-visible partition installs.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr data-status="recovered" data-search="popstarter_r13_beta_20190605.zip recovered canonical final public popstarter package. use package/date/build identity only; no mirror link here. preferred over older rip/wip packages.">
+    <td><code>POPStarter_r13_Beta_20190605.zip</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>Canonical final public POPStarter package.</td>
+    <td>Use package/date/build identity only; no mirror link here.</td>
+    <td>Preferred over older RIP/WIP packages.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.retro-jogos.com/PS2/pops/home.html" target="_blank" rel="noreferrer">Retro-Jogos POPStarter guide home</a></td>
+  </tr><tr data-status="recovered but not recommended" data-search="popstarter_r13_rip_06.zip recovered but not recommended older rip build. avoid for normal setup. recovered history says the 2019-06-05 r13 beta is the canonical final package.">
+    <td><code>POPStarter_r13_RIP_06.zip</code></td>
+    <td><span class="badge ">recovered but not recommended</span></td>
+    <td>Older RIP build.</td>
+    <td>Avoid for normal setup.</td>
+    <td>Recovered history says the 2019-06-05 r13 Beta is the canonical final package.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="popstarter_r13_wip_06_obt_20170128.zip recovered older pre-final wip package. use for historical comparison only. do not prefer this over the final 2019-06-05 build.">
+    <td><code>POPStarter_r13_WIP_06_OBT_20170128.zip</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>Older pre-final WIP package.</td>
+    <td>Use for historical comparison only.</td>
+    <td>Do not prefer this over the final 2019-06-05 build.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="compatibility_modes.zip recovered compatibility-mode patch_#.bin bundle. patch_1.bin through patch_7.bin family; no download link. use the compatibility map before applying globally.">
+    <td><code>Compatibility_Modes.zip</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>Compatibility-mode PATCH_#.BIN bundle.</td>
+    <td>PATCH_1.BIN through PATCH_7.BIN family; no download link.</td>
+    <td>Use the compatibility map before applying globally.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr data-status="recovered" data-search="forcepal_patch.7z recovered patch_8.bin / forcepal artifact family. $forcepal equivalent. do not combine with $nopal.">
+    <td><code>FORCEPAL_PATCH.7z</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>PATCH_8.BIN / FORCEPAL artifact family.</td>
+    <td>$FORCEPAL equivalent.</td>
+    <td>Do not combine with $NOPAL.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="nopal_patch.7z recovered stock patch_9.bin / nopal artifact family. $nopal equivalent. filename collides with a later loader-disable patch_9.bin workaround; keep the purposes separate.">
+    <td><code>NOPAL_PATCH.7z</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>Stock PATCH_9.BIN / NOPAL artifact family.</td>
+    <td>$NOPAL equivalent.</td>
+    <td>Filename collides with a later loader-disable PATCH_9.BIN workaround; keep the purposes separate.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-4" target="_blank" rel="noreferrer">PSX-Place POPStarter page 4 - PATCH_9.BIN loader-disable post</a></td>
+  </tr><tr data-status="mirror-only reference" data-search="igr_behaviour_modifiers.zip mirror-only reference trojan_0.bin through trojan_5.bin igr modifier family. $igr0 through $igr5 equivalents. external mirror links are intentionally omitted.">
+    <td><code>IGR_Behaviour_Modifiers.zip</code></td>
+    <td><span class="badge ">mirror-only reference</span></td>
+    <td>TROJAN_0.BIN through TROJAN_5.BIN IGR modifier family.</td>
+    <td>$IGR0 through $IGR5 equivalents.</td>
+    <td>External mirror links are intentionally omitted.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="igr_textures_-_chinese_pack.7z recovered language-specific igr menu texture pack. igr_bg.tm2 / igr_no.tm2 / igr_yes.tm2 style assets. texture placement depends on storage backend and pops folder scope.">
+    <td><code>IGR_textures_-_Chinese_pack.7z</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>Language-specific IGR menu texture pack.</td>
+    <td>IGR_BG.TM2 / IGR_NO.TM2 / IGR_YES.TM2 style assets.</td>
+    <td>Texture placement depends on storage backend and POPS folder scope.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="cheats.txt recovered full/sample command text file. plain-text reference only. keep case uppercase on case-sensitive paths.">
+    <td><code>CHEATS.TXT</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>Full/sample command text file.</td>
+    <td>Plain-text reference only.</td>
+    <td>Keep case uppercase on case-sensitive paths.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="sample_cheats.txt recovered example cheats.txt. plain-text reference only. named commands do not require $safemode; raw code blocks usually should use it.">
+    <td><code>SAMPLE_CHEATS.TXT</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>Example CHEATS.TXT.</td>
+    <td>Plain-text reference only.</td>
+    <td>Named commands do not require $SAFEMODE; raw code blocks usually should use it.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="cue2pops_2.3.zip recovered bin/cue to vcd conversion utility. recovered as zip in the reference inventory. also bundled inside recovered quickstarter packs.">
+    <td><code>CUE2POPS_2.3.zip</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>BIN/CUE to VCD conversion utility.</td>
+    <td>Recovered as zip in the reference inventory.</td>
+    <td>Also bundled inside recovered Quickstarter packs.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="disc_combining_kits.7z recovered multi-disc preparation helpers. use with discs.txt/vmcdir.txt docs. keep separate from any excluded multi-disc utilities that should not appear in the public site.">
+    <td><code>Disc_Combining_Kits.7z</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>Multi-disc preparation helpers.</td>
+    <td>Use with DISCS.TXT/VMCDIR.TXT docs.</td>
+    <td>Keep separate from any excluded multi-disc utilities that should not appear in the public site.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="popstarter_usb_quickstarter_pack_20200209.zip recovered usb quickstarter pack. package identity only. use as a historical layout reference; do not mirror links.">
+    <td><code>POPStarter_USB_Quickstarter_Pack_20200209.zip</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>USB quickstarter pack.</td>
+    <td>Package identity only.</td>
+    <td>Use as a historical layout reference; do not mirror links.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="popstarter_hdd_quickstarter_pack_20200209.zip recovered hdd quickstarter pack. package identity only. use as a historical layout reference; do not mirror links.">
+    <td><code>POPStarter_HDD_Quickstarter_Pack_20200209.zip</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>HDD quickstarter pack.</td>
+    <td>Package identity only.</td>
+    <td>Use as a historical layout reference; do not mirror links.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="popstarter_smb_quickstarter_pack_20200209.zip recovered smb quickstarter pack. package identity only. contains network-module layout references; do not mirror links.">
+    <td><code>POPStarter_SMB_Quickstarter_Pack_20200209.zip</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>SMB quickstarter pack.</td>
+    <td>Package identity only.</td>
+    <td>Contains network-module layout references; do not mirror links.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="popstarter_hdd_quickstarter_pack_20171027.7z recovered older hdd quickstarter pack. package identity only. superseded for most users by the 2020 package naming.">
+    <td><code>POPStarter_HDD_Quickstarter_Pack_20171027.7z</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>Older HDD quickstarter pack.</td>
+    <td>Package identity only.</td>
+    <td>Superseded for most users by the 2020 package naming.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="network_modules.7z recovered smb memory-card irx module set. poweroff.irx, ps2dev9.irx, smsutils.irx, ps2ip.irx, ps2smap.irx, smbman.irx. the recovered reference notes the smb quickstarter pack also contains these modules.">
+    <td><code>network_modules.7z</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>SMB memory-card IRX module set.</td>
+    <td>poweroff.irx, ps2dev9.irx, smsutils.irx, ps2ip.irx, ps2smap.irx, smbman.irx.</td>
+    <td>The recovered reference notes the SMB Quickstarter pack also contains these modules.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="ds3_modules_bt_20171017.7z recovered dualshock 3 bluetooth module pack. package identity only. peripheral module pack, not required for a normal popstarter storage setup.">
+    <td><code>DS3_modules_BT_20171017.7z</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>DualShock 3 Bluetooth module pack.</td>
+    <td>Package identity only.</td>
+    <td>Peripheral module pack, not required for a normal POPStarter storage setup.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="ds3_modules_usb_20171017.7z recovered dualshock 3 usb module pack. package identity only. peripheral module pack, not required for a normal popstarter storage setup.">
+    <td><code>DS3_modules_USB_20171017.7z</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>DualShock 3 USB module pack.</td>
+    <td>Package identity only.</td>
+    <td>Peripheral module pack, not required for a normal POPStarter storage setup.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="radhostclient_1.8a.7z recovered ps2host/host-client utility. package identity only. related to older host workflows, not current smb setup.">
+    <td><code>RadHostClient_1.8a.7z</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>ps2host/host-client utility.</td>
+    <td>Package identity only.</td>
+    <td>Related to older host workflows, not current SMB setup.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="pfsshell-0.2a.zip recovered pfs shell utility. package identity only. useful for hdd/pfs maintenance references.">
+    <td><code>pfsshell-0.2a.zip</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>PFS shell utility.</td>
+    <td>Package identity only.</td>
+    <td>Useful for HDD/PFS maintenance references.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="recovered" data-search="popstarter_elfs-batcher_05062016.7z recovered pc helper for batch-created renamed popstarter elfs. package identity only. historical helper for per-game elf workflows.">
+    <td><code>POPStarter_ELFs-BATCHER_05062016.7z</code></td>
+    <td><span class="badge ">recovered</span></td>
+    <td>PC helper for batch-created renamed POPStarter ELFs.</td>
+    <td>Package identity only.</td>
+    <td>Historical helper for per-game ELF workflows.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="lost" data-search="batcher_0.3.1.exe lost older pc batch-conversion helper. bitbucket download page record only. kept as a missing inventory row, not a download.">
+    <td><code>BATCHER_0.3.1.EXE</code></td>
+    <td><span class="badge ">lost</span></td>
+    <td>Older PC batch-conversion helper.</td>
+    <td>Bitbucket download page record only.</td>
+    <td>Kept as a missing inventory row, not a download.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="lost" data-search="ppf_bunch_pack.7z lost ppf patches mapping user-friendly patch names to config bytes. debug_and_halt, no_vmc, only_1st_vmc, no_pal, force_modex, default_igr_textures, lc_only, no_auto_patch, no_lc_cracks. useful for explaining config byte aliases even without the package.">
+    <td><code>PPF_Bunch_pack.7z</code></td>
+    <td><span class="badge ">lost</span></td>
+    <td>PPF patches mapping user-friendly patch names to config bytes.</td>
+    <td>DEBUG_AND_HALT, NO_VMC, ONLY_1ST_VMC, NO_PAL, FORCE_MODEX, DEFAULT_IGR_TEXTURES, LC_ONLY, NO_AUTO_PATCH, NO_LC_CRACKS.</td>
+    <td>Useful for explaining config byte aliases even without the package.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr data-status="lost" data-search="hddosd_sample_files.7z lost hddosd sample install files. bitbucket download page record only. relevant to pp.&lt;game&gt; / popstarter.kelf legacy installs.">
+    <td><code>hddosd_sample_files.7z</code></td>
+    <td><span class="badge ">lost</span></td>
+    <td>HDDOSD sample install files.</td>
+    <td>Bitbucket download page record only.</td>
+    <td>Relevant to PP.&lt;game&gt; / POPSTARTER.KELF legacy installs.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="lost" data-search="ule_khn_20160723.7z lost older ule_khn package. bitbucket download page record only. later quickstarter packs contain ulaunchelf/boot.elf references.">
+    <td><code>uLE_kHn_20160723.7z</code></td>
+    <td><span class="badge ">lost</span></td>
+    <td>Older uLE_kHn package.</td>
+    <td>Bitbucket download page record only.</td>
+    <td>Later quickstarter packs contain uLaunchELF/BOOT.ELF references.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr data-status="lost" data-search="ule_khn_20191110.zip lost later ule_khn package. bitbucket download page record only. the 2020-08-10 loader-address fix is separate history and should be documented by date rather than mirrored binary.">
+    <td><code>uLE_kHn_20191110.zip</code></td>
+    <td><span class="badge ">lost</span></td>
+    <td>Later uLE_kHn package.</td>
+    <td>Bitbucket download page record only.</td>
+    <td>The 2020-08-10 loader-address fix is separate history and should be documented by date rather than mirrored binary.</td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr></tbody></table></div>
+  </section>
     </main>
   </div>
   <footer class="site-footer">

@@ -1,0 +1,200 @@
+[
+  {
+    "behavior": "Compatibility mode 0x01",
+    "cheatsCommand": "$COMPATIBILITY_0x01",
+    "patchFile": "PATCH_1.BIN",
+    "trojanFile": "",
+    "configBytes": "$418-$41F slot value 0x01",
+    "notes": "CD-status-touching mode; do not stack with modes 0x02, 0x03, or 0x05.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Compatibility mode 0x02",
+    "cheatsCommand": "$COMPATIBILITY_0x02",
+    "patchFile": "PATCH_2.BIN",
+    "trojanFile": "",
+    "configBytes": "$418-$41F slot value 0x02",
+    "notes": "CD-status-touching mode; do not stack with modes 0x01, 0x03, or 0x05.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Compatibility mode 0x03",
+    "cheatsCommand": "$COMPATIBILITY_0x03",
+    "patchFile": "PATCH_3.BIN",
+    "trojanFile": "",
+    "configBytes": "$418-$41F slot value 0x03",
+    "notes": "CD-status-touching mode; do not stack with modes 0x01, 0x02, or 0x05.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Compatibility mode 0x04",
+    "cheatsCommand": "$COMPATIBILITY_0x04",
+    "patchFile": "PATCH_4.BIN",
+    "trojanFile": "",
+    "configBytes": "$418-$41F slot value 0x04",
+    "notes": "General-purpose mode used by several known titles. Recovered notes mention King's Field JP English patch and Final Fantasy IX default-config coverage.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Compatibility mode 0x05 / sub-CD status",
+    "cheatsCommand": "$COMPATIBILITY_0x05 or $SUBCDSTATUS",
+    "patchFile": "PATCH_5.BIN",
+    "trojanFile": "",
+    "configBytes": "$418-$41F slot value 0x05",
+    "notes": "CD-status-touching mode; do not stack with modes 0x01, 0x02, or 0x03. Do not confuse this compatibility PATCH_5.BIN with POPSLoader's unrelated IGR texture patch artifact.",
+    "sourceIds": ["popsloader-docs-reference", "popsloader-el-isra"],
+    "confidence": "medium",
+    "verificationStatus": "recovered-name-collision"
+  },
+  {
+    "behavior": "Compatibility mode 0x06 / skip BIOS OSD shell",
+    "cheatsCommand": "$COMPATIBILITY_0x06",
+    "patchFile": "PATCH_6.BIN",
+    "trojanFile": "",
+    "configBytes": "$421=0x01 or $418-$41F slot value 0x06",
+    "notes": "Skips CD checks and the PS logo unless a user BIOS.BIN changes the path.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Compatibility mode 0x07",
+    "cheatsCommand": "$COMPATIBILITY_0x07",
+    "patchFile": "PATCH_7.BIN",
+    "trojanFile": "",
+    "configBytes": "$418-$41F slot value 0x07",
+    "notes": "Recovered compatibility map lists mode 0x07; C-12: Final Resistance is noted as only partly helped. Keep separate from unverified IGR-related PATCH_7 folklore.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "medium",
+    "verificationStatus": "recovered-needs-package-check"
+  },
+  {
+    "behavior": "Disable IGR",
+    "cheatsCommand": "$NOIGR",
+    "patchFile": "PATCH_0.BIN",
+    "trojanFile": "",
+    "configBytes": "",
+    "notes": "Turns off POPStarter's pad-triggered IGR behavior. It is not the same as disabling the BOOT.ELF exit-chain loader.",
+    "sourceIds": ["popsloader-docs-reference", "psx-place-popstarter-page-15"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "IGR menu: L1+L2+R1+R2+X+Down",
+    "cheatsCommand": "$IGR0",
+    "patchFile": "",
+    "trojanFile": "TROJAN_0.BIN",
+    "configBytes": "",
+    "notes": "Opens the IGR menu.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "IGR menu: Start+Select",
+    "cheatsCommand": "$IGR1",
+    "patchFile": "",
+    "trojanFile": "TROJAN_1.BIN",
+    "configBytes": "",
+    "notes": "Opens the IGR menu.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "IGR menu: L1+L2+R1+R2+Start+Select",
+    "cheatsCommand": "$IGR2",
+    "patchFile": "",
+    "trojanFile": "TROJAN_2.BIN",
+    "configBytes": "",
+    "notes": "Opens the IGR menu.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Direct exit: L1+L2+R1+R2+X+Down",
+    "cheatsCommand": "$IGR3",
+    "patchFile": "",
+    "trojanFile": "TROJAN_3.BIN",
+    "configBytes": "$424 must stay at r13 exit-chain default for BOOT.ELF chain",
+    "notes": "Terminates POPS directly with no popup, then uses the mc0/mc1 BOOT.ELF -> OSDSYS chain.",
+    "sourceIds": ["popsloader-docs-reference", "psx-place-popstarter-page-15"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Direct exit: Start+Select",
+    "cheatsCommand": "$IGR4",
+    "patchFile": "",
+    "trojanFile": "TROJAN_4.BIN",
+    "configBytes": "$424 must stay at r13 exit-chain default for BOOT.ELF chain",
+    "notes": "Terminates POPS directly with no popup. Recovered notes warn that some mirrored manuals swap IGR4 and IGR5; CHANGES.TXT ordering is the authoritative order.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Direct exit / OPL-style macro: L1+L2+R1+R2+Start+Select",
+    "cheatsCommand": "$IGR5",
+    "patchFile": "",
+    "trojanFile": "TROJAN_5.BIN",
+    "configBytes": "$424 must stay at r13 exit-chain default for BOOT.ELF chain",
+    "notes": "The no-popup OPL-like exit most users want. Earlier r13 builds had a broken $IGR5; the 2019-06-05 final fixed it.",
+    "sourceIds": ["popsloader-docs-reference", "psx-place-popstarter-page-15", "retro-jogos-home"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Disable automatic PAL patcher",
+    "cheatsCommand": "$NOPAL",
+    "patchFile": "stock PATCH_9.BIN",
+    "trojanFile": "",
+    "configBytes": "$42A=0x00",
+    "notes": "Runs PAL games in POPS native NTSC behavior. This is the stock PATCH_9 meaning and collides by filename with the later loader-disable PATCH_9.BIN workaround.",
+    "sourceIds": ["popsloader-docs-reference", "psx-place-popstarter-page-4"],
+    "confidence": "medium",
+    "verificationStatus": "recovered-filename-collision"
+  },
+  {
+    "behavior": "Force PAL patcher and Euro BIOS region",
+    "cheatsCommand": "$FORCEPAL",
+    "patchFile": "PATCH_8.BIN",
+    "trojanFile": "",
+    "configBytes": "$42A PAL patcher path",
+    "notes": "For PAL VCDs whose boot sector lacks valid PAL license text. Do not set with $NOPAL.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Force 480p output",
+    "cheatsCommand": "$480p",
+    "patchFile": "",
+    "trojanFile": "",
+    "configBytes": "$42A=0x02",
+    "notes": "Not reliable on all titles and not compatible with X/Y position or display-width crop/stretch commands.",
+    "sourceIds": ["popsloader-docs-reference", "retro-jogos-home"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "behavior": "Per-game cumulative fixes",
+    "cheatsCommand": "",
+    "patchFile": "",
+    "trojanFile": "TROJAN_7.BIN",
+    "configBytes": "",
+    "notes": "Separate from any PATCH_7 discussion. Recovered notes identify TROJAN_7.BIN as the final public fix-pack family, with a 2020-05-20 r7 package noted in history.",
+    "sourceIds": ["popsloader-docs-reference", "hugopocked-fixes"],
+    "confidence": "medium",
+    "verificationStatus": "recovered-needs-package-check"
+  }
+]

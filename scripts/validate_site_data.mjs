@@ -12,7 +12,12 @@ const files = [
   "knownIssues.json",
   "glossary.json",
   "hotkeys.json",
-  "researchGaps.json"
+  "researchGaps.json",
+  "configBytes.json",
+  "compatibilityMap.json",
+  "downloadInventory.json",
+  "wikiCoverage.json",
+  "historyTimeline.json"
 ];
 
 async function loadJson(file) {
@@ -62,6 +67,26 @@ for (const issue of loaded["knownIssues.json"]) {
 
 for (const gap of loaded["researchGaps.json"]) {
   requireFields(gap, ["id", "title", "whyItMatters", "nextStep", "status"], "research gap", errors);
+}
+
+for (const row of loaded["configBytes.json"]) {
+  requireFields(row, ["offset", "default", "name", "values", "aliases", "notes", "sourceIds", "confidence", "verificationStatus"], "config byte", errors);
+}
+
+for (const row of loaded["compatibilityMap.json"]) {
+  requireFields(row, ["behavior", "notes", "sourceIds", "confidence", "verificationStatus"], "compatibility map", errors);
+}
+
+for (const row of loaded["downloadInventory.json"]) {
+  requireFields(row, ["name", "status", "role", "safeReference", "notes", "sourceIds"], "download inventory", errors);
+}
+
+for (const row of loaded["wikiCoverage.json"]) {
+  requireFields(row, ["slug", "title", "category", "status"], "wiki coverage", errors);
+}
+
+for (const row of loaded["historyTimeline.json"]) {
+  requireFields(row, ["date", "label", "summary", "impact", "sourceIds"], "history timeline", errors);
 }
 
 if (errors.length) {

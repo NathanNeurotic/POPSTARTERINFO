@@ -1,0 +1,79 @@
+[
+  {
+    "date": "2014-08-22",
+    "label": "WIP02",
+    "summary": "Added the 8-slot force-compatibility table and enabled IGR skin/IRX loaders by default.",
+    "impact": "Explains the $418-$41F config array and why IGR texture loading is a default r13 behavior.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
+    "date": "2015-10-23",
+    "label": "Beta 8",
+    "summary": "Added SMB, ps2host, and napLink backend work, and embedded the PFS wrapper.",
+    "impact": "SMB is a normal POPStarter feature from this line, not proof that a special debug-only build is required.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "date": "2015-11-11",
+    "label": "Beta 11",
+    "summary": "Added mc1 module fallback, SMB port selection, optional IPCONFIG.DAT behavior, and fixes for POPS# folder reads.",
+    "impact": "Documents why memory-card POPSTARTER folders can live on mc0 or mc1 and why POPS0..POPS9 support files matter.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "date": "2015-11-24",
+    "label": "Beta 12",
+    "summary": "Added $FORCEPAL, SMB authentication, and a working $SAFEMODE command.",
+    "impact": "Separates PAL-region forcing, SMB username/password lines, and raw-code timing behavior from earlier broken docs.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "date": "2015-12-07",
+    "label": "Beta 13",
+    "summary": "Added the mc0/mc1 BOOT.ELF exit chain, fixed cheat-engine hook+8 and $C0/$USBDELAY interactions, removed the old function skipper, and removed ps2host/napLink launchers.",
+    "impact": "Critical boundary for IGR exit behavior and the $412 correction: in r13, $412 is HDTVFIX, not the old function skipper.",
+    "sourceIds": ["popsloader-docs-reference", "psx-place-popstarter-page-15"]
+  },
+  {
+    "date": "2016-09-18",
+    "label": "Beta 15",
+    "summary": "Added CD-lid / DISCS.TXT multi-disc behavior and 480p calculations.",
+    "impact": "Explains DISCS.TXT/VMCDIR.TXT-era multi-disc handling and why 480p remains a compatibility-sensitive option.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
+    "date": "2016-11-20",
+    "label": "Beta 16",
+    "summary": "Integrated $IGR0 through $IGR5, $NOIGR, and $D2LS as CHEATS.TXT commands; repurposed $412 as HDTVFIX; added an untested software-reset combo.",
+    "impact": "Makes the CHEATS.TXT IGR commands canonical instead of requiring standalone TROJAN files for every IGR behavior.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "date": "2017-05-27",
+    "label": "Prototype 2",
+    "summary": "Added $42F value 0x04 as a diagnostic test mode.",
+    "impact": "The test mode disables normal auto fixes and should not be recommended for normal play.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "date": "2019-06-05",
+    "label": "r13 Beta final public build",
+    "summary": "Final public r13 build; recovered history says $IGR5 was fixed in this last build.",
+    "impact": "This is the canonical package identity to prefer over old RIP/WIP builds.",
+    "sourceIds": ["popsloader-docs-reference", "retro-jogos-home", "psx-place-popstarter-thread"]
+  },
+  {
+    "date": "2020-05-20",
+    "label": "TROJAN_7.BIN r7 fix pack",
+    "summary": "Recovered history identifies this as the last public fix-pack line.",
+    "impact": "Keep TROJAN_7 as a per-game fix-pack family, separate from IGR TROJAN_0..5 and compatibility PATCH_7 discussion.",
+    "sourceIds": ["popsloader-docs-reference", "hugopocked-fixes"]
+  },
+  {
+    "date": "2020-08-10",
+    "label": "uLE_kHn loader-address fix",
+    "summary": "uLE_kHn moved loader.elf to 0x00092000 to avoid kernel corruption.",
+    "impact": "Explains why later uLE_kHn packages are referenced in modern direct-VCD launch workflows.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  }
+]

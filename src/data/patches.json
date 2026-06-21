@@ -11,6 +11,39 @@
     "verificationStatus": "verified-primary-conflicting-name"
   },
   {
+    "id": "patch-0-noigr",
+    "file": "PATCH_0.BIN",
+    "type": "IGR disable patch",
+    "placement": "Per-game support folder or documented patch location to verify per workflow",
+    "effect": "Standalone equivalent of $NOIGR; disables POPStarter's in-game reset trigger.",
+    "conflicts": ["This is not the same thing as disabling the BOOT.ELF exit-chain loader."],
+    "sourceIds": ["popsloader-docs-reference", "psx-place-popstarter-page-15"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "id": "patch-1-through-7-compatibility",
+    "file": "PATCH_1.BIN through PATCH_7.BIN",
+    "type": "Compatibility-mode patch family",
+    "placement": "Per-game support folder or POPS folder depending on legacy recipe; prefer CHEATS.TXT $COMPATIBILITY_0x## when possible",
+    "effect": "Standalone compatibility-mode equivalents for modes 0x01 through 0x07.",
+    "conflicts": ["Modes 0x01, 0x02, 0x03, and 0x05 should not be combined. PATCH_7 compatibility-mode references must not be confused with unverified IGR PATCH_7 folklore."],
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "medium",
+    "verificationStatus": "recovered-needs-package-check"
+  },
+  {
+    "id": "patch-8-forcepal",
+    "file": "PATCH_8.BIN",
+    "type": "FORCEPAL patch alias",
+    "placement": "Per-game support folder or POPS folder depending on legacy recipe; $FORCEPAL is preferred when supported",
+    "effect": "Standalone equivalent of $FORCEPAL: forces PAL patching and Euro BIOS region behavior.",
+    "conflicts": ["Opposes $NOPAL / stock PATCH_9.BIN."],
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
     "id": "patch-5-popsloader-igr-textures",
     "file": "PATCH_5.BIN",
     "type": "IGR texture replacement",
@@ -33,6 +66,17 @@
     "verificationStatus": "conflicting"
   },
   {
+    "id": "trojan-0-through-5-igr",
+    "file": "TROJAN_0.BIN through TROJAN_5.BIN",
+    "type": "IGR behavior modifier family",
+    "placement": "Per-game support folder or documented patch location to verify per workflow; CHEATS.TXT $IGR0-$IGR5 is preferred in final r13",
+    "effect": "Standalone equivalents for $IGR0 through $IGR5.",
+    "conflicts": ["Only one IGR behavior should be active at a time. $IGR5 was broken in older r13 builds and fixed in the 2019-06-05 final."],
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread", "retro-jogos-home"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
     "id": "trojan-7-cumulative",
     "file": "TROJAN_7.BIN",
     "type": "Cumulative fix bundle",
@@ -42,6 +86,17 @@
     "sourceIds": ["user-notes", "hugopocked-fixes"],
     "confidence": "medium",
     "verificationStatus": "needs-package-verification"
+  },
+  {
+    "id": "patch-7-igr-folklore-warning",
+    "file": "PATCH_7.BIN as IGR-related artifact",
+    "type": "Unverified lore warning",
+    "placement": "Do not recommend",
+    "effect": "Some community notes mention an IGR-related PATCH_7, but no primary file/definition was recovered in the reference pass.",
+    "conflicts": ["Do not confuse this with compatibility-mode PATCH_7.BIN or with verified TROJAN_7.BIN per-game fixes."],
+    "sourceIds": ["popsloader-docs-reference"],
+    "confidence": "low",
+    "verificationStatus": "unverified-warning"
   },
   {
     "id": "hugopocked-game-fixes",

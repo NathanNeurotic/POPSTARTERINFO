@@ -5,19 +5,17 @@ export const pages = [
     nav: "Home",
     description: "Recovered, source-backed POPStarter setup and reference material for PS1-on-PS2 workflows: storage layouts, commands, patches, IGR, VMCs, SMB, and fork boundaries.",
     blocks: [
-      `<section class="home-stats" aria-label="Recovered documentation summary">
-        <article><strong>51</strong><span>searchable pages</span></article>
-        <article><strong>35</strong><span>documented commands</span></article>
-        <article><strong>7</strong><span>storage layouts</span></article>
-        <article><strong>14</strong><span>source records</span></article>
-      </section>`,
+      { dynamic: "homeStats" },
       `<section class="home-grid">
         <a class="action-card primary" href="quick-start.html"><em>Start here</em><strong>Choose the right workflow</strong><span>Pick storage, launcher, and exact file layout before copying anything.</span></a>
         <a class="action-card" href="usb-storage.html"><em>USB</em><strong>Mass storage setup</strong><span>OPL Apps, OPL DB, wLE_kHn, POPSLoader, Hugopocked fixes, and BDM/exFAT notes.</span></a>
         <a class="action-card" href="internal-hdd.html"><em>HDD</em><strong>APA/PFS internal drive</strong><span><code>__.POPS</code>, <code>__common/POPS</code>, OPL Apps, OPL DB, wLE_kHn, and APA-Jail boundaries.</span></a>
         <a class="action-card" href="smb-network.html"><em>SMB</em><strong>Network launch guide</strong><span>Direct <code>SB.</code> launchers, OPL Apps over SMB, memory-card modules, auth, ports, and VMC writes.</span></a>
         <a class="action-card" href="command-reference.html"><em>Reference</em><strong>Command table</strong><span>Filter <code>CHEATS.TXT</code> directives by category, confidence, and verification status.</span></a>
+        <a class="action-card" href="config-table.html"><em>Bytes</em><strong>Config byte table</strong><span>Every r13 <code>$410-$42F</code> byte, default, alias, and risk note.</span></a>
+        <a class="action-card" href="compatibility-map.html"><em>Aliases</em><strong>Compatibility map</strong><span>Crosswalk <code>$commands</code>, <code>PATCH_#.BIN</code>, <code>TROJAN_#.BIN</code>, and config bytes.</span></a>
         <a class="action-card" href="patches-fixes.html"><em>Fixes</em><strong>Patches and TROJANs</strong><span>Compatibility blobs, loader-disable conflicts, display fixes, and per-game folder placement.</span></a>
+        <a class="action-card" href="download-inventory.html"><em>Inventory</em><strong>Safe archive index</strong><span>Package names, recovery status, and hashes without public binary links.</span></a>
         <a class="action-card" href="troubleshooting.html"><em>Diagnostics</em><strong>Known failure modes</strong><span>Black screens, wrong folders, <code>title.cfg.txt</code>, SMB auth, VMC writes, and display traps.</span></a>
         <a class="action-card" href="search.html"><em>Search</em><strong>Search the recovered pack</strong><span>Guide pages, source notes, research files, JSON data, and archive pages.</span></a>
       </section>`,
@@ -167,6 +165,17 @@ mass:/APPS/PS1_POPSLDR/title.cfg</code></pre>
 boot=POPSLOADER.ELF</code></pre>
       </section>`,
       `<section>
+        <h2>POPS0 through POPS9 split folders</h2>
+        <p>Original POPStarter can scan <code>mass:/POPS</code> and then <code>mass:/POPS0</code> through <code>mass:/POPS9</code>. Use this to split large USB libraries, but do not assume every support file is inherited from the main folder.</p>
+        <pre><code>mass:/POPS/POPS_IOX.PAK
+mass:/POPS/IGR_BG.TM2
+mass:/POPS0/Crash Bandicoot.VCD
+mass:/POPS0/Crash Bandicoot/CHEATS.TXT
+mass:/POPS1/Soul Blade.VCD
+mass:/POPS1/Soul Blade/CHEATS.TXT</code></pre>
+        <p><code>POPS_IOX.PAK</code> and IGR texture files stay in the main <code>POPS</code> folder. Handler or patch files such as <code>BIOS.BIN</code>, <code>PATCH_#.BIN</code>, <code>TROJAN_#.BIN</code>, and <code>VMCDIR.TXT</code> must be copied into the specific <code>POPS#</code> folder that needs them.</p>
+      </section>`,
+      `<section>
         <h2>Hugopocked fixes on USB</h2>
         <p>Place game-specific fixes in the folder matching the VCD basename. If the VCD is <code>123.VCD</code>, the support folder is <code>mass:/POPS/123/</code>. If the VCD is <code>SLUS_002.40.Soul Blade.VCD</code>, the support folder is <code>mass:/POPS/SLUS_002.40.Soul Blade/</code>.</p>
       </section>`,
@@ -233,6 +242,30 @@ hdd:/+OPL/APPS/wLE_kHn_20200810/title.cfg</code></pre>
       `<section class="callout warning">
         <h2>Internal exFAT boundary</h2>
         <p>The raw notes are explicit: POPStarter core does not support internal exFAT storage for the POPS/VCD side. APA-Jail can be used as a hybrid app-side convenience, but the POPS data remains on APA/PFS paths.</p>
+      </section>`,
+      `<section>
+        <h2>Modern split HDD folders</h2>
+        <p>The modern HDD launch type keeps VCDs in <code>__.POPS</code> or <code>__.POPS0</code> through <code>__.POPS9</code>, while common emulator files and per-game support folders stay in <code>__common/POPS</code>.</p>
+        <pre><code>hdd0:/__.POPS/Soul Blade.VCD
+hdd0:/__.POPS0/Crash Bandicoot.VCD
+hdd0:/__common/POPS/POPS.ELF
+hdd0:/__common/POPS/IOPRP252.IMG
+hdd0:/__common/POPS/Soul Blade/CHEATS.TXT</code></pre>
+        <p>Do not create <code>+__.POPS</code>. The leading plus belongs to normal OPL app/game partitions, not this POPStarter VCD location.</p>
+      </section>`,
+      `<section>
+        <h2>Legacy partition-installed games</h2>
+        <p>Older HDDOSD/PSBBN-style setups can install each game into its own partition. In those workflows every game image inside the partition is named <code>IMAGE0.VCD</code>; the partition name carries the game identity.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Mode</th><th>Partition</th><th>Image path</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td>Visible HDDOSD</td><td><code>PP.&lt;Game&gt;</code></td><td><code>hdd0:/PP.&lt;Game&gt;/IMAGE0.VCD</code></td><td>Visible partition-install route, commonly paired with <code>POPSTARTER.KELF</code> or HDDOSD metadata.</td></tr>
+            <tr><td>Hidden alternate</td><td><code>__.&lt;Game&gt;</code></td><td><code>hdd0:/__.&lt;Game&gt;/IMAGE0.VCD</code></td><td>Hidden per-game partition route, distinct from the shared <code>__.POPS</code> folder.</td></tr>
+          </tbody>
+        </table></div>
+        <pre><code>BOOT2 = pfs:/IMAGE0.VCD
+VER = 1.00
+VMODE = NTSC</code></pre>
       </section>`,
       `<section>
         <h2>APA-Jail hybrid example</h2>
@@ -329,6 +362,40 @@ usbd_bd_assault.irx -> mc?:/SYS-CONF/USBHDFSD.IRX</code></pre>
     ]
   },
   {
+    slug: "config-table",
+    title: "Config Table",
+    description: "Recovered r13 POPSTARTER.ELF/.KELF config bytes from $410 through $42F with defaults, aliases, and risk notes.",
+    blocks: [
+      `<section class="callout warning">
+        <h2>Patch bytes only when you mean it</h2>
+        <p>The final r13 ELF/KELF stores a contiguous 32-byte config table from <code>$410</code> through <code>$42F</code>. Back up the original 32 bytes before direct hex edits. Prefer <code>CHEATS.TXT</code> commands for per-game behavior when a command exists.</p>
+      </section>`,
+      `<section class="compare">
+        <article><h3><code>$412</code></h3><p>In r13 this is <code>$HDTVFIX</code> / SetGsCrt behavior, not the old function skipper from pre-Beta-13 builds.</p></article>
+        <article><h3><code>$413</code></h3><p>USB device access delay. This is the byte to adjust when a slow USB device is not detected.</p></article>
+        <article><h3><code>$USBDELAY_#</code></h3><p>A CHEATS.TXT command that patches POPS streaming behavior. It does not replace <code>$413</code>.</p></article>
+        <article><h3><code>$42A</code></h3><p>Multi-valued PAL/480p byte: <code>00</code> disables PAL patching, <code>01</code> auto-PALs, <code>02</code> forces 480p.</p></article>
+      </section>`,
+      { dynamic: "configTable" }
+    ]
+  },
+  {
+    slug: "compatibility-map",
+    title: "Compatibility Map",
+    description: "Cross-reference POPStarter CHEATS.TXT commands, PATCH files, TROJAN files, and config-byte equivalents.",
+    blocks: [
+      `<section class="callout">
+        <h2>One behavior can have several faces</h2>
+        <p>POPStarter's history mixes text commands, standalone patch files, TROJAN files, and direct config-byte edits. This table keeps the aliases together and calls out filename collisions such as stock <code>PATCH_9.BIN</code> for <code>$NOPAL</code> versus the later loader-disable workaround that reused the same filename.</p>
+      </section>`,
+      `<section class="callout warning">
+        <h2>Compatibility-mode stacking rule</h2>
+        <p>Recovered notes say modes <code>0x01</code>, <code>0x02</code>, <code>0x03</code>, and <code>0x05</code> touch CD status and should not be combined. Modes <code>0x04</code>, <code>0x06</code>, and <code>0x07</code> combine more safely, but still test per title.</p>
+      </section>`,
+      { dynamic: "compatibilityMap" }
+    ]
+  },
+  {
     slug: "igr-exit",
     title: "IGR and Exit Behavior",
     description: "Separate IGR commands, $NOIGR, and the loader-disable PATCH_9.BIN workaround.",
@@ -336,6 +403,12 @@ usbd_bd_assault.irx -> mc?:/SYS-CONF/USBHDFSD.IRX</code></pre>
       `<section class="callout warning">
         <h2>Do not merge these concepts</h2>
         <p><code>$NOIGR</code> disables POPStarter's IGR menu. <code>$IGR0</code> through <code>$IGR5</code> choose button combos and menu/no-menu behavior. <code>PATCH_9.BIN</code>, according to krHACKen's PSX-Place page 4 post, disables the bugged ELF loader so exit does not chain into an incompatible <code>BOOT.ELF</code>.</p>
+      </section>`,
+      `<section class="compare">
+        <article><h3>Menu IGR</h3><p><code>$IGR0</code>, <code>$IGR1</code>, and <code>$IGR2</code> open the IGR menu. Their standalone equivalents are <code>TROJAN_0.BIN</code> through <code>TROJAN_2.BIN</code>.</p></article>
+        <article><h3>No-popup exit</h3><p><code>$IGR3</code>, <code>$IGR4</code>, and <code>$IGR5</code> terminate POPS directly. <code>$IGR5</code> is the OPL-like macro: <code>L1+L2+R1+R2+Start+Select</code>.</p></article>
+        <article><h3>Exit chain</h3><p>With r13's default <code>$424=0x01</code>, IGR quit tries <code>mc0:/BOOT/BOOT.ELF</code>, then <code>mc1:/BOOT/BOOT.ELF</code>, then Browser/OSDSYS.</p></article>
+        <article><h3>No path override</h3><p>Recovered notes do not show a supported config or command to redirect the BOOT.ELF chain to USB, HDD, or another path.</p></article>
       </section>`,
       { dynamic: "hotkeys" },
       `<section>
@@ -560,6 +633,10 @@ POPSTARTER/POPS/Medievil/CHEATS.TXT
 POPSTARTER/POPS/Medievil/SLOT0.VMC
 POPSTARTER/POPS/Medievil/SLOT1.VMC</code></pre>
       </section>`,
+      `<section class="callout">
+        <h2>SMB does not require a special debug-only build</h2>
+        <p>Recovered notes identify SMB as normal POPStarter functionality, not a secret debug-build feature. The confusing part is that SMB startup/status text is forced so you can see whether network connection, authentication, or share access failed. That visible text is separate from the <code>$410</code> classic/debug byte label used for normal boots.</p>
+      </section>`,
       `<section>
         <h2>Debug text is forced in SMB mode</h2>
         <p>Unlike other modes, the SMB mode debug/status text is expected. ElOtroLado says it cannot be disabled because it is forced so users can see whether the connection was established or where it failed. Do not treat visible SMB debug text as proof that you are using a wrong POPStarter build by itself.</p>
@@ -631,6 +708,45 @@ For SMB: IPCONFIG.DAT, SMBCONFIG.DAT, host OS/NAS, share name, port, auth mode, 
     blocks: [
       `<section class="callout"><h2>Local archive pages</h2><p>The source inventory below lists public and local evidence. The full local seed files and research notes are rendered separately in the <a href="archive.html">Local Source Archive</a>.</p></section>`,
       { dynamic: "sourceArchive" }
+    ]
+  },
+  {
+    slug: "download-inventory",
+    title: "Safe Archive Inventory",
+    nav: "Inventory",
+    description: "Recovered package names, roles, statuses, and hashes without public binary or proprietary download links.",
+    blocks: [
+      `<section class="callout legal">
+        <h2>No binary mirrors here</h2>
+        <p>This page records package identity, role, recovery status, and hashes where they help verification. It intentionally omits direct POPS binary links, proprietary mirrors, and excluded tools.</p>
+      </section>`,
+      { dynamic: "downloadInventory" }
+    ]
+  },
+  {
+    slug: "history-provenance",
+    title: "History and Provenance",
+    nav: "History",
+    description: "Build-history landmarks that explain final r13 behavior, config-byte changes, IGR behavior, SMB support, and recovered wiki scope.",
+    blocks: [
+      `<section class="callout">
+        <h2>Why the dates matter</h2>
+        <p>POPStarter instructions drift because old WIP/Beta behavior is often repeated as if it applies to the final 2019 r13 build. This timeline keeps the major behavior changes attached to dates and build labels.</p>
+      </section>`,
+      { dynamic: "historyTimeline" }
+    ]
+  },
+  {
+    slug: "wiki-coverage",
+    title: "Recovered Wiki Coverage",
+    nav: "Wiki Coverage",
+    description: "Index of the 63 recovered ShaolinAssassin wiki page slugs now tracked as source coverage.",
+    blocks: [
+      `<section class="callout">
+        <h2>Coverage map, not a dump</h2>
+        <p>The recovered reference covers 63 wiki pages. This page indexes that scope so follow-up work can expand specific topics without losing the overall map.</p>
+      </section>`,
+      { dynamic: "wikiCoverage" }
     ]
   },
   {

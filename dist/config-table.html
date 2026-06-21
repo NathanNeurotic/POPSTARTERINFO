@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>research/raw/web/psx-place-igr-loader-disable.md - POPStarter Docs</title>
-  <meta name="description" content="Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md">
+  <title>Config Table - POPStarter Docs</title>
+  <meta name="description" content="Recovered r13 POPSTARTER.ELF/.KELF config bytes from $410 through $42F with defaults, aliases, and risk notes.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -20,23 +20,250 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">Start</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">Storage and Launch</div><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="smb-network.html">SMB / Network</a><a  href="storage-matrix.html">Storage Matrix</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">Reference</div><a  href="command-reference.html">Command Reference</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a></div><div class="nav-group"><div class="nav-heading">Archive</div><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
+    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">Start</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">Storage and Launch</div><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="smb-network.html">SMB / Network</a><a  href="storage-matrix.html">Storage Matrix</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">Reference</div><a  href="command-reference.html">Command Reference</a><a aria-current="page" href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a></div><div class="nav-group"><div class="nav-heading">Archive</div><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>research/raw/web/psx-place-igr-loader-disable.md</h1>
-          <p>Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md</p>
+          <h1>Config Table</h1>
+          <p>Recovered r13 POPSTARTER.ELF/.KELF config bytes from $410 through $42F with defaults, aliases, and risk notes.</p>
         </div>
       </section>
-      <section class="callout"><h2>Source file</h2><p><code>research/raw/web/psx-place-igr-loader-disable.md</code></p></section>
-<article class="archive-doc"><h2>Source Notes: PSX-Place IGR / Loader Disable</h2>
-<p>URLs:</p>
-<ul><li>https://www.psx-place.com/threads/popstarter.19139/page-4</li><li>https://www.psx-place.com/threads/popstarter.19139/page-15</li></ul>
-<p>Checked: 2026-06-21</p>
-<h3>Captured Observations</h3>
-<ul><li>Page 4, post #64: krHACKen tells Peppe90 to try attached <code>PATCH_9.BIN</code> in the POPS folder.</li><li>The stated purpose is to disable the bugged ELF loader and allow IGR to exit normally.</li><li>Page 15, post #285: krHACKen recommends <code>$IGR5</code> in <code>CHEATS.TXT</code> for OPL-like IGR with no popup.</li><li>The same page explains black-screen exit as likely incompatible <code>BOOT.ELF</code> and suggests disabling POPStarter's ELF loader or recompressing/replacing <code>BOOT.ELF</code>.</li><li>BloodRaynare clarifies that users can still launch POPStarter from OPL; the risky part is IGR-ing back into the incompatible target.</li><li>A user later reports that placing &quot;that bin&quot; in the POPS folder avoids the black-screen freeze but exits to the PS2 Browser instead of OPL.</li></ul>
-<h3>Site Decision</h3>
-<p>The site treats <code>PATCH_9.BIN</code> as the high-confidence loader-disable artifact, but keeps the <code>$NOPAL</code>/<code>PATCH_9.BIN</code> seed mapping as a conflict pending archive/package recovery.</p></article>
+      <section class="callout warning">
+        <h2>Patch bytes only when you mean it</h2>
+        <p>The final r13 ELF/KELF stores a contiguous 32-byte config table from <code>$410</code> through <code>$42F</code>. Back up the original 32 bytes before direct hex edits. Prefer <code>CHEATS.TXT</code> commands for per-game behavior when a command exists.</p>
+      </section>
+<section class="compare">
+        <article><h3><code>$412</code></h3><p>In r13 this is <code>$HDTVFIX</code> / SetGsCrt behavior, not the old function skipper from pre-Beta-13 builds.</p></article>
+        <article><h3><code>$413</code></h3><p>USB device access delay. This is the byte to adjust when a slow USB device is not detected.</p></article>
+        <article><h3><code>$USBDELAY_#</code></h3><p>A CHEATS.TXT command that patches POPS streaming behavior. It does not replace <code>$413</code>.</p></article>
+        <article><h3><code>$42A</code></h3><p>Multi-valued PAL/480p byte: <code>00</code> disables PAL patching, <code>01</code> auto-PALs, <code>02</code> forces 480p.</p></article>
+      </section>
+<div class="table-wrap"><table><thead><tr><th>Offset</th><th>Default</th><th>Setting</th><th>Values</th><th>Aliases</th><th>Notes</th><th>Status</th><th>Sources</th></tr></thead><tbody><tr>
+    <td><code>$410</code></td>
+    <td>0x00</td>
+    <td>Debug text display</td>
+    <td><ul><li>0x00 = debug text off / classic boot</li><li>0x01-0xFE = paced debug page delay</li><li>0xFF = realtime debug text</li></ul></td>
+    <td><ul><li>classic 00 vs debug FF build label</li><li>DEBUG_AND_HALT.PPF also changes $411</li></ul></td>
+    <td>The community classic/debug label is a byte setting, not a separate codebase. SMB mode still shows forced startup debug/status text.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td><code>$411</code></td>
+    <td>0x00</td>
+    <td>Break or halt on error</td>
+    <td><ul><li>0x00 = print briefly then return to OSD</li><li>nonzero = hold on the error screen</li></ul></td>
+    <td><ul><li>DEBUG_AND_HALT.PPF</li></ul></td>
+    <td>Useful only when deliberately collecting debug output; normally left at the factory default.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td><code>$412</code></td>
+    <td>0x00</td>
+    <td>SetGsCrt / HDTVFIX hack</td>
+    <td><ul><li>0x00 = disabled</li><li>0x01 = enabled</li></ul></td>
+    <td><ul><li>$HDTVFIX</li></ul></td>
+    <td>In r13 this is HDTVFIX, not the old function skipper. The function skipper lived at this byte in pre-Beta-13 builds and was removed before the final r13 line.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr>
+    <td><code>$413</code></td>
+    <td>0x02</td>
+    <td>USB access delay</td>
+    <td><ul><li>0x02 = factory delay</li><li>higher values wait longer before USB access</li></ul></td>
+    <td><ul><li>not the same thing as $USBDELAY_#</li></ul></td>
+    <td>This byte helps USB device detection. The CHEATS.TXT $USBDELAY_# command patches POPS streaming behavior after launch and will not fix a drive that is not detected.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr>
+    <td><code>$414</code></td>
+    <td>0x40</td>
+    <td>Reserved USB-mode byte</td>
+    <td><ul><li>0x40 = required factory value</li></ul></td>
+    <td>None recorded</td>
+    <td>Marked reserved for USB operation. Do not treat it as a user-tunable option.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$415</code></td>
+    <td>0x00</td>
+    <td>Per-VMC user ID</td>
+    <td><ul><li>0x00 = disabled</li><li>0x30-0x39 = ASCII digit 0-9</li></ul></td>
+    <td>None recorded</td>
+    <td>Use the ASCII byte for a digit, such as 0x32 for user 2, not raw numeric 0x02.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$416</code></td>
+    <td>0x03</td>
+    <td>POPS dev9 module loading</td>
+    <td><ul><li>0x00 = allow POPS to load dev9</li><li>0x03 = forbid loading</li></ul></td>
+    <td>None recorded</td>
+    <td>Only relevant in USB mode. The factory value keeps the NIC off during USB play.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$417</code></td>
+    <td>0x01</td>
+    <td>Not used in r13</td>
+    <td><ul><li>r13 = not used</li></ul></td>
+    <td><ul><li>legacy PFS-wrapper USB delay in old beta builds</li></ul></td>
+    <td>Old guides citing a USB delay at 417h are talking about obsolete beta behavior. Use $413 in r13 for USB detection delay.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$418-$41F</code></td>
+    <td>0x00 x 8</td>
+    <td>Force compatibility-mode slots</td>
+    <td><ul><li>0x00 = no forced mode</li><li>0x01-0x07 = force that compatibility mode and disable automatic activator for that slot</li></ul></td>
+    <td><ul><li>$COMPATIBILITY_0x##</li><li>PATCH_#.BIN</li><li>FORCE_MODEX PPF family</li></ul></td>
+    <td>Eight slots allow multiple forced modes. Modes 0x01, 0x02, 0x03, and 0x05 poke CD status and should not be combined; 0x04, 0x06, and 0x07 combine more safely.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td><code>$420</code></td>
+    <td>0x01</td>
+    <td>Genuine HDD check patch</td>
+    <td><ul><li>0x00 = do not patch</li><li>0x01 = patch</li></ul></td>
+    <td>None recorded</td>
+    <td>Described as effectively useless for normal users; leave at 0x01.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$421</code></td>
+    <td>0x00</td>
+    <td>POPS BIOS OSD shell</td>
+    <td><ul><li>0x00 = load and execute the shell</li><li>0x01 = do not load/execute</li></ul></td>
+    <td><ul><li>compatibility mode 0x06</li><li>$COMPATIBILITY_0x06</li></ul></td>
+    <td>Equivalent to mode 0x06, which skips CD checks and the PS logo. A user-supplied BIOS.BIN overrides this behavior.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td><code>$422</code></td>
+    <td>0x01</td>
+    <td>Exception breakpoints</td>
+    <td><ul><li>0x00 = keep break instructions</li><li>0x01 = NOP second-stage break instructions</li></ul></td>
+    <td>None recorded</td>
+    <td>Default behavior can allow IGR after some emulator crashes.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$423</code></td>
+    <td>0x01</td>
+    <td>SLBB-00001 disc0 integrity check</td>
+    <td><ul><li>0x00 = do not skip</li><li>0x01 = skip</li></ul></td>
+    <td>None recorded</td>
+    <td>Relates to the PSX/PSBBN SLBB-00001 boot-disc path, not normal per-game tuning.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$424</code></td>
+    <td>0x01</td>
+    <td>IGR exit method</td>
+    <td><ul><li>0x00 = original SLBB-00001/PSBBN method</li><li>0x01 = r13 mc0/mc1 BOOT.ELF exit chain</li></ul></td>
+    <td><ul><li>BOOT.ELF exit chain</li></ul></td>
+    <td>The default enables the Beta-13-and-newer chain: mc0:/BOOT/BOOT.ELF, then mc1:/BOOT/BOOT.ELF, then OSDSYS.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-15" target="_blank" rel="noreferrer">PSX-Place POPStarter page 15 - IGR and BOOT.ELF discussion</a></td>
+  </tr><tr>
+    <td><code>$425</code></td>
+    <td>0x01</td>
+    <td>IOPCD stack size patch</td>
+    <td><ul><li>0x00 = do not patch</li><li>0x01 = patch</li></ul></td>
+    <td>None recorded</td>
+    <td>USB-mode patch; leave at the default unless doing focused experiments.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$426</code></td>
+    <td>0x01</td>
+    <td>Delcro's patches</td>
+    <td><ul><li>0x00 = do not apply</li><li>0x01 = apply</li></ul></td>
+    <td>None recorded</td>
+    <td>USB-mode POPS patch set enabled by default.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$427</code></td>
+    <td>0x01</td>
+    <td>Injected-module load failure behavior</td>
+    <td><ul><li>0x00 = return to OSD on injected IRX error</li><li>0x01 = ignore returned code and continue</li></ul></td>
+    <td>None recorded</td>
+    <td>Developer/modder convenience for custom IRX injection experiments.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$428</code></td>
+    <td>0x01</td>
+    <td>Internal-HDD init-failure behavior</td>
+    <td><ul><li>0x00 = return to OSD on init failure</li><li>0x01 = ignore and continue</li></ul></td>
+    <td>None recorded</td>
+    <td>Leave at the default for normal use.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$429</code></td>
+    <td>0x00</td>
+    <td>Virtual Memory Card control</td>
+    <td><ul><li>0x00 = use both VMCs</li><li>0x01 = no VMCs</li><li>0x02 = first VMC only</li></ul></td>
+    <td><ul><li>$NOVMC0</li><li>$NOVMC1</li><li>NO_VMC.PPF</li><li>ONLY_1ST_VMC.PPF</li></ul></td>
+    <td>This byte controls VMC count. Do not confuse it with $42A.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr>
+    <td><code>$42A</code></td>
+    <td>0x01</td>
+    <td>Auto-PAL patcher / 480p selector</td>
+    <td><ul><li>0x00 = PAL patcher off</li><li>0x01 = auto-PAL when Euro marker is found</li><li>0x02 = force 480p</li></ul></td>
+    <td><ul><li>$NOPAL</li><li>$480p</li><li>NO_PAL.PPF</li></ul></td>
+    <td>Multi-valued byte. 0x02 is the hardcoded equivalent of $480p and is not reliable for every title/display.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr>
+    <td><code>$42B</code></td>
+    <td>0x01</td>
+    <td>Resident modules loader</td>
+    <td><ul><li>0x00 = disabled</li><li>0x01 = enabled</li></ul></td>
+    <td><ul><li>MODULE_0.IRX through MODULE_9.IRX</li></ul></td>
+    <td>Loads POPS/MODULE_0.IRX through MODULE_9.IRX after IOP reset with IOPRP252.IMG.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$42C</code></td>
+    <td>0x01</td>
+    <td>Software PowerOff fix</td>
+    <td><ul><li>0x00 = disabled</li><li>0x01 = enabled</li></ul></td>
+    <td>None recorded</td>
+    <td>Purpose is uncertain even in recovered notes; possibly redundant poweroff behavior for storage drivers.</td>
+    <td><span class="badge medium">medium</span> <span class="badge ">recovered-author-uncertain</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$42D</code></td>
+    <td>0x01</td>
+    <td>IGR textures loader</td>
+    <td><ul><li>0x00 = use built-in textures</li><li>0x01 = load external IGR TM2 textures</li></ul></td>
+    <td><ul><li>DEFAULT_IGR_TEXTURES.PPF</li></ul></td>
+    <td>When enabled, POPStarter can load IGR_BG.TM2, IGR_NO.TM2, and IGR_YES.TM2 from the POPS folder.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td><code>$42E</code></td>
+    <td>0x01</td>
+    <td>Game license / region check</td>
+    <td><ul><li>0x00 = leave check unpatched</li><li>0x01 = patch region-check loop</li></ul></td>
+    <td>None recorded</td>
+    <td>Default region-free behavior can skip the PS logo for non-Japanese titles.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+  </tr><tr>
+    <td><code>$42F</code></td>
+    <td>0x03</td>
+    <td>Automatic patch master switch</td>
+    <td><ul><li>0x00 = no automatic patching</li><li>0x01 = automatic compatibility modes</li><li>0x02 = LibCrypt subroutines</li><li>0x03 = all automatic patching</li><li>0x04 = diagnostic test mode</li></ul></td>
+    <td><ul><li>NO_AUTO_PATCH.PPF</li><li>LC_ONLY.PPF</li><li>NO_LC_CRACKS.PPF</li><li>$UNDO_GAME_FIXES overlaps conceptually with test mode</li></ul></td>
+    <td>0x04 is a diagnostic/test mode added in the Prototype 2 era, not a normal-play setting. If 0x03 is active and a mode is forced in $418-$41F, the activator is reduced to LibCrypt-only behavior.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr></tbody></table></div>
     </main>
   </div>
   <footer class="site-footer">

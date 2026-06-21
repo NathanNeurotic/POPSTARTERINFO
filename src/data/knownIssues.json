@@ -90,6 +90,56 @@
     "verificationStatus": "verified-cross-source"
   },
   {
+    "id": "cheats-txt-case-sensitive-path",
+    "title": "CHEATS.TXT ignored because the filename case is wrong",
+    "symptom": "Named commands or raw cheat codes do nothing, especially on internal HDD/PFS.",
+    "likelyCauses": ["File saved as CHEATS.txt or cheats.txt", "Case-sensitive PFS path", "File placed in the wrong per-game support folder"],
+    "mitigation": "Rename the file to uppercase CHEATS.TXT and place it in the folder matching the VCD basename.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "id": "usb-pops-split-support-files-missing",
+    "title": "USB POPS0-POPS9 game boots without expected patches or handlers",
+    "symptom": "A game in POPS0 through POPS9 launches, but BIOS.BIN, PATCH_#.BIN, TROJAN_#.BIN, or VMCDIR.TXT behavior is missing.",
+    "likelyCauses": ["Support files left only in mass:/POPS", "Assuming POPS_IOX.PAK propagation rules apply to every handler file", "Per-folder patch/handler files not copied into the split POPS# folder"],
+    "mitigation": "Keep POPS_IOX.PAK and IGR TM2 textures in mass:/POPS, but copy BIOS.BIN, PATCH_#.BIN, TROJAN_#.BIN, and VMCDIR.TXT into every POPS# folder that needs them.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "id": "hdd-leading-plus-pops-partition",
+    "title": "HDD VCD folder created as +__.POPS instead of __.POPS",
+    "symptom": "Modern HDD launch cannot find VCDs even though a similarly named partition exists.",
+    "likelyCauses": ["Using OPL app partition naming rules for POPStarter's VCD partition", "Adding a leading plus to __.POPS", "Confusing +OPL/APPS with POPStarter's VCD partition"],
+    "mitigation": "Use hdd0:/__.POPS/ for VCDs and hdd0:/__common/POPS/ for shared POPS files and per-game support folders.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "id": "old-rip-build-selected",
+    "title": "Old RIP or WIP build used instead of the final 2019 r13 beta",
+    "symptom": "Documented final-build behavior such as $IGR5 or later config-byte meanings does not match the user's setup.",
+    "likelyCauses": ["Using POPStarter_r13_RIP_06", "Using an older WIP/OBT package", "Mixing old wiki instructions with the final 2019 build"],
+    "mitigation": "Treat POPStarter r13 Beta 2019-06-05 as the canonical final public build unless deliberately testing an older build.",
+    "sourceIds": ["popsloader-docs-reference", "retro-jogos-home"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "id": "smb-debug-build-myth",
+    "title": "SMB debug text mistaken for a required debug build",
+    "symptom": "SMB launch shows startup/debug text and the user assumes the wrong POPStarter build was used.",
+    "likelyCauses": ["SMB mode forces visible status text", "Confusing $410 debug byte labels with SMB-mode behavior", "Old forum claims about debug builds"],
+    "mitigation": "Do not chase a separate debug build just because SMB startup text is visible. Focus on SB. prefix, memory-card modules, IPCONFIG.DAT, SMBCONFIG.DAT, and share write permission.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
     "id": "smb-prefix-or-protocol-mismatch",
     "title": "SMB launch fails because the prefix or OPL SMB protocol name is wrong",
     "symptom": "The SMB app entry starts then black-screens, or OPL Apps does not launch the ELF.",

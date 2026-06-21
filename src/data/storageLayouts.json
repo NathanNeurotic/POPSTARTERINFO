@@ -63,6 +63,31 @@
     "verificationStatus": "verified-hardware-user"
   },
   {
+    "id": "usb-pops0-through-pops9",
+    "name": "USB - POPS0 through POPS9 split folders",
+    "storageBackend": "USB mass storage",
+    "launcherFrontend": "Original POPStarter folder scan",
+    "filesystem": "FAT12/FAT16/FAT32; defragmented media strongly preferred",
+    "requiredFiles": ["VCDs in mass:/POPS or mass:/POPS0 through mass:/POPS9", "POPS_IOX.PAK in main mass:/POPS"],
+    "optionalFiles": ["BIOS.BIN", "PATCH_#.BIN", "TROJAN_#.BIN", "VMCDIR.TXT", "IGR TM2 textures"],
+    "exactPaths": [
+      "mass:/POPS/POPS_IOX.PAK",
+      "mass:/POPS/<Game>.VCD",
+      "mass:/POPS0/<Game>.VCD",
+      "mass:/POPS1/<Game>.VCD",
+      "mass:/POPS9/<Game>.VCD",
+      "mass:/POPS#/BIOS.BIN",
+      "mass:/POPS#/PATCH_#.BIN",
+      "mass:/POPS#/TROJAN_#.BIN",
+      "mass:/POPS#/<Game>/CHEATS.TXT"
+    ],
+    "sampleConfig": "",
+    "warnings": ["POPStarter scans POPS, then POPS0 through POPS9.", "POPS_IOX.PAK and IGR TM2 textures stay in the main POPS folder.", "BIOS.BIN, PATCH_#.BIN, TROJAN_#.BIN, and VMCDIR.TXT do not propagate into POPS# folders; copy them into each split folder that needs them."],
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
     "id": "usb-popsloader",
     "name": "USB - POPSLoader app",
     "storageBackend": "USB mass storage",
@@ -152,6 +177,67 @@
     "sourceIds": ["user-notes", "elotrolado-pops-thread"],
     "confidence": "medium",
     "verificationStatus": "verified-hardware-user"
+  },
+  {
+    "id": "apa-hdd-modern-pops0-through-pops9",
+    "name": "APA HDD - __.POPS through __.POPS9 split folders",
+    "storageBackend": "Internal APA HDD/SSD",
+    "launcherFrontend": "Modern WIP01/r13 HDD launch type",
+    "filesystem": "PFS/APA",
+    "requiredFiles": ["__.POPS or __.POPS0 through __.POPS9 partitions/paths", "__common/POPS with POPS.ELF and IOPRP252.IMG"],
+    "optionalFiles": ["POPSTARTER.ELF", "POPS_IOX.PAK", "Per-game support folder under __common/POPS"],
+    "exactPaths": [
+      "hdd0:/__.POPS/<Game>.VCD",
+      "hdd0:/__.POPS0/<Game>.VCD",
+      "hdd0:/__.POPS9/<Game>.VCD",
+      "hdd0:/__common/POPS/POPS.ELF",
+      "hdd0:/__common/POPS/IOPRP252.IMG",
+      "hdd0:/__common/POPS/<Game>/CHEATS.TXT"
+    ],
+    "sampleConfig": "",
+    "warnings": ["Do not create +__.POPS; the leading plus is wrong for the POPStarter partition name.", "Per-game VMC/fix folders go under __common/POPS, not beside the VCDs in __.POPS."],
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "id": "apa-hdd-legacy-pp-partition",
+    "name": "APA HDD legacy - PP.<game> HDDOSD-visible partition",
+    "storageBackend": "Internal APA HDD/SSD",
+    "launcherFrontend": "HDDOSD / Sony Browser 2.00 / legacy POPStarter KELF",
+    "filesystem": "PFS/APA partition",
+    "requiredFiles": ["PP.<Game> partition", "IMAGE0.VCD", "POPSTARTER.KELF or matching launch entry"],
+    "optionalFiles": ["SYSTEM.CNF", "HDDOSD sample metadata", "Per-game VMC/fix files inside the partition workflow"],
+    "exactPaths": [
+      "hdd0:/PP.<Game>/IMAGE0.VCD",
+      "pfs0:/IMAGE0.VCD",
+      "PP.<Game>.ELF or POPSTARTER.KELF launch entry",
+      "SYSTEM.CNF BOOT2 = pfs:/IMAGE0.VCD"
+    ],
+    "sampleConfig": "BOOT2 = pfs:/IMAGE0.VCD\nVER = 1.00\nVMODE = NTSC",
+    "warnings": ["Every partition-installed game image is named IMAGE0.VCD; game identity comes from the partition name.", "Use PP.<name> for HDDOSD-visible installs; hidden __.<name> is a different legacy mode."],
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "medium",
+    "verificationStatus": "recovered-needs-hardware-check"
+  },
+  {
+    "id": "apa-hdd-legacy-hidden-partition",
+    "name": "APA HDD legacy - __.<game> hidden partition",
+    "storageBackend": "Internal APA HDD/SSD",
+    "launcherFrontend": "Legacy alternate POPStarter partition launch",
+    "filesystem": "PFS/APA partition",
+    "requiredFiles": ["__.<Game> hidden partition", "IMAGE0.VCD", "Matching launch ELF"],
+    "optionalFiles": ["Per-game VMC/fix files inside the partition workflow"],
+    "exactPaths": [
+      "hdd0:/__.<Game>/IMAGE0.VCD",
+      "pfs0:/IMAGE0.VCD",
+      "__.<Game>.ELF or matching legacy launch entry"
+    ],
+    "sampleConfig": "",
+    "warnings": ["Hidden __.<name> partition-installed games are not the same as the modern shared __.POPS VCD folder.", "Do not rename the image away from IMAGE0.VCD inside a partition-installed game."],
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "medium",
+    "verificationStatus": "recovered-needs-hardware-check"
   },
   {
     "id": "apa-jail-hybrid",

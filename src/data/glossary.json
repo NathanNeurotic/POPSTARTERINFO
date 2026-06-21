@@ -70,6 +70,46 @@
     "sourceIds": ["elotrolado-pops-thread", "user-notes"]
   },
   {
+    "term": "XX. prefix",
+    "definition": "USB-mode prefix used by the classic renamed-ELF workflow, for example XX.Gran Turismo.ELF paired with Gran Turismo.VCD.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "term": "PP. prefix",
+    "definition": "Legacy internal-HDD partition prefix for HDDOSD-visible POPStarter installs, where IMAGE0.VCD lives inside a PP.<game> partition.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
+    "term": "__. prefix",
+    "definition": "Legacy hidden internal-HDD partition prefix for partition-installed POPStarter games, distinct from the modern shared __.POPS VCD location.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
+    "term": "POPS0-POPS9",
+    "definition": "Additional USB POPStarter folders scanned after POPS. They can hold VCDs, but many support files must be copied into each folder rather than inherited from mass:/POPS.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
+    "term": "POPSTARTER.KELF",
+    "definition": "KELF build of POPStarter used for HDDOSD / Sony Browser 2.00 style launch paths.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
+    "term": "SYSTEM.CNF",
+    "definition": "PS2 disc/partition metadata file. Legacy partition-installed POPStarter games can point BOOT2 at pfs:/IMAGE0.VCD.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
+    "term": "CUE2POPS",
+    "definition": "PC utility used to convert PS1 BIN/CUE images into POPStarter .VCD images.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "term": "PFS_WRAP.BIN",
+    "definition": "Older external PFS wrapper artifact that later became embedded in POPStarter's Beta 8 line.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
     "term": "IPCONFIG.DAT",
     "definition": "POPStarter SMB memory-card config file containing PS2 IP address, subnet mask, and gateway/router IP on one line.",
     "sourceIds": ["elotrolado-pops-thread"]

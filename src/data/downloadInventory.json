@@ -1,0 +1,258 @@
+[
+  {
+    "name": "POPS_IOX.PAK",
+    "status": "identifier-only",
+    "role": "USB/SMB support package expected by POPStarter.",
+    "safeReference": "MD5 a625d0b3036823cdbf04a3c0e1648901",
+    "notes": "Document path requirements, never mirror the binary.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "name": "POPS.ELF",
+    "status": "identifier-only",
+    "role": "Sony POPS emulator payload used by HDD workflows.",
+    "safeReference": "MD5 355a892a8ce4e4a105469d4ef6f39a42",
+    "notes": "Proprietary emulator file. Mention by filename/hash only.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "name": "IOPRP252.IMG",
+    "status": "identifier-only",
+    "role": "IOP reset image expected in HDD POPS workflows.",
+    "safeReference": "MD5 1db9c6020a2cd445a7bb176a1a3dd418",
+    "notes": "Mention by filename/hash only.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "name": "POPSTARTER.ELF",
+    "status": "homebrew identifier",
+    "role": "Main POPStarter launcher ELF.",
+    "safeReference": "r13 Beta 2019-06-05 final public build; MD5 97afa02d25f37fa1e2f602dd6c48d442 in recovered reference.",
+    "notes": "Public homebrew artifact, but this site still does not host package downloads.",
+    "sourceIds": ["popsloader-docs-reference", "psx-place-popstarter-thread"]
+  },
+  {
+    "name": "POPSTARTER.KELF",
+    "status": "homebrew identifier",
+    "role": "HDDOSD/Sony Browser 2.00 launchable POPStarter KELF.",
+    "safeReference": "r13 Beta 2019-06-05 final public build; MD5 a654a0a9093ce7be8767b708bc8cb8a1 in recovered reference.",
+    "notes": "Used for HDDOSD-visible partition installs.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
+    "name": "POPStarter_r13_Beta_20190605.zip",
+    "status": "recovered",
+    "role": "Canonical final public POPStarter package.",
+    "safeReference": "Use package/date/build identity only; no mirror link here.",
+    "notes": "Preferred over older RIP/WIP packages.",
+    "sourceIds": ["popsloader-docs-reference", "retro-jogos-home"]
+  },
+  {
+    "name": "POPStarter_r13_RIP_06.zip",
+    "status": "recovered but not recommended",
+    "role": "Older RIP build.",
+    "safeReference": "Avoid for normal setup.",
+    "notes": "Recovered history says the 2019-06-05 r13 Beta is the canonical final package.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "POPStarter_r13_WIP_06_OBT_20170128.zip",
+    "status": "recovered",
+    "role": "Older pre-final WIP package.",
+    "safeReference": "Use for historical comparison only.",
+    "notes": "Do not prefer this over the final 2019-06-05 build.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "Compatibility_Modes.zip",
+    "status": "recovered",
+    "role": "Compatibility-mode PATCH_#.BIN bundle.",
+    "safeReference": "PATCH_1.BIN through PATCH_7.BIN family; no download link.",
+    "notes": "Use the compatibility map before applying globally.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
+    "name": "FORCEPAL_PATCH.7z",
+    "status": "recovered",
+    "role": "PATCH_8.BIN / FORCEPAL artifact family.",
+    "safeReference": "$FORCEPAL equivalent.",
+    "notes": "Do not combine with $NOPAL.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "NOPAL_PATCH.7z",
+    "status": "recovered",
+    "role": "Stock PATCH_9.BIN / NOPAL artifact family.",
+    "safeReference": "$NOPAL equivalent.",
+    "notes": "Filename collides with a later loader-disable PATCH_9.BIN workaround; keep the purposes separate.",
+    "sourceIds": ["popsloader-docs-reference", "psx-place-popstarter-page-4"]
+  },
+  {
+    "name": "IGR_Behaviour_Modifiers.zip",
+    "status": "mirror-only reference",
+    "role": "TROJAN_0.BIN through TROJAN_5.BIN IGR modifier family.",
+    "safeReference": "$IGR0 through $IGR5 equivalents.",
+    "notes": "External mirror links are intentionally omitted.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "IGR_textures_-_Chinese_pack.7z",
+    "status": "recovered",
+    "role": "Language-specific IGR menu texture pack.",
+    "safeReference": "IGR_BG.TM2 / IGR_NO.TM2 / IGR_YES.TM2 style assets.",
+    "notes": "Texture placement depends on storage backend and POPS folder scope.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "CHEATS.TXT",
+    "status": "recovered",
+    "role": "Full/sample command text file.",
+    "safeReference": "Plain-text reference only.",
+    "notes": "Keep case uppercase on case-sensitive paths.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "name": "SAMPLE_CHEATS.TXT",
+    "status": "recovered",
+    "role": "Example CHEATS.TXT.",
+    "safeReference": "Plain-text reference only.",
+    "notes": "Named commands do not require $SAFEMODE; raw code blocks usually should use it.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "CUE2POPS_2.3.zip",
+    "status": "recovered",
+    "role": "BIN/CUE to VCD conversion utility.",
+    "safeReference": "Recovered as zip in the reference inventory.",
+    "notes": "Also bundled inside recovered Quickstarter packs.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "Disc_Combining_Kits.7z",
+    "status": "recovered",
+    "role": "Multi-disc preparation helpers.",
+    "safeReference": "Use with DISCS.TXT/VMCDIR.TXT docs.",
+    "notes": "Keep separate from any excluded multi-disc utilities that should not appear in the public site.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "POPStarter_USB_Quickstarter_Pack_20200209.zip",
+    "status": "recovered",
+    "role": "USB quickstarter pack.",
+    "safeReference": "Package identity only.",
+    "notes": "Use as a historical layout reference; do not mirror links.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "POPStarter_HDD_Quickstarter_Pack_20200209.zip",
+    "status": "recovered",
+    "role": "HDD quickstarter pack.",
+    "safeReference": "Package identity only.",
+    "notes": "Use as a historical layout reference; do not mirror links.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "POPStarter_SMB_Quickstarter_Pack_20200209.zip",
+    "status": "recovered",
+    "role": "SMB quickstarter pack.",
+    "safeReference": "Package identity only.",
+    "notes": "Contains network-module layout references; do not mirror links.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "POPStarter_HDD_Quickstarter_Pack_20171027.7z",
+    "status": "recovered",
+    "role": "Older HDD quickstarter pack.",
+    "safeReference": "Package identity only.",
+    "notes": "Superseded for most users by the 2020 package naming.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "network_modules.7z",
+    "status": "recovered",
+    "role": "SMB memory-card IRX module set.",
+    "safeReference": "poweroff.irx, ps2dev9.irx, smsutils.irx, ps2ip.irx, ps2smap.irx, smbman.irx.",
+    "notes": "The recovered reference notes the SMB Quickstarter pack also contains these modules.",
+    "sourceIds": ["popsloader-docs-reference", "elotrolado-pops-thread"]
+  },
+  {
+    "name": "DS3_modules_BT_20171017.7z",
+    "status": "recovered",
+    "role": "DualShock 3 Bluetooth module pack.",
+    "safeReference": "Package identity only.",
+    "notes": "Peripheral module pack, not required for a normal POPStarter storage setup.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "DS3_modules_USB_20171017.7z",
+    "status": "recovered",
+    "role": "DualShock 3 USB module pack.",
+    "safeReference": "Package identity only.",
+    "notes": "Peripheral module pack, not required for a normal POPStarter storage setup.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "RadHostClient_1.8a.7z",
+    "status": "recovered",
+    "role": "ps2host/host-client utility.",
+    "safeReference": "Package identity only.",
+    "notes": "Related to older host workflows, not current SMB setup.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "pfsshell-0.2a.zip",
+    "status": "recovered",
+    "role": "PFS shell utility.",
+    "safeReference": "Package identity only.",
+    "notes": "Useful for HDD/PFS maintenance references.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "POPStarter_ELFs-BATCHER_05062016.7z",
+    "status": "recovered",
+    "role": "PC helper for batch-created renamed POPStarter ELFs.",
+    "safeReference": "Package identity only.",
+    "notes": "Historical helper for per-game ELF workflows.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "BATCHER_0.3.1.EXE",
+    "status": "lost",
+    "role": "Older PC batch-conversion helper.",
+    "safeReference": "Bitbucket download page record only.",
+    "notes": "Kept as a missing inventory row, not a download.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "PPF_Bunch_pack.7z",
+    "status": "lost",
+    "role": "PPF patches mapping user-friendly patch names to config bytes.",
+    "safeReference": "DEBUG_AND_HALT, NO_VMC, ONLY_1ST_VMC, NO_PAL, FORCE_MODEX, DEFAULT_IGR_TEXTURES, LC_ONLY, NO_AUTO_PATCH, NO_LC_CRACKS.",
+    "notes": "Useful for explaining config byte aliases even without the package.",
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"]
+  },
+  {
+    "name": "hddosd_sample_files.7z",
+    "status": "lost",
+    "role": "HDDOSD sample install files.",
+    "safeReference": "Bitbucket download page record only.",
+    "notes": "Relevant to PP.<game> / POPSTARTER.KELF legacy installs.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "uLE_kHn_20160723.7z",
+    "status": "lost",
+    "role": "Older uLE_kHn package.",
+    "safeReference": "Bitbucket download page record only.",
+    "notes": "Later quickstarter packs contain uLaunchELF/BOOT.ELF references.",
+    "sourceIds": ["popsloader-docs-reference"]
+  },
+  {
+    "name": "uLE_kHn_20191110.zip",
+    "status": "lost",
+    "role": "Later uLE_kHn package.",
+    "safeReference": "Bitbucket download page record only.",
+    "notes": "The 2020-08-10 loader-address fix is separate history and should be documented by date rather than mirrored binary.",
+    "sourceIds": ["popsloader-docs-reference"]
+  }
+]

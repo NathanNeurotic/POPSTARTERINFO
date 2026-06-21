@@ -53,21 +53,21 @@
     "scope": "CHEATS.TXT",
     "placement": "Per-game CHEATS.TXT",
     "effect": "Enables a numbered compatibility mode as a CHEATS.TXT directive.",
-    "notes": "Example from seed: $COMPATIBILITY_0x01 activates mode 1. The full mode map still needs archived wiki/package recovery.",
-    "conflicts": ["Mode numbers and PATCH_X.BIN equivalences are incomplete."],
-    "sourceIds": ["elotrolado-pops-thread", "shaolin-bitbucket-wiki"],
-    "confidence": "medium",
-    "verificationStatus": "needs-archive-verification"
+    "notes": "Example: $COMPATIBILITY_0x04 activates mode 4. Recovered reference maps modes 0x01 through 0x07 to PATCH_1.BIN through PATCH_7.BIN and to the $418-$41F force-mode config slots.",
+    "conflicts": ["Modes 0x01, 0x02, 0x03, and 0x05 poke CD status and should not be combined. Modes 0x04, 0x06, and 0x07 combine more safely."],
+    "sourceIds": ["elotrolado-pops-thread", "shaolin-bitbucket-wiki", "popsloader-docs-reference"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
   },
   {
     "command": "$USBDELAY_#",
     "category": "USB",
     "scope": "CHEATS.TXT",
     "placement": "Per-game CHEATS.TXT",
-    "effect": "Sets a startup delay for USB device initialization.",
-    "notes": "Use only for devices that work elsewhere but fail at POPStarter startup; increase in small steps.",
-    "conflicts": [],
-    "sourceIds": ["elotrolado-pops-thread", "psx-place-popstarter-thread"],
+    "effect": "Sets the USB delay applied inside POPS/PFS-wrapper streaming behavior.",
+    "notes": "This command patches POPS streaming behavior. It is not the same as config byte $413, which affects POPStarter's USB access/detection delay before reaching the device.",
+    "conflicts": ["Do not use $USBDELAY_# to solve a drive-not-detected problem; tune config byte $413 for that case."],
+    "sourceIds": ["elotrolado-pops-thread", "psx-place-popstarter-thread", "popsloader-docs-reference"],
     "confidence": "high",
     "verificationStatus": "verified-cross-source"
   },
@@ -418,5 +418,65 @@
     "sourceIds": ["elotrolado-pops-thread", "psx-place-popstarter-page-15"],
     "confidence": "high",
     "verificationStatus": "verified-cross-source"
+  },
+  {
+    "command": "Raw PS1 code line",
+    "category": "Cheat engine",
+    "scope": "CHEATS.TXT",
+    "placement": "Per-game CHEATS.TXT, usually after $SAFEMODE",
+    "effect": "Applies a raw PS1 GameShark/Action Replay style code line.",
+    "notes": "Recovered wiki notes support PS1 RAW types 30, 50, 80, and D0. The line must begin with $ and include a space between address and value.",
+    "conflicts": ["Unsupported or unusual code types may crash emulation. Use $SAFEMODE for raw code blocks that touch startup/OSD memory."],
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "command": "Raw PS2 code line",
+    "category": "Cheat engine",
+    "scope": "CHEATS.TXT",
+    "placement": "Per-game CHEATS.TXT, usually after $SAFEMODE",
+    "effect": "Applies a raw PS2-style code line through POPStarter's cheat engine.",
+    "notes": "Recovered wiki notes mention PS2 RAW types 0, 1, and 2. Keep syntax exact: $address value.",
+    "conflicts": ["Do not assume every PS2 RAW code type is supported."],
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "medium",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "command": "$C0 master code",
+    "category": "Cheat engine",
+    "scope": "CHEATS.TXT",
+    "placement": "Per-game CHEATS.TXT raw-code block",
+    "effect": "Provides the supported master/enable-code form for games that crash without one.",
+    "notes": "Only C0 master codes are supported. Beta 13 fixed a C0 load-instruction bug and a $USBDELAY/$C0 coexistence issue.",
+    "conflicts": ["C1 activation-on-delay-time codes are unsupported."],
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "high",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "command": "Rumble always-on raw codes",
+    "category": "Cheat engine",
+    "scope": "CHEATS.TXT",
+    "placement": "Per-game CHEATS.TXT raw-code block",
+    "effect": "Forces pad rumble on for diagnostic or preference use.",
+    "notes": "Recovered examples include $00507028 00000001 for pad 1 and $005070B8 00000001 for pad 2.",
+    "conflicts": [],
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "medium",
+    "verificationStatus": "recovered-cross-check"
+  },
+  {
+    "command": "Explicit LibCrypt fix block",
+    "category": "LibCrypt",
+    "scope": "CHEATS.TXT",
+    "placement": "Per-game CHEATS.TXT raw-code block",
+    "effect": "Uses a full raw-code LibCrypt workaround when $FAKELC and built-in cracking are not enough.",
+    "notes": "Recovered reference preserves Jackie Chan Stuntmaster PAL as the example case. Keep game-specific blocks scoped to the exact game/revision.",
+    "conflicts": ["Use only for documented disc batches; wrong LibCrypt codes can break otherwise working images."],
+    "sourceIds": ["popsloader-docs-reference", "shaolin-bitbucket-wiki"],
+    "confidence": "medium",
+    "verificationStatus": "recovered-cross-check"
   }
 ]

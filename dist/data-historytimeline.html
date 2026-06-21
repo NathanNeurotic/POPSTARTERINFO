@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>research/raw/web/psx-place-igr-loader-disable.md - POPStarter Docs</title>
-  <meta name="description" content="Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md">
+  <title>Data: historyTimeline - POPStarter Docs</title>
+  <meta name="description" content="Rendered structured data file: src/data/historyTimeline.json">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -24,19 +24,123 @@
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>research/raw/web/psx-place-igr-loader-disable.md</h1>
-          <p>Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md</p>
+          <h1>Data: historyTimeline</h1>
+          <p>Rendered structured data file: src/data/historyTimeline.json</p>
         </div>
       </section>
-      <section class="callout"><h2>Source file</h2><p><code>research/raw/web/psx-place-igr-loader-disable.md</code></p></section>
-<article class="archive-doc"><h2>Source Notes: PSX-Place IGR / Loader Disable</h2>
-<p>URLs:</p>
-<ul><li>https://www.psx-place.com/threads/popstarter.19139/page-4</li><li>https://www.psx-place.com/threads/popstarter.19139/page-15</li></ul>
-<p>Checked: 2026-06-21</p>
-<h3>Captured Observations</h3>
-<ul><li>Page 4, post #64: krHACKen tells Peppe90 to try attached <code>PATCH_9.BIN</code> in the POPS folder.</li><li>The stated purpose is to disable the bugged ELF loader and allow IGR to exit normally.</li><li>Page 15, post #285: krHACKen recommends <code>$IGR5</code> in <code>CHEATS.TXT</code> for OPL-like IGR with no popup.</li><li>The same page explains black-screen exit as likely incompatible <code>BOOT.ELF</code> and suggests disabling POPStarter's ELF loader or recompressing/replacing <code>BOOT.ELF</code>.</li><li>BloodRaynare clarifies that users can still launch POPStarter from OPL; the risky part is IGR-ing back into the incompatible target.</li><li>A user later reports that placing &quot;that bin&quot; in the POPS folder avoids the black-screen freeze but exits to the PS2 Browser instead of OPL.</li></ul>
-<h3>Site Decision</h3>
-<p>The site treats <code>PATCH_9.BIN</code> as the high-confidence loader-disable artifact, but keeps the <code>$NOPAL</code>/<code>PATCH_9.BIN</code> seed mapping as a conflict pending archive/package recovery.</p></article>
+      <section class="callout"><h2>Source file</h2><p><code>src/data/historyTimeline.json</code></p></section>
+<article class="archive-doc"><pre><code>[
+  {
+    &quot;date&quot;: &quot;2014-08-22&quot;,
+    &quot;label&quot;: &quot;WIP02&quot;,
+    &quot;summary&quot;: &quot;Added the 8-slot force-compatibility table and enabled IGR skin/IRX loaders by default.&quot;,
+    &quot;impact&quot;: &quot;Explains the $418-$41F config array and why IGR texture loading is a default r13 behavior.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;shaolin-bitbucket-wiki&quot;
+    ]
+  },
+  {
+    &quot;date&quot;: &quot;2015-10-23&quot;,
+    &quot;label&quot;: &quot;Beta 8&quot;,
+    &quot;summary&quot;: &quot;Added SMB, ps2host, and napLink backend work, and embedded the PFS wrapper.&quot;,
+    &quot;impact&quot;: &quot;SMB is a normal POPStarter feature from this line, not proof that a special debug-only build is required.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;elotrolado-pops-thread&quot;
+    ]
+  },
+  {
+    &quot;date&quot;: &quot;2015-11-11&quot;,
+    &quot;label&quot;: &quot;Beta 11&quot;,
+    &quot;summary&quot;: &quot;Added mc1 module fallback, SMB port selection, optional IPCONFIG.DAT behavior, and fixes for POPS# folder reads.&quot;,
+    &quot;impact&quot;: &quot;Documents why memory-card POPSTARTER folders can live on mc0 or mc1 and why POPS0..POPS9 support files matter.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;elotrolado-pops-thread&quot;
+    ]
+  },
+  {
+    &quot;date&quot;: &quot;2015-11-24&quot;,
+    &quot;label&quot;: &quot;Beta 12&quot;,
+    &quot;summary&quot;: &quot;Added $FORCEPAL, SMB authentication, and a working $SAFEMODE command.&quot;,
+    &quot;impact&quot;: &quot;Separates PAL-region forcing, SMB username/password lines, and raw-code timing behavior from earlier broken docs.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;elotrolado-pops-thread&quot;
+    ]
+  },
+  {
+    &quot;date&quot;: &quot;2015-12-07&quot;,
+    &quot;label&quot;: &quot;Beta 13&quot;,
+    &quot;summary&quot;: &quot;Added the mc0/mc1 BOOT.ELF exit chain, fixed cheat-engine hook+8 and $C0/$USBDELAY interactions, removed the old function skipper, and removed ps2host/napLink launchers.&quot;,
+    &quot;impact&quot;: &quot;Critical boundary for IGR exit behavior and the $412 correction: in r13, $412 is HDTVFIX, not the old function skipper.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;psx-place-popstarter-page-15&quot;
+    ]
+  },
+  {
+    &quot;date&quot;: &quot;2016-09-18&quot;,
+    &quot;label&quot;: &quot;Beta 15&quot;,
+    &quot;summary&quot;: &quot;Added CD-lid / DISCS.TXT multi-disc behavior and 480p calculations.&quot;,
+    &quot;impact&quot;: &quot;Explains DISCS.TXT/VMCDIR.TXT-era multi-disc handling and why 480p remains a compatibility-sensitive option.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;shaolin-bitbucket-wiki&quot;
+    ]
+  },
+  {
+    &quot;date&quot;: &quot;2016-11-20&quot;,
+    &quot;label&quot;: &quot;Beta 16&quot;,
+    &quot;summary&quot;: &quot;Integrated $IGR0 through $IGR5, $NOIGR, and $D2LS as CHEATS.TXT commands; repurposed $412 as HDTVFIX; added an untested software-reset combo.&quot;,
+    &quot;impact&quot;: &quot;Makes the CHEATS.TXT IGR commands canonical instead of requiring standalone TROJAN files for every IGR behavior.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;elotrolado-pops-thread&quot;
+    ]
+  },
+  {
+    &quot;date&quot;: &quot;2017-05-27&quot;,
+    &quot;label&quot;: &quot;Prototype 2&quot;,
+    &quot;summary&quot;: &quot;Added $42F value 0x04 as a diagnostic test mode.&quot;,
+    &quot;impact&quot;: &quot;The test mode disables normal auto fixes and should not be recommended for normal play.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ]
+  },
+  {
+    &quot;date&quot;: &quot;2019-06-05&quot;,
+    &quot;label&quot;: &quot;r13 Beta final public build&quot;,
+    &quot;summary&quot;: &quot;Final public r13 build; recovered history says $IGR5 was fixed in this last build.&quot;,
+    &quot;impact&quot;: &quot;This is the canonical package identity to prefer over old RIP/WIP builds.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;retro-jogos-home&quot;,
+      &quot;psx-place-popstarter-thread&quot;
+    ]
+  },
+  {
+    &quot;date&quot;: &quot;2020-05-20&quot;,
+    &quot;label&quot;: &quot;TROJAN_7.BIN r7 fix pack&quot;,
+    &quot;summary&quot;: &quot;Recovered history identifies this as the last public fix-pack line.&quot;,
+    &quot;impact&quot;: &quot;Keep TROJAN_7 as a per-game fix-pack family, separate from IGR TROJAN_0..5 and compatibility PATCH_7 discussion.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;hugopocked-fixes&quot;
+    ]
+  },
+  {
+    &quot;date&quot;: &quot;2020-08-10&quot;,
+    &quot;label&quot;: &quot;uLE_kHn loader-address fix&quot;,
+    &quot;summary&quot;: &quot;uLE_kHn moved loader.elf to 0x00092000 to avoid kernel corruption.&quot;,
+    &quot;impact&quot;: &quot;Explains why later uLE_kHn packages are referenced in modern direct-VCD launch workflows.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;elotrolado-pops-thread&quot;
+    ]
+  }
+]</code></pre></article>
     </main>
   </div>
   <footer class="site-footer">

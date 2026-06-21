@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>research/raw/web/psx-place-igr-loader-disable.md - POPStarter Docs</title>
-  <meta name="description" content="Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md">
+  <title>Data: configBytes - POPStarter Docs</title>
+  <meta name="description" content="Rendered structured data file: src/data/configBytes.json">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -24,19 +24,466 @@
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>research/raw/web/psx-place-igr-loader-disable.md</h1>
-          <p>Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md</p>
+          <h1>Data: configBytes</h1>
+          <p>Rendered structured data file: src/data/configBytes.json</p>
         </div>
       </section>
-      <section class="callout"><h2>Source file</h2><p><code>research/raw/web/psx-place-igr-loader-disable.md</code></p></section>
-<article class="archive-doc"><h2>Source Notes: PSX-Place IGR / Loader Disable</h2>
-<p>URLs:</p>
-<ul><li>https://www.psx-place.com/threads/popstarter.19139/page-4</li><li>https://www.psx-place.com/threads/popstarter.19139/page-15</li></ul>
-<p>Checked: 2026-06-21</p>
-<h3>Captured Observations</h3>
-<ul><li>Page 4, post #64: krHACKen tells Peppe90 to try attached <code>PATCH_9.BIN</code> in the POPS folder.</li><li>The stated purpose is to disable the bugged ELF loader and allow IGR to exit normally.</li><li>Page 15, post #285: krHACKen recommends <code>$IGR5</code> in <code>CHEATS.TXT</code> for OPL-like IGR with no popup.</li><li>The same page explains black-screen exit as likely incompatible <code>BOOT.ELF</code> and suggests disabling POPStarter's ELF loader or recompressing/replacing <code>BOOT.ELF</code>.</li><li>BloodRaynare clarifies that users can still launch POPStarter from OPL; the risky part is IGR-ing back into the incompatible target.</li><li>A user later reports that placing &quot;that bin&quot; in the POPS folder avoids the black-screen freeze but exits to the PS2 Browser instead of OPL.</li></ul>
-<h3>Site Decision</h3>
-<p>The site treats <code>PATCH_9.BIN</code> as the high-confidence loader-disable artifact, but keeps the <code>$NOPAL</code>/<code>PATCH_9.BIN</code> seed mapping as a conflict pending archive/package recovery.</p></article>
+      <section class="callout"><h2>Source file</h2><p><code>src/data/configBytes.json</code></p></section>
+<article class="archive-doc"><pre><code>[
+  {
+    &quot;offset&quot;: &quot;$410&quot;,
+    &quot;default&quot;: &quot;0x00&quot;,
+    &quot;name&quot;: &quot;Debug text display&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = debug text off / classic boot&quot;,
+      &quot;0x01-0xFE = paced debug page delay&quot;,
+      &quot;0xFF = realtime debug text&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;classic 00 vs debug FF build label&quot;,
+      &quot;DEBUG_AND_HALT.PPF also changes $411&quot;
+    ],
+    &quot;notes&quot;: &quot;The community classic/debug label is a byte setting, not a separate codebase. SMB mode still shows forced startup debug/status text.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;shaolin-bitbucket-wiki&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$411&quot;,
+    &quot;default&quot;: &quot;0x00&quot;,
+    &quot;name&quot;: &quot;Break or halt on error&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = print briefly then return to OSD&quot;,
+      &quot;nonzero = hold on the error screen&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;DEBUG_AND_HALT.PPF&quot;
+    ],
+    &quot;notes&quot;: &quot;Useful only when deliberately collecting debug output; normally left at the factory default.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;shaolin-bitbucket-wiki&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$412&quot;,
+    &quot;default&quot;: &quot;0x00&quot;,
+    &quot;name&quot;: &quot;SetGsCrt / HDTVFIX hack&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = disabled&quot;,
+      &quot;0x01 = enabled&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;$HDTVFIX&quot;
+    ],
+    &quot;notes&quot;: &quot;In r13 this is HDTVFIX, not the old function skipper. The function skipper lived at this byte in pre-Beta-13 builds and was removed before the final r13 line.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;elotrolado-pops-thread&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$413&quot;,
+    &quot;default&quot;: &quot;0x02&quot;,
+    &quot;name&quot;: &quot;USB access delay&quot;,
+    &quot;values&quot;: [
+      &quot;0x02 = factory delay&quot;,
+      &quot;higher values wait longer before USB access&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;not the same thing as $USBDELAY_#&quot;
+    ],
+    &quot;notes&quot;: &quot;This byte helps USB device detection. The CHEATS.TXT $USBDELAY_# command patches POPS streaming behavior after launch and will not fix a drive that is not detected.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;elotrolado-pops-thread&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$414&quot;,
+    &quot;default&quot;: &quot;0x40&quot;,
+    &quot;name&quot;: &quot;Reserved USB-mode byte&quot;,
+    &quot;values&quot;: [
+      &quot;0x40 = required factory value&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;Marked reserved for USB operation. Do not treat it as a user-tunable option.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$415&quot;,
+    &quot;default&quot;: &quot;0x00&quot;,
+    &quot;name&quot;: &quot;Per-VMC user ID&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = disabled&quot;,
+      &quot;0x30-0x39 = ASCII digit 0-9&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;Use the ASCII byte for a digit, such as 0x32 for user 2, not raw numeric 0x02.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$416&quot;,
+    &quot;default&quot;: &quot;0x03&quot;,
+    &quot;name&quot;: &quot;POPS dev9 module loading&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = allow POPS to load dev9&quot;,
+      &quot;0x03 = forbid loading&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;Only relevant in USB mode. The factory value keeps the NIC off during USB play.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$417&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;Not used in r13&quot;,
+    &quot;values&quot;: [
+      &quot;r13 = not used&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;legacy PFS-wrapper USB delay in old beta builds&quot;
+    ],
+    &quot;notes&quot;: &quot;Old guides citing a USB delay at 417h are talking about obsolete beta behavior. Use $413 in r13 for USB detection delay.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$418-$41F&quot;,
+    &quot;default&quot;: &quot;0x00 x 8&quot;,
+    &quot;name&quot;: &quot;Force compatibility-mode slots&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = no forced mode&quot;,
+      &quot;0x01-0x07 = force that compatibility mode and disable automatic activator for that slot&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;$COMPATIBILITY_0x##&quot;,
+      &quot;PATCH_#.BIN&quot;,
+      &quot;FORCE_MODEX PPF family&quot;
+    ],
+    &quot;notes&quot;: &quot;Eight slots allow multiple forced modes. Modes 0x01, 0x02, 0x03, and 0x05 poke CD status and should not be combined; 0x04, 0x06, and 0x07 combine more safely.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;shaolin-bitbucket-wiki&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$420&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;Genuine HDD check patch&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = do not patch&quot;,
+      &quot;0x01 = patch&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;Described as effectively useless for normal users; leave at 0x01.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$421&quot;,
+    &quot;default&quot;: &quot;0x00&quot;,
+    &quot;name&quot;: &quot;POPS BIOS OSD shell&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = load and execute the shell&quot;,
+      &quot;0x01 = do not load/execute&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;compatibility mode 0x06&quot;,
+      &quot;$COMPATIBILITY_0x06&quot;
+    ],
+    &quot;notes&quot;: &quot;Equivalent to mode 0x06, which skips CD checks and the PS logo. A user-supplied BIOS.BIN overrides this behavior.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;shaolin-bitbucket-wiki&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$422&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;Exception breakpoints&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = keep break instructions&quot;,
+      &quot;0x01 = NOP second-stage break instructions&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;Default behavior can allow IGR after some emulator crashes.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$423&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;SLBB-00001 disc0 integrity check&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = do not skip&quot;,
+      &quot;0x01 = skip&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;Relates to the PSX/PSBBN SLBB-00001 boot-disc path, not normal per-game tuning.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$424&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;IGR exit method&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = original SLBB-00001/PSBBN method&quot;,
+      &quot;0x01 = r13 mc0/mc1 BOOT.ELF exit chain&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;BOOT.ELF exit chain&quot;
+    ],
+    &quot;notes&quot;: &quot;The default enables the Beta-13-and-newer chain: mc0:/BOOT/BOOT.ELF, then mc1:/BOOT/BOOT.ELF, then OSDSYS.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;psx-place-popstarter-page-15&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$425&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;IOPCD stack size patch&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = do not patch&quot;,
+      &quot;0x01 = patch&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;USB-mode patch; leave at the default unless doing focused experiments.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$426&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;Delcro's patches&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = do not apply&quot;,
+      &quot;0x01 = apply&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;USB-mode POPS patch set enabled by default.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$427&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;Injected-module load failure behavior&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = return to OSD on injected IRX error&quot;,
+      &quot;0x01 = ignore returned code and continue&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;Developer/modder convenience for custom IRX injection experiments.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$428&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;Internal-HDD init-failure behavior&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = return to OSD on init failure&quot;,
+      &quot;0x01 = ignore and continue&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;Leave at the default for normal use.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$429&quot;,
+    &quot;default&quot;: &quot;0x00&quot;,
+    &quot;name&quot;: &quot;Virtual Memory Card control&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = use both VMCs&quot;,
+      &quot;0x01 = no VMCs&quot;,
+      &quot;0x02 = first VMC only&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;$NOVMC0&quot;,
+      &quot;$NOVMC1&quot;,
+      &quot;NO_VMC.PPF&quot;,
+      &quot;ONLY_1ST_VMC.PPF&quot;
+    ],
+    &quot;notes&quot;: &quot;This byte controls VMC count. Do not confuse it with $42A.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;elotrolado-pops-thread&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$42A&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;Auto-PAL patcher / 480p selector&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = PAL patcher off&quot;,
+      &quot;0x01 = auto-PAL when Euro marker is found&quot;,
+      &quot;0x02 = force 480p&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;$NOPAL&quot;,
+      &quot;$480p&quot;,
+      &quot;NO_PAL.PPF&quot;
+    ],
+    &quot;notes&quot;: &quot;Multi-valued byte. 0x02 is the hardcoded equivalent of $480p and is not reliable for every title/display.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;elotrolado-pops-thread&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$42B&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;Resident modules loader&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = disabled&quot;,
+      &quot;0x01 = enabled&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;MODULE_0.IRX through MODULE_9.IRX&quot;
+    ],
+    &quot;notes&quot;: &quot;Loads POPS/MODULE_0.IRX through MODULE_9.IRX after IOP reset with IOPRP252.IMG.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$42C&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;Software PowerOff fix&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = disabled&quot;,
+      &quot;0x01 = enabled&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;Purpose is uncertain even in recovered notes; possibly redundant poweroff behavior for storage drivers.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;medium&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-author-uncertain&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$42D&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;IGR textures loader&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = use built-in textures&quot;,
+      &quot;0x01 = load external IGR TM2 textures&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;DEFAULT_IGR_TEXTURES.PPF&quot;
+    ],
+    &quot;notes&quot;: &quot;When enabled, POPStarter can load IGR_BG.TM2, IGR_NO.TM2, and IGR_YES.TM2 from the POPS folder.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;shaolin-bitbucket-wiki&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$42E&quot;,
+    &quot;default&quot;: &quot;0x01&quot;,
+    &quot;name&quot;: &quot;Game license / region check&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = leave check unpatched&quot;,
+      &quot;0x01 = patch region-check loop&quot;
+    ],
+    &quot;aliases&quot;: [],
+    &quot;notes&quot;: &quot;Default region-free behavior can skip the PS logo for non-Japanese titles.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  },
+  {
+    &quot;offset&quot;: &quot;$42F&quot;,
+    &quot;default&quot;: &quot;0x03&quot;,
+    &quot;name&quot;: &quot;Automatic patch master switch&quot;,
+    &quot;values&quot;: [
+      &quot;0x00 = no automatic patching&quot;,
+      &quot;0x01 = automatic compatibility modes&quot;,
+      &quot;0x02 = LibCrypt subroutines&quot;,
+      &quot;0x03 = all automatic patching&quot;,
+      &quot;0x04 = diagnostic test mode&quot;
+    ],
+    &quot;aliases&quot;: [
+      &quot;NO_AUTO_PATCH.PPF&quot;,
+      &quot;LC_ONLY.PPF&quot;,
+      &quot;NO_LC_CRACKS.PPF&quot;,
+      &quot;$UNDO_GAME_FIXES overlaps conceptually with test mode&quot;
+    ],
+    &quot;notes&quot;: &quot;0x04 is a diagnostic/test mode added in the Prototype 2 era, not a normal-play setting. If 0x03 is active and a mode is forced in $418-$41F, the activator is reduced to LibCrypt-only behavior.&quot;,
+    &quot;sourceIds&quot;: [
+      &quot;popsloader-docs-reference&quot;,
+      &quot;shaolin-bitbucket-wiki&quot;
+    ],
+    &quot;confidence&quot;: &quot;high&quot;,
+    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
+  }
+]</code></pre></article>
     </main>
   </div>
   <footer class="site-footer">

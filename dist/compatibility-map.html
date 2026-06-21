@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>research/raw/web/psx-place-igr-loader-disable.md - POPStarter Docs</title>
-  <meta name="description" content="Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md">
+  <title>Compatibility Map - POPStarter Docs</title>
+  <meta name="description" content="Cross-reference POPStarter CHEATS.TXT commands, PATCH files, TROJAN files, and config-byte equivalents.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -20,23 +20,185 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">Start</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">Storage and Launch</div><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="smb-network.html">SMB / Network</a><a  href="storage-matrix.html">Storage Matrix</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">Reference</div><a  href="command-reference.html">Command Reference</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a></div><div class="nav-group"><div class="nav-heading">Archive</div><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
+    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">Start</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">Storage and Launch</div><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="smb-network.html">SMB / Network</a><a  href="storage-matrix.html">Storage Matrix</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">Reference</div><a  href="command-reference.html">Command Reference</a><a  href="config-table.html">Config Table</a><a aria-current="page" href="compatibility-map.html">Compatibility Map</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a></div><div class="nav-group"><div class="nav-heading">Archive</div><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>research/raw/web/psx-place-igr-loader-disable.md</h1>
-          <p>Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md</p>
+          <h1>Compatibility Map</h1>
+          <p>Cross-reference POPStarter CHEATS.TXT commands, PATCH files, TROJAN files, and config-byte equivalents.</p>
         </div>
       </section>
-      <section class="callout"><h2>Source file</h2><p><code>research/raw/web/psx-place-igr-loader-disable.md</code></p></section>
-<article class="archive-doc"><h2>Source Notes: PSX-Place IGR / Loader Disable</h2>
-<p>URLs:</p>
-<ul><li>https://www.psx-place.com/threads/popstarter.19139/page-4</li><li>https://www.psx-place.com/threads/popstarter.19139/page-15</li></ul>
-<p>Checked: 2026-06-21</p>
-<h3>Captured Observations</h3>
-<ul><li>Page 4, post #64: krHACKen tells Peppe90 to try attached <code>PATCH_9.BIN</code> in the POPS folder.</li><li>The stated purpose is to disable the bugged ELF loader and allow IGR to exit normally.</li><li>Page 15, post #285: krHACKen recommends <code>$IGR5</code> in <code>CHEATS.TXT</code> for OPL-like IGR with no popup.</li><li>The same page explains black-screen exit as likely incompatible <code>BOOT.ELF</code> and suggests disabling POPStarter's ELF loader or recompressing/replacing <code>BOOT.ELF</code>.</li><li>BloodRaynare clarifies that users can still launch POPStarter from OPL; the risky part is IGR-ing back into the incompatible target.</li><li>A user later reports that placing &quot;that bin&quot; in the POPS folder avoids the black-screen freeze but exits to the PS2 Browser instead of OPL.</li></ul>
-<h3>Site Decision</h3>
-<p>The site treats <code>PATCH_9.BIN</code> as the high-confidence loader-disable artifact, but keeps the <code>$NOPAL</code>/<code>PATCH_9.BIN</code> seed mapping as a conflict pending archive/package recovery.</p></article>
+      <section class="callout">
+        <h2>One behavior can have several faces</h2>
+        <p>POPStarter's history mixes text commands, standalone patch files, TROJAN files, and direct config-byte edits. This table keeps the aliases together and calls out filename collisions such as stock <code>PATCH_9.BIN</code> for <code>$NOPAL</code> versus the later loader-disable workaround that reused the same filename.</p>
+      </section>
+<section class="callout warning">
+        <h2>Compatibility-mode stacking rule</h2>
+        <p>Recovered notes say modes <code>0x01</code>, <code>0x02</code>, <code>0x03</code>, and <code>0x05</code> touch CD status and should not be combined. Modes <code>0x04</code>, <code>0x06</code>, and <code>0x07</code> combine more safely, but still test per title.</p>
+      </section>
+<div class="table-wrap"><table><thead><tr><th>Behavior</th><th>CHEATS.TXT</th><th>PATCH</th><th>TROJAN</th><th>Config bytes</th><th>Notes</th><th>Status</th><th>Sources</th></tr></thead><tbody><tr>
+    <td>Compatibility mode 0x01</td>
+    <td><code>$COMPATIBILITY_0x01</code></td>
+    <td><code>PATCH_1.BIN</code></td>
+    <td>None</td>
+    <td><code>$418-$41F slot value 0x01</code></td>
+    <td>CD-status-touching mode; do not stack with modes 0x02, 0x03, or 0x05.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td>Compatibility mode 0x02</td>
+    <td><code>$COMPATIBILITY_0x02</code></td>
+    <td><code>PATCH_2.BIN</code></td>
+    <td>None</td>
+    <td><code>$418-$41F slot value 0x02</code></td>
+    <td>CD-status-touching mode; do not stack with modes 0x01, 0x03, or 0x05.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td>Compatibility mode 0x03</td>
+    <td><code>$COMPATIBILITY_0x03</code></td>
+    <td><code>PATCH_3.BIN</code></td>
+    <td>None</td>
+    <td><code>$418-$41F slot value 0x03</code></td>
+    <td>CD-status-touching mode; do not stack with modes 0x01, 0x02, or 0x05.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td>Compatibility mode 0x04</td>
+    <td><code>$COMPATIBILITY_0x04</code></td>
+    <td><code>PATCH_4.BIN</code></td>
+    <td>None</td>
+    <td><code>$418-$41F slot value 0x04</code></td>
+    <td>General-purpose mode used by several known titles. Recovered notes mention King's Field JP English patch and Final Fantasy IX default-config coverage.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td>Compatibility mode 0x05 / sub-CD status</td>
+    <td><code>$COMPATIBILITY_0x05 or $SUBCDSTATUS</code></td>
+    <td><code>PATCH_5.BIN</code></td>
+    <td>None</td>
+    <td><code>$418-$41F slot value 0x05</code></td>
+    <td>CD-status-touching mode; do not stack with modes 0x01, 0x02, or 0x03. Do not confuse this compatibility PATCH_5.BIN with POPSLoader's unrelated IGR texture patch artifact.</td>
+    <td><span class="badge medium">medium</span> <span class="badge ">recovered-name-collision</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/resources/popsloader.1396/" target="_blank" rel="noreferrer">POPSLoader by El_isra</a></td>
+  </tr><tr>
+    <td>Compatibility mode 0x06 / skip BIOS OSD shell</td>
+    <td><code>$COMPATIBILITY_0x06</code></td>
+    <td><code>PATCH_6.BIN</code></td>
+    <td>None</td>
+    <td><code>$421=0x01 or $418-$41F slot value 0x06</code></td>
+    <td>Skips CD checks and the PS logo unless a user BIOS.BIN changes the path.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td>Compatibility mode 0x07</td>
+    <td><code>$COMPATIBILITY_0x07</code></td>
+    <td><code>PATCH_7.BIN</code></td>
+    <td>None</td>
+    <td><code>$418-$41F slot value 0x07</code></td>
+    <td>Recovered compatibility map lists mode 0x07; C-12: Final Resistance is noted as only partly helped. Keep separate from unverified IGR-related PATCH_7 folklore.</td>
+    <td><span class="badge medium">medium</span> <span class="badge ">recovered-needs-package-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+  </tr><tr>
+    <td>Disable IGR</td>
+    <td><code>$NOIGR</code></td>
+    <td><code>PATCH_0.BIN</code></td>
+    <td>None</td>
+    <td>None</td>
+    <td>Turns off POPStarter's pad-triggered IGR behavior. It is not the same as disabling the BOOT.ELF exit-chain loader.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-15" target="_blank" rel="noreferrer">PSX-Place POPStarter page 15 - IGR and BOOT.ELF discussion</a></td>
+  </tr><tr>
+    <td>IGR menu: L1+L2+R1+R2+X+Down</td>
+    <td><code>$IGR0</code></td>
+    <td>None</td>
+    <td><code>TROJAN_0.BIN</code></td>
+    <td>None</td>
+    <td>Opens the IGR menu.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr>
+    <td>IGR menu: Start+Select</td>
+    <td><code>$IGR1</code></td>
+    <td>None</td>
+    <td><code>TROJAN_1.BIN</code></td>
+    <td>None</td>
+    <td>Opens the IGR menu.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr>
+    <td>IGR menu: L1+L2+R1+R2+Start+Select</td>
+    <td><code>$IGR2</code></td>
+    <td>None</td>
+    <td><code>TROJAN_2.BIN</code></td>
+    <td>None</td>
+    <td>Opens the IGR menu.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr>
+    <td>Direct exit: L1+L2+R1+R2+X+Down</td>
+    <td><code>$IGR3</code></td>
+    <td>None</td>
+    <td><code>TROJAN_3.BIN</code></td>
+    <td><code>$424 must stay at r13 exit-chain default for BOOT.ELF chain</code></td>
+    <td>Terminates POPS directly with no popup, then uses the mc0/mc1 BOOT.ELF -&gt; OSDSYS chain.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-15" target="_blank" rel="noreferrer">PSX-Place POPStarter page 15 - IGR and BOOT.ELF discussion</a></td>
+  </tr><tr>
+    <td>Direct exit: Start+Select</td>
+    <td><code>$IGR4</code></td>
+    <td>None</td>
+    <td><code>TROJAN_4.BIN</code></td>
+    <td><code>$424 must stay at r13 exit-chain default for BOOT.ELF chain</code></td>
+    <td>Terminates POPS directly with no popup. Recovered notes warn that some mirrored manuals swap IGR4 and IGR5; CHANGES.TXT ordering is the authoritative order.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr>
+    <td>Direct exit / OPL-style macro: L1+L2+R1+R2+Start+Select</td>
+    <td><code>$IGR5</code></td>
+    <td>None</td>
+    <td><code>TROJAN_5.BIN</code></td>
+    <td><code>$424 must stay at r13 exit-chain default for BOOT.ELF chain</code></td>
+    <td>The no-popup OPL-like exit most users want. Earlier r13 builds had a broken $IGR5; the 2019-06-05 final fixed it.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-15" target="_blank" rel="noreferrer">PSX-Place POPStarter page 15 - IGR and BOOT.ELF discussion</a> <a class="source-chip" href="https://www.retro-jogos.com/PS2/pops/home.html" target="_blank" rel="noreferrer">Retro-Jogos POPStarter guide home</a></td>
+  </tr><tr>
+    <td>Disable automatic PAL patcher</td>
+    <td><code>$NOPAL</code></td>
+    <td><code>stock PATCH_9.BIN</code></td>
+    <td>None</td>
+    <td><code>$42A=0x00</code></td>
+    <td>Runs PAL games in POPS native NTSC behavior. This is the stock PATCH_9 meaning and collides by filename with the later loader-disable PATCH_9.BIN workaround.</td>
+    <td><span class="badge medium">medium</span> <span class="badge ">recovered-filename-collision</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-4" target="_blank" rel="noreferrer">PSX-Place POPStarter page 4 - PATCH_9.BIN loader-disable post</a></td>
+  </tr><tr>
+    <td>Force PAL patcher and Euro BIOS region</td>
+    <td><code>$FORCEPAL</code></td>
+    <td><code>PATCH_8.BIN</code></td>
+    <td>None</td>
+    <td><code>$42A PAL patcher path</code></td>
+    <td>For PAL VCDs whose boot sector lacks valid PAL license text. Do not set with $NOPAL.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+  </tr><tr>
+    <td>Force 480p output</td>
+    <td><code>$480p</code></td>
+    <td>None</td>
+    <td>None</td>
+    <td><code>$42A=0x02</code></td>
+    <td>Not reliable on all titles and not compatible with X/Y position or display-width crop/stretch commands.</td>
+    <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.retro-jogos.com/PS2/pops/home.html" target="_blank" rel="noreferrer">Retro-Jogos POPStarter guide home</a></td>
+  </tr><tr>
+    <td>Per-game cumulative fixes</td>
+    <td>None</td>
+    <td>None</td>
+    <td><code>TROJAN_7.BIN</code></td>
+    <td>None</td>
+    <td>Separate from any PATCH_7 discussion. Recovered notes identify TROJAN_7.BIN as the final public fix-pack family, with a 2020-05-20 r7 package noted in history.</td>
+    <td><span class="badge medium">medium</span> <span class="badge ">recovered-needs-package-check</span></td>
+    <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/hugopocked-fixes-for-popstarter.39750/" target="_blank" rel="noreferrer">Hugopocked fixes for POPStarter</a></td>
+  </tr></tbody></table></div>
     </main>
   </div>
   <footer class="site-footer">

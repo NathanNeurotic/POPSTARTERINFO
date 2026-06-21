@@ -8,6 +8,8 @@
   <url><loc>storage-matrix.html</loc></url>
   <url><loc>launcher-matrix.html</loc></url>
   <url><loc>command-reference.html</loc></url>
+  <url><loc>config-table.html</loc></url>
+  <url><loc>compatibility-map.html</loc></url>
   <url><loc>igr-exit.html</loc></url>
   <url><loc>patches-fixes.html</loc></url>
   <url><loc>multi-disc-vmc.html</loc></url>
@@ -16,6 +18,9 @@
   <url><loc>debugging.html</loc></url>
   <url><loc>troubleshooting.html</loc></url>
   <url><loc>source-archive.html</loc></url>
+  <url><loc>download-inventory.html</loc></url>
+  <url><loc>history-provenance.html</loc></url>
+  <url><loc>wiki-coverage.html</loc></url>
   <url><loc>research-log.html</loc></url>
   <url><loc>glossary.html</loc></url>
   <url><loc>search.html</loc></url>
@@ -51,4 +56,9 @@
   <url><loc>data-glossary.html</loc></url>
   <url><loc>data-hotkeys.html</loc></url>
   <url><loc>data-researchgaps.html</loc></url>
+  <url><loc>data-configbytes.html</loc></url>
+  <url><loc>data-compatibilitymap.html</loc></url>
+  <url><loc>data-downloadinventory.html</loc></url>
+  <url><loc>data-wikicoverage.html</loc></url>
+  <url><loc>data-historytimeline.html</loc></url>
 </urlset>

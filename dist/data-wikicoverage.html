@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>research/raw/web/psx-place-igr-loader-disable.md - POPStarter Docs</title>
-  <meta name="description" content="Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md">
+  <title>Data: wikiCoverage - POPStarter Docs</title>
+  <meta name="description" content="Rendered structured data file: src/data/wikiCoverage.json">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -24,19 +24,391 @@
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>research/raw/web/psx-place-igr-loader-disable.md</h1>
-          <p>Rendered local archive file: research/raw/web/psx-place-igr-loader-disable.md</p>
+          <h1>Data: wikiCoverage</h1>
+          <p>Rendered structured data file: src/data/wikiCoverage.json</p>
         </div>
       </section>
-      <section class="callout"><h2>Source file</h2><p><code>research/raw/web/psx-place-igr-loader-disable.md</code></p></section>
-<article class="archive-doc"><h2>Source Notes: PSX-Place IGR / Loader Disable</h2>
-<p>URLs:</p>
-<ul><li>https://www.psx-place.com/threads/popstarter.19139/page-4</li><li>https://www.psx-place.com/threads/popstarter.19139/page-15</li></ul>
-<p>Checked: 2026-06-21</p>
-<h3>Captured Observations</h3>
-<ul><li>Page 4, post #64: krHACKen tells Peppe90 to try attached <code>PATCH_9.BIN</code> in the POPS folder.</li><li>The stated purpose is to disable the bugged ELF loader and allow IGR to exit normally.</li><li>Page 15, post #285: krHACKen recommends <code>$IGR5</code> in <code>CHEATS.TXT</code> for OPL-like IGR with no popup.</li><li>The same page explains black-screen exit as likely incompatible <code>BOOT.ELF</code> and suggests disabling POPStarter's ELF loader or recompressing/replacing <code>BOOT.ELF</code>.</li><li>BloodRaynare clarifies that users can still launch POPStarter from OPL; the risky part is IGR-ing back into the incompatible target.</li><li>A user later reports that placing &quot;that bin&quot; in the POPS folder avoids the black-screen freeze but exits to the PS2 Browser instead of OPL.</li></ul>
-<h3>Site Decision</h3>
-<p>The site treats <code>PATCH_9.BIN</code> as the high-confidence loader-disable artifact, but keeps the <code>$NOPAL</code>/<code>PATCH_9.BIN</code> seed mapping as a conflict pending archive/package recovery.</p></article>
+      <section class="callout"><h2>Source file</h2><p><code>src/data/wikiCoverage.json</code></p></section>
+<article class="archive-doc"><pre><code>[
+  {
+    &quot;slug&quot;: &quot;apps-last-version&quot;,
+    &quot;title&quot;: &quot;Apps Last Version&quot;,
+    &quot;category&quot;: &quot;tools&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;automated&quot;,
+    &quot;title&quot;: &quot;Automated Patches&quot;,
+    &quot;category&quot;: &quot;compatibility&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;bios-osd-handlers&quot;,
+    &quot;title&quot;: &quot;BIOS OSD Handlers&quot;,
+    &quot;category&quot;: &quot;runtime&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;cheat-engine&quot;,
+    &quot;title&quot;: &quot;Cheat Engine&quot;,
+    &quot;category&quot;: &quot;cheats&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;chronology&quot;,
+    &quot;title&quot;: &quot;Chronology&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;compatibility&quot;,
+    &quot;title&quot;: &quot;Compatibility&quot;,
+    &quot;category&quot;: &quot;compatibility&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;configuration-table&quot;,
+    &quot;title&quot;: &quot;Configuration Table&quot;,
+    &quot;category&quot;: &quot;config&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;cue2pops-and-toolbox-changelogs&quot;,
+    &quot;title&quot;: &quot;CUE2POPS and Toolbox Changelogs&quot;,
+    &quot;category&quot;: &quot;tools&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;d2ls&quot;,
+    &quot;title&quot;: &quot;D2LS&quot;,
+    &quot;category&quot;: &quot;input&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;debug-mode&quot;,
+    &quot;title&quot;: &quot;Debug Mode&quot;,
+    &quot;category&quot;: &quot;debug&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;ds34&quot;,
+    &quot;title&quot;: &quot;DS3/DS4&quot;,
+    &quot;category&quot;: &quot;input&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;faqs&quot;,
+    &quot;title&quot;: &quot;FAQs&quot;,
+    &quot;category&quot;: &quot;help&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;game-compatibility&quot;,
+    &quot;title&quot;: &quot;Game Compatibility&quot;,
+    &quot;category&quot;: &quot;compatibility&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;general-note&quot;,
+    &quot;title&quot;: &quot;General Note&quot;,
+    &quot;category&quot;: &quot;help&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;hdd-mode&quot;,
+    &quot;title&quot;: &quot;HDD Mode&quot;,
+    &quot;category&quot;: &quot;storage&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;help&quot;,
+    &quot;title&quot;: &quot;Help&quot;,
+    &quot;category&quot;: &quot;help&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;history&quot;,
+    &quot;title&quot;: &quot;History&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;home&quot;,
+    &quot;title&quot;: &quot;Home&quot;,
+    &quot;category&quot;: &quot;overview&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;hotkeys&quot;,
+    &quot;title&quot;: &quot;Hotkeys&quot;,
+    &quot;category&quot;: &quot;input&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;igr&quot;,
+    &quot;title&quot;: &quot;IGR&quot;,
+    &quot;category&quot;: &quot;igr&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;igr-textures&quot;,
+    &quot;title&quot;: &quot;IGR Textures&quot;,
+    &quot;category&quot;: &quot;igr&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;index&quot;,
+    &quot;title&quot;: &quot;Index&quot;,
+    &quot;category&quot;: &quot;overview&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;irx-loader&quot;,
+    &quot;title&quot;: &quot;IRX Loader&quot;,
+    &quot;category&quot;: &quot;runtime&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;known-bugs&quot;,
+    &quot;title&quot;: &quot;Known Bugs&quot;,
+    &quot;category&quot;: &quot;troubleshooting&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;multi-disc&quot;,
+    &quot;title&quot;: &quot;Multi-disc&quot;,
+    &quot;category&quot;: &quot;multi-disc&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;pfsshell&quot;,
+    &quot;title&quot;: &quot;PFSShell&quot;,
+    &quot;category&quot;: &quot;tools&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;pmc-to-vmc&quot;,
+    &quot;title&quot;: &quot;PMC to VMC&quot;,
+    &quot;category&quot;: &quot;vmc&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;poc2-pops-00001-era&quot;,
+    &quot;title&quot;: &quot;POC2 / POPS-00001 Era&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;popstarter-batcher&quot;,
+    &quot;title&quot;: &quot;POPStarter Batcher&quot;,
+    &quot;category&quot;: &quot;tools&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;popstarter-changelog&quot;,
+    &quot;title&quot;: &quot;POPStarter Changelog&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;popstarter-hddosd&quot;,
+    &quot;title&quot;: &quot;POPStarter HDDOSD&quot;,
+    &quot;category&quot;: &quot;hddosd&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;popstarter10&quot;,
+    &quot;title&quot;: &quot;POPStarter 10&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;popstarter11&quot;,
+    &quot;title&quot;: &quot;POPStarter 11&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;popstarter12&quot;,
+    &quot;title&quot;: &quot;POPStarter 12&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;popstarter9&quot;,
+    &quot;title&quot;: &quot;POPStarter 9&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;popstarter-batcher-2&quot;,
+    &quot;title&quot;: &quot;POPStarter Batcher 2&quot;,
+    &quot;category&quot;: &quot;tools&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;proto&quot;,
+    &quot;title&quot;: &quot;Prototype Builds&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;ps1-codes-in-ps1-raw-format&quot;,
+    &quot;title&quot;: &quot;PS1 Codes in PS1 RAW Format&quot;,
+    &quot;category&quot;: &quot;cheats&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;ps1-codes-in-ps2-raw-format&quot;,
+    &quot;title&quot;: &quot;PS1 Codes in PS2 RAW Format&quot;,
+    &quot;category&quot;: &quot;cheats&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;ps1-special-devices&quot;,
+    &quot;title&quot;: &quot;PS1 Special Devices&quot;,
+    &quot;category&quot;: &quot;input&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;ps1-widescreen-codes&quot;,
+    &quot;title&quot;: &quot;PS1 Widescreen Codes&quot;,
+    &quot;category&quot;: &quot;video&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;ps1-buttons&quot;,
+    &quot;title&quot;: &quot;PS1 Buttons&quot;,
+    &quot;category&quot;: &quot;input&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;ps1cd-mode&quot;,
+    &quot;title&quot;: &quot;PS1CD Mode&quot;,
+    &quot;category&quot;: &quot;storage&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;quickstart-hdd&quot;,
+    &quot;title&quot;: &quot;Quickstart HDD&quot;,
+    &quot;category&quot;: &quot;storage&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;quickstart-smb&quot;,
+    &quot;title&quot;: &quot;Quickstart SMB&quot;,
+    &quot;category&quot;: &quot;storage&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;quickstart-usb&quot;,
+    &quot;title&quot;: &quot;Quickstart USB&quot;,
+    &quot;category&quot;: &quot;storage&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;radhostclient&quot;,
+    &quot;title&quot;: &quot;RadHostClient&quot;,
+    &quot;category&quot;: &quot;tools&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;related-stuff&quot;,
+    &quot;title&quot;: &quot;Related Stuff&quot;,
+    &quot;category&quot;: &quot;tools&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;rip-off&quot;,
+    &quot;title&quot;: &quot;Rip-off&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;scanlines&quot;,
+    &quot;title&quot;: &quot;Scanlines&quot;,
+    &quot;category&quot;: &quot;video&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;smb-mode&quot;,
+    &quot;title&quot;: &quot;SMB Mode&quot;,
+    &quot;category&quot;: &quot;storage&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;smooth&quot;,
+    &quot;title&quot;: &quot;Smooth&quot;,
+    &quot;category&quot;: &quot;video&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;special-cheats&quot;,
+    &quot;title&quot;: &quot;Special Cheats&quot;,
+    &quot;category&quot;: &quot;cheats&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;timeline&quot;,
+    &quot;title&quot;: &quot;Timeline&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;toolbox-commands&quot;,
+    &quot;title&quot;: &quot;Toolbox Commands&quot;,
+    &quot;category&quot;: &quot;tools&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;troubleshooting-games&quot;,
+    &quot;title&quot;: &quot;Troubleshooting Games&quot;,
+    &quot;category&quot;: &quot;troubleshooting&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;ule-khn&quot;,
+    &quot;title&quot;: &quot;uLE_kHn&quot;,
+    &quot;category&quot;: &quot;tools&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;usb-mode&quot;,
+    &quot;title&quot;: &quot;USB Mode&quot;,
+    &quot;category&quot;: &quot;storage&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;vcd&quot;,
+    &quot;title&quot;: &quot;VCD&quot;,
+    &quot;category&quot;: &quot;storage&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;version&quot;,
+    &quot;title&quot;: &quot;Version&quot;,
+    &quot;category&quot;: &quot;history&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;vmc&quot;,
+    &quot;title&quot;: &quot;VMC&quot;,
+    &quot;category&quot;: &quot;vmc&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;vmc-to-pmc&quot;,
+    &quot;title&quot;: &quot;VMC to PMC&quot;,
+    &quot;category&quot;: &quot;vmc&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;widescreen&quot;,
+    &quot;title&quot;: &quot;Widescreen&quot;,
+    &quot;category&quot;: &quot;video&quot;,
+    &quot;status&quot;: &quot;indexed&quot;
+  }
+]</code></pre></article>
     </main>
   </div>
   <footer class="site-footer">

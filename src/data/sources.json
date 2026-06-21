@@ -108,6 +108,15 @@
     "notes": "Thread is for fix/patch discussion rather than general installation. It includes game-specific fix notes and SPU/GTE/GPU patch discussion. Retrieved 2026-06-21."
   },
   {
+    "id": "popsloader-docs-reference",
+    "title": "POPSLoader recovered POPStarter documentation site",
+    "url": "mention-only: Nathanneurotic POPSLoader recovered documentation site",
+    "type": "community recovered reference",
+    "status": "live",
+    "reliability": "medium_high",
+    "notes": "Used as a cross-check for recovered ShaolinAssassin/Wayback wiki coverage, config-byte meanings, compatibility aliases, and archive inventory. Mentioned without an outbound public link because the goal here is to paraphrase facts and avoid mirroring binary-download links. Retrieved 2026-06-21."
+  },
+  {
     "id": "user-notes",
     "title": "User uploaded operational notes",
     "url": "evidence/user_uploaded_notes_raw.md",

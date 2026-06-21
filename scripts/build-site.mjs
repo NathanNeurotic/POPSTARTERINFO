@@ -19,7 +19,12 @@ const data = {
   knownIssues: await loadJson("knownIssues.json"),
   glossary: await loadJson("glossary.json"),
   hotkeys: await loadJson("hotkeys.json"),
-  researchGaps: await loadJson("researchGaps.json")
+  researchGaps: await loadJson("researchGaps.json"),
+  configBytes: await loadJson("configBytes.json"),
+  compatibilityMap: await loadJson("compatibilityMap.json"),
+  downloadInventory: await loadJson("downloadInventory.json"),
+  wikiCoverage: await loadJson("wikiCoverage.json"),
+  historyTimeline: await loadJson("historyTimeline.json")
 };
 
 const sourceById = new Map(data.sources.map((source) => [source.id, source]));
@@ -383,7 +388,89 @@ function researchGaps() {
   </article>`).join("")}</div>`;
 }
 
+function homeStats() {
+  return `<section class="home-stats" aria-label="Recovered documentation summary">
+    <article><strong>${allPages.length}</strong><span>searchable pages</span></article>
+    <article><strong>${data.commands.length}</strong><span>commands and code forms</span></article>
+    <article><strong>${data.configBytes.length}</strong><span>config-byte records</span></article>
+    <article><strong>${data.wikiCoverage.length}</strong><span>recovered wiki pages indexed</span></article>
+  </section>`;
+}
+
+function configTable() {
+  const rows = data.configBytes.map((row) => `<tr>
+    <td><code>${esc(row.offset)}</code></td>
+    <td>${esc(row.default)}</td>
+    <td>${esc(row.name)}</td>
+    <td>${list(row.values)}</td>
+    <td>${row.aliases.length ? list(row.aliases) : "None recorded"}</td>
+    <td>${esc(row.notes)}</td>
+    <td>${badge(row.confidence, row.confidence)} ${badge(row.verificationStatus)}</td>
+    <td>${sourceLinks(row.sourceIds)}</td>
+  </tr>`).join("");
+  return `<div class="table-wrap"><table><thead><tr><th>Offset</th><th>Default</th><th>Setting</th><th>Values</th><th>Aliases</th><th>Notes</th><th>Status</th><th>Sources</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function compatibilityMap() {
+  const rows = data.compatibilityMap.map((row) => `<tr>
+    <td>${esc(row.behavior)}</td>
+    <td>${row.cheatsCommand ? `<code>${esc(row.cheatsCommand)}</code>` : "None"}</td>
+    <td>${row.patchFile ? `<code>${esc(row.patchFile)}</code>` : "None"}</td>
+    <td>${row.trojanFile ? `<code>${esc(row.trojanFile)}</code>` : "None"}</td>
+    <td>${row.configBytes ? `<code>${esc(row.configBytes)}</code>` : "None"}</td>
+    <td>${esc(row.notes)}</td>
+    <td>${badge(row.confidence, row.confidence)} ${badge(row.verificationStatus)}</td>
+    <td>${sourceLinks(row.sourceIds)}</td>
+  </tr>`).join("");
+  return `<div class="table-wrap"><table><thead><tr><th>Behavior</th><th>CHEATS.TXT</th><th>PATCH</th><th>TROJAN</th><th>Config bytes</th><th>Notes</th><th>Status</th><th>Sources</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function downloadInventory() {
+  const statuses = [...new Set(data.downloadInventory.map((item) => item.status))].sort();
+  const rows = data.downloadInventory.map((item) => `<tr data-status="${esc(item.status)}" data-search="${esc([item.name, item.status, item.role, item.safeReference, item.notes].join(" ").toLowerCase())}">
+    <td><code>${esc(item.name)}</code></td>
+    <td>${badge(item.status)}</td>
+    <td>${esc(item.role)}</td>
+    <td>${esc(item.safeReference)}</td>
+    <td>${esc(item.notes)}</td>
+    <td>${sourceLinks(item.sourceIds)}</td>
+  </tr>`).join("");
+  return `<section class="tool-panel">
+    <div class="filters" data-filter-table="download-inventory-table">
+      <label>Search <input type="search" data-search placeholder="package, hash, role"></label>
+      <label>Status <select data-filter="status"><option value="">All</option>${statuses.map((status) => `<option>${esc(status)}</option>`).join("")}</select></label>
+    </div>
+    <div class="table-wrap"><table id="download-inventory-table"><thead><tr><th>Name</th><th>Status</th><th>Role</th><th>Safe reference</th><th>Notes</th><th>Sources</th></tr></thead><tbody>${rows}</tbody></table></div>
+  </section>`;
+}
+
+function wikiCoverage() {
+  const categories = [...new Set(data.wikiCoverage.map((item) => item.category))].sort();
+  const cards = data.wikiCoverage.map((item) => `<article class="source-card" data-category="${esc(item.category)}" data-search="${esc([item.slug, item.title, item.category, item.status].join(" ").toLowerCase())}">
+    <h3>${esc(item.title)}</h3>
+    <p><code>${esc(item.slug)}</code></p>
+    <p>${badge(item.category)} ${badge(item.status)}</p>
+  </article>`).join("");
+  return `<section class="tool-panel">
+    <div class="filters" data-filter-cards="wiki-coverage-grid">
+      <label>Search <input type="search" data-search placeholder="wiki page, topic, slug"></label>
+      <label>Category <select data-filter="category"><option value="">All</option>${categories.map((category) => `<option>${esc(category)}</option>`).join("")}</select></label>
+    </div>
+    <div class="grid sources-grid" id="wiki-coverage-grid">${cards}</div>
+  </section>`;
+}
+
+function historyTimeline() {
+  return `<div class="timeline">${data.historyTimeline.map((item) => `<article class="issue">
+    <h3><time>${esc(item.date)}</time> ${esc(item.label)}</h3>
+    <p>${esc(item.summary)}</p>
+    <p><strong>Why it matters:</strong> ${esc(item.impact)}</p>
+    <p class="sources">${sourceLinks(item.sourceIds)}</p>
+  </article>`).join("")}</div>`;
+}
+
 const dynamicBlocks = {
+  homeStats,
   commandReference,
   storageMatrix,
   patchTable,
@@ -394,7 +481,12 @@ const dynamicBlocks = {
   searchPage,
   glossary,
   hotkeys,
-  researchGaps
+  researchGaps,
+  configTable,
+  compatibilityMap,
+  downloadInventory,
+  wikiCoverage,
+  historyTimeline
 };
 
 const generatedPages = [
@@ -452,8 +544,8 @@ const allPages = [...pages, ...generatedPages];
 const navGroups = [
   { label: "Start", slugs: ["index", "quick-start"] },
   { label: "Storage and Launch", slugs: ["usb-storage", "internal-hdd", "bdm-exfat", "smb-network", "storage-matrix", "launcher-matrix"] },
-  { label: "Reference", slugs: ["command-reference", "patches-fixes", "igr-exit", "multi-disc-vmc", "video-display", "debugging", "troubleshooting"] },
-  { label: "Archive", slugs: ["source-archive", "research-log", "glossary", "search", "archive", "data-browser"] }
+  { label: "Reference", slugs: ["command-reference", "config-table", "compatibility-map", "patches-fixes", "igr-exit", "multi-disc-vmc", "video-display", "debugging", "troubleshooting"] },
+  { label: "Archive", slugs: ["download-inventory", "history-provenance", "wiki-coverage", "source-archive", "research-log", "glossary", "search", "archive", "data-browser"] }
 ];
 
 function sidebarNav(page) {
@@ -560,6 +652,36 @@ function searchIndex() {
     type: "patch",
     text: `${patch.type} ${patch.placement} ${patch.effect} ${patch.conflicts.join(" ")}`
   }));
+  const configRows = data.configBytes.map((row) => ({
+    title: row.offset,
+    href: "config-table.html",
+    type: "config",
+    text: `${row.name} ${row.default} ${row.values.join(" ")} ${row.aliases.join(" ")} ${row.notes}`
+  }));
+  const compatibilityRows = data.compatibilityMap.map((row) => ({
+    title: row.behavior,
+    href: "compatibility-map.html",
+    type: "compatibility",
+    text: `${row.cheatsCommand} ${row.patchFile} ${row.trojanFile} ${row.configBytes} ${row.notes}`
+  }));
+  const inventoryRows = data.downloadInventory.map((item) => ({
+    title: item.name,
+    href: "download-inventory.html",
+    type: "inventory",
+    text: `${item.status} ${item.role} ${item.safeReference} ${item.notes}`
+  }));
+  const wikiRows = data.wikiCoverage.map((item) => ({
+    title: item.title,
+    href: "wiki-coverage.html",
+    type: "wiki",
+    text: `${item.slug} ${item.category} ${item.status}`
+  }));
+  const timelineRows = data.historyTimeline.map((item) => ({
+    title: `${item.date} ${item.label}`,
+    href: "history-provenance.html",
+    type: "history",
+    text: `${item.summary} ${item.impact}`
+  }));
   const issueRows = data.knownIssues.map((issue) => ({
     title: issue.title,
     href: "troubleshooting.html",
@@ -578,7 +700,7 @@ function searchIndex() {
     type: "glossary",
     text: item.definition
   }));
-  return [...pageRows, ...commandRows, ...storageRows, ...patchRows, ...issueRows, ...sourceRows, ...glossaryRows];
+  return [...pageRows, ...commandRows, ...storageRows, ...patchRows, ...configRows, ...compatibilityRows, ...inventoryRows, ...wikiRows, ...timelineRows, ...issueRows, ...sourceRows, ...glossaryRows];
 }
 
 await rm(distDir, { recursive: true, force: true });
