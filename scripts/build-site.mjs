@@ -449,11 +449,40 @@ const generatedPages = [
 
 const allPages = [...pages, ...generatedPages];
 
-function renderPage(page) {
-  const nav = allPages
-    .filter((item) => !item.noNav)
-    .map((item) => `<a ${item.slug === page.slug ? "aria-current=\"page\"" : ""} href="${slugToHref(item.slug)}">${esc(item.nav || item.title)}</a>`)
+const navGroups = [
+  { label: "Start", slugs: ["index", "quick-start"] },
+  { label: "Storage and Launch", slugs: ["usb-storage", "internal-hdd", "bdm-exfat", "smb-network", "storage-matrix", "launcher-matrix"] },
+  { label: "Reference", slugs: ["command-reference", "patches-fixes", "igr-exit", "multi-disc-vmc", "video-display", "debugging", "troubleshooting"] },
+  { label: "Archive", slugs: ["source-archive", "research-log", "glossary", "search", "archive", "data-browser"] }
+];
+
+function sidebarNav(page) {
+  const pagesBySlug = new Map(allPages.filter((item) => !item.noNav).map((item) => [item.slug, item]));
+  const grouped = new Set(navGroups.flatMap((group) => group.slugs));
+  const groups = navGroups
+    .map((group) => {
+      const links = group.slugs
+        .map((slug) => pagesBySlug.get(slug))
+        .filter(Boolean)
+        .map((item) => `<a ${item.slug === page.slug ? "aria-current=\"page\"" : ""} href="${slugToHref(item.slug)}">${esc(item.nav || item.title)}</a>`)
+        .join("");
+      return links ? `<div class="nav-group"><div class="nav-heading">${esc(group.label)}</div>${links}</div>` : "";
+    })
     .join("");
+  const extras = [...pagesBySlug.values()].filter((item) => !grouped.has(item.slug));
+  if (!extras.length) return groups;
+  return `${groups}<div class="nav-group"><div class="nav-heading">Other</div>${extras.map((item) => `<a ${item.slug === page.slug ? "aria-current=\"page\"" : ""} href="${slugToHref(item.slug)}">${esc(item.nav || item.title)}</a>`).join("")}</div>`;
+}
+
+function renderPage(page) {
+  const nav = sidebarNav(page);
+  const bodyClass = page.slug === "index" ? "home-page" : "content-page";
+  const heroActions = page.slug === "index"
+    ? `<div class="hero-actions">
+        <a class="button-link primary" href="quick-start.html">Start with Quick Start</a>
+        <a class="button-link" href="search.html">Search the archive</a>
+      </div>`
+    : "";
   const blockHtml = (page.blocks || []).map((block) => {
     if (typeof block === "string") return block;
     if (block.dynamic) return dynamicBlocks[block.dynamic]();
@@ -471,22 +500,24 @@ function renderPage(page) {
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
 </head>
-<body>
+<body class="${bodyClass}">
   <header class="topbar">
-    <a class="brand" href="index.html"><span>POPStarter</span><small>Preservation Docs</small></a>
+    <a class="brand" href="index.html"><span class="brand-mark">P1</span><span class="brand-copy"><strong>POPStarter Docs</strong><small>Recovered preservation manual</small></span></a>
     <div class="top-actions">
+      <a class="top-link" href="quick-start.html">Quick Start</a>
+      <a class="top-link" href="command-reference.html">Commands</a>
       <a class="top-link" href="archive.html">Archive</a>
-      <a class="top-link" href="data-browser.html">Data</a>
-      <a class="top-link" href="search.html">Search page</a>
-      <label class="site-search">Search <input id="global-search" type="search" placeholder="commands, storage, fixes"></label>
+      <label class="site-search"><span>Search</span><input id="global-search" type="search" placeholder="SMBCONFIG.DAT, PATCH_9.BIN, VMC"></label>
     </div>
   </header>
   <div class="shell">
     <nav class="sidebar">${nav}</nav>
     <main>
       <section class="hero">
-        <h1>${esc(page.title)}</h1>
-        <p>${esc(page.description || "")}</p>
+        <div class="hero-copy">
+          <h1>${esc(page.title)}</h1>
+          <p>${esc(page.description || "")}</p>${heroActions ? `\n          ${heroActions}` : ""}
+        </div>
       </section>
       ${blockHtml}
     </main>
