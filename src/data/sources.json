@@ -1,0 +1,128 @@
+[
+  {
+    "id": "psx-place-popstarter-thread",
+    "title": "PSX-Place POPStarter release thread",
+    "url": "https://www.psx-place.com/threads/popstarter.19139/",
+    "type": "primary forum release thread",
+    "status": "live",
+    "reliability": "high",
+    "notes": "Official krHACKen release thread. Confirms POPStarter definition, legal boundary, attachment names, compatibility links, side projects, and regional documentation links. Retrieved 2026-06-21."
+  },
+  {
+    "id": "psx-place-popstarter-page-4",
+    "title": "PSX-Place POPStarter page 4 - PATCH_9.BIN loader-disable post",
+    "url": "https://www.psx-place.com/threads/popstarter.19139/page-4",
+    "type": "primary maintainer post",
+    "status": "live",
+    "reliability": "high",
+    "notes": "krHACKen tells Peppe90 to place attached PATCH_9.BIN in the POPS folder to disable the bugged ELF loader. Retrieved 2026-06-21."
+  },
+  {
+    "id": "psx-place-popstarter-page-15",
+    "title": "PSX-Place POPStarter page 15 - IGR and BOOT.ELF discussion",
+    "url": "https://www.psx-place.com/threads/popstarter.19139/page-15",
+    "type": "primary forum support thread",
+    "status": "live",
+    "reliability": "high",
+    "notes": "krHACKen recommends $IGR5 for OPL-like no-popup IGR and says black-screen exit can be avoided by disabling POPStarter's ELF loader or replacing/recompressing BOOT.ELF. Retrieved 2026-06-21."
+  },
+  {
+    "id": "retro-jogos-index",
+    "title": "Retro-Jogos POPStarter official guide mirror index",
+    "url": "https://www.retro-jogos.com/PS2/pops/index.html",
+    "type": "mirror",
+    "status": "live",
+    "reliability": "medium",
+    "notes": "Preserves the old wiki table of contents and says the documentation was originally by krHACKen and updated by ShaolinAssassin for Rev13 Beta 2019-06-05. Retrieved 2026-06-21."
+  },
+  {
+    "id": "retro-jogos-home",
+    "title": "Retro-Jogos POPStarter guide home",
+    "url": "https://www.retro-jogos.com/PS2/pops/home.html",
+    "type": "mirror",
+    "status": "live",
+    "reliability": "medium",
+    "notes": "Portuguese mirror of introduction/features/final-release notes. Mentions final 2019-06-05 beta and likely $IGR5 fix. Retrieved 2026-06-21."
+  },
+  {
+    "id": "elotrolado-pops-thread",
+    "title": "ElOtroLado POPS emulator for PS2 thread",
+    "url": "https://www.elotrolado.net/hilo_ho-pops-emulador-de-psx-para-ps2_1874054",
+    "type": "regional long-form guide",
+    "status": "live",
+    "reliability": "high",
+    "notes": "El_Patas first post, edited many times through 2026-06-07, includes version list, HDD/USB/SMB setup, command behavior, SMB filenames, poweroff.irx, and warnings. Retrieved 2026-06-21."
+  },
+  {
+    "id": "shaolin-bitbucket-wiki",
+    "title": "ShaolinAssassin POPStarter documentation wiki",
+    "url": "https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home",
+    "type": "original wiki",
+    "status": "dead_or_inconsistent",
+    "reliability": "high_when_archived",
+    "notes": "Original Bitbucket wiki is often unavailable. Use Archive.org and mirrors before treating claims as final."
+  },
+  {
+    "id": "archive-org-shaolin-wiki",
+    "title": "Archive.org backup of ShaolinAssassin wiki",
+    "url": "https://archive.org/details/backup-popstarter-documentation-stuff-wiki-from-2017-and-2020",
+    "type": "archive target",
+    "status": "needs_download",
+    "reliability": "unknown_until_extracted",
+    "notes": "Named in the seed as a required recovery source. Extraction/package inspection remains a follow-up."
+  },
+  {
+    "id": "popsloader-el-isra",
+    "title": "POPSLoader by El_isra",
+    "url": "https://www.psx-place.com/resources/popsloader.1396/",
+    "type": "modern side project",
+    "status": "live",
+    "reliability": "high_for_popsloader",
+    "notes": "Resource page says POPSLoader is Lua/Enceladus based, supports USB/internal HDD in the initial release, keeps POPSLDR next to the ELF, includes PATCH_5.BIN IGR textures, and is officially abandoned by its author. Retrieved 2026-06-21."
+  },
+  {
+    "id": "popsloader-fork-ripto",
+    "title": "Ripto/NathanNeurotic POPSLoader fork",
+    "url": "https://www.psx-place.com/resources/fork-popsloader-for-mmce-mx4sio-usb-and-apahdd.1665/",
+    "type": "modern side project",
+    "status": "live",
+    "reliability": "high_for_fork",
+    "notes": "BETA-10 page documents mc0 requirement, BDMA rules, POPSTARTER.ELF paths, device layouts, art placement, HDD launch fix, and restored BOOT.ELF exit after real-hardware testing. Retrieved 2026-06-21."
+  },
+  {
+    "id": "bdm-assault",
+    "title": "BDM Assault GitHub repository",
+    "url": "https://github.com/israpps/BDMAssault",
+    "type": "modern side project",
+    "status": "live",
+    "reliability": "high",
+    "notes": "README says BDM Assault brings exFAT USB support to old homebrew that can load external USB drivers. It documents exact POPStarter IRX rename paths. Retrieved 2026-06-21."
+  },
+  {
+    "id": "hugopocked-fixes",
+    "title": "Hugopocked fixes for POPStarter",
+    "url": "https://www.psx-place.com/threads/hugopocked-fixes-for-popstarter.39750/",
+    "type": "compatibility fixes thread",
+    "status": "live",
+    "reliability": "medium_high",
+    "notes": "Thread is for fix/patch discussion rather than general installation. It includes game-specific fix notes and SPU/GTE/GPU patch discussion. Retrieved 2026-06-21."
+  },
+  {
+    "id": "user-notes",
+    "title": "User uploaded operational notes",
+    "url": "evidence/user_uploaded_notes_raw.md",
+    "type": "user-tested notes",
+    "status": "local",
+    "reliability": "medium",
+    "notes": "Local seed notes with confirmed modern USB/HDD/SMB/OPL/POPSLoader/wLE_kHn layouts. Preserve, but cross-check public-source-sensitive claims."
+  },
+  {
+    "id": "discord-screenshot",
+    "title": "Discord POPStarter test screenshot",
+    "url": "evidence/discord_popstarter_test_screenshot.png",
+    "type": "user-tested screenshot",
+    "status": "local",
+    "reliability": "medium",
+    "notes": "Shows a user test where hdd0:/__common/POPS/POPSTARTER.ELF worked as POPStarter path and debug POPSTARTER behavior differed from classic/00 build."
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "name": "popstarter-docs-preservation-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate:seed": "python scripts/validate_seed_data.py",
+    "validate:data": "node scripts/validate_site_data.mjs",
+    "validate:site": "node scripts/validate_generated_site.mjs",
+    "build": "node scripts/build-site.mjs",
+    "preflight": "npm run validate:seed && npm run validate:data && npm run build && npm run validate:site"
+  }
+}

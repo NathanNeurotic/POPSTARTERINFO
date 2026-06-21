@@ -1,0 +1,72 @@
+generated: 2026-06-21 14:01 UTC
+sources:
+- id: psx-place-popstarter-thread
+  title: PSX-Place POPStarter release thread
+  url: https://www.psx-place.com/threads/popstarter.19139/
+  priority: primary
+  status: live
+- id: shaolin-bitbucket-wiki
+  title: ShaolinAssassin POPStarter documentation wiki
+  url: https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home
+  priority: primary-archived
+  status: dead_or_inconsistent
+- id: archive-org-shaolin-wiki
+  title: Archive.org backup of POPStarter documentation stuff wiki from 2017 and 2020
+  url: https://archive.org/details/backup-popstarter-documentation-stuff-wiki-from-2017-and-2020
+  priority: primary-archive
+  status: needs_download
+- id: retro-jogos-popstarter-index
+  title: Retro-Jogos POPStarter official guide mirror index
+  url: https://www.retro-jogos.com/PS2/pops/index.html
+  priority: mirror
+  status: live
+- id: retro-jogos-popstarter-home
+  title: Retro-Jogos POPStarter guide home
+  url: https://www.retro-jogos.com/PS2/pops/home.html
+  priority: mirror
+  status: live
+- id: elotrolado-pops-thread
+  title: ElOtroLado POPS emulator for PS2 thread
+  url: https://www.elotrolado.net/hilo_ho-pops-emulador-de-psx-para-ps2_1874054
+  priority: high
+  status: live
+- id: popsloader-el-isra
+  title: POPSLoader by El_isra
+  url: https://www.psx-place.com/resources/popsloader.1396/
+  priority: modern-side-project
+  status: live
+- id: popsloader-fork-ripto
+  title: POPSLoader fork for MMCE, MX4SIO, USB, APAHDD
+  url: https://www.psx-place.com/resources/fork-popsloader-for-mmce-mx4sio-usb-and-apahdd.1665/
+  priority: modern-side-project
+  status: live
+- id: bdm-assault
+  title: BDM Assault GitHub repository
+  url: https://github.com/israpps/BDMAssault
+  priority: modern-side-project
+  status: live
+- id: hugopocked-fixes
+  title: Hugopocked fixes for POPStarter
+  url: https://www.psx-place.com/threads/hugopocked-fixes-for-popstarter.39750/
+  priority: compatibility-fixes
+  status: live
+- id: metagames-fr
+  title: MetaGames French POPStarter thread
+  url: https://www.metagames-eu.com/forums/playstation-2/popstarter-revision-13-a-134569.html
+  priority: regional
+  status: needs_scrape
+- id: cdrinfo-pl
+  title: CDRInfo Polish POPStarter thread
+  url: https://forum.cdrinfo.pl/f106/ps2-popstarter-95894/
+  priority: regional
+  status: needs_scrape
+- id: ps2home-pt
+  title: PS2Home Portuguese POPStarter thread
+  url: https://ps2home.forumeiro.com/t27-popstarter-emulador-de-ps1-para-ps2
+  priority: regional
+  status: needs_scrape
+- id: a9vg-cn-archive
+  title: A9VG Chinese POPStarter thread archive
+  url: https://web.archive.org/web/20250428034525/https://bbs.a9vg.com/thread-4240514-1-1.html
+  priority: regional-archive
+  status: needs_scrape

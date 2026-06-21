@@ -1,0 +1,82 @@
+[
+  {
+    "term": "POPStarter",
+    "definition": "A PS2 homebrew launcher by krHACKen that starts PS1 games through Sony's PS2 POPS emulator. Rev13 does not include the emulator binaries.",
+    "sourceIds": ["psx-place-popstarter-thread", "retro-jogos-home"]
+  },
+  {
+    "term": "POPS",
+    "definition": "Sony's PS2 PS1 emulator, also known in sources as SLBB-00001. Required binaries must be supplied legally by the user.",
+    "sourceIds": ["psx-place-popstarter-thread", "elotrolado-pops-thread"]
+  },
+  {
+    "term": "VCD",
+    "definition": "The POPStarter game image format produced from PS1 BIN/CUE sources by CUE2POPS. The extension should remain uppercase.",
+    "sourceIds": ["elotrolado-pops-thread"]
+  },
+  {
+    "term": "VMC",
+    "definition": "Virtual Memory Card files created per game folder, usually SLOT0.VMC and SLOT1.VMC.",
+    "sourceIds": ["retro-jogos-home", "elotrolado-pops-thread"]
+  },
+  {
+    "term": "CHEATS.TXT",
+    "definition": "Per-game text file used for raw cheat codes and POPStarter special directives such as $IGR5, $HDTVFIX, or $SMOOTH.",
+    "sourceIds": ["psx-place-popstarter-page-4", "elotrolado-pops-thread"]
+  },
+  {
+    "term": "IGR",
+    "definition": "In-Game Reset, POPStarter's in-game exit/reset flow. It can show a menu or close POPS directly depending on $IGR commands.",
+    "sourceIds": ["psx-place-popstarter-page-15", "elotrolado-pops-thread"]
+  },
+  {
+    "term": "ELF loader",
+    "definition": "POPStarter's exit-chain loader that can attempt to launch BOOT.ELF. Some BOOT.ELF targets black-screen, and PATCH_9.BIN can disable this path.",
+    "sourceIds": ["psx-place-popstarter-page-4", "psx-place-popstarter-page-15"]
+  },
+  {
+    "term": "BDM Assault",
+    "definition": "A modern driver-substitution project that gives exFAT USB support to closed-source homebrew that loads external USB drivers, including POPStarter.",
+    "sourceIds": ["bdm-assault"]
+  },
+  {
+    "term": "POPSLoader",
+    "definition": "A Lua/Enceladus-based standalone POPStarter launcher by El_isra, later forked for additional devices and HDD fixes.",
+    "sourceIds": ["popsloader-el-isra", "popsloader-fork-ripto"]
+  },
+  {
+    "term": "wLE_kHn",
+    "definition": "A modified wLaunchELF/uLaunchELF build used to launch POPStarter VCDs without a per-game renamed ELF workflow.",
+    "sourceIds": ["elotrolado-pops-thread", "user-notes"]
+  },
+  {
+    "term": "APA/PFS",
+    "definition": "The PS2 internal HDD partition/filesystem environment used by POPStarter HDD workflows.",
+    "sourceIds": ["elotrolado-pops-thread", "user-notes"]
+  },
+  {
+    "term": "__.POPS",
+    "definition": "Internal HDD partition/path for POPStarter VCD files. The dot and case matter.",
+    "sourceIds": ["elotrolado-pops-thread", "psx-place-popstarter-page-4"]
+  },
+  {
+    "term": "__common/POPS",
+    "definition": "Internal HDD common POPS folder used for files such as POPS.ELF, IOPRP252.IMG, POPSTARTER.ELF, and sometimes POPS_IOX.PAK.",
+    "sourceIds": ["elotrolado-pops-thread", "user-notes"]
+  },
+  {
+    "term": "PATCH_X.BIN",
+    "definition": "External POPStarter patch file family. Individual numbers map to different behaviors; the full map still requires package/archive verification.",
+    "sourceIds": ["psx-place-popstarter-page-4", "popsloader-el-isra", "user-notes"]
+  },
+  {
+    "term": "TROJAN_X.BIN",
+    "definition": "External fix bundle family mentioned in seed notes and Hugopocked-related workflows. Full mapping remains missing.",
+    "sourceIds": ["user-notes", "hugopocked-fixes"]
+  },
+  {
+    "term": "Hugopocked fixes",
+    "definition": "Game-specific compatibility fixes discussed on PSX-Place, placed in the per-game folder matching the VCD basename.",
+    "sourceIds": ["hugopocked-fixes", "user-notes"]
+  }
+]

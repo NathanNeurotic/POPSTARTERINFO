@@ -1,0 +1,38 @@
+[
+  {
+    "combo": "L1+L2+R1+R2+X+Down",
+    "behavior": "Open IGR menu with $IGR0, or direct close with $IGR3.",
+    "scope": "IGR",
+    "verificationStatus": "verified-single-source"
+  },
+  {
+    "combo": "Start+Select",
+    "behavior": "Open IGR menu with $IGR1, or direct close with $IGR4.",
+    "scope": "IGR",
+    "verificationStatus": "verified-single-source"
+  },
+  {
+    "combo": "L1+L2+R1+R2+Start+Select",
+    "behavior": "Open IGR menu with $IGR2, or direct close with $IGR5.",
+    "scope": "IGR",
+    "verificationStatus": "verified-cross-source"
+  },
+  {
+    "combo": "Select+L1+R2",
+    "behavior": "Enable texture smoothing at runtime according to seed notes.",
+    "scope": "Video/texture",
+    "verificationStatus": "verified-seed-needs-archive"
+  },
+  {
+    "combo": "Select+L2+R1",
+    "behavior": "Disable texture smoothing at runtime according to seed notes.",
+    "scope": "Video/texture",
+    "verificationStatus": "verified-seed-needs-archive"
+  },
+  {
+    "combo": "Triangle in POPSLoader fork exit menu",
+    "behavior": "Launch BOOT.ELF / wLaunchELF again in the fork after BETA-10 restored the shortcut.",
+    "scope": "POPSLoader fork",
+    "verificationStatus": "verified-primary"
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "patch-9-loader-disable",
+    "file": "PATCH_9.BIN",
+    "type": "Loader-disable / IGR workaround patch",
+    "placement": "POPS folder",
+    "effect": "Disables the bugged POPStarter ELF loader so IGR exit does not chain into an incompatible BOOT.ELF.",
+    "conflicts": ["Seed/ElOtroLado-derived notes also associate PATCH_9.BIN with $NOPAL. Treat this as unresolved until archived package docs are recovered."],
+    "sourceIds": ["psx-place-popstarter-page-4", "psx-place-popstarter-page-15"],
+    "confidence": "high",
+    "verificationStatus": "verified-primary-conflicting-name"
+  },
+  {
+    "id": "patch-5-popsloader-igr-textures",
+    "file": "PATCH_5.BIN",
+    "type": "IGR texture replacement",
+    "placement": "POPSLoader package / POPStarter patch location to verify",
+    "effect": "Custom POPStarter IGR textures matching POPSLoader's stock UI.",
+    "conflicts": ["Exact target folder should be confirmed from the POPSLoader package before giving a final install recipe."],
+    "sourceIds": ["popsloader-el-isra"],
+    "confidence": "high",
+    "verificationStatus": "verified-primary-needs-package-path"
+  },
+  {
+    "id": "patch-9-nopal-equivalence",
+    "file": "PATCH_9.BIN",
+    "type": "Compatibility/video patch alias",
+    "placement": "Per-game or POPS folder to verify",
+    "effect": "Seed notes say this is equivalent to $NOPAL.",
+    "conflicts": ["Conflicts with krHACKen's 2020 PSX-Place use of PATCH_9.BIN as loader-disable patch."],
+    "sourceIds": ["elotrolado-pops-thread", "user-notes", "psx-place-popstarter-page-4"],
+    "confidence": "low",
+    "verificationStatus": "conflicting"
+  },
+  {
+    "id": "trojan-7-cumulative",
+    "file": "TROJAN_7.BIN",
+    "type": "Cumulative fix bundle",
+    "placement": "Per-game VMC/game folder according to seed notes",
+    "effect": "Seed notes say this was created 2020-04-02 with fixes from krHACKen and Hugopocked.",
+    "conflicts": ["Full changelog and affected games not recovered in this pass."],
+    "sourceIds": ["user-notes", "hugopocked-fixes"],
+    "confidence": "medium",
+    "verificationStatus": "needs-package-verification"
+  },
+  {
+    "id": "hugopocked-game-fixes",
+    "file": "Game-specific fix files",
+    "type": "Per-game compatibility fixes",
+    "placement": "Folder matching VCD basename, e.g. mass:/POPS/<VCD basename>/ or hdd:/__common/POPS/<VCD basename>/",
+    "effect": "Applies game-specific fixes such as SPU/GTE/GPU behavior adjustments.",
+    "conflicts": ["External download links and passwords are volatile; do not mirror packages without permission."],
+    "sourceIds": ["hugopocked-fixes", "user-notes"],
+    "confidence": "medium",
+    "verificationStatus": "verified-thread-needs-package-inventory"
+  },
+  {
+    "id": "spu-irq-on",
+    "file": "SPU_IRQ_ON fix/mode",
+    "type": "Audio/SPU compatibility mode",
+    "placement": "Hugopocked fix placement to verify",
+    "effect": "Reported useful for games affected by non-terminating sound loops/freezes, though individual fixes may supersede it.",
+    "conflicts": ["Hugopocked later reported individual fixes for games where this mode was useful."],
+    "sourceIds": ["hugopocked-fixes"],
+    "confidence": "medium",
+    "verificationStatus": "verified-thread-needs-package-inventory"
+  }
+]

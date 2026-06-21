@@ -1,0 +1,109 @@
+{
+  "notes": "Seed storage/launcher matrix. Validate against source packages and hardware reports.",
+  "layouts": [
+    {
+      "name": "USB - OPL Apps page per-game renamed ELF",
+      "device": "USB mass storage",
+      "filesystem": "FAT32 32K/64K clusters or exFAT via BDM Assault",
+      "files": [
+        "mass:/POPS/<Game>.VCD",
+        "mass:/POPS/<Game>/",
+        "mass:/POPS/POPS_IOX.PAK",
+        "mass:/APPS/<AppFolder>/<Prefix>.<Game>.ELF",
+        "mass:/APPS/<AppFolder>/title.cfg"
+      ],
+      "title_cfg_example": "title=[PS1] Soul Blade\nboot=XX.SLUS_002.40.Soul Blade.ELF",
+      "source": "User uploaded notes; verify with OPL version behavior"
+    },
+    {
+      "name": "USB - POPSLoader app",
+      "device": "USB mass storage",
+      "filesystem": "FAT32 or exFAT via BDM Assault",
+      "files": [
+        "mass:/POPS/POPS_IOX.PAK",
+        "mass:/POPS/POPSTARTER.ELF",
+        "mass:/POPS/<Game>.VCD",
+        "mass:/POPS/<Game>/",
+        "mass:/APPS/PS1_POPSLDR/POPSLOADER.ELF",
+        "mass:/APPS/PS1_POPSLDR/title.cfg"
+      ],
+      "title_cfg_example": "title=[PS1] !POPSLOADER\nboot=POPSLOADER.ELF",
+      "source": "User uploaded notes; PSX-Place POPSLoader resource"
+    },
+    {
+      "name": "USB - wLE_kHn VCD launcher",
+      "device": "USB mass storage",
+      "filesystem": "FAT32 or exFAT via BDM Assault",
+      "files": [
+        "mass:/POPS/POPS_IOX.PAK",
+        "mass:/POPS/POPSTARTER.ELF",
+        "mass:/POPS/<Game>.VCD",
+        "mass:/POPS/<Game>/",
+        "mass:/APPS/APP_wLE_kHn_20200810/wLE_kHn_20200810.ELF",
+        "mass:/APPS/APP_wLE_kHn_20200810/title.cfg"
+      ],
+      "source": "User uploaded notes; ElOtroLado wLE_kHn section"
+    },
+    {
+      "name": "APA HDD - OPL Apps page per-game renamed ELF",
+      "device": "Internal APA HDD/SSD",
+      "filesystem": "PFS/APA",
+      "files": [
+        "hdd:/__.POPS/<Game>.VCD",
+        "hdd:/__common/POPS/IOPRP252.IMG",
+        "hdd:/__common/POPS/POPS.ELF",
+        "hdd:/__common/POPS/POPSTARTER.ELF",
+        "hdd:/+OPL/APPS/<Game>/<Game>.ELF",
+        "hdd:/+OPL/APPS/<Game>/title.cfg"
+      ],
+      "source": "User uploaded notes; ElOtroLado HDD install tutorial"
+    },
+    {
+      "name": "APA HDD - OPL DB / PS1 page",
+      "device": "Internal APA HDD/SSD",
+      "filesystem": "PFS/APA",
+      "files": [
+        "hdd:/__.POPS/<Game>.VCD",
+        "hdd:/__common/POPS/IOPRP252.IMG",
+        "hdd:/__common/POPS/POPS.ELF",
+        "hdd:/__common/POPS/POPSTARTER.ELF",
+        "hdd:/__common/POPS/POPS_IOX.PAK"
+      ],
+      "source": "User uploaded notes; verify against DB/Tenth Anniversary OPL fork"
+    },
+    {
+      "name": "SMB - OPL Apps page per-game renamed ELF",
+      "device": "SMB network share",
+      "filesystem": "Host filesystem",
+      "files": [
+        "smb:/POPS/<Game>.VCD",
+        "smb:/POPS/POPS_IOX.PAK",
+        "smb:/POPS/POPSTARTER.ELF",
+        "smb:/APPS/<Game>/<Game>.ELF",
+        "smb:/APPS/<Game>/title.cfg",
+        "mc?:/POPSTARTER/IPCONFIG.DAT",
+        "mc?:/POPSTARTER/SMBCONFIG.DAT",
+        "mc?:/POPSTARTER/ps2dev9.irx",
+        "mc?:/POPSTARTER/ps2ip.irx",
+        "mc?:/POPSTARTER/ps2smap.irx",
+        "mc?:/POPSTARTER/smbman.irx",
+        "mc?:/POPSTARTER/SMSUTILS.irx"
+      ],
+      "warnings": [
+        "User-uploaded notes used .DAY extensions, but PSX-Place examples show .DAT. Treat .DAY as probable typo until package is inspected.",
+        "User-uploaded notes used poweroff.irc. Verify actual filename in MC-Network package before publishing."
+      ],
+      "source": "User uploaded notes; PSX-Place SMB example"
+    },
+    {
+      "name": "BDM Assault for POPStarter USB exFAT",
+      "device": "Memory card driver override",
+      "filesystem": "exFAT USB via BDM Assault",
+      "files": [
+        "bdm_assault.irx -> mc?:/POPSTARTER/usbd.irx",
+        "usbd_bd_assault.irx -> mc?:/POPSTARTER/usbhdfsd.irx"
+      ],
+      "source": "BDMAssault README"
+    }
+  ]
+}

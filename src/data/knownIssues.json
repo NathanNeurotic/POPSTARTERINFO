@@ -1,0 +1,82 @@
+[
+  {
+    "id": "boot-elf-black-screen-on-igr",
+    "title": "Black screen after accepting POPStarter IGR exit",
+    "symptom": "IGR popup appears, user chooses YES, then the console hangs on black screen.",
+    "likelyCauses": ["Incompatible BOOT.ELF target", "POPStarter's own ELF loader exit path", "OPL/fork exit behavior mismatch"],
+    "mitigation": "Use $IGR5 for no-popup direct close. If BOOT.ELF chaining still black-screens, use loader-disable PATCH_9.BIN in the POPS folder or replace/recompress BOOT.ELF.",
+    "sourceIds": ["psx-place-popstarter-page-15", "psx-place-popstarter-page-4"],
+    "confidence": "high",
+    "verificationStatus": "verified-primary"
+  },
+  {
+    "id": "hdtvfix-accidental-480i",
+    "title": "Expected 240p but POPStarter outputs interlaced video",
+    "symptom": "Game appears in 480i/576i instead of PS1-style 240p/288p.",
+    "likelyCauses": ["$HDTVFIX present in CHEATS.TXT", "Modified POPSTARTER.ELF"],
+    "mitigation": "Check the per-game CHEATS.TXT first; remove $HDTVFIX unless the target display requires it.",
+    "sourceIds": ["psx-place-popstarter-page-15"],
+    "confidence": "high",
+    "verificationStatus": "verified-primary"
+  },
+  {
+    "id": "hdd-opl-network-auto-hang",
+    "title": "HDD POPStarter launched from OPL Apps hangs with HDD LED stuck",
+    "symptom": "Black screen and fixed HDD activity light when launching HDD POPStarter ELF from OPL Apps.",
+    "likelyCauses": ["OPL network/BDM/SMB start modes set to Auto", "OPL waits indefinitely on network path before HDD launch"],
+    "mitigation": "Set non-needed OPL devices to Manual or Disabled before launching HDD POPStarter through Apps.",
+    "sourceIds": ["elotrolado-pops-thread", "psx-place-popstarter-page-15"],
+    "confidence": "high",
+    "verificationStatus": "verified-cross-source"
+  },
+  {
+    "id": "smb-config-typos",
+    "title": "SMB config ignored because filenames are wrong",
+    "symptom": "SMB launch cannot connect or appears to ignore network configuration.",
+    "likelyCauses": ["Files named IPCONFIG.DAY or SMBCONFIG.DAY", "poweroff.irc typo", "Wrong capitalization"],
+    "mitigation": "Use IPCONFIG.DAT, SMBCONFIG.DAT, and poweroff.irx as shown in the ElOtroLado first post.",
+    "sourceIds": ["elotrolado-pops-thread", "user-notes"],
+    "confidence": "high",
+    "verificationStatus": "verified-cross-source"
+  },
+  {
+    "id": "hdd-partition-name",
+    "title": "HDD returns to Browser or freezes because __.POPS is misspelled",
+    "symptom": "Game launch returns to the PS2 Browser, freezes at logo, or cannot find VCDs.",
+    "likelyCauses": ["Missing dot in __.POPS", "Wrong case", "VCD not in the POPStarter partition"],
+    "mitigation": "Use hdd:/__.POPS/ exactly for VCDs and hdd:/__common/POPS/ for common POPS files.",
+    "sourceIds": ["elotrolado-pops-thread", "psx-place-popstarter-page-4"],
+    "confidence": "high",
+    "verificationStatus": "verified-cross-source"
+  },
+  {
+    "id": "usb-fragmentation-and-clusters",
+    "title": "USB videos stutter or games slow down",
+    "symptom": "FMVs stutter, loading is poor, or audio/video is unstable on USB.",
+    "likelyCauses": ["USB 1.1 bandwidth", "FAT32 fragmentation", "Small cluster size", "Problematic flash drives"],
+    "mitigation": "Use a USB HDD where possible, FAT32 64K clusters if compatible, and avoid repeated copy/delete churn.",
+    "sourceIds": ["elotrolado-pops-thread"],
+    "confidence": "medium",
+    "verificationStatus": "verified-single-source"
+  },
+  {
+    "id": "smbv1-security",
+    "title": "SMB requires legacy configuration",
+    "symptom": "Modern Windows/NAS share cannot be reached by POPStarter.",
+    "likelyCauses": ["SMB1/CIFS disabled", "Anonymous/guest access blocked", "Port 445 blocked", "Share not writable for VMC"],
+    "mitigation": "Use an isolated network/share if enabling legacy SMB behavior; prefer a dedicated PS2 share with write permission for VMCs.",
+    "sourceIds": ["psx-place-popstarter-thread", "elotrolado-pops-thread"],
+    "confidence": "medium",
+    "verificationStatus": "verified-cross-source"
+  },
+  {
+    "id": "popsloader-fork-bdma-mode",
+    "title": "POPSLoader fork device missing because BDMA mode is wrong",
+    "symptom": "USB/MX4SIO/MMCE games do not appear or launch from the fork.",
+    "likelyCauses": ["BDMA disabled", "Wrong single active BDMA mode selected", "mc0 missing"],
+    "mitigation": "Use mc0, enable BDMA for non-HDD devices, and select only the device mode being used.",
+    "sourceIds": ["popsloader-fork-ripto"],
+    "confidence": "high",
+    "verificationStatus": "verified-primary"
+  }
+]

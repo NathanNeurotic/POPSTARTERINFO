@@ -1,0 +1,391 @@
+[
+  {
+    "command": "$SAFEMODE",
+    "category": "Cheat engine",
+    "scope": "CHEATS.TXT",
+    "effect": "Delays activation of raw GameShark/Action Replay style cheat codes until after game startup.",
+    "notes": "Recommended when using raw cheat codes; not required for special POPStarter commands such as $SMOOTH or $NOPAL.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list",
+      "Retro-Jogos/Shaolin wiki expected"
+    ]
+  },
+  {
+    "command": "$SMOOTH",
+    "category": "Video/texture",
+    "scope": "CHEATS.TXT",
+    "effect": "Enables texture smoothing by default.",
+    "notes": "Runtime hotkeys: Select+L1+R2 enables; Select+L2+R1 disables. Equivalent raw code observed: $S0003390 00000001.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$NOPAL",
+    "category": "Region/video",
+    "scope": "CHEATS.TXT or PATCH_9.BIN equivalent",
+    "effect": "Disables automatic PAL patch; used to force PAL games into NTSC/240p behavior.",
+    "notes": "Often requires $YPOS_## such as $YPOS_10 to recenter PAL games after NTSC conversion.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$FAKELC",
+    "category": "LibCrypt",
+    "scope": "CHEATS.TXT",
+    "effect": "Loads a null LibCrypt value into COP0 register.",
+    "notes": "Mentioned for games with broken LibCrypt behavior, e.g. some Jackie Chan discs.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$COMPATIBILITY_0x##",
+    "category": "Compatibility",
+    "scope": "CHEATS.TXT",
+    "effect": "Enables compatibility modes as an alternative to PATCH_X.BIN files.",
+    "notes": "Example: $COMPATIBILITY_0x01 activates Mode 1.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$USBDELAY_#",
+    "category": "USB",
+    "scope": "CHEATS.TXT",
+    "effect": "Sets startup delay for USB device initialization.",
+    "notes": "Increase by 2–3 seconds for devices that work elsewhere but fail in POPStarter.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$FORCEPAL",
+    "category": "Region/video",
+    "scope": "CHEATS.TXT",
+    "effect": "Forces PAL patch and BIOS region behavior for VCDs missing valid PAL license text in boot sector.",
+    "notes": "POPS runs in PAL mode and BIOS region code is patched to Europe.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$XPOS_####",
+    "category": "Video geometry",
+    "scope": "CHEATS.TXT",
+    "effect": "Moves horizontal screen position.",
+    "notes": "Default observed: 640. Increase moves image left; decrease moves image right.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$YPOS_##",
+    "category": "Video geometry",
+    "scope": "CHEATS.TXT",
+    "effect": "Moves vertical screen position.",
+    "notes": "Common PAL-to-NTSC centering example: $YPOS_10.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$DWSTRETCH_####",
+    "category": "Video geometry",
+    "scope": "CHEATS.TXT",
+    "effect": "Horizontally stretches display.",
+    "notes": "Default observed: 2559.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$DWCROP_####",
+    "category": "Video geometry",
+    "scope": "CHEATS.TXT",
+    "effect": "Reduces/expands display width area.",
+    "notes": "Max observed: 2560. Decrease to adjust image right.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$HDTVFIX",
+    "category": "Video/output",
+    "scope": "CHEATS.TXT",
+    "effect": "Activates SetGsCrt hack for modern HDTV/component-display issues.",
+    "notes": "Uses 480i for NTSC or 576i for PAL; helps displays that do not handle 240p/288p. Avoid as a default on CRT/composite because it can cause interlace flicker/problems.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list",
+      "PSX-Place page 15 confirmation"
+    ]
+  },
+  {
+    "command": "$480p",
+    "category": "Video/output",
+    "scope": "CHEATS.TXT",
+    "effect": "Forces 480p video mode.",
+    "notes": "Low compatibility. Not compatible with $XPOS, $YPOS, $DWSTRETCH, or $DWCROP.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$SCANLINES",
+    "category": "Video/filter",
+    "scope": "CHEATS.TXT",
+    "effect": "Enables scanline generator.",
+    "notes": "Needs testing/visual examples.",
+    "confidence": "medium",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$CODECACHE_ADDON_0",
+    "category": "Recompiler/cache",
+    "scope": "CHEATS.TXT",
+    "effect": "Recompiler/code-cache related option for slowdowns or random hangs.",
+    "notes": "Do not use globally; can make many games fail.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$CACHE1",
+    "category": "CD/cache",
+    "scope": "CHEATS.TXT",
+    "effect": "Sets POPS buffer to 1 sector instead of 16.",
+    "notes": "May help some videos that hang.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$SUBCDSTATUS",
+    "category": "CD/status",
+    "scope": "CHEATS.TXT",
+    "effect": "Probably related to game hangs and CDROM timeouts; variant of compatibility Mode 5.",
+    "notes": "Needs primary old-wiki confirmation.",
+    "confidence": "medium",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$MUTE_VAB",
+    "category": "Audio",
+    "scope": "CHEATS.TXT",
+    "effect": "Mutes VAB/VAG/VB+VH based music/SFX.",
+    "notes": "Can diagnose crashes caused by old game SFX/audio behavior.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$WIDESCREEN",
+    "category": "Video/widescreen",
+    "scope": "CHEATS.TXT",
+    "effect": "Enables GTE widescreen hack; changes apparent aspect/FOV.",
+    "notes": "Does not fix HUDs, fonts, menus, 2D backgrounds, or render correction. Not compatible with every game.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$ULTRA_WIDESCREEN",
+    "category": "Video/widescreen",
+    "scope": "CHEATS.TXT",
+    "effect": "Like $WIDESCREEN but with wider FOV.",
+    "notes": "Non-standard aspect. Same 2D/HUD caveats as $WIDESCREEN.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$EYEFINITY",
+    "category": "Video/widescreen",
+    "scope": "CHEATS.TXT",
+    "effect": "Like $WIDESCREEN but with 3x16:9 style aspect.",
+    "notes": "Same 2D/HUD caveats as $WIDESCREEN.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$MUTE_CDDA",
+    "category": "Audio/CDDA",
+    "scope": "CHEATS.TXT",
+    "effect": "Mutes/disables CDDA audio tracks.",
+    "notes": "Applied automatically for physical PS1 CDROM mode according to ElOtroLado.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$UNDO_MUTE_CDDA",
+    "category": "Audio/CDDA",
+    "scope": "CHEATS.TXT",
+    "effect": "Re-enables CDDA audio.",
+    "notes": "Counteracts $MUTE_CDDA behavior.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$NOVMC0",
+    "category": "VMC",
+    "scope": "CHEATS.TXT",
+    "effect": "Disables VMC0; uses only VMC1.",
+    "notes": "Confirm interaction with physical cards and per-game VMC naming.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$NOVMC1",
+    "category": "VMC",
+    "scope": "CHEATS.TXT",
+    "effect": "Disables VMC1; uses only VMC0.",
+    "notes": "Confirm interaction with physical cards and per-game VMC naming.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$UNDO_GAME_FIXES",
+    "category": "Compatibility/fixes",
+    "scope": "CHEATS.TXT",
+    "effect": "Disables built-in game fixes integrated in POPStarter.",
+    "notes": "May not fully restore original broken behavior for games whose issues were fixed by core POPS patches or later changes.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$D2LS",
+    "category": "Controller/input",
+    "scope": "CHEATS.TXT",
+    "effect": "Forces left analog stick to digital D-pad behavior for games without analog support.",
+    "notes": "Leaves controller in digital behavior according to Spanish source.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$D2LS_ALT",
+    "category": "Controller/input",
+    "scope": "CHEATS.TXT",
+    "effect": "Alternative to $D2LS for games where $D2LS does not work.",
+    "notes": "Leaves controller in analog behavior according to Spanish source.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$IGR0",
+    "category": "IGR",
+    "scope": "CHEATS.TXT",
+    "effect": "L1+L2+R1+R2+X+Down opens IGR menu.",
+    "notes": "Opens menu.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$IGR1",
+    "category": "IGR",
+    "scope": "CHEATS.TXT",
+    "effect": "Start+Select opens IGR menu.",
+    "notes": "Opens menu.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$IGR2",
+    "category": "IGR",
+    "scope": "CHEATS.TXT",
+    "effect": "L1+L2+R1+R2+Start+Select opens IGR menu.",
+    "notes": "Opens menu.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$IGR3",
+    "category": "IGR",
+    "scope": "CHEATS.TXT",
+    "effect": "L1+L2+R1+R2+X+Down closes POPS without IGR menu.",
+    "notes": "Direct close/no menu.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$IGR4",
+    "category": "IGR",
+    "scope": "CHEATS.TXT",
+    "effect": "Start+Select closes POPS without IGR menu.",
+    "notes": "Direct close/no menu.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  },
+  {
+    "command": "$IGR5",
+    "category": "IGR",
+    "scope": "CHEATS.TXT",
+    "effect": "L1+L2+R1+R2+Start+Select closes POPS without IGR menu.",
+    "notes": "krHACKen described this as OPL-like IGR with no popup. Last beta likely fixed this command.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list",
+      "PSX-Place page 15 krHACKen reply",
+      "Retro-Jogos home changelog"
+    ]
+  },
+  {
+    "command": "$NOIGR",
+    "category": "IGR",
+    "scope": "CHEATS.TXT",
+    "effect": "Disables IGR menu.",
+    "notes": "Do not confuse with the separate 'disable ELF loader' workaround used to prevent POPStarter exit from chaining into BOOT.ELF.",
+    "confidence": "high",
+    "sources": [
+      "ElOtroLado command list"
+    ]
+  }
+]

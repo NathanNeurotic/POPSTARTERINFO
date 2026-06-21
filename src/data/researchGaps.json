@@ -1,0 +1,58 @@
+[
+  {
+    "id": "archive-org-wiki-extraction",
+    "title": "Extract Archive.org 2017/2020 ShaolinAssassin wiki backup",
+    "whyItMatters": "The archived wiki likely contains the original command, patch, hotkey, debug, and multi-disc pages needed to resolve conflicting claims.",
+    "nextStep": "Download metadata/files, extract non-proprietary markdown/html, and diff 2017 vs 2020 pages.",
+    "status": "open"
+  },
+  {
+    "id": "patch-map",
+    "title": "Recover full PATCH_X.BIN map",
+    "whyItMatters": "PATCH_9.BIN currently has conflicting meanings in the seed data versus maintainer posts.",
+    "nextStep": "Inspect official POPStarter packages and archived wiki compatibility/IGR pages without committing proprietary binaries.",
+    "status": "open"
+  },
+  {
+    "id": "trojan-map",
+    "title": "Recover full TROJAN_X.BIN map",
+    "whyItMatters": "TROJAN_7.BIN is referenced as a cumulative fix bundle, but affected games and changelog are missing.",
+    "nextStep": "Capture package readmes, PSX-Place cumulative-fix posts, and Hugopocked thread references.",
+    "status": "open"
+  },
+  {
+    "id": "package-inspection",
+    "title": "Inspect official non-Sony package file trees",
+    "whyItMatters": "Package inspection is needed for MC-Network filenames, BDM module layout, and readme/changelog recovery.",
+    "nextStep": "Download only legal POPStarter-side packages, list file trees, and exclude Sony binaries from any commit.",
+    "status": "open"
+  },
+  {
+    "id": "compatibility-mode-map",
+    "title": "Recover compatibility mode meanings",
+    "whyItMatters": "$COMPATIBILITY_0x## is documented but the mode effects are not fully mapped.",
+    "nextStep": "Mine archived compatibility pages, ElOtroLado command sections, and package docs.",
+    "status": "open"
+  },
+  {
+    "id": "debug-mode",
+    "title": "Recover debug-mode behavior and report template",
+    "whyItMatters": "SMB appears to force debug text, and user screenshots distinguish classic/debug POPSTARTER builds.",
+    "nextStep": "Recover Shaolin debug-mode page and document expected logs/screens for support requests.",
+    "status": "open"
+  },
+  {
+    "id": "case-sensitivity-rules",
+    "title": "Validate case sensitivity by backend",
+    "whyItMatters": "The seed and ElOtroLado both warn that names matter, but exact filesystem-sensitive cases differ across USB, SMB, and APA.",
+    "nextStep": "Cross-check docs and package examples, then hardware-test edge cases.",
+    "status": "open"
+  },
+  {
+    "id": "modern-fork-boundaries",
+    "title": "Define exact boundary between core POPStarter and modern POPSLoader fork behavior",
+    "whyItMatters": "Modern MMCE/MX4SIO/BDMA workflows are valuable but should not be misrepresented as original POPStarter core features.",
+    "nextStep": "Trace POPSLoader fork release notes and source/readme, then label all fork-only setup paths.",
+    "status": "in-progress"
+  }
+]
