@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data: compatibilityMap - POPStarter Docs</title>
-  <meta name="description" content="Rendered structured data file: src/data/compatibilityMap.json">
+  <title>Setup Paths - POPStarter Docs</title>
+  <meta name="description" content="The manual chapter for boot flow, launcher selection, minimal files, memory-card folders, and first-boot verification.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -21,274 +21,58 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
+    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a aria-current="page" href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>Data: compatibilityMap</h1>
-          <p>Rendered structured data file: src/data/compatibilityMap.json</p>
+          <h1>Setup Paths</h1>
+          <p>The manual chapter for boot flow, launcher selection, minimal files, memory-card folders, and first-boot verification.</p>
         </div>
       </section>
       <div class="content-layout">
-        <article class="article-content"><section class="callout"><h2 id="source-file">Source file<a class="heading-anchor" href="#source-file" aria-label="Link to Source file">#</a></h2><p><code>src/data/compatibilityMap.json</code></p></section>
-<article class="archive-doc"><pre><code>[
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x01&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x01&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_1.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x01&quot;,
-    &quot;notes&quot;: &quot;CD-status-touching mode; do not stack with modes 0x02, 0x03, or 0x05.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x02&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x02&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_2.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x02&quot;,
-    &quot;notes&quot;: &quot;CD-status-touching mode; do not stack with modes 0x01, 0x03, or 0x05.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x03&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x03&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_3.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x03&quot;,
-    &quot;notes&quot;: &quot;CD-status-touching mode; do not stack with modes 0x01, 0x02, or 0x05.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x04&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x04&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_4.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x04&quot;,
-    &quot;notes&quot;: &quot;General-purpose mode used by several known titles. Recovered notes mention King's Field JP English patch and Final Fantasy IX default-config coverage.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x05 / sub-CD status&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x05 or $SUBCDSTATUS&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_5.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x05&quot;,
-    &quot;notes&quot;: &quot;CD-status-touching mode; do not stack with modes 0x01, 0x02, or 0x03. Do not confuse this compatibility PATCH_5.BIN with POPSLoader's unrelated IGR texture patch artifact.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;popsloader-el-isra&quot;
-    ],
-    &quot;confidence&quot;: &quot;medium&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-name-collision&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x06 / skip BIOS OSD shell&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x06&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_6.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$421=0x01 or $418-$41F slot value 0x06&quot;,
-    &quot;notes&quot;: &quot;Skips CD checks and the PS logo unless a user BIOS.BIN changes the path.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x07&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x07&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_7.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x07&quot;,
-    &quot;notes&quot;: &quot;Recovered compatibility map lists mode 0x07; C-12: Final Resistance is noted as only partly helped. Keep separate from unverified IGR-related PATCH_7 folklore.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;medium&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-needs-package-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Disable IGR&quot;,
-    &quot;cheatsCommand&quot;: &quot;$NOIGR&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_0.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;&quot;,
-    &quot;notes&quot;: &quot;Turns off POPStarter's pad-triggered IGR behavior. It is not the same as disabling the BOOT.ELF exit-chain loader.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;psx-place-popstarter-page-15&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;IGR menu: L1+L2+R1+R2+X+Down&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR0&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_0.BIN&quot;,
-    &quot;configBytes&quot;: &quot;&quot;,
-    &quot;notes&quot;: &quot;Opens the IGR menu.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;IGR menu: Start+Select&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR1&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_1.BIN&quot;,
-    &quot;configBytes&quot;: &quot;&quot;,
-    &quot;notes&quot;: &quot;Opens the IGR menu.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;IGR menu: L1+L2+R1+R2+Start+Select&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR2&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_2.BIN&quot;,
-    &quot;configBytes&quot;: &quot;&quot;,
-    &quot;notes&quot;: &quot;Opens the IGR menu.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Direct exit: L1+L2+R1+R2+X+Down&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR3&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_3.BIN&quot;,
-    &quot;configBytes&quot;: &quot;$424 must stay at r13 exit-chain default for BOOT.ELF chain&quot;,
-    &quot;notes&quot;: &quot;Terminates POPS directly with no popup, then uses the mc0/mc1 BOOT.ELF -&gt; OSDSYS chain.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;psx-place-popstarter-page-15&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Direct exit: Start+Select&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR4&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_4.BIN&quot;,
-    &quot;configBytes&quot;: &quot;$424 must stay at r13 exit-chain default for BOOT.ELF chain&quot;,
-    &quot;notes&quot;: &quot;Terminates POPS directly with no popup. Recovered notes warn that some mirrored manuals swap IGR4 and IGR5; CHANGES.TXT ordering is the authoritative order.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Direct exit / OPL-style macro: L1+L2+R1+R2+Start+Select&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR5&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_5.BIN&quot;,
-    &quot;configBytes&quot;: &quot;$424 must stay at r13 exit-chain default for BOOT.ELF chain&quot;,
-    &quot;notes&quot;: &quot;The no-popup OPL-like exit most users want. Earlier r13 builds had a broken $IGR5; the 2019-06-05 final fixed it.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;psx-place-popstarter-page-15&quot;,
-      &quot;retro-jogos-home&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Disable automatic PAL patcher&quot;,
-    &quot;cheatsCommand&quot;: &quot;$NOPAL&quot;,
-    &quot;patchFile&quot;: &quot;stock PATCH_9.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$42A=0x00&quot;,
-    &quot;notes&quot;: &quot;Runs PAL games in POPS native NTSC behavior. This is the stock PATCH_9 meaning and collides by filename with the later loader-disable PATCH_9.BIN workaround.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;psx-place-popstarter-page-4&quot;
-    ],
-    &quot;confidence&quot;: &quot;medium&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-filename-collision&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Force PAL patcher and Euro BIOS region&quot;,
-    &quot;cheatsCommand&quot;: &quot;$FORCEPAL&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_8.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$42A PAL patcher path&quot;,
-    &quot;notes&quot;: &quot;For PAL VCDs whose boot sector lacks valid PAL license text. Do not set with $NOPAL.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Force 480p output&quot;,
-    &quot;cheatsCommand&quot;: &quot;$480p&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$42A=0x02&quot;,
-    &quot;notes&quot;: &quot;Not reliable on all titles and not compatible with X/Y position or display-width crop/stretch commands.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;retro-jogos-home&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Per-game cumulative fixes&quot;,
-    &quot;cheatsCommand&quot;: &quot;&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_7.BIN&quot;,
-    &quot;configBytes&quot;: &quot;&quot;,
-    &quot;notes&quot;: &quot;Separate from any PATCH_7 discussion. Recovered notes identify TROJAN_7.BIN as the final public fix-pack family, with a 2020-05-20 r7 package noted in history.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;hugopocked-fixes&quot;
-    ],
-    &quot;confidence&quot;: &quot;medium&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-needs-package-check&quot;
-  }
-]</code></pre></article></article>
+        <article class="article-content"><section class="callout">
+        <h2 id="read-this-before-copying-files">Read this before copying files<a class="heading-anchor" href="#read-this-before-copying-files" aria-label="Link to Read this before copying files">#</a></h2>
+        <p>POPStarter setup is path-sensitive. A correct file in the wrong folder is effectively missing, and a correct launcher prefix for one backend can select the wrong mode on another backend.</p>
+      </section>
+<section>
+        <h2 id="boot-flow">Boot flow<a class="heading-anchor" href="#boot-flow" aria-label="Link to Boot flow">#</a></h2>
+        <pre><code>Frontend or ELF browser
+  -> renamed POPSTARTER.ELF or POPSTARTER.KELF
+    -> resolve storage backend from prefix/path
+      -> locate VCD
+        -> locate per-game support folder
+          -> apply CHEATS.TXT / PATCH / TROJAN / handlers
+            -> hand execution to POPS</code></pre>
+      </section>
+<section>
+        <h2 id="minimal-path-checklist">Minimal path checklist<a class="heading-anchor" href="#minimal-path-checklist" aria-label="Link to Minimal path checklist">#</a></h2>
+        <ol>
+          <li>Choose one storage backend: USB, internal HDD, or SMB.</li>
+          <li>Choose one launcher model: renamed ELF, OPL Apps, OPL DB/PS1 page, wLE_kHn, POPSLoader, or HDDOSD/KELF.</li>
+          <li>Keep the VCD basename, renamed ELF, and support folder aligned for that model.</li>
+          <li>Put common POPS files only in the backend-specific common folder.</li>
+          <li>Put game-specific commands, VMCs, patches, and handlers in the per-game support folder.</li>
+        </ol>
+      </section>
+<section>
+        <h2 id="first-boot-verification">First boot verification<a class="heading-anchor" href="#first-boot-verification" aria-label="Link to First boot verification">#</a></h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Checkpoint</th><th>What to inspect</th><th>Where to go next</th></tr></thead>
+          <tbody>
+            <tr><td>Frontend sees entry</td><td><code>title.cfg</code>, app folder, renamed ELF, OPL path prefix.</td><td><a href="launcher-matrix.html">Launcher Matrix</a></td></tr>
+            <tr><td>POPStarter starts</td><td>Correct backend prefix/path, required POPS support files, VCD basename.</td><td><a href="storage-overview.html">Storage Backends</a></td></tr>
+            <tr><td>Game reaches PS logo</td><td>POPS payload identifiers, config bytes, compatibility mode, display commands.</td><td><a href="reference-tables.html">Reference Tables</a></td></tr>
+            <tr><td>Save or IGR fails</td><td>VMC folder, share write permission, IGR command, BOOT.ELF exit chain.</td><td><a href="troubleshooting.html">Troubleshooting</a></td></tr>
+          </tbody>
+        </table></div>
+      </section>
+<section>
+        <h2 id="memory-card-folders">Memory-card folders<a class="heading-anchor" href="#memory-card-folders" aria-label="Link to Memory-card folders">#</a></h2>
+        <p>SMB modules and many driver overrides are loaded from <code>mc0:/POPSTARTER/</code> with <code>mc1:/POPSTARTER/</code> fallback in later builds. Do not confuse this memory-card folder with a PC/NAS share named <code>POPSTARTER</code>.</p>
+      </section></article>
         <aside class="page-toc" aria-label="On this page">
           <strong>On this page</strong>
-          <a href="#source-file">Source file</a>
+          <a href="#read-this-before-copying-files">Read this before copying files</a><a href="#boot-flow">Boot flow</a><a href="#minimal-path-checklist">Minimal path checklist</a><a href="#first-boot-verification">First boot verification</a><a href="#memory-card-folders">Memory-card folders</a>
         </aside>
       </div>
     </main>

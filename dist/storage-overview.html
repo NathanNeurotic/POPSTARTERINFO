@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data: compatibilityMap - POPStarter Docs</title>
-  <meta name="description" content="Rendered structured data file: src/data/compatibilityMap.json">
+  <title>Storage Backends - POPStarter Docs</title>
+  <meta name="description" content="The manual chapter for choosing USB, HDD, SMB, or BDM/exFAT and understanding backend-specific path rules.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -21,274 +21,414 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
+    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a aria-current="page" href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>Data: compatibilityMap</h1>
-          <p>Rendered structured data file: src/data/compatibilityMap.json</p>
+          <h1>Storage Backends</h1>
+          <p>The manual chapter for choosing USB, HDD, SMB, or BDM/exFAT and understanding backend-specific path rules.</p>
         </div>
       </section>
       <div class="content-layout">
-        <article class="article-content"><section class="callout"><h2 id="source-file">Source file<a class="heading-anchor" href="#source-file" aria-label="Link to Source file">#</a></h2><p><code>src/data/compatibilityMap.json</code></p></section>
-<article class="archive-doc"><pre><code>[
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x01&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x01&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_1.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x01&quot;,
-    &quot;notes&quot;: &quot;CD-status-touching mode; do not stack with modes 0x02, 0x03, or 0x05.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x02&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x02&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_2.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x02&quot;,
-    &quot;notes&quot;: &quot;CD-status-touching mode; do not stack with modes 0x01, 0x03, or 0x05.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x03&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x03&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_3.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x03&quot;,
-    &quot;notes&quot;: &quot;CD-status-touching mode; do not stack with modes 0x01, 0x02, or 0x05.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x04&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x04&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_4.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x04&quot;,
-    &quot;notes&quot;: &quot;General-purpose mode used by several known titles. Recovered notes mention King's Field JP English patch and Final Fantasy IX default-config coverage.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x05 / sub-CD status&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x05 or $SUBCDSTATUS&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_5.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x05&quot;,
-    &quot;notes&quot;: &quot;CD-status-touching mode; do not stack with modes 0x01, 0x02, or 0x03. Do not confuse this compatibility PATCH_5.BIN with POPSLoader's unrelated IGR texture patch artifact.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;popsloader-el-isra&quot;
-    ],
-    &quot;confidence&quot;: &quot;medium&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-name-collision&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x06 / skip BIOS OSD shell&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x06&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_6.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$421=0x01 or $418-$41F slot value 0x06&quot;,
-    &quot;notes&quot;: &quot;Skips CD checks and the PS logo unless a user BIOS.BIN changes the path.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Compatibility mode 0x07&quot;,
-    &quot;cheatsCommand&quot;: &quot;$COMPATIBILITY_0x07&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_7.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$418-$41F slot value 0x07&quot;,
-    &quot;notes&quot;: &quot;Recovered compatibility map lists mode 0x07; C-12: Final Resistance is noted as only partly helped. Keep separate from unverified IGR-related PATCH_7 folklore.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ],
-    &quot;confidence&quot;: &quot;medium&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-needs-package-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Disable IGR&quot;,
-    &quot;cheatsCommand&quot;: &quot;$NOIGR&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_0.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;&quot;,
-    &quot;notes&quot;: &quot;Turns off POPStarter's pad-triggered IGR behavior. It is not the same as disabling the BOOT.ELF exit-chain loader.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;psx-place-popstarter-page-15&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;IGR menu: L1+L2+R1+R2+X+Down&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR0&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_0.BIN&quot;,
-    &quot;configBytes&quot;: &quot;&quot;,
-    &quot;notes&quot;: &quot;Opens the IGR menu.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;IGR menu: Start+Select&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR1&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_1.BIN&quot;,
-    &quot;configBytes&quot;: &quot;&quot;,
-    &quot;notes&quot;: &quot;Opens the IGR menu.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;IGR menu: L1+L2+R1+R2+Start+Select&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR2&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_2.BIN&quot;,
-    &quot;configBytes&quot;: &quot;&quot;,
-    &quot;notes&quot;: &quot;Opens the IGR menu.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Direct exit: L1+L2+R1+R2+X+Down&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR3&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_3.BIN&quot;,
-    &quot;configBytes&quot;: &quot;$424 must stay at r13 exit-chain default for BOOT.ELF chain&quot;,
-    &quot;notes&quot;: &quot;Terminates POPS directly with no popup, then uses the mc0/mc1 BOOT.ELF -&gt; OSDSYS chain.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;psx-place-popstarter-page-15&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Direct exit: Start+Select&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR4&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_4.BIN&quot;,
-    &quot;configBytes&quot;: &quot;$424 must stay at r13 exit-chain default for BOOT.ELF chain&quot;,
-    &quot;notes&quot;: &quot;Terminates POPS directly with no popup. Recovered notes warn that some mirrored manuals swap IGR4 and IGR5; CHANGES.TXT ordering is the authoritative order.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Direct exit / OPL-style macro: L1+L2+R1+R2+Start+Select&quot;,
-    &quot;cheatsCommand&quot;: &quot;$IGR5&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_5.BIN&quot;,
-    &quot;configBytes&quot;: &quot;$424 must stay at r13 exit-chain default for BOOT.ELF chain&quot;,
-    &quot;notes&quot;: &quot;The no-popup OPL-like exit most users want. Earlier r13 builds had a broken $IGR5; the 2019-06-05 final fixed it.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;psx-place-popstarter-page-15&quot;,
-      &quot;retro-jogos-home&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Disable automatic PAL patcher&quot;,
-    &quot;cheatsCommand&quot;: &quot;$NOPAL&quot;,
-    &quot;patchFile&quot;: &quot;stock PATCH_9.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$42A=0x00&quot;,
-    &quot;notes&quot;: &quot;Runs PAL games in POPS native NTSC behavior. This is the stock PATCH_9 meaning and collides by filename with the later loader-disable PATCH_9.BIN workaround.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;psx-place-popstarter-page-4&quot;
-    ],
-    &quot;confidence&quot;: &quot;medium&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-filename-collision&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Force PAL patcher and Euro BIOS region&quot;,
-    &quot;cheatsCommand&quot;: &quot;$FORCEPAL&quot;,
-    &quot;patchFile&quot;: &quot;PATCH_8.BIN&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$42A PAL patcher path&quot;,
-    &quot;notes&quot;: &quot;For PAL VCDs whose boot sector lacks valid PAL license text. Do not set with $NOPAL.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Force 480p output&quot;,
-    &quot;cheatsCommand&quot;: &quot;$480p&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;&quot;,
-    &quot;configBytes&quot;: &quot;$42A=0x02&quot;,
-    &quot;notes&quot;: &quot;Not reliable on all titles and not compatible with X/Y position or display-width crop/stretch commands.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;retro-jogos-home&quot;
-    ],
-    &quot;confidence&quot;: &quot;high&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-cross-check&quot;
-  },
-  {
-    &quot;behavior&quot;: &quot;Per-game cumulative fixes&quot;,
-    &quot;cheatsCommand&quot;: &quot;&quot;,
-    &quot;patchFile&quot;: &quot;&quot;,
-    &quot;trojanFile&quot;: &quot;TROJAN_7.BIN&quot;,
-    &quot;configBytes&quot;: &quot;&quot;,
-    &quot;notes&quot;: &quot;Separate from any PATCH_7 discussion. Recovered notes identify TROJAN_7.BIN as the final public fix-pack family, with a 2020-05-20 r7 package noted in history.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;hugopocked-fixes&quot;
-    ],
-    &quot;confidence&quot;: &quot;medium&quot;,
-    &quot;verificationStatus&quot;: &quot;recovered-needs-package-check&quot;
-  }
-]</code></pre></article></article>
+        <article class="article-content"><section>
+        <h2 id="backend-comparison">Backend comparison<a class="heading-anchor" href="#backend-comparison" aria-label="Link to Backend comparison">#</a></h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Backend</th><th>Best use</th><th>Main paths</th><th>Main trap</th></tr></thead>
+          <tbody>
+            <tr><td><a href="usb-storage.html">USB</a></td><td>Simple first setup and portable testing.</td><td><code>mass:/POPS</code>, <code>mass:/POPS0..9</code></td><td>Fragmentation, slow USB bus, split-folder support files.</td></tr>
+            <tr><td><a href="internal-hdd.html">HDD</a></td><td>Best performance and stable local library.</td><td><code>hdd0:/__.POPS</code>, <code>hdd0:/__common/POPS</code></td><td>Creating <code>+__.POPS</code> or putting support folders beside VCDs.</td></tr>
+            <tr><td><a href="smb-network.html">SMB</a></td><td>Network library with easy file management.</td><td>Share root <code>POPS/</code>, <code>mc?:/POPSTARTER/</code></td><td>Read-only shares, missing modules, wrong <code>SB.</code> prefix.</td></tr>
+            <tr><td><a href="bdm-exfat.html">BDM/exFAT</a></td><td>USB exFAT through driver substitution.</td><td><code>mc?:/POPSTARTER/usbd.irx</code>, <code>usbhdfsd.irx</code></td><td>Assuming it adds internal HDD exFAT support.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+<section class="callout warning">
+        <h2 id="do-not-mix-backend-rules">Do not mix backend rules<a class="heading-anchor" href="#do-not-mix-backend-rules" aria-label="Link to Do not mix backend rules">#</a></h2>
+        <p><code>XX.</code> belongs to classic USB renamed-ELF launch. <code>SB.</code> selects SMB mode. Modern HDD VCDs belong in <code>__.POPS</code>, while legacy partition installs use <code>IMAGE0.VCD</code> inside <code>PP.&lt;Game&gt;</code> or <code>__.&lt;Game&gt;</code>.</p>
+      </section>
+<section class="tool-panel">
+    <div class="filters" data-filter-cards="storage-grid">
+      <label>Search <input type="search" data-search placeholder="backend, launcher, file"></label>
+      <label>Backend <select data-filter="backend"><option value="">All</option><option>Internal APA HDD/SSD</option><option>Internal APA HDD/SSD plus APA-Jail exFAT app side</option><option>Memory card IRX override for USB</option><option>SMB network share</option><option>SMB network share plus PS2-side ELF launch</option><option>USB / MX4SIO / MMCE / APA HDD</option><option>USB mass storage</option></select></label>
+      <label>Launcher <select data-filter="launcher"><option value="">All</option><option>Direct renamed POPStarter ELF</option><option>HDDOSD / Sony Browser 2.00 / legacy POPStarter KELF</option><option>Legacy alternate POPStarter partition launch</option><option>Modern WIP01/r13 HDD launch type</option><option>OPL Apps page</option><option>OPL DB / PS1 page</option><option>OPL DB / Tenth Anniversary PS1 page</option><option>Original POPStarter folder scan</option><option>POPSLoader</option><option>POPStarter core or compatible launcher</option><option>Ripto POPSLoader fork</option><option>wLE_kHn</option></select></label>
+      <label>Confidence <select data-filter="confidence"><option value="">All</option><option>high</option><option>medium</option><option>low</option></select></label>
+    </div>
+    <div class="grid layouts" id="storage-grid"><article class="layout-card" data-backend="USB mass storage" data-launcher="OPL Apps page" data-confidence="medium" data-search="usb - opl apps per-game renamed elf usb mass storage opl apps page fat32 32k/64k clusters, or exfat through bdm assault the renamed elf and vcd basename must match the launch method's expectations. do not store proprietary pops files in this repository.">
+      <div class="card-head">
+        <h3 id="usb-opl-apps-per-game-renamed-elf">USB - OPL Apps per-game renamed ELF<a class="heading-anchor" href="#usb-opl-apps-per-game-renamed-elf" aria-label="Link to USB - OPL Apps per-game renamed ELF">#</a></h3>
+        <div><span class="badge medium">medium</span> <span class="badge ">verified-hardware-user</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>USB mass storage</dd>
+        <dt>Launcher</dt><dd>OPL Apps page</dd>
+        <dt>Filesystem</dt><dd>FAT32 32K/64K clusters, or exFAT through BDM Assault</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>Per-game VCD</li><li>Per-game renamed POPSTARTER.ELF</li><li>POPS_IOX.PAK</li><li>title.cfg</li></ul>
+      <h4>Exact paths</h4><pre><code>mass:/POPS/&lt;Game&gt;.VCD
+mass:/POPS/&lt;Game&gt;/
+mass:/POPS/POPS_IOX.PAK
+mass:/APPS/&lt;AppFolder&gt;/&lt;Prefix&gt;.&lt;Game&gt;.ELF
+mass:/APPS/&lt;AppFolder&gt;/title.cfg</code></pre>
+      <h4>Sample config</h4><pre><code>title=[PS1] Soul Blade
+boot=XX.SLUS_002.40.Soul Blade.ELF</code></pre>
+      <h4>Warnings</h4><ul><li>The renamed ELF and VCD basename must match the launch method's expectations.</li><li>Do not store proprietary POPS files in this repository.</li></ul>
+      <p class="sources"><a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+    </article><article class="layout-card" data-backend="USB mass storage" data-launcher="OPL DB / Tenth Anniversary PS1 page" data-confidence="medium" data-search="usb - opl db/tenth ps1 page usb mass storage opl db / tenth anniversary ps1 page fat32 or exfat through bdm assault modern opl fork behavior; do not present as original popstarter core behavior.">
+      <div class="card-head">
+        <h3 id="usb-opl-db-tenth-ps1-page">USB - OPL DB/Tenth PS1 page<a class="heading-anchor" href="#usb-opl-db-tenth-ps1-page" aria-label="Link to USB - OPL DB/Tenth PS1 page">#</a></h3>
+        <div><span class="badge medium">medium</span> <span class="badge ">verified-hardware-user</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>USB mass storage</dd>
+        <dt>Launcher</dt><dd>OPL DB / Tenth Anniversary PS1 page</dd>
+        <dt>Filesystem</dt><dd>FAT32 or exFAT through BDM Assault</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>POPSTARTER.ELF</li><li>Per-game VCD</li><li>POPS_IOX.PAK</li></ul>
+      <h4>Exact paths</h4><pre><code>mass:/POPS/POPSTARTER.ELF
+mass:/POPS/&lt;Game&gt;.VCD
+mass:/POPS/&lt;Game&gt;/
+mass:/POPS/POPS_IOX.PAK</code></pre>
+
+      <h4>Warnings</h4><ul><li>Modern OPL fork behavior; do not present as original POPStarter core behavior.</li></ul>
+      <p class="sources"><a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a></p>
+    </article><article class="layout-card" data-backend="USB mass storage" data-launcher="wLE_kHn" data-confidence="medium" data-search="usb - wle_khn vcd launcher usb mass storage wle_khn fat32 or exfat through bdm assault user notes recommend omitting game ids from vcd filenames for cleaner wle_khn lists.">
+      <div class="card-head">
+        <h3 id="usb-wle-khn-vcd-launcher">USB - wLE_kHn VCD launcher<a class="heading-anchor" href="#usb-wle-khn-vcd-launcher" aria-label="Link to USB - wLE_kHn VCD launcher">#</a></h3>
+        <div><span class="badge medium">medium</span> <span class="badge ">verified-hardware-user</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>USB mass storage</dd>
+        <dt>Launcher</dt><dd>wLE_kHn</dd>
+        <dt>Filesystem</dt><dd>FAT32 or exFAT through BDM Assault</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>POPS_IOX.PAK</li><li>POPSTARTER.ELF</li><li>Per-game VCD</li><li>wLE_kHn ELF</li></ul>
+      <h4>Exact paths</h4><pre><code>mass:/POPS/POPS_IOX.PAK
+mass:/POPS/POPSTARTER.ELF
+mass:/POPS/&lt;Game&gt;.VCD
+mass:/POPS/&lt;Game&gt;/
+mass:/APPS/APP_wLE_kHn_20200810/wLE_kHn_20200810.ELF
+mass:/APPS/APP_wLE_kHn_20200810/title.cfg</code></pre>
+      <h4>Sample config</h4><pre><code>title=wLE_kHn_20200810 VCD Launcher
+boot=wLE_kHn_20200810.ELF</code></pre>
+      <h4>Warnings</h4><ul><li>User notes recommend omitting game IDs from VCD filenames for cleaner wLE_kHn lists.</li></ul>
+      <p class="sources"><a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+    </article><article class="layout-card" data-backend="USB mass storage" data-launcher="Original POPStarter folder scan" data-confidence="high" data-search="usb - pops0 through pops9 split folders usb mass storage original popstarter folder scan fat12/fat16/fat32; defragmented media strongly preferred popstarter scans pops, then pops0 through pops9. pops_iox.pak and igr tm2 textures stay in the main pops folder. bios.bin, patch_#.bin, trojan_#.bin, and vmcdir.txt do not propagate into pops# folders; copy them into each split folder that needs them.">
+      <div class="card-head">
+        <h3 id="usb-pops0-through-pops9-split-folders">USB - POPS0 through POPS9 split folders<a class="heading-anchor" href="#usb-pops0-through-pops9-split-folders" aria-label="Link to USB - POPS0 through POPS9 split folders">#</a></h3>
+        <div><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>USB mass storage</dd>
+        <dt>Launcher</dt><dd>Original POPStarter folder scan</dd>
+        <dt>Filesystem</dt><dd>FAT12/FAT16/FAT32; defragmented media strongly preferred</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>VCDs in mass:/POPS or mass:/POPS0 through mass:/POPS9</li><li>POPS_IOX.PAK in main mass:/POPS</li></ul>
+      <h4>Exact paths</h4><pre><code>mass:/POPS/POPS_IOX.PAK
+mass:/POPS/&lt;Game&gt;.VCD
+mass:/POPS0/&lt;Game&gt;.VCD
+mass:/POPS1/&lt;Game&gt;.VCD
+mass:/POPS9/&lt;Game&gt;.VCD
+mass:/POPS#/BIOS.BIN
+mass:/POPS#/PATCH_#.BIN
+mass:/POPS#/TROJAN_#.BIN
+mass:/POPS#/&lt;Game&gt;/CHEATS.TXT</code></pre>
+
+      <h4>Warnings</h4><ul><li>POPStarter scans POPS, then POPS0 through POPS9.</li><li>POPS_IOX.PAK and IGR TM2 textures stay in the main POPS folder.</li><li>BIOS.BIN, PATCH_#.BIN, TROJAN_#.BIN, and VMCDIR.TXT do not propagate into POPS# folders; copy them into each split folder that needs them.</li></ul>
+      <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></p>
+    </article><article class="layout-card" data-backend="USB mass storage" data-launcher="POPSLoader" data-confidence="high" data-search="usb - popsloader app usb mass storage popsloader fat32 or exfat through bdm assault popsloader behavior is a modern side project, not original core popstarter behavior. popsldr must stay next to the popsloader elf according to the resource page.">
+      <div class="card-head">
+        <h3 id="usb-popsloader-app">USB - POPSLoader app<a class="heading-anchor" href="#usb-popsloader-app" aria-label="Link to USB - POPSLoader app">#</a></h3>
+        <div><span class="badge high">high</span> <span class="badge ">verified-cross-source</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>USB mass storage</dd>
+        <dt>Launcher</dt><dd>POPSLoader</dd>
+        <dt>Filesystem</dt><dd>FAT32 or exFAT through BDM Assault</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>POPSLoader ELF and POPSLDR folder</li><li>POPSTARTER.ELF</li><li>POPS_IOX.PAK</li><li>Per-game VCD</li></ul>
+      <h4>Exact paths</h4><pre><code>mass:/POPS/POPS_IOX.PAK
+mass:/POPS/POPSTARTER.ELF
+mass:/POPS/&lt;Game&gt;.VCD
+mass:/POPS/&lt;Game&gt;/
+mass:/APPS/PS1_POPSLDR/POPSLOADER.ELF
+mass:/APPS/PS1_POPSLDR/POPSLDR/
+mass:/APPS/PS1_POPSLDR/title.cfg</code></pre>
+      <h4>Sample config</h4><pre><code>title=[PS1] !POPSLOADER
+boot=POPSLOADER.ELF</code></pre>
+      <h4>Warnings</h4><ul><li>POPSLoader behavior is a modern side project, not original core POPStarter behavior.</li><li>POPSLDR must stay next to the POPSLoader ELF according to the resource page.</li></ul>
+      <p class="sources"><a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a> <a class="source-chip" href="https://www.psx-place.com/resources/popsloader.1396/" target="_blank" rel="noreferrer">POPSLoader by El_isra</a></p>
+    </article><article class="layout-card" data-backend="Internal APA HDD/SSD" data-launcher="OPL Apps page" data-confidence="high" data-search="apa hdd - opl apps per-game renamed elf internal apa hdd/ssd opl apps page pfs/apa elotrolado warns opl network start mode should not be auto when launching hdd popstarter via apps, because black-screen hangs can occur. __.pops spelling matters.">
+      <div class="card-head">
+        <h3 id="apa-hdd-opl-apps-per-game-renamed-elf">APA HDD - OPL Apps per-game renamed ELF<a class="heading-anchor" href="#apa-hdd-opl-apps-per-game-renamed-elf" aria-label="Link to APA HDD - OPL Apps per-game renamed ELF">#</a></h3>
+        <div><span class="badge high">high</span> <span class="badge ">verified-cross-source</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>Internal APA HDD/SSD</dd>
+        <dt>Launcher</dt><dd>OPL Apps page</dd>
+        <dt>Filesystem</dt><dd>PFS/APA</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>Per-game VCD</li><li>POPS.ELF</li><li>IOPRP252.IMG</li><li>Per-game renamed POPSTARTER.ELF</li></ul>
+      <h4>Exact paths</h4><pre><code>hdd:/__.POPS/&lt;Game&gt;.VCD
+hdd:/__common/POPS/IOPRP252.IMG
+hdd:/__common/POPS/POPS.ELF
+hdd:/__common/POPS/POPSTARTER.ELF
+hdd:/+OPL/APPS/&lt;Game&gt;/&lt;Game&gt;.ELF
+hdd:/+OPL/APPS/&lt;Game&gt;/title.cfg</code></pre>
+      <h4>Sample config</h4><pre><code>title=[PS1] Soul Blade
+boot=SLUS_002.40.Soul Blade.ELF</code></pre>
+      <h4>Warnings</h4><ul><li>ElOtroLado warns OPL network start mode should not be Auto when launching HDD POPStarter via Apps, because black-screen hangs can occur.</li><li>__.POPS spelling matters.</li></ul>
+      <p class="sources"><a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-15" target="_blank" rel="noreferrer">PSX-Place POPStarter page 15 - IGR and BOOT.ELF discussion</a></p>
+    </article><article class="layout-card" data-backend="Internal APA HDD/SSD" data-launcher="OPL DB / PS1 page" data-confidence="medium" data-search="apa hdd - opl db / ps1 page internal apa hdd/ssd opl db / ps1 page pfs/apa modern opl db/tenth behavior needs fork-specific verification. a local screenshot reports hdd0:/__common/pops/popstarter.elf worked as popstarter path.">
+      <div class="card-head">
+        <h3 id="apa-hdd-opl-db-ps1-page">APA HDD - OPL DB / PS1 page<a class="heading-anchor" href="#apa-hdd-opl-db-ps1-page" aria-label="Link to APA HDD - OPL DB / PS1 page">#</a></h3>
+        <div><span class="badge medium">medium</span> <span class="badge ">verified-hardware-user</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>Internal APA HDD/SSD</dd>
+        <dt>Launcher</dt><dd>OPL DB / PS1 page</dd>
+        <dt>Filesystem</dt><dd>PFS/APA</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>Per-game VCD</li><li>POPS.ELF</li><li>IOPRP252.IMG</li><li>POPSTARTER.ELF</li><li>POPS_IOX.PAK</li></ul>
+      <h4>Exact paths</h4><pre><code>hdd:/__.POPS/&lt;Game&gt;.VCD
+hdd:/__common/POPS/IOPRP252.IMG
+hdd:/__common/POPS/POPS.ELF
+hdd:/__common/POPS/POPSTARTER.ELF
+hdd:/__common/POPS/POPS_IOX.PAK</code></pre>
+
+      <h4>Warnings</h4><ul><li>Modern OPL DB/Tenth behavior needs fork-specific verification.</li><li>A local screenshot reports hdd0:/__common/POPS/POPSTARTER.ELF worked as POPStarter path.</li></ul>
+      <p class="sources"><a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a> <a class="source-chip" href="evidence/discord_popstarter_test_screenshot.png" target="_blank" rel="noreferrer">Discord POPStarter test screenshot</a></p>
+    </article><article class="layout-card" data-backend="Internal APA HDD/SSD" data-launcher="wLE_kHn" data-confidence="medium" data-search="apa hdd - wle_khn vcd launcher internal apa hdd/ssd wle_khn pfs/apa use this as a launcher workflow, not as a different popstarter storage backend. __.pops remains the vcd partition/path.">
+      <div class="card-head">
+        <h3 id="apa-hdd-wle-khn-vcd-launcher">APA HDD - wLE_kHn VCD launcher<a class="heading-anchor" href="#apa-hdd-wle-khn-vcd-launcher" aria-label="Link to APA HDD - wLE_kHn VCD launcher">#</a></h3>
+        <div><span class="badge medium">medium</span> <span class="badge ">verified-hardware-user</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>Internal APA HDD/SSD</dd>
+        <dt>Launcher</dt><dd>wLE_kHn</dd>
+        <dt>Filesystem</dt><dd>PFS/APA</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>wLE_kHn ELF</li><li>Per-game VCD</li><li>POPS.ELF</li><li>IOPRP252.IMG</li><li>POPSTARTER.ELF</li><li>POPS_IOX.PAK</li></ul>
+      <h4>Exact paths</h4><pre><code>mc0:/BOOT/BOOT.ELF
+hdd:/__.POPS/&lt;Game&gt;.VCD
+hdd:/__common/POPS/IOPRP252.IMG
+hdd:/__common/POPS/POPS.ELF
+hdd:/__common/POPS/POPSTARTER.ELF
+hdd:/__common/POPS/POPS_IOX.PAK
+hdd:/__common/POPS/&lt;Game&gt;/
+hdd:/+OPL/APPS/wLE_kHn_20200810/wLE_kHn_20200810.ELF
+hdd:/+OPL/APPS/wLE_kHn_20200810/title.cfg</code></pre>
+      <h4>Sample config</h4><pre><code>title=wLE_kHn_20200810 VCD Launcher
+boot=wLE_kHn_20200810.ELF</code></pre>
+      <h4>Warnings</h4><ul><li>Use this as a launcher workflow, not as a different POPStarter storage backend.</li><li>__.POPS remains the VCD partition/path.</li></ul>
+      <p class="sources"><a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+    </article><article class="layout-card" data-backend="Internal APA HDD/SSD" data-launcher="Modern WIP01/r13 HDD launch type" data-confidence="high" data-search="apa hdd - __.pops through __.pops9 split folders internal apa hdd/ssd modern wip01/r13 hdd launch type pfs/apa do not create +__.pops; the leading plus is wrong for the popstarter partition name. per-game vmc/fix folders go under __common/pops, not beside the vcds in __.pops.">
+      <div class="card-head">
+        <h3 id="apa-hdd-pops-through-pops9-split-folders">APA HDD - __.POPS through __.POPS9 split folders<a class="heading-anchor" href="#apa-hdd-pops-through-pops9-split-folders" aria-label="Link to APA HDD - __.POPS through __.POPS9 split folders">#</a></h3>
+        <div><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>Internal APA HDD/SSD</dd>
+        <dt>Launcher</dt><dd>Modern WIP01/r13 HDD launch type</dd>
+        <dt>Filesystem</dt><dd>PFS/APA</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>__.POPS or __.POPS0 through __.POPS9 partitions/paths</li><li>__common/POPS with POPS.ELF and IOPRP252.IMG</li></ul>
+      <h4>Exact paths</h4><pre><code>hdd0:/__.POPS/&lt;Game&gt;.VCD
+hdd0:/__.POPS0/&lt;Game&gt;.VCD
+hdd0:/__.POPS9/&lt;Game&gt;.VCD
+hdd0:/__common/POPS/POPS.ELF
+hdd0:/__common/POPS/IOPRP252.IMG
+hdd0:/__common/POPS/&lt;Game&gt;/CHEATS.TXT</code></pre>
+
+      <h4>Warnings</h4><ul><li>Do not create +__.POPS; the leading plus is wrong for the POPStarter partition name.</li><li>Per-game VMC/fix folders go under __common/POPS, not beside the VCDs in __.POPS.</li></ul>
+      <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+    </article><article class="layout-card" data-backend="Internal APA HDD/SSD" data-launcher="HDDOSD / Sony Browser 2.00 / legacy POPStarter KELF" data-confidence="medium" data-search="apa hdd legacy - pp.&lt;game&gt; hddosd-visible partition internal apa hdd/ssd hddosd / sony browser 2.00 / legacy popstarter kelf pfs/apa partition every partition-installed game image is named image0.vcd; game identity comes from the partition name. use pp.&lt;name&gt; for hddosd-visible installs; hidden __.&lt;name&gt; is a different legacy mode.">
+      <div class="card-head">
+        <h3 id="apa-hdd-legacy-pp-lt-game-gt-hddosd-visible-partition">APA HDD legacy - PP.&lt;game&gt; HDDOSD-visible partition<a class="heading-anchor" href="#apa-hdd-legacy-pp-lt-game-gt-hddosd-visible-partition" aria-label="Link to APA HDD legacy - PP.&amp;lt;game&amp;gt; HDDOSD-visible partition">#</a></h3>
+        <div><span class="badge medium">medium</span> <span class="badge ">recovered-needs-hardware-check</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>Internal APA HDD/SSD</dd>
+        <dt>Launcher</dt><dd>HDDOSD / Sony Browser 2.00 / legacy POPStarter KELF</dd>
+        <dt>Filesystem</dt><dd>PFS/APA partition</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>PP.&lt;Game&gt; partition</li><li>IMAGE0.VCD</li><li>POPSTARTER.KELF or matching launch entry</li></ul>
+      <h4>Exact paths</h4><pre><code>hdd0:/PP.&lt;Game&gt;/IMAGE0.VCD
+pfs0:/IMAGE0.VCD
+PP.&lt;Game&gt;.ELF or POPSTARTER.KELF launch entry
+SYSTEM.CNF BOOT2 = pfs:/IMAGE0.VCD</code></pre>
+      <h4>Sample config</h4><pre><code>BOOT2 = pfs:/IMAGE0.VCD
+VER = 1.00
+VMODE = NTSC</code></pre>
+      <h4>Warnings</h4><ul><li>Every partition-installed game image is named IMAGE0.VCD; game identity comes from the partition name.</li><li>Use PP.&lt;name&gt; for HDDOSD-visible installs; hidden __.&lt;name&gt; is a different legacy mode.</li></ul>
+      <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></p>
+    </article><article class="layout-card" data-backend="Internal APA HDD/SSD" data-launcher="Legacy alternate POPStarter partition launch" data-confidence="medium" data-search="apa hdd legacy - __.&lt;game&gt; hidden partition internal apa hdd/ssd legacy alternate popstarter partition launch pfs/apa partition hidden __.&lt;name&gt; partition-installed games are not the same as the modern shared __.pops vcd folder. do not rename the image away from image0.vcd inside a partition-installed game.">
+      <div class="card-head">
+        <h3 id="apa-hdd-legacy-lt-game-gt-hidden-partition">APA HDD legacy - __.&lt;game&gt; hidden partition<a class="heading-anchor" href="#apa-hdd-legacy-lt-game-gt-hidden-partition" aria-label="Link to APA HDD legacy - __.&amp;lt;game&amp;gt; hidden partition">#</a></h3>
+        <div><span class="badge medium">medium</span> <span class="badge ">recovered-needs-hardware-check</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>Internal APA HDD/SSD</dd>
+        <dt>Launcher</dt><dd>Legacy alternate POPStarter partition launch</dd>
+        <dt>Filesystem</dt><dd>PFS/APA partition</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>__.&lt;Game&gt; hidden partition</li><li>IMAGE0.VCD</li><li>Matching launch ELF</li></ul>
+      <h4>Exact paths</h4><pre><code>hdd0:/__.&lt;Game&gt;/IMAGE0.VCD
+pfs0:/IMAGE0.VCD
+__.&lt;Game&gt;.ELF or matching legacy launch entry</code></pre>
+
+      <h4>Warnings</h4><ul><li>Hidden __.&lt;name&gt; partition-installed games are not the same as the modern shared __.POPS VCD folder.</li><li>Do not rename the image away from IMAGE0.VCD inside a partition-installed game.</li></ul>
+      <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></p>
+    </article><article class="layout-card" data-backend="Internal APA HDD/SSD plus APA-Jail exFAT app side" data-launcher="OPL Apps page" data-confidence="medium" data-search="apa-jail hybrid - apps on exfat, pops on apa internal apa hdd/ssd plus apa-jail exfat app side opl apps page exfat app paths plus apa/pfs pops paths popstarter core does not support internal exfat for vcd/pops data; this is an app-side hybrid workflow.">
+      <div class="card-head">
+        <h3 id="apa-jail-hybrid-apps-on-exfat-pops-on-apa">APA-Jail hybrid - Apps on exFAT, POPS on APA<a class="heading-anchor" href="#apa-jail-hybrid-apps-on-exfat-pops-on-apa" aria-label="Link to APA-Jail hybrid - Apps on exFAT, POPS on APA">#</a></h3>
+        <div><span class="badge medium">medium</span> <span class="badge ">verified-hardware-user</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>Internal APA HDD/SSD plus APA-Jail exFAT app side</dd>
+        <dt>Launcher</dt><dd>OPL Apps page</dd>
+        <dt>Filesystem</dt><dd>exFAT app paths plus APA/PFS POPS paths</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>App-side launcher on exFAT</li><li>VCD and POPS files on APA/PFS</li></ul>
+      <h4>Exact paths</h4><pre><code>exfat:hdd:APPS/&lt;Game&gt;/&lt;Game&gt;.ELF
+exfat:hdd:APPS/&lt;Game&gt;/title.cfg
+apa:hdd:/__.POPS/&lt;Game&gt;.VCD
+apa:hdd:/__common/POPS/IOPRP252.IMG
+apa:hdd:/__common/POPS/POPS.ELF
+apa:hdd:/__common/POPS/POPSTARTER.ELF</code></pre>
+      <h4>Sample config</h4><pre><code>title=Soul Blade
+boot=SLUS_002.40.Soul Blade.ELF</code></pre>
+      <h4>Warnings</h4><ul><li>POPStarter core does not support internal exFAT for VCD/POPS data; this is an app-side hybrid workflow.</li></ul>
+      <p class="sources"><a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a></p>
+    </article><article class="layout-card" data-backend="SMB network share" data-launcher="OPL Apps page" data-confidence="high" data-search="smb - opl apps per-game renamed elf smb network share opl apps page host filesystem over smb some later opl betas reportedly require smb0: instead of smb: in conf_apps.cfg. use .dat, not .day, for ipconfig.dat and smbconfig.dat. use poweroff.irx, not poweroff.irc. the smb share must allow writes for vmc creation/update. smb debug text is forced in smb mode according to elotrolado.">
+      <div class="card-head">
+        <h3 id="smb-opl-apps-per-game-renamed-elf">SMB - OPL Apps per-game renamed ELF<a class="heading-anchor" href="#smb-opl-apps-per-game-renamed-elf" aria-label="Link to SMB - OPL Apps per-game renamed ELF">#</a></h3>
+        <div><span class="badge high">high</span> <span class="badge ">verified-cross-source</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>SMB network share</dd>
+        <dt>Launcher</dt><dd>OPL Apps page</dd>
+        <dt>Filesystem</dt><dd>Host filesystem over SMB</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>Per-game VCD</li><li>POPS_IOX.PAK</li><li>SB-prefixed renamed POPSTARTER.ELF</li><li>OPL conf_apps.cfg</li><li>MC network modules</li></ul>
+      <h4>Exact paths</h4><pre><code>PS2SMB:/POPS/&lt;Game&gt;.VCD
+PS2SMB:/POPS/POPS_IOX.PAK
+PS2SMB:/POPS/&lt;Game&gt;/
+PS2SMB:/APPS/SB.&lt;Game&gt;.ELF
+PS2SMB:/ART/SB.&lt;Game&gt;.ELF_COV.jpg
+mc0:/OPL/conf_apps.cfg
+mc?:/POPSTARTER/IPCONFIG.DAT
+mc?:/POPSTARTER/SMBCONFIG.DAT
+mc?:/POPSTARTER/poweroff.irx
+mc?:/POPSTARTER/ps2dev9.irx
+mc?:/POPSTARTER/ps2ip.irx
+mc?:/POPSTARTER/ps2smap.irx
+mc?:/POPSTARTER/smbman.irx
+mc?:/POPSTARTER/smsutils.irx</code></pre>
+      <h4>Sample config</h4><pre><code>Crash Bandicoot=smb:/APPS/SB.Crash Bandicoot.ELF
+Crash Bandicoot=smb0:/APPS/SB.Crash Bandicoot.ELF
+
+IPCONFIG.DAT:
+192.168.0.13 255.255.255.0 192.168.0.1
+
+SMBCONFIG.DAT:
+192.168.0.254 PS2SMB</code></pre>
+      <h4>Warnings</h4><ul><li>Some later OPL betas reportedly require smb0: instead of smb: in conf_apps.cfg.</li><li>Use .DAT, not .DAY, for IPCONFIG.DAT and SMBCONFIG.DAT.</li><li>Use poweroff.irx, not poweroff.irc.</li><li>The SMB share must allow writes for VMC creation/update.</li><li>SMB debug text is forced in SMB mode according to ElOtroLado.</li></ul>
+      <p class="sources"><a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+    </article><article class="layout-card" data-backend="SMB network share plus PS2-side ELF launch" data-launcher="Direct renamed POPStarter ELF" data-confidence="high" data-search="smb - direct sb-prefixed popstarter launcher smb network share plus ps2-side elf launch direct renamed popstarter elf host filesystem over smb do not confuse the pc/nas popstarter share with mc?:/popstarter. the sb. prefix selects smb mode. the share must be writable for vmc files.">
+      <div class="card-head">
+        <h3 id="smb-direct-sb-prefixed-popstarter-launcher">SMB - direct SB-prefixed POPStarter launcher<a class="heading-anchor" href="#smb-direct-sb-prefixed-popstarter-launcher" aria-label="Link to SMB - direct SB-prefixed POPStarter launcher">#</a></h3>
+        <div><span class="badge high">high</span> <span class="badge ">verified-single-source</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>SMB network share plus PS2-side ELF launch</dd>
+        <dt>Launcher</dt><dd>Direct renamed POPStarter ELF</dd>
+        <dt>Filesystem</dt><dd>Host filesystem over SMB</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>Shared POPSTARTER folder</li><li>Per-game VCD</li><li>POPS_IOX.PAK</li><li>SB-prefixed renamed POPSTARTER.ELF launched from PS2 side</li><li>MC network modules</li></ul>
+      <h4>Exact paths</h4><pre><code>POPSTARTER share:/POPS/POPS_IOX.PAK
+POPSTARTER share:/POPS/&lt;Game&gt;.VCD
+POPSTARTER share:/POPS/&lt;Game&gt;/
+&lt;PS2-side launcher path&gt;/SB.&lt;Game&gt;.ELF
+mc?:/POPSTARTER/IPCONFIG.DAT
+mc?:/POPSTARTER/SMBCONFIG.DAT
+mc?:/POPSTARTER/poweroff.irx
+mc?:/POPSTARTER/ps2dev9.irx
+mc?:/POPSTARTER/ps2ip.irx
+mc?:/POPSTARTER/ps2smap.irx
+mc?:/POPSTARTER/smbman.irx
+mc?:/POPSTARTER/smsutils.irx</code></pre>
+      <h4>Sample config</h4><pre><code>IPCONFIG.DAT:
+192.168.0.13 255.255.255.0 192.168.0.1
+
+SMBCONFIG.DAT:
+192.168.0.254 POPSTARTER</code></pre>
+      <h4>Warnings</h4><ul><li>Do not confuse the PC/NAS POPSTARTER share with mc?:/POPSTARTER.</li><li>The SB. prefix selects SMB mode.</li><li>The share must be writable for VMC files.</li></ul>
+      <p class="sources"><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+    </article><article class="layout-card" data-backend="SMB network share" data-launcher="OPL DB / PS1 page" data-confidence="medium" data-search="smb - opl db / ps1 page smb network share opl db / ps1 page host filesystem over smb modern opl db/ps1-page behavior needs fork-specific verification. keep this separate from the sb-prefixed opl apps workflow.">
+      <div class="card-head">
+        <h3 id="smb-opl-db-ps1-page">SMB - OPL DB / PS1 page<a class="heading-anchor" href="#smb-opl-db-ps1-page" aria-label="Link to SMB - OPL DB / PS1 page">#</a></h3>
+        <div><span class="badge medium">medium</span> <span class="badge ">verified-hardware-user</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>SMB network share</dd>
+        <dt>Launcher</dt><dd>OPL DB / PS1 page</dd>
+        <dt>Filesystem</dt><dd>Host filesystem over SMB</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>POPSTARTER.ELF</li><li>Per-game VCD</li><li>POPS_IOX.PAK</li><li>MC network modules</li></ul>
+      <h4>Exact paths</h4><pre><code>smb:/POPS/POPSTARTER.ELF
+smb:/POPS/&lt;Game&gt;.VCD
+smb:/POPS/POPS_IOX.PAK
+smb:/POPS/&lt;Game&gt;/
+mc?:/POPSTARTER/IPCONFIG.DAT
+mc?:/POPSTARTER/SMBCONFIG.DAT</code></pre>
+
+      <h4>Warnings</h4><ul><li>Modern OPL DB/PS1-page behavior needs fork-specific verification.</li><li>Keep this separate from the SB-prefixed OPL Apps workflow.</li></ul>
+      <p class="sources"><a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a></p>
+    </article><article class="layout-card" data-backend="Memory card IRX override for USB" data-launcher="POPStarter core or compatible launcher" data-confidence="high" data-search="bdm assault - usb exfat driver substitution memory card irx override for usb popstarter core or compatible launcher exfat usb through substituted usb drivers this is usb driver substitution, not native internal exfat support in popstarter core. bdm assault releases are external; do not vendor binaries here.">
+      <div class="card-head">
+        <h3 id="bdm-assault-usb-exfat-driver-substitution">BDM Assault - USB exFAT driver substitution<a class="heading-anchor" href="#bdm-assault-usb-exfat-driver-substitution" aria-label="Link to BDM Assault - USB exFAT driver substitution">#</a></h3>
+        <div><span class="badge high">high</span> <span class="badge ">verified-primary</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>Memory card IRX override for USB</dd>
+        <dt>Launcher</dt><dd>POPStarter core or compatible launcher</dd>
+        <dt>Filesystem</dt><dd>exFAT USB through substituted USB drivers</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>bdm_assault.irx renamed to usbd.irx</li><li>usbd_bd_assault.irx renamed to usbhdfsd.irx</li></ul>
+      <h4>Exact paths</h4><pre><code>bdm_assault.irx -&gt; mc?:/POPSTARTER/usbd.irx
+usbd_bd_assault.irx -&gt; mc?:/POPSTARTER/usbhdfsd.irx
+bdm_assault.irx -&gt; mc?:/SYS-CONF/USBD.IRX
+usbd_bd_assault.irx -&gt; mc?:/SYS-CONF/USBHDFSD.IRX</code></pre>
+
+      <h4>Warnings</h4><ul><li>This is USB driver substitution, not native internal exFAT support in POPStarter core.</li><li>BDM Assault releases are external; do not vendor binaries here.</li></ul>
+      <p class="sources"><a class="source-chip" href="https://github.com/israpps/BDMAssault" target="_blank" rel="noreferrer">BDM Assault GitHub repository</a> <a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a></p>
+    </article><article class="layout-card" data-backend="USB / MX4SIO / MMCE / APA HDD" data-launcher="Ripto POPSLoader fork" data-confidence="high" data-search="popsloader fork - usb, mx4sio, mmce, apahdd usb / mx4sio / mmce / apa hdd ripto popsloader fork device-specific; pfs for hdd mc0 is required for settings and bdma in the fork. bdma is required for all non-hdd devices and only one bdma mode can be active at once.">
+      <div class="card-head">
+        <h3 id="popsloader-fork-usb-mx4sio-mmce-apahdd">POPSLoader fork - USB, MX4SIO, MMCE, APAHDD<a class="heading-anchor" href="#popsloader-fork-usb-mx4sio-mmce-apahdd" aria-label="Link to POPSLoader fork - USB, MX4SIO, MMCE, APAHDD">#</a></h3>
+        <div><span class="badge high">high</span> <span class="badge ">verified-primary</span></div>
+      </div>
+      <dl class="compact">
+        <dt>Backend</dt><dd>USB / MX4SIO / MMCE / APA HDD</dd>
+        <dt>Launcher</dt><dd>Ripto POPSLoader fork</dd>
+        <dt>Filesystem</dt><dd>Device-specific; PFS for HDD</dd>
+      </dl>
+      <h4>Required files</h4><ul><li>POPSLoader app</li><li>POPSTARTER.ELF on a supported path</li><li>VCDs in device POPS folder or HDD __.POPS</li></ul>
+      <h4>Exact paths</h4><pre><code>mc0:/POPSTARTER/POPSTARTER.ELF
+mass:/POPS/POPSTARTER.ELF
+mx4sio:/POPS/POPSTARTER.ELF
+mmce:/POPS/POPSTARTER.ELF
+&lt;device&gt;:/POPS/&lt;Title&gt;.VCD
+&lt;device&gt;:/POPS/&lt;Title&gt;.png
+hdd:/__.POPS/&lt;Title&gt;.VCD
+hdd:/__common/POPS/ART/&lt;Title&gt;.png</code></pre>
+
+      <h4>Warnings</h4><ul><li>mc0 is required for settings and BDMA in the fork.</li><li>BDMA is required for all non-HDD devices and only one BDMA mode can be active at once.</li></ul>
+      <p class="sources"><a class="source-chip" href="https://www.psx-place.com/resources/fork-popsloader-for-mmce-mx4sio-usb-and-apahdd.1665/" target="_blank" rel="noreferrer">Ripto/NathanNeurotic POPSLoader fork</a></p>
+    </article></div>
+  </section></article>
         <aside class="page-toc" aria-label="On this page">
           <strong>On this page</strong>
-          <a href="#source-file">Source file</a>
+          <a href="#backend-comparison">Backend comparison</a><a href="#do-not-mix-backend-rules">Do not mix backend rules</a>
         </aside>
       </div>
     </main>

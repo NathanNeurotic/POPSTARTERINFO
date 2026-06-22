@@ -542,10 +542,12 @@ const generatedPages = [
 const allPages = [...pages, ...generatedPages];
 
 const navGroups = [
-  { label: "Start", slugs: ["index", "quick-start"] },
-  { label: "Storage and Launch", slugs: ["usb-storage", "internal-hdd", "bdm-exfat", "smb-network", "storage-matrix", "launcher-matrix"] },
-  { label: "Reference", slugs: ["command-reference", "config-table", "compatibility-map", "patches-fixes", "igr-exit", "multi-disc-vmc", "video-display", "debugging", "troubleshooting"] },
-  { label: "Archive", slugs: ["download-inventory", "history-provenance", "wiki-coverage", "source-archive", "research-log", "glossary", "search", "archive", "data-browser"] }
+  { label: "0 Start Here", slugs: ["index", "quick-start"] },
+  { label: "1 Setup Paths", slugs: ["setup-paths", "launcher-matrix"] },
+  { label: "2 Storage Backends", slugs: ["storage-overview", "usb-storage", "internal-hdd", "smb-network", "bdm-exfat", "storage-matrix"] },
+  { label: "3 Reference Tables", slugs: ["reference-tables", "command-reference", "config-table", "compatibility-map", "patches-fixes", "igr-exit", "multi-disc-vmc", "video-display", "debugging", "troubleshooting"] },
+  { label: "4 Archive & Provenance", slugs: ["archive-provenance", "download-inventory", "history-provenance", "wiki-coverage", "source-archive", "research-log"] },
+  { label: "Appendices", slugs: ["glossary", "search", "archive", "data-browser"] }
 ];
 
 function sidebarNav(page) {
@@ -566,20 +568,48 @@ function sidebarNav(page) {
   return `${groups}<div class="nav-group"><div class="nav-heading">Other</div>${extras.map((item) => `<a ${item.slug === page.slug ? "aria-current=\"page\"" : ""} href="${slugToHref(item.slug)}">${esc(item.nav || item.title)}</a>`).join("")}</div>`;
 }
 
+function headingAnchor(value, used) {
+  const base = slugify(value) || "section";
+  const count = used.get(base) || 0;
+  used.set(base, count + 1);
+  return count ? `${base}-${count + 1}` : base;
+}
+
+function anchorHeadings(html) {
+  const headings = [];
+  const used = new Map();
+  const out = html.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (match, level, inner) => {
+    if (/<a\s/i.test(inner) || /\sid="/i.test(match)) return match;
+    const plain = inner.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    if (!plain) return match;
+    const id = headingAnchor(plain, used);
+    headings.push({ id, level: Number(level), text: plain });
+    return `<h${level} id="${esc(id)}">${inner}<a class="heading-anchor" href="#${esc(id)}" aria-label="Link to ${esc(plain)}">#</a></h${level}>`;
+  });
+  return { html: out, headings };
+}
+
+function pageContents(headings) {
+  const items = headings.filter((heading) => heading.level === 2).slice(0, 14);
+  if (!items.length) return `<p class="toc-empty">No section headings.</p>`;
+  return items.map((heading) => `<a href="#${esc(heading.id)}">${esc(heading.text)}</a>`).join("");
+}
+
 function renderPage(page) {
   const nav = sidebarNav(page);
   const bodyClass = page.slug === "index" ? "home-page" : "content-page";
-  const heroActions = page.slug === "index"
-    ? `<div class="hero-actions">
-        <a class="button-link primary" href="quick-start.html">Start with Quick Start</a>
-        <a class="button-link" href="search.html">Search the archive</a>
-      </div>`
-    : "";
   const blockHtml = (page.blocks || []).map((block) => {
     if (typeof block === "string") return block;
     if (block.dynamic) return dynamicBlocks[block.dynamic]();
     return "";
   }).join("\n");
+  const anchored = anchorHeadings(blockHtml);
+  const heroActions = page.slug === "index"
+    ? `<div class="hero-actions">
+        <a class="button-link primary" href="quick-start.html">Start with Quick Start</a>
+        <a class="button-link" href="setup-paths.html">Read the manual</a>
+      </div>`
+    : "";
 
   return `<!doctype html>
 <html lang="en">
@@ -596,9 +626,10 @@ function renderPage(page) {
   <header class="topbar">
     <a class="brand" href="index.html"><span class="brand-mark">P1</span><span class="brand-copy"><strong>POPStarter Docs</strong><small>Recovered preservation manual</small></span></a>
     <div class="top-actions">
-      <a class="top-link" href="quick-start.html">Quick Start</a>
-      <a class="top-link" href="command-reference.html">Commands</a>
-      <a class="top-link" href="archive.html">Archive</a>
+      <a class="top-link" href="setup-paths.html">Setup</a>
+      <a class="top-link" href="storage-overview.html">Storage</a>
+      <a class="top-link" href="reference-tables.html">Reference</a>
+      <a class="top-link" href="archive-provenance.html">Archive</a>
       <label class="site-search"><span>Search</span><input id="global-search" type="search" placeholder="SMBCONFIG.DAT, PATCH_9.BIN, VMC"></label>
     </div>
   </header>
@@ -611,7 +642,13 @@ function renderPage(page) {
           <p>${esc(page.description || "")}</p>${heroActions ? `\n          ${heroActions}` : ""}
         </div>
       </section>
-      ${blockHtml}
+      <div class="content-layout">
+        <article class="article-content">${anchored.html}</article>
+        <aside class="page-toc" aria-label="On this page">
+          <strong>On this page</strong>
+          ${pageContents(anchored.headings)}
+        </aside>
+      </div>
     </main>
   </div>
   <footer class="site-footer">

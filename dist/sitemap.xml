@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>index.html</loc></url>
+  <url><loc>setup-paths.html</loc></url>
+  <url><loc>storage-overview.html</loc></url>
+  <url><loc>reference-tables.html</loc></url>
+  <url><loc>archive-provenance.html</loc></url>
   <url><loc>quick-start.html</loc></url>
   <url><loc>usb-storage.html</loc></url>
   <url><loc>internal-hdd.html</loc></url>

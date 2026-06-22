@@ -6,21 +6,25 @@ export const pages = [
     description: "Recovered, source-backed POPStarter setup and reference material for PS1-on-PS2 workflows: storage layouts, commands, patches, IGR, VMCs, SMB, and fork boundaries.",
     blocks: [
       { dynamic: "homeStats" },
-      `<section class="home-grid">
-        <a class="action-card primary" href="quick-start.html"><em>Start here</em><strong>Choose the right workflow</strong><span>Pick storage, launcher, and exact file layout before copying anything.</span></a>
-        <a class="action-card" href="usb-storage.html"><em>USB</em><strong>Mass storage setup</strong><span>OPL Apps, OPL DB, wLE_kHn, POPSLoader, Hugopocked fixes, and BDM/exFAT notes.</span></a>
-        <a class="action-card" href="internal-hdd.html"><em>HDD</em><strong>APA/PFS internal drive</strong><span><code>__.POPS</code>, <code>__common/POPS</code>, OPL Apps, OPL DB, wLE_kHn, and APA-Jail boundaries.</span></a>
-        <a class="action-card" href="smb-network.html"><em>SMB</em><strong>Network launch guide</strong><span>Direct <code>SB.</code> launchers, OPL Apps over SMB, memory-card modules, auth, ports, and VMC writes.</span></a>
-        <a class="action-card" href="command-reference.html"><em>Reference</em><strong>Command table</strong><span>Filter <code>CHEATS.TXT</code> directives by category, confidence, and verification status.</span></a>
-        <a class="action-card" href="config-table.html"><em>Bytes</em><strong>Config byte table</strong><span>Every r13 <code>$410-$42F</code> byte, default, alias, and risk note.</span></a>
-        <a class="action-card" href="compatibility-map.html"><em>Aliases</em><strong>Compatibility map</strong><span>Crosswalk <code>$commands</code>, <code>PATCH_#.BIN</code>, <code>TROJAN_#.BIN</code>, and config bytes.</span></a>
-        <a class="action-card" href="patches-fixes.html"><em>Fixes</em><strong>Patches and TROJANs</strong><span>Compatibility blobs, loader-disable conflicts, display fixes, and per-game folder placement.</span></a>
-        <a class="action-card" href="download-inventory.html"><em>Inventory</em><strong>Safe archive index</strong><span>Package names, recovery status, and hashes without public binary links.</span></a>
-        <a class="action-card" href="troubleshooting.html"><em>Diagnostics</em><strong>Known failure modes</strong><span>Black screens, wrong folders, <code>title.cfg.txt</code>, SMB auth, VMC writes, and display traps.</span></a>
-        <a class="action-card" href="search.html"><em>Search</em><strong>Search the recovered pack</strong><span>Guide pages, source notes, research files, JSON data, and archive pages.</span></a>
+      `<section class="decision-panel">
+        <h2>Start Here: choose your path</h2>
+        <p>Pick the storage backend first. The launcher, folder names, support files, and troubleshooting path all depend on that decision.</p>
+        <div class="decision-grid">
+          <a href="usb-storage.html"><strong>USB</strong><span>FAT32 baseline, POPS0-POPS9, OPL Apps, wLE_kHn, POPSLoader, BDM/exFAT.</span></a>
+          <a href="internal-hdd.html"><strong>HDD</strong><span>Modern <code>__.POPS</code>, <code>__common/POPS</code>, legacy <code>PP.</code> partitions, KELF notes.</span></a>
+          <a href="smb-network.html"><strong>SMB</strong><span><code>SB.</code> launchers, memory-card network modules, auth, ports, writable VMC share.</span></a>
+        </div>
+      </section>`,
+      `<section>
+        <h2>Manual chapters</h2>
+        <div class="chapter-table">
+          <a href="setup-paths.html"><span>1</span><strong>Setup Paths</strong><em>Boot flow, launcher choices, minimal files, memory card layout, verification.</em></a>
+          <a href="storage-overview.html"><span>2</span><strong>Storage Backends</strong><em>USB, HDD, SMB, BDM/exFAT, split folders, performance and failure boundaries.</em></a>
+          <a href="reference-tables.html"><span>3</span><strong>Reference Tables</strong><em>Commands, config bytes, PATCH/TROJAN map, IGR, video, VMC, troubleshooting.</em></a>
+          <a href="archive-provenance.html"><span>4</span><strong>Archive & Provenance</strong><em>Hashes, package inventory, recovered wiki coverage, timeline, source confidence.</em></a>
+        </div>
       </section>`,
       `<section class="architecture-panel">
-        <div class="section-kicker">Architecture map</div>
         <h2>POPStarter, POPS, and POPSLoader are not the same thing</h2>
         <p class="lead">Most bad setup instructions blur three separate layers. This site keeps them split so a reader knows whether a rule belongs to original POPStarter, Sony's POPS emulator payload, or a modern launcher/fork workflow.</p>
         <div class="compare">
@@ -38,17 +42,9 @@ export const pages = [
           </article>
         </div>
       </section>`,
-      `<section class="map-strip">
-        <article><strong>CHEATS.TXT</strong><span>Plain-text <code>$commands</code> and cheat codes in the per-game folder.</span></article>
-        <article><strong>PATCH_#.BIN</strong><span>Compatibility, loader-disable, and display-related binary patches with source conflicts preserved.</span></article>
-        <article><strong>DISCS.TXT</strong><span>Multi-disc sets list exact VCD filenames for each disc in the set.</span></article>
-        <article><strong>VMCDIR.TXT</strong><span>Later discs can point saves back at the first disc's VMC folder.</span></article>
-        <article><strong>IPCONFIG.DAT</strong><span>SMB network identity: PS2 IP, subnet mask, and gateway.</span></article>
-        <article><strong>SMBCONFIG.DAT</strong><span>SMB host, share name, and optional username/password.</span></article>
-      </section>`,
       `<section class="evidence-grid">
         <article class="callout">
-          <h2>Strongest findings</h2>
+          <h2>Reference anchors</h2>
           <ul class="checklist">
             <li><strong>Final public beta:</strong> r13 Beta 2019/06/05 is repeatedly identified as the final POPStarter build in the seed, Retro-Jogos mirror, and ElOtroLado first-post capture.</li>
             <li><strong>Loader-disable artifact:</strong> krHACKen identifies <code>PATCH_9.BIN</code> in the POPS folder as the workaround for the bugged ELF loader, but seed notes also associate <code>PATCH_9.BIN</code> with <code>$NOPAL</code>.</li>
@@ -61,6 +57,129 @@ export const pages = [
           <p>No Sony POPS emulator binaries, BIOS files, decrypted libraries, proprietary package mirrors, or direct binary download links belong in this repository.</p>
           <p>Required files may be identified by filename, SHA/hash, package role, or source-reference identifier only.</p>
         </article>
+      </section>`
+    ]
+  },
+  {
+    slug: "setup-paths",
+    title: "Setup Paths",
+    nav: "Setup Paths",
+    description: "The manual chapter for boot flow, launcher selection, minimal files, memory-card folders, and first-boot verification.",
+    blocks: [
+      `<section class="callout">
+        <h2>Read this before copying files</h2>
+        <p>POPStarter setup is path-sensitive. A correct file in the wrong folder is effectively missing, and a correct launcher prefix for one backend can select the wrong mode on another backend.</p>
+      </section>`,
+      `<section>
+        <h2>Boot flow</h2>
+        <pre><code>Frontend or ELF browser
+  -> renamed POPSTARTER.ELF or POPSTARTER.KELF
+    -> resolve storage backend from prefix/path
+      -> locate VCD
+        -> locate per-game support folder
+          -> apply CHEATS.TXT / PATCH / TROJAN / handlers
+            -> hand execution to POPS</code></pre>
+      </section>`,
+      `<section>
+        <h2>Minimal path checklist</h2>
+        <ol>
+          <li>Choose one storage backend: USB, internal HDD, or SMB.</li>
+          <li>Choose one launcher model: renamed ELF, OPL Apps, OPL DB/PS1 page, wLE_kHn, POPSLoader, or HDDOSD/KELF.</li>
+          <li>Keep the VCD basename, renamed ELF, and support folder aligned for that model.</li>
+          <li>Put common POPS files only in the backend-specific common folder.</li>
+          <li>Put game-specific commands, VMCs, patches, and handlers in the per-game support folder.</li>
+        </ol>
+      </section>`,
+      `<section>
+        <h2>First boot verification</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Checkpoint</th><th>What to inspect</th><th>Where to go next</th></tr></thead>
+          <tbody>
+            <tr><td>Frontend sees entry</td><td><code>title.cfg</code>, app folder, renamed ELF, OPL path prefix.</td><td><a href="launcher-matrix.html">Launcher Matrix</a></td></tr>
+            <tr><td>POPStarter starts</td><td>Correct backend prefix/path, required POPS support files, VCD basename.</td><td><a href="storage-overview.html">Storage Backends</a></td></tr>
+            <tr><td>Game reaches PS logo</td><td>POPS payload identifiers, config bytes, compatibility mode, display commands.</td><td><a href="reference-tables.html">Reference Tables</a></td></tr>
+            <tr><td>Save or IGR fails</td><td>VMC folder, share write permission, IGR command, BOOT.ELF exit chain.</td><td><a href="troubleshooting.html">Troubleshooting</a></td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Memory-card folders</h2>
+        <p>SMB modules and many driver overrides are loaded from <code>mc0:/POPSTARTER/</code> with <code>mc1:/POPSTARTER/</code> fallback in later builds. Do not confuse this memory-card folder with a PC/NAS share named <code>POPSTARTER</code>.</p>
+      </section>`
+    ]
+  },
+  {
+    slug: "storage-overview",
+    title: "Storage Backends",
+    nav: "Storage Overview",
+    description: "The manual chapter for choosing USB, HDD, SMB, or BDM/exFAT and understanding backend-specific path rules.",
+    blocks: [
+      `<section>
+        <h2>Backend comparison</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Backend</th><th>Best use</th><th>Main paths</th><th>Main trap</th></tr></thead>
+          <tbody>
+            <tr><td><a href="usb-storage.html">USB</a></td><td>Simple first setup and portable testing.</td><td><code>mass:/POPS</code>, <code>mass:/POPS0..9</code></td><td>Fragmentation, slow USB bus, split-folder support files.</td></tr>
+            <tr><td><a href="internal-hdd.html">HDD</a></td><td>Best performance and stable local library.</td><td><code>hdd0:/__.POPS</code>, <code>hdd0:/__common/POPS</code></td><td>Creating <code>+__.POPS</code> or putting support folders beside VCDs.</td></tr>
+            <tr><td><a href="smb-network.html">SMB</a></td><td>Network library with easy file management.</td><td>Share root <code>POPS/</code>, <code>mc?:/POPSTARTER/</code></td><td>Read-only shares, missing modules, wrong <code>SB.</code> prefix.</td></tr>
+            <tr><td><a href="bdm-exfat.html">BDM/exFAT</a></td><td>USB exFAT through driver substitution.</td><td><code>mc?:/POPSTARTER/usbd.irx</code>, <code>usbhdfsd.irx</code></td><td>Assuming it adds internal HDD exFAT support.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section class="callout warning">
+        <h2>Do not mix backend rules</h2>
+        <p><code>XX.</code> belongs to classic USB renamed-ELF launch. <code>SB.</code> selects SMB mode. Modern HDD VCDs belong in <code>__.POPS</code>, while legacy partition installs use <code>IMAGE0.VCD</code> inside <code>PP.&lt;Game&gt;</code> or <code>__.&lt;Game&gt;</code>.</p>
+      </section>`,
+      { dynamic: "storageMatrix" }
+    ]
+  },
+  {
+    slug: "reference-tables",
+    title: "Reference Tables",
+    nav: "Reference Tables",
+    description: "The manual chapter that routes readers to commands, config bytes, compatibility aliases, patches, IGR, video, VMC, and troubleshooting references.",
+    blocks: [
+      `<section>
+        <h2>Reference map</h2>
+        <div class="chapter-table">
+          <a href="command-reference.html"><span>3.1</span><strong>Commands</strong><em><code>CHEATS.TXT</code> directives, raw code forms, scope, conflicts, and source confidence.</em></a>
+          <a href="config-table.html"><span>3.2</span><strong>Config Bytes</strong><em>Recovered <code>$410-$42F</code> r13 byte table with defaults and aliases.</em></a>
+          <a href="compatibility-map.html"><span>3.3</span><strong>PATCH / TROJAN Map</strong><em>Crosswalk command aliases, standalone files, and config-byte equivalents.</em></a>
+          <a href="igr-exit.html"><span>3.4</span><strong>IGR and Exit</strong><em>Combos, no-popup exits, <code>BOOT.ELF</code> chain, and loader-disable conflict.</em></a>
+          <a href="video-display.html"><span>3.5</span><strong>Video / Display</strong><em>480p, HDTVFIX, geometry, scanlines, smoothing, widescreen.</em></a>
+          <a href="multi-disc-vmc.html"><span>3.6</span><strong>Multi-disc and VMC</strong><em><code>DISCS.TXT</code>, <code>VMCDIR.TXT</code>, shared saves, support folders.</em></a>
+          <a href="troubleshooting.html"><span>3.7</span><strong>Troubleshooting</strong><em>Known symptoms, likely causes, and source-tagged mitigations.</em></a>
+        </div>
+      </section>`,
+      `<section class="callout">
+        <h2>Use tables as evidence, not as global presets</h2>
+        <p>The command and config tables explain what a switch does. They do not imply every switch should be applied globally. Start from a clean boot, then add the smallest per-game change that matches the symptom.</p>
+      </section>`
+    ]
+  },
+  {
+    slug: "archive-provenance",
+    title: "Archive & Provenance",
+    nav: "Archive Overview",
+    description: "The manual chapter for package identity, hashes, recovered wiki scope, source confidence, and preservation boundaries.",
+    blocks: [
+      `<section>
+        <h2>What belongs in the public archive</h2>
+        <p>This site preserves instructions, source notes, hashes, package identities, and source confidence. It does not mirror Sony POPS emulator binaries, BIOS files, proprietary libraries, or direct binary download links.</p>
+      </section>`,
+      `<section>
+        <h2>Archive map</h2>
+        <div class="chapter-table">
+          <a href="download-inventory.html"><span>4.1</span><strong>Safe Inventory</strong><em>Recovered package names, roles, statuses, and safe hashes.</em></a>
+          <a href="history-provenance.html"><span>4.2</span><strong>History</strong><em>Build timeline, feature introductions, and final r13 boundary.</em></a>
+          <a href="wiki-coverage.html"><span>4.3</span><strong>Wiki Coverage</strong><em>63 recovered ShaolinAssassin wiki page slugs grouped by topic.</em></a>
+          <a href="source-archive.html"><span>4.4</span><strong>Sources</strong><em>Public and local evidence records with reliability labels.</em></a>
+          <a href="archive.html"><span>4.5</span><strong>Local Archive</strong><em>Rendered seed notes, research files, raw captures, and drafts.</em></a>
+        </div>
+      </section>`,
+      `<section class="callout legal">
+        <h2>Preservation boundary</h2>
+        <p>Required POPS files may be identified by filename, MD5/SHA-style identifier, package role, or source-reference name only. Public pages should not turn into a download index.</p>
       </section>`
     ]
   },
@@ -540,13 +659,13 @@ hdd0:/__common/POPS/Final Fantasy VII D3/VMCDIR.TXT</code></pre>
         </ol>
         <h3>Direct share layout</h3>
         <pre><code>POPSTARTER/
-└── POPS/
-    ├── POPS_IOX.PAK
-    ├── Medievil.VCD
-    └── Medievil/
-        ├── CHEATS.TXT
-        ├── SLOT0.VMC
-        └── SLOT1.VMC</code></pre>
++-- POPS/
+    |-- POPS_IOX.PAK
+    |-- Medievil.VCD
+    +-- Medievil/
+        |-- CHEATS.TXT
+        |-- SLOT0.VMC
+        +-- SLOT1.VMC</code></pre>
         <p>ElOtroLado says VMCs are created automatically on the computer/NAS inside <code>POPS/&lt;game name&gt;/</code>. Because of that, write permission on the share is not optional.</p>
       </section>`,
       `<section>
@@ -562,13 +681,13 @@ hdd0:/__common/POPS/Final Fantasy VII D3/VMCDIR.TXT</code></pre>
         </ol>
         <h3>OPL Apps share layout</h3>
         <pre><code>PS2SMB/
-├── POPS/
-│   ├── POPS_IOX.PAK
-│   └── Crash Bandicoot.VCD
-├── APPS/
-│   └── SB.Crash Bandicoot.ELF
-└── ART/
-    └── SB.Crash Bandicoot.ELF_COV.jpg</code></pre>
+|-- POPS/
+|   |-- POPS_IOX.PAK
+|   +-- Crash Bandicoot.VCD
+|-- APPS/
+|   +-- SB.Crash Bandicoot.ELF
++-- ART/
+    +-- SB.Crash Bandicoot.ELF_COV.jpg</code></pre>
         <h3>conf_apps.cfg examples</h3>
         <pre><code>Crash Bandicoot=smb:/APPS/SB.Crash Bandicoot.ELF
 Crash Bandicoot=smb0:/APPS/SB.Crash Bandicoot.ELF</code></pre>
@@ -578,17 +697,17 @@ Crash Bandicoot=smb0:/APPS/SB.Crash Bandicoot.ELF</code></pre>
         <h2>Memory card POPSTARTER folder</h2>
         <p>The network modules and config files are copied as a complete <code>POPSTARTER</code> folder from the package's memory-card network module folder to <code>mc0:/POPSTARTER</code> or <code>mc1:/POPSTARTER</code>. This is separate from the PC/NAS share named <code>POPSTARTER</code> in the direct launcher route.</p>
         <pre><code>mc0:/POPSTARTER/
-├── icon.sys
-├── IPCONFIG.DAT
-├── netpops.ico
-├── popstarter.icn
-├── poweroff.irx
-├── ps2dev9.irx
-├── ps2ip.irx
-├── ps2smap.irx
-├── SMBCONFIG.DAT
-├── smbman.irx
-└── smsutils.irx</code></pre>
+|-- icon.sys
+|-- IPCONFIG.DAT
+|-- netpops.ico
+|-- popstarter.icn
+|-- poweroff.irx
+|-- ps2dev9.irx
+|-- ps2ip.irx
+|-- ps2smap.irx
+|-- SMBCONFIG.DAT
+|-- smbman.irx
++-- smsutils.irx</code></pre>
         <p><strong>Filename correction:</strong> use <code>IPCONFIG.DAT</code>, <code>SMBCONFIG.DAT</code>, and <code>poweroff.irx</code>. Treat <code>.DAY</code> and <code>poweroff.irc</code> from older/user notes as typos unless package inspection proves otherwise.</p>
       </section>`,
       `<section>
