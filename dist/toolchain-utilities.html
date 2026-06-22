@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data: historyTimeline - POPStarter Docs</title>
-  <meta name="description" content="Rendered structured data file: src/data/historyTimeline.json">
+  <title>Toolchain and Utilities - POPStarter Docs</title>
+  <meta name="description" content="Recovered utility workflows for VCD conversion, CUE2POPS, POPStarter batchers, PFSSHELL, RadHostClient, and VMC/PMC save movement.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -21,131 +21,73 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a><a  href="toolchain-utilities.html">Toolchain</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="advanced-launch-modes.html">Advanced Modes</a><a  href="popsloader-guide.html">POPSLoader</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="cheat-engine.html">Cheat Engine</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="compatibility-deep-dive.html">Compatibility Deep Dive</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="vmc-handlers.html">VMC / Handlers</a><a  href="device-irx-modules.html">Device / IRX</a><a  href="display-code-appendix.html">Display / Codes</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="faq-known-bugs.html">FAQ</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="thread-study.html">Thread Study</a><a  href="poc2-history.html">POC2 History</a><a  href="version-integrity.html">Version / Integrity</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="credits.html">Credits</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
+    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a><a aria-current="page" href="toolchain-utilities.html">Toolchain</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="advanced-launch-modes.html">Advanced Modes</a><a  href="popsloader-guide.html">POPSLoader</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="cheat-engine.html">Cheat Engine</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="compatibility-deep-dive.html">Compatibility Deep Dive</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="vmc-handlers.html">VMC / Handlers</a><a  href="device-irx-modules.html">Device / IRX</a><a  href="display-code-appendix.html">Display / Codes</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="faq-known-bugs.html">FAQ</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="thread-study.html">Thread Study</a><a  href="poc2-history.html">POC2 History</a><a  href="version-integrity.html">Version / Integrity</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="credits.html">Credits</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>Data: historyTimeline</h1>
-          <p>Rendered structured data file: src/data/historyTimeline.json</p>
+          <h1>Toolchain and Utilities</h1>
+          <p>Recovered utility workflows for VCD conversion, CUE2POPS, POPStarter batchers, PFSSHELL, RadHostClient, and VMC/PMC save movement.</p>
         </div>
       </section>
       <div class="content-layout">
-        <article class="article-content"><section class="callout"><h2 id="source-file">Source file<a class="heading-anchor" href="#source-file" aria-label="Link to Source file">#</a></h2><p><code>src/data/historyTimeline.json</code></p></section>
-<article class="archive-doc"><pre><code>[
-  {
-    &quot;date&quot;: &quot;2014-08-22&quot;,
-    &quot;label&quot;: &quot;WIP02&quot;,
-    &quot;summary&quot;: &quot;Added the 8-slot force-compatibility table and enabled IGR skin/IRX loaders by default.&quot;,
-    &quot;impact&quot;: &quot;Explains the $418-$41F config array and why IGR texture loading is a default r13 behavior.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2015-10-23&quot;,
-    &quot;label&quot;: &quot;Beta 8&quot;,
-    &quot;summary&quot;: &quot;Added SMB, ps2host, and napLink backend work, and embedded the PFS wrapper.&quot;,
-    &quot;impact&quot;: &quot;SMB is a normal POPStarter feature from this line, not proof that a special debug-only build is required.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2015-11-11&quot;,
-    &quot;label&quot;: &quot;Beta 11&quot;,
-    &quot;summary&quot;: &quot;Added mc1 module fallback, SMB port selection, optional IPCONFIG.DAT behavior, and fixes for POPS# folder reads.&quot;,
-    &quot;impact&quot;: &quot;Documents why memory-card POPSTARTER folders can live on mc0 or mc1 and why POPS0..POPS9 support files matter.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2015-11-24&quot;,
-    &quot;label&quot;: &quot;Beta 12&quot;,
-    &quot;summary&quot;: &quot;Added $FORCEPAL, SMB authentication, and a working $SAFEMODE command.&quot;,
-    &quot;impact&quot;: &quot;Separates PAL-region forcing, SMB username/password lines, and raw-code timing behavior from earlier broken docs.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2015-12-07&quot;,
-    &quot;label&quot;: &quot;Beta 13&quot;,
-    &quot;summary&quot;: &quot;Added the mc0/mc1 BOOT.ELF exit chain, fixed cheat-engine hook+8 and $C0/$USBDELAY interactions, removed the old function skipper, and removed ps2host/napLink launchers.&quot;,
-    &quot;impact&quot;: &quot;Critical boundary for IGR exit behavior and the $412 correction: in r13, $412 is HDTVFIX, not the old function skipper.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;psx-place-popstarter-page-15&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2016-09-18&quot;,
-    &quot;label&quot;: &quot;Beta 15&quot;,
-    &quot;summary&quot;: &quot;Added CD-lid / DISCS.TXT multi-disc behavior and 480p calculations.&quot;,
-    &quot;impact&quot;: &quot;Explains DISCS.TXT/VMCDIR.TXT-era multi-disc handling and why 480p remains a compatibility-sensitive option.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2016-11-20&quot;,
-    &quot;label&quot;: &quot;Beta 16&quot;,
-    &quot;summary&quot;: &quot;Integrated $IGR0 through $IGR5, $NOIGR, and $D2LS as CHEATS.TXT commands; repurposed $412 as HDTVFIX; added an untested software-reset combo.&quot;,
-    &quot;impact&quot;: &quot;Makes the CHEATS.TXT IGR commands canonical instead of requiring standalone TROJAN files for every IGR behavior.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2017-05-27&quot;,
-    &quot;label&quot;: &quot;Prototype 2&quot;,
-    &quot;summary&quot;: &quot;Added $42F value 0x04 as a diagnostic test mode.&quot;,
-    &quot;impact&quot;: &quot;The test mode disables normal auto fixes and should not be recommended for normal play.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2019-06-05&quot;,
-    &quot;label&quot;: &quot;r13 Beta final public build&quot;,
-    &quot;summary&quot;: &quot;Final public r13 build; recovered history says $IGR5 was fixed in this last build.&quot;,
-    &quot;impact&quot;: &quot;This is the canonical package identity to prefer over old RIP/WIP builds.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;retro-jogos-home&quot;,
-      &quot;psx-place-popstarter-thread&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2020-05-20&quot;,
-    &quot;label&quot;: &quot;TROJAN_7.BIN r7 fix pack&quot;,
-    &quot;summary&quot;: &quot;Recovered history identifies this as the last public fix-pack line.&quot;,
-    &quot;impact&quot;: &quot;Keep TROJAN_7 as a per-game fix-pack family, separate from IGR TROJAN_0..5 and compatibility PATCH_7 discussion.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;hugopocked-fixes&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2020-08-10&quot;,
-    &quot;label&quot;: &quot;uLE_kHn loader-address fix&quot;,
-    &quot;summary&quot;: &quot;uLE_kHn moved loader.elf to 0x00092000 to avoid kernel corruption.&quot;,
-    &quot;impact&quot;: &quot;Explains why later uLE_kHn packages are referenced in modern direct-VCD launch workflows.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ]
-  }
-]</code></pre></article></article>
+        <article class="article-content"><section class="callout">
+        <h2 id="tools-are-workflow-glue-not-bundled-content">Tools are workflow glue, not bundled content<a class="heading-anchor" href="#tools-are-workflow-glue-not-bundled-content" aria-label="Link to Tools are workflow glue, not bundled content">#</a></h2>
+        <p>The recovered wiki has many utility pages. This site documents what each tool is for and what checks matter, without hosting binaries or turning old download pages into a mirror.</p>
+      </section>
+<section>
+        <h2 id="vcd-conversion-checklist">VCD conversion checklist<a class="heading-anchor" href="#vcd-conversion-checklist" aria-label="Link to VCD conversion checklist">#</a></h2>
+        <ol>
+          <li>Dump the PS1 disc as BIN+CUE first. POPS expects VCD images, not normal ISO images.</li>
+          <li>Confirm the BIN is a raw <code>MODE2/2352</code> image and the CUE is a plain ASCII cuesheet.</li>
+          <li>Use CUE2POPS to convert the CUE/BIN pair into a <code>.VCD</code>.</li>
+          <li>Keep the final <code>.VCD</code> extension uppercase in documented examples.</li>
+          <li>Use the VCD basename as the anchor for the renamed ELF and per-game support folder.</li>
+        </ol>
+        <pre><code>Game.cue + Game.bin
+  -> CUE2POPS
+    -> Game.VCD
+      -> mass:/POPS/Game.VCD
+      -> mass:/POPS/Game/CHEATS.TXT</code></pre>
+      </section>
+<section>
+        <h2 id="cue2pops-and-batch-conversion">CUE2POPS and batch conversion<a class="heading-anchor" href="#cue2pops-and-batch-conversion" aria-label="Link to CUE2POPS and batch conversion">#</a></h2>
+        <p>The recovered changelog material names CUE2POPS 2.3 as a standalone conversion line with fixes around input-file overwrite behavior, workdir BIN handling, and output-path generation. The practical documentation rule is to keep the CUE, BIN, converter, and any bulk script in a predictable folder and inspect the generated VCD names before copying them to the PS2 backend.</p>
+        <p>Bulk conversion is useful, but it multiplies naming mistakes. After a bulk run, check every VCD basename against the launcher/support-folder scheme you intend to use.</p>
+      </section>
+<section>
+        <h2 id="popstarter-batchers">POPStarter batchers<a class="heading-anchor" href="#popstarter-batchers" aria-label="Link to POPStarter batchers">#</a></h2>
+        <p>The old batcher pages describe small PC tools that create renamed POPStarter launchers in bulk. They are convenience tools for making many <code>XX.</code>, <code>SB.</code>, or HDD-style launchers from VCD names; they do not change POPStarter's storage rules.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Use case</th><th>Safe documentation stance</th></tr></thead>
+          <tbody>
+            <tr><td>Create many USB launchers.</td><td>Explain that output ELFs must still match <code>mass:/POPS/&lt;basename&gt;.VCD</code>.</td></tr>
+            <tr><td>Create many SMB launchers.</td><td>Require the <code>SB.</code> prefix and matching share paths.</td></tr>
+            <tr><td>Create many HDD launchers.</td><td>Keep HDD frontend rules separate from legacy HDDOSD/KELF installs.</td></tr>
+            <tr><td>Old batcher download pages.</td><td>Record version names and role only; do not host executable mirrors.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+<section>
+        <h2 id="pfsshell-transfer-path">PFSSHELL transfer path<a class="heading-anchor" href="#pfsshell-transfer-path" aria-label="Link to PFSSHELL transfer path">#</a></h2>
+        <p>PFSSHELL is an old PC-side path for copying VCDs to a locally attached PS2 HDD. The recovered page's useful core is the command sequence, not the old download link.</p>
+        <pre><code>device hddX:
+mount __.POPS
+put NAMEOFYOURVCD.VCD
+umount
+exit</code></pre>
+        <p>Use the correct HDD index for <code>hddX:</code>, verify the drive status before writing, and mount the modern <code>__.POPS</code> VCD partition rather than an OPL game partition.</p>
+      </section>
+<section>
+        <h2 id="radhostclient-transfer-path">RadHostClient transfer path<a class="heading-anchor" href="#radhostclient-transfer-path" aria-label="Link to RadHostClient transfer path">#</a></h2>
+        <p>RadHostClient plus uLaunchELF provides a network copy route: configure the PS2 network settings in uLE, connect the PC client to the PS2 IP, browse <code>host:/</code> from uLE, then copy VCDs into <code>__.POPS</code>. This is a transfer workflow only; it does not make POPStarter itself a network launcher.</p>
+      </section>
+<section>
+        <h2 id="pmc-and-vmc-movement">PMC and VMC movement<a class="heading-anchor" href="#pmc-and-vmc-movement" aria-label="Link to PMC and VMC movement">#</a></h2>
+        <p>The recovered wiki has both directions: PS1 memory-card saves into POPStarter VMCs, and POPStarter VMC saves back toward a physical PS1 memory card workflow. Keep these pages as save-conversion appendices. They do not mean POPStarter can save directly to a physical PS1 memory card during play.</p>
+      </section></article>
         <aside class="page-toc" aria-label="On this page">
           <strong>On this page</strong>
-          <a href="#source-file">Source file</a>
+          <a href="#tools-are-workflow-glue-not-bundled-content">Tools are workflow glue, not bundled content</a><a href="#vcd-conversion-checklist">VCD conversion checklist</a><a href="#cue2pops-and-batch-conversion">CUE2POPS and batch conversion</a><a href="#popstarter-batchers">POPStarter batchers</a><a href="#pfsshell-transfer-path">PFSSHELL transfer path</a><a href="#radhostclient-transfer-path">RadHostClient transfer path</a><a href="#pmc-and-vmc-movement">PMC and VMC movement</a>
         </aside>
       </div>
     </main>

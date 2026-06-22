@@ -22,6 +22,8 @@ export const pages = [
           <a href="storage-overview.html"><span>2</span><strong>Storage Backends</strong><em>USB, HDD, SMB, BDM/exFAT, split folders, performance and failure boundaries.</em></a>
           <a href="reference-tables.html"><span>3</span><strong>Reference Tables</strong><em>Commands, config bytes, PATCH/TROJAN map, IGR, video, VMC, troubleshooting.</em></a>
           <a href="archive-provenance.html"><span>4</span><strong>Archive & Provenance</strong><em>Hashes, package inventory, recovered wiki coverage, timeline, source confidence.</em></a>
+          <a href="toolchain-utilities.html"><span>5</span><strong>Toolchain and Utilities</strong><em>CUE2POPS, VCD conversion, POPStarter batchers, PFSSHELL, RadHostClient, VMC/PMC movement.</em></a>
+          <a href="advanced-launch-modes.html"><span>6</span><strong>Advanced Launch Modes</strong><em>PS1 CD mode, HDDOSD/KELF, legacy partitions, ps2host-era tools, and route boundaries.</em></a>
         </div>
       </section>`,
       `<section>
@@ -30,7 +32,10 @@ export const pages = [
           <a href="cheat-engine.html"><span>R1</span><strong>Cheat Engine</strong><em><code>CHEATS.TXT</code>, raw codes, <code>$SAFEMODE</code>, C0/master-code handling, LibCrypt notes.</em></a>
           <a href="compatibility-deep-dive.html"><span>R2</span><strong>Compatibility Deep Dive</strong><em>2016 rates, mode stacking, Hugopocked fixes, TROJAN_7, and per-game examples.</em></a>
           <a href="vmc-handlers.html"><span>R3</span><strong>VMC and Handlers</strong><em>VMC sharing, BIOS/OSD handlers, IGR textures, POPS folder priority, handler placement.</em></a>
+          <a href="device-irx-modules.html"><span>R4</span><strong>Device and IRX Modules</strong><em><code>MODULE_0.IRX</code> through <code>MODULE_9.IRX</code>, DS3 modules, special-device experiments.</em></a>
+          <a href="display-code-appendix.html"><span>R5</span><strong>Display and Code Appendix</strong><em>Widescreen, smooth, scanlines, D2LS, PS1 RAW/PS2 RAW code archive handling.</em></a>
           <a href="thread-study.html"><span>A1</span><strong>Thread Study</strong><em>High-value PSX-Place findings, driver myths, dropped noise, and maintainer-confirmed details.</em></a>
+          <a href="version-integrity.html"><span>A2</span><strong>Version and Integrity</strong><em>Build ID offsets, final-build boundary, old RIP/WIP caution, and tampered bundle warnings.</em></a>
         </div>
       </section>`,
       `<section class="architecture-panel">
@@ -118,6 +123,116 @@ export const pages = [
     ]
   },
   {
+    slug: "toolchain-utilities",
+    title: "Toolchain and Utilities",
+    nav: "Toolchain",
+    description: "Recovered utility workflows for VCD conversion, CUE2POPS, POPStarter batchers, PFSSHELL, RadHostClient, and VMC/PMC save movement.",
+    blocks: [
+      `<section class="callout">
+        <h2>Tools are workflow glue, not bundled content</h2>
+        <p>The recovered wiki has many utility pages. This site documents what each tool is for and what checks matter, without hosting binaries or turning old download pages into a mirror.</p>
+      </section>`,
+      `<section>
+        <h2>VCD conversion checklist</h2>
+        <ol>
+          <li>Dump the PS1 disc as BIN+CUE first. POPS expects VCD images, not normal ISO images.</li>
+          <li>Confirm the BIN is a raw <code>MODE2/2352</code> image and the CUE is a plain ASCII cuesheet.</li>
+          <li>Use CUE2POPS to convert the CUE/BIN pair into a <code>.VCD</code>.</li>
+          <li>Keep the final <code>.VCD</code> extension uppercase in documented examples.</li>
+          <li>Use the VCD basename as the anchor for the renamed ELF and per-game support folder.</li>
+        </ol>
+        <pre><code>Game.cue + Game.bin
+  -> CUE2POPS
+    -> Game.VCD
+      -> mass:/POPS/Game.VCD
+      -> mass:/POPS/Game/CHEATS.TXT</code></pre>
+      </section>`,
+      `<section>
+        <h2>CUE2POPS and batch conversion</h2>
+        <p>The recovered changelog material names CUE2POPS 2.3 as a standalone conversion line with fixes around input-file overwrite behavior, workdir BIN handling, and output-path generation. The practical documentation rule is to keep the CUE, BIN, converter, and any bulk script in a predictable folder and inspect the generated VCD names before copying them to the PS2 backend.</p>
+        <p>Bulk conversion is useful, but it multiplies naming mistakes. After a bulk run, check every VCD basename against the launcher/support-folder scheme you intend to use.</p>
+      </section>`,
+      `<section>
+        <h2>POPStarter batchers</h2>
+        <p>The old batcher pages describe small PC tools that create renamed POPStarter launchers in bulk. They are convenience tools for making many <code>XX.</code>, <code>SB.</code>, or HDD-style launchers from VCD names; they do not change POPStarter's storage rules.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Use case</th><th>Safe documentation stance</th></tr></thead>
+          <tbody>
+            <tr><td>Create many USB launchers.</td><td>Explain that output ELFs must still match <code>mass:/POPS/&lt;basename&gt;.VCD</code>.</td></tr>
+            <tr><td>Create many SMB launchers.</td><td>Require the <code>SB.</code> prefix and matching share paths.</td></tr>
+            <tr><td>Create many HDD launchers.</td><td>Keep HDD frontend rules separate from legacy HDDOSD/KELF installs.</td></tr>
+            <tr><td>Old batcher download pages.</td><td>Record version names and role only; do not host executable mirrors.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>PFSSHELL transfer path</h2>
+        <p>PFSSHELL is an old PC-side path for copying VCDs to a locally attached PS2 HDD. The recovered page's useful core is the command sequence, not the old download link.</p>
+        <pre><code>device hddX:
+mount __.POPS
+put NAMEOFYOURVCD.VCD
+umount
+exit</code></pre>
+        <p>Use the correct HDD index for <code>hddX:</code>, verify the drive status before writing, and mount the modern <code>__.POPS</code> VCD partition rather than an OPL game partition.</p>
+      </section>`,
+      `<section>
+        <h2>RadHostClient transfer path</h2>
+        <p>RadHostClient plus uLaunchELF provides a network copy route: configure the PS2 network settings in uLE, connect the PC client to the PS2 IP, browse <code>host:/</code> from uLE, then copy VCDs into <code>__.POPS</code>. This is a transfer workflow only; it does not make POPStarter itself a network launcher.</p>
+      </section>`,
+      `<section>
+        <h2>PMC and VMC movement</h2>
+        <p>The recovered wiki has both directions: PS1 memory-card saves into POPStarter VMCs, and POPStarter VMC saves back toward a physical PS1 memory card workflow. Keep these pages as save-conversion appendices. They do not mean POPStarter can save directly to a physical PS1 memory card during play.</p>
+      </section>`
+    ]
+  },
+  {
+    slug: "advanced-launch-modes",
+    title: "Advanced Launch Modes",
+    nav: "Advanced Modes",
+    description: "PS1 CD mode, HDDOSD/KELF, legacy partition installs, uLE_kHn boundaries, and other non-default POPStarter launch routes.",
+    blocks: [
+      `<section class="callout warning">
+        <h2>Advanced means special-case</h2>
+        <p>These routes are preserved because they exist in the recovered wiki, not because they should replace the normal USB/HDD/SMB quick starts. Treat them as compatibility, preservation, or legacy-install material.</p>
+      </section>`,
+      `<section>
+        <h2>PS1 CD mode</h2>
+        <p>PS1 CD mode is described as a native POPS feature that can boot games from the CDVD drive. It is explicitly not the recommended everyday path, and swap-trick use is called out as especially risky. The mode is selected by launching a renamed POPStarter ELF whose name does not collide with an existing VCD or partition.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ELF name</th><th>VMC location behavior</th></tr></thead>
+          <tbody>
+            <tr><td><code>GAME.ELF</code></td><td>HDD-style save folder under <code>__common/POPS/GAME/</code>.</td></tr>
+            <tr><td><code>XX.GAME.ELF</code></td><td>USB-style save folder under <code>mass:/POPS/GAME/</code>.</td></tr>
+            <tr><td><code>SB.GAME.ELF</code></td><td>SMB-style save folder under the share's <code>POPS/GAME/</code>.</td></tr>
+            <tr><td><code>PS1CD.ELF</code> or similar generic name</td><td>All discs launched through that generic name share the same VMC folder.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>HDDOSD and POPSTARTER.KELF</h2>
+        <p>The recovered HDDOSD page documents <code>POPSTARTER.KELF</code> for Browser 2.00 / HDDOSD presentation. It uses the older "one game equals one partition" route, not the shared modern <code>__.POPS</code> partition.</p>
+        <ul class="checklist">
+          <li>Use a parent partition named like <code>PP.&lt;Game&gt;</code> for visible HDDOSD installs.</li>
+          <li>The game image inside that partition is typically <code>IMAGE0.VCD</code>.</li>
+          <li>HDDOSD metadata, icons, and bootability are separate from POPStarter's core game-compatibility behavior.</li>
+          <li>Do not present KELF/HDDOSD installation as the simple HDD setup. Modern OPL-style HDD workflows use <code>__.POPS</code> and <code>__common/POPS</code>.</li>
+        </ul>
+      </section>`,
+      `<section>
+        <h2>Legacy partition installs</h2>
+        <p>Legacy HDD installs can use <code>PP.</code> visible partitions or hidden <code>__.</code> partitions. These are distinct from the shared <code>__.POPS</code> VCD partition. If a source says <code>IMAGE0.VCD</code>, assume a per-game partition route until proven otherwise.</p>
+      </section>`,
+      `<section>
+        <h2>uLE_kHn and direct browsing</h2>
+        <p>uLE_kHn belongs to the "browse and launch VCDs directly" family. It is useful for avoiding a per-game renamed ELF farm, and it appears in several modern workflows, but it is still a frontend/launcher choice. Per-game support folders, VMC routing, and command files remain POPStarter rules.</p>
+      </section>`,
+      `<section class="callout">
+        <h2>Default recommendation</h2>
+        <p>Use normal USB, HDD, SMB, or POPSLoader fork workflows for regular libraries. Reach for PS1 CD mode, HDDOSD/KELF, and legacy per-game partitions only when preserving or testing those specific historical routes.</p>
+      </section>`
+    ]
+  },
+  {
     slug: "storage-overview",
     title: "Storage Backends",
     nav: "Storage Overview",
@@ -132,6 +247,7 @@ export const pages = [
             <tr><td><a href="internal-hdd.html">HDD</a></td><td>Best performance and stable local library.</td><td><code>hdd0:/__.POPS</code>, <code>hdd0:/__common/POPS</code></td><td>Creating <code>+__.POPS</code> or putting support folders beside VCDs.</td></tr>
             <tr><td><a href="smb-network.html">SMB</a></td><td>Network library with easy file management.</td><td>Share root <code>POPS/</code>, <code>mc?:/POPSTARTER/</code></td><td>Read-only shares, missing modules, wrong <code>SB.</code> prefix.</td></tr>
             <tr><td><a href="bdm-exfat.html">BDM/exFAT</a></td><td>USB exFAT through driver substitution.</td><td><code>mc?:/POPSTARTER/usbd.irx</code>, <code>usbhdfsd.irx</code></td><td>Assuming it adds internal HDD exFAT support.</td></tr>
+            <tr><td><a href="advanced-launch-modes.html">Advanced modes</a></td><td>Special and legacy launch paths.</td><td>PS1 CD mode, <code>POPSTARTER.KELF</code>, <code>PP.</code> partitions</td><td>Treating historical or risky routes as the default setup.</td></tr>
             <tr><td><a href="popsloader-guide.html">POPSLoader</a></td><td>Modern launcher and fork workflows.</td><td><code>POPSLOADER.ELF</code>, <code>POPSLDR/</code>, fork device paths</td><td>Mixing fork-only behavior with original POPStarter core rules.</td></tr>
           </tbody>
         </table></div>
@@ -160,9 +276,11 @@ export const pages = [
           <a href="igr-exit.html"><span>3.6</span><strong>IGR and Exit</strong><em>Combos, no-popup exits, <code>BOOT.ELF</code> chain, and loader-disable conflict.</em></a>
           <a href="multi-disc-vmc.html"><span>3.7</span><strong>Multi-disc and VMC</strong><em><code>DISCS.TXT</code>, <code>VMCDIR.TXT</code>, shared saves, support folders.</em></a>
           <a href="vmc-handlers.html"><span>3.8</span><strong>VMC and Handlers</strong><em>VMC control, BIOS/OSD handlers, IGR textures, POPS folder priority, handler placement.</em></a>
-          <a href="video-display.html"><span>3.9</span><strong>Video / Display</strong><em>480p, HDTVFIX, geometry, scanlines, smoothing, widescreen.</em></a>
-          <a href="troubleshooting.html"><span>3.10</span><strong>Troubleshooting</strong><em>Known symptoms, likely causes, and source-tagged mitigations.</em></a>
-          <a href="faq-known-bugs.html"><span>3.11</span><strong>FAQ and Known Bugs</strong><em>Fast answers for black screens, exFAT, saves, multitap, legal files, and final build identity.</em></a>
+          <a href="device-irx-modules.html"><span>3.9</span><strong>Device and IRX Modules</strong><em>IRX loader, DS3 modules, special devices, module ordering, and scope boundaries.</em></a>
+          <a href="display-code-appendix.html"><span>3.10</span><strong>Display and Code Appendix</strong><em>Widescreen, smooth, scanlines, D2LS, PS1 RAW and PS2 RAW code archives.</em></a>
+          <a href="video-display.html"><span>3.11</span><strong>Video / Display</strong><em>480p, HDTVFIX, geometry, scanlines, smoothing, widescreen.</em></a>
+          <a href="troubleshooting.html"><span>3.12</span><strong>Troubleshooting</strong><em>Known symptoms, likely causes, and source-tagged mitigations.</em></a>
+          <a href="faq-known-bugs.html"><span>3.13</span><strong>FAQ and Known Bugs</strong><em>Fast answers for black screens, exFAT, saves, multitap, legal files, and final build identity.</em></a>
         </div>
       </section>`,
       `<section class="callout">
@@ -186,12 +304,13 @@ export const pages = [
         <div class="chapter-table">
           <a href="thread-study.html"><span>4.1</span><strong>Thread Study</strong><em>Maintainer-confirmed findings, thread-derived corrections, and low-confidence material intentionally dropped.</em></a>
           <a href="poc2-history.html"><span>4.2</span><strong>POC2 History</strong><em>How the leaked POPS-00001 era led to POPStarter, and what not to revive.</em></a>
-          <a href="download-inventory.html"><span>4.3</span><strong>Safe Inventory</strong><em>Recovered package names, roles, statuses, and safe hashes.</em></a>
-          <a href="history-provenance.html"><span>4.4</span><strong>History</strong><em>Build timeline, feature introductions, and final r13 boundary.</em></a>
-          <a href="wiki-coverage.html"><span>4.5</span><strong>Wiki Coverage</strong><em>63 recovered ShaolinAssassin wiki page slugs grouped by topic.</em></a>
-          <a href="source-archive.html"><span>4.6</span><strong>Sources</strong><em>Public and local evidence records with reliability labels.</em></a>
-          <a href="credits.html"><span>4.7</span><strong>Credits</strong><em>People, projects, mirrors, fix authors, and recovery contributors named by role.</em></a>
-          <a href="archive.html"><span>4.8</span><strong>Local Archive</strong><em>Rendered seed notes, research files, raw captures, and drafts.</em></a>
+          <a href="version-integrity.html"><span>4.3</span><strong>Version and Integrity</strong><em>Hex offsets, build IDs, final build, old package warnings, and tampered-bundle caution.</em></a>
+          <a href="download-inventory.html"><span>4.4</span><strong>Safe Inventory</strong><em>Recovered package names, roles, statuses, and safe hashes.</em></a>
+          <a href="history-provenance.html"><span>4.5</span><strong>History</strong><em>Build timeline, feature introductions, and final r13 boundary.</em></a>
+          <a href="wiki-coverage.html"><span>4.6</span><strong>Wiki Coverage</strong><em>63 recovered ShaolinAssassin wiki page slugs grouped by topic.</em></a>
+          <a href="source-archive.html"><span>4.7</span><strong>Sources</strong><em>Public and local evidence records with reliability labels.</em></a>
+          <a href="credits.html"><span>4.8</span><strong>Credits</strong><em>People, projects, mirrors, fix authors, and recovery contributors named by role.</em></a>
+          <a href="archive.html"><span>4.9</span><strong>Local Archive</strong><em>Rendered seed notes, research files, raw captures, and drafts.</em></a>
         </div>
       </section>`,
       `<section class="callout legal">
@@ -517,7 +636,7 @@ mass:/APPS/PS1_POPSLDR/title.cfg</code></pre>
         <article><h2>OPL DB / PS1 page</h2><p>Modern OPL forks can expose PS1 games without one APPS entry per title. These workflows use discovery paths such as <code>mass:/POPS/POPSTARTER.ELF</code> or <code>hdd:/__common/POPS/POPSTARTER.ELF</code>. Label them as fork/frontend behavior, not original POPStarter core documentation.</p></article>
         <article><h2>wLE_kHn</h2><p>wLE_kHn launches VCDs directly and can avoid a per-game ELF farm. The raw notes recommend cleaner VCD names without game IDs for nicer browsing. It still needs the normal POPS files and per-game support folders for the chosen backend.</p></article>
         <article><h2>POPSLoader</h2><p>El_isra's POPSLoader is a Lua/Enceladus standalone launcher. Its <code>POPSLDR</code> folder must stay beside <code>POPSLOADER.ELF</code>. The Ripto/NathanNeurotic fork extends this model for USB, HDD, MX4SIO, MMCE, and BDMA, with fork-specific settings and art paths.</p></article>
-        <article><h2>HDDOSD / KELF</h2><p>The source inventory names HDDOSD/KELF as a desired launcher section, but this pass does not yet have enough recovered local detail to publish a safe install recipe. Keep it in research gaps until archive/package inspection fills the missing pieces.</p></article>
+        <article><h2>HDDOSD / KELF</h2><p>Recovered wiki material describes <code>POPSTARTER.KELF</code> for Browser 2.00 / HDDOSD installs. This is a legacy per-game-partition route with <code>PP.</code> partitions and <code>IMAGE0.VCD</code>, not the modern shared <code>__.POPS</code> HDD workflow.</p></article>
       </section>`,
       `<section>
         <h2>Launcher selection rules</h2>
@@ -528,6 +647,200 @@ mass:/APPS/PS1_POPSLDR/title.cfg</code></pre>
           <li>If the route uses POPSLoader or the POPSLoader fork, keep those paths separate from original POPStarter core claims.</li>
           <li>If a guide says "works on all OPL versions" in the raw notes, keep it as user-tested evidence and still preserve source confidence labels.</li>
         </ul>
+      </section>`
+    ]
+  },
+  {
+    slug: "device-irx-modules",
+    title: "Device and IRX Modules",
+    nav: "Device / IRX",
+    description: "Recovered IRX loader behavior, MODULE_0.IRX through MODULE_9.IRX placement, DS3 modules, and special-device experiments.",
+    blocks: [
+      `<section class="callout warning">
+        <h2>Experimental module loading is not a universal fix</h2>
+        <p>The recovered wiki has useful pages for IRX loading, DualShock 3 modules, and special PlayStation devices. These are advanced compatibility tools. They should not be copied into every install or used as a replacement for normal POPStarter storage setup.</p>
+      </section>`,
+      `<section>
+        <h2>IRX loader rule</h2>
+        <p>POPStarter can load up to ten IOP modules after the IOP reset, alongside the POPS IOPRP environment. The module filenames are fixed: <code>MODULE_0.IRX</code> through <code>MODULE_9.IRX</code>.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Rule</th><th>What it means</th><th>Common mistake</th></tr></thead>
+          <tbody>
+            <tr><td>Fixed names</td><td>Use <code>MODULE_0.IRX</code>, <code>MODULE_1.IRX</code>, and so on.</td><td>Leaving source names such as <code>USBD.IRX</code> when the loader expects numbered names.</td></tr>
+            <tr><td>POPS folder placement</td><td>Put modules in the backend's POPS folder, not in a VMC or per-game save folder.</td><td>Putting modules beside <code>CHEATS.TXT</code> and wondering why they never load.</td></tr>
+            <tr><td>Order matters</td><td>Lower module numbers load first. Dependency modules should come before modules that use them.</td><td>Loading a pad, SIO, or device module before its dependency.</td></tr>
+            <tr><td>Build behavior matters</td><td>Old WIP/RIP/prototype builds may have different loader bugs or module expectations.</td><td>Debugging a module recipe on the wrong POPStarter build.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Placement examples</h2>
+        <pre><code>USB:
+mass:/POPS/MODULE_0.IRX
+mass:/POPS/MODULE_1.IRX
+mass:/POPS/MODULE_2.IRX
+
+HDD common folder:
+hdd0:/__common/POPS/MODULE_0.IRX
+hdd0:/__common/POPS/MODULE_1.IRX
+
+SMB share:
+POPS/MODULE_0.IRX
+POPS/MODULE_1.IRX</code></pre>
+        <p>If a USB setup uses split folders such as <code>POPS0</code> through <code>POPS9</code>, verify which POPS folder the launcher is actually using before assuming modules in <code>POPS/</code> are inherited.</p>
+      </section>`,
+      `<section>
+        <h2>DualShock 3 notes</h2>
+        <p>The recovered DS3 page attributes the modules to belek666 and describes them as working with WIP 06 beta-era and RIP 06 builds, while warning that prototypes are affected by an IRX-loader bug. That makes DS3 support a build-sensitive experiment, not a final-r13 default promise.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Numbered module</th><th>Recovered role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><code>MODULE_1.IRX</code></td><td><code>USBD.IRX</code></td><td>USB dependency module for the DS3 setup.</td></tr>
+            <tr><td><code>MODULE_2.IRX</code></td><td><code>usb_pademu.irx</code> or <code>bt_pademu.irx</code></td><td>Pad emulation module; use the USB or Bluetooth variant that matches the setup.</td></tr>
+            <tr><td><code>CHEATS.TXT</code></td><td><code>$D2LS</code> when needed</td><td>The page ties analog/digital behavior to <code>PS+Select</code> and a per-game <code>$D2LS</code> command.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Do not put DS3 modules into the game's VMC folder. The DS3 page is explicit that ready modules go in the POPS folder.</p>
+      </section>`,
+      `<section>
+        <h2>Special-device experiment flow</h2>
+        <p>The recovered special-device tutorial is an AKuHAK-style experiment for unusual PS1 peripherals. The pattern is to borrow matching modules from a PS2 title that supports the device, then test module order under POPStarter.</p>
+        <ol>
+          <li>Find a PS2 game that supports the target special device.</li>
+          <li>Extract its <code>SIO2MAN.IRX</code> and rename it to <code>MODULE_0.IRX</code>.</li>
+          <li>Extract the device-specific IRX modules and number them as <code>MODULE_1.IRX</code>, <code>MODULE_2.IRX</code>, and onward.</li>
+          <li>Put the numbered modules in the POPS folder for the backend being tested.</li>
+          <li>Test one module order at a time and record the exact build, game, device, and source title.</li>
+        </ol>
+        <p>This is intentionally not a guaranteed recipe. Module origin, version, load order, and game behavior all matter.</p>
+      </section>`,
+      `<section class="callout">
+        <h2>Driver myth boundary</h2>
+        <p>IRX loading can help with specific input or special-device experiments. It does not mean random HDD, USB, or SMB drivers can be dropped into <code>__common/POPS</code> to create a new storage backend. Storage support still follows the backend rules in <a href="storage-overview.html">Storage Backends</a>.</p>
+      </section>`
+    ]
+  },
+  {
+    slug: "display-code-appendix",
+    title: "Display and Code Appendix",
+    nav: "Display / Codes",
+    description: "Recovered widescreen, scanline, smoothing, D2LS, and large PS1 RAW / PS2 RAW code archive handling notes.",
+    blocks: [
+      `<section class="callout">
+        <h2>Appendix, not a preset pack</h2>
+        <p>The recovered wiki includes visual-option pages and very large raw-code archives. This page preserves how to reason about them without dumping giant code lists into the public manual or implying that one global display/code preset fits every game.</p>
+      </section>`,
+      `<section>
+        <h2>Widescreen family</h2>
+        <p><code>$WIDESCREEN</code>, <code>$ULTRA_WIDESCREEN</code>, and <code>$EYEFINITY</code> are geometry/projection hacks. They can widen 3D scenes, but they do not repair 2D backgrounds, menus, fonts, HUD elements, prerendered screens, or every camera assumption a game makes.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Command</th><th>Intended shape</th><th>Do not expect</th></tr></thead>
+          <tbody>
+            <tr><td><code>$WIDESCREEN</code></td><td>16:9-style GTE/FOV adjustment.</td><td>Automatic HUD, text, menu, or 2D background correction.</td></tr>
+            <tr><td><code>$ULTRA_WIDESCREEN</code></td><td>Wider projection variant; older docs may contain spelling drift.</td><td>Proof that a given game is safe without testing.</td></tr>
+            <tr><td><code>$EYEFINITY</code></td><td>Extreme multi-display-style projection experiment.</td><td>A practical default for normal CRT, HDMI, or component setups.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Smoothing and scanlines</h2>
+        <div class="compare">
+          <article><h3><code>$SMOOTH</code></h3><p>Enables POPS texture smoothing behavior. It is a visual preference and can make some 2D art look less crisp.</p></article>
+          <article><h3><code>$SCANLINES</code></h3><p>Adds a scanline effect. Treat it as a display/aesthetic setting, not as a compatibility fix.</p></article>
+          <article><h3>Screenshot pages</h3><p>The old wiki preserved visual comparison pages. They are useful for understanding the effect, but the public site does not need to mirror every screenshot to document the command.</p></article>
+        </div>
+      </section>`,
+      `<section>
+        <h2>D2LS and digital-mode behavior</h2>
+        <p><code>$D2LS</code> means left stick as D-pad. The recovered D2LS page ties the code family to PS2 Controller Remapper output and to games or controllers that need digital-style input behavior.</p>
+        <ul class="checklist">
+          <li>Use <code>$D2LS</code> per game, not globally.</li>
+          <li>Try <code>$D2LS_ALT</code> only when the normal command does not behave correctly for that title/controller path.</li>
+          <li>For DS3 module experiments, keep <code>$D2LS</code> in the game's <code>CHEATS.TXT</code> and the IRX modules in the POPS folder.</li>
+          <li>If a game already expects analog behavior, forcing digital mapping can create new input bugs.</li>
+        </ul>
+      </section>`,
+      `<section>
+        <h2>PS1 RAW and PS2 RAW code archives</h2>
+        <p>The recovered wiki includes huge PS1 RAW and PS2 RAW code archives. They are valuable as an index, but copying them wholesale into every page would make the manual worse: too large to search usefully, too easy to misapply, and too detached from game revision/region context.</p>
+        <ol>
+          <li>Identify the exact game ID, region, and disc revision before using a code.</li>
+          <li>Prefer a PS2 RAW code that is already documented for POPStarter/POPS when one exists.</li>
+          <li>Treat PS1 RAW codes as source material that may need conversion, master-code handling, or timing changes.</li>
+          <li>Use <code>$SAFEMODE</code> when applying raw cheat/code lines in <code>CHEATS.TXT</code>.</li>
+          <li>Test one code group at a time so a bad code does not get mistaken for a bad VCD or bad storage setup.</li>
+          <li>Record the source archive, code title, game ID, and observed result in any compatibility note.</li>
+        </ol>
+      </section>`,
+      `<section class="callout warning">
+        <h2>Code archive rule</h2>
+        <p>Raw codes are not compatibility modes. A wrong raw code can boot to black screen, corrupt runtime state, or hide the actual issue. Keep the <a href="cheat-engine.html">Cheat Engine</a> page as the operating manual and use this appendix as archive guidance.</p>
+      </section>`
+    ]
+  },
+  {
+    slug: "version-integrity",
+    title: "Version and Integrity",
+    nav: "Version / Integrity",
+    description: "Build identification offsets, final-build boundary, old RIP/WIP caveats, hash discipline, and tampered-bundle warnings.",
+    blocks: [
+      `<section class="callout">
+        <h2>Verify the build before debugging</h2>
+        <p>Many POPStarter contradictions come from mixing old RIP/WIP/prototype behavior with final r13 instructions. Before debugging commands, IGR, IRX modules, or config bytes, identify the exact launcher build.</p>
+      </section>`,
+      `<section>
+        <h2>Hex identification</h2>
+        <p>The recovered version page says the build identity can be checked directly in <code>POPSTARTER.ELF</code> with a hex editor. This is a verification method, not a download instruction.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Where to inspect</th><th>Meaning</th><th>How to use it</th></tr></thead>
+          <tbody>
+            <tr><td>Offset <code>$59</code></td><td>Build date area.</td><td>Check whether the visible date matches the package/build being documented.</td></tr>
+            <tr><td>Starting at <code>$5E</code></td><td>Build ID area.</td><td>Compare against source notes before applying build-specific fixes.</td></tr>
+            <tr><td>Final public baseline</td><td>Rev 13 Beta 2019/06/05.</td><td>Use this as the normal documentation target unless intentionally testing old behavior.</td></tr>
+            <tr><td>Old beta/prototype IDs</td><td>Some old beta ranges share IDs; many prototypes use different markers.</td><td>Do not collapse old build labels into final r13 behavior without proof.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Final build boundary</h2>
+        <ul class="checklist">
+          <li>Final public build: r13 Beta 2019/06/05.</li>
+          <li>Recovered history says the final build includes the Jan 14 2019 USB driver line.</li>
+          <li>Recovered history also says <code>$IGR5</code> was likely fixed in this final public beta.</li>
+          <li>Normal docs should target the final build unless a page is explicitly about WIP/RIP/prototype behavior.</li>
+        </ul>
+      </section>`,
+      `<section>
+        <h2>Old package caveats</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Package family</th><th>Why it still matters</th><th>Documentation stance</th></tr></thead>
+          <tbody>
+            <tr><td>RIP builds</td><td>Old public packages and module experiments may reference them.</td><td>Label as old and build-specific; do not present as preferred setup.</td></tr>
+            <tr><td>WIP / OBT builds</td><td>Some features, bytes, and module-loader notes changed over time.</td><td>Useful for history and experiments only when the source names that build.</td></tr>
+            <tr><td>Prototypes</td><td>May expose behavior that was broken, changed, or never meant for normal users.</td><td>Archive context, not user-facing default instructions.</td></tr>
+            <tr><td>Modern fix packs</td><td>Can post-date final r13 and add compatibility layers.</td><td>Document as external fixes, not as changes inside the final ELF.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Tampered-bundle warning</h2>
+        <p>The recovered warning pages are useful because they teach an integrity lesson: avoid modified repacks that remove credits, alter logos, obscure provenance, or make aggressive claims about "fixed" builds without hashes and source labels. The public site does not need to repeat personal drama to keep users safe.</p>
+        <p>Use hashes, build IDs, filenames, package role, and source labels. If a package cannot be identified, treat it as unknown even if it has a familiar filename.</p>
+      </section>`,
+      `<section>
+        <h2>Verification checklist</h2>
+        <ol>
+          <li>Record the exact filename and package label.</li>
+          <li>Record any available SHA or hash identifier.</li>
+          <li>Check the build date area near offset <code>$59</code>.</li>
+          <li>Check the build ID area starting around <code>$5E</code>.</li>
+          <li>Classify the file as final r13, old RIP/WIP, prototype, fix pack, or unknown.</li>
+          <li>Only then apply build-specific command, config-byte, IRX, or IGR advice.</li>
+        </ol>
+      </section>`,
+      `<section class="callout legal">
+        <h2>Preservation boundary</h2>
+        <p>This site can preserve package names, roles, source labels, and hashes. It must not host proprietary POPS files or add direct binary download links.</p>
       </section>`
     ]
   },

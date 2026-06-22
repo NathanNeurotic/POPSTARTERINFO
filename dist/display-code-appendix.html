@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data: historyTimeline - POPStarter Docs</title>
-  <meta name="description" content="Rendered structured data file: src/data/historyTimeline.json">
+  <title>Display and Code Appendix - POPStarter Docs</title>
+  <meta name="description" content="Recovered widescreen, scanline, smoothing, D2LS, and large PS1 RAW / PS2 RAW code archive handling notes.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -21,131 +21,68 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a><a  href="toolchain-utilities.html">Toolchain</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="advanced-launch-modes.html">Advanced Modes</a><a  href="popsloader-guide.html">POPSLoader</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="cheat-engine.html">Cheat Engine</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="compatibility-deep-dive.html">Compatibility Deep Dive</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="vmc-handlers.html">VMC / Handlers</a><a  href="device-irx-modules.html">Device / IRX</a><a  href="display-code-appendix.html">Display / Codes</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="faq-known-bugs.html">FAQ</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="thread-study.html">Thread Study</a><a  href="poc2-history.html">POC2 History</a><a  href="version-integrity.html">Version / Integrity</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="credits.html">Credits</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
+    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a><a  href="toolchain-utilities.html">Toolchain</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="advanced-launch-modes.html">Advanced Modes</a><a  href="popsloader-guide.html">POPSLoader</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="cheat-engine.html">Cheat Engine</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="compatibility-deep-dive.html">Compatibility Deep Dive</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="vmc-handlers.html">VMC / Handlers</a><a  href="device-irx-modules.html">Device / IRX</a><a aria-current="page" href="display-code-appendix.html">Display / Codes</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="faq-known-bugs.html">FAQ</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="thread-study.html">Thread Study</a><a  href="poc2-history.html">POC2 History</a><a  href="version-integrity.html">Version / Integrity</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="credits.html">Credits</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>Data: historyTimeline</h1>
-          <p>Rendered structured data file: src/data/historyTimeline.json</p>
+          <h1>Display and Code Appendix</h1>
+          <p>Recovered widescreen, scanline, smoothing, D2LS, and large PS1 RAW / PS2 RAW code archive handling notes.</p>
         </div>
       </section>
       <div class="content-layout">
-        <article class="article-content"><section class="callout"><h2 id="source-file">Source file<a class="heading-anchor" href="#source-file" aria-label="Link to Source file">#</a></h2><p><code>src/data/historyTimeline.json</code></p></section>
-<article class="archive-doc"><pre><code>[
-  {
-    &quot;date&quot;: &quot;2014-08-22&quot;,
-    &quot;label&quot;: &quot;WIP02&quot;,
-    &quot;summary&quot;: &quot;Added the 8-slot force-compatibility table and enabled IGR skin/IRX loaders by default.&quot;,
-    &quot;impact&quot;: &quot;Explains the $418-$41F config array and why IGR texture loading is a default r13 behavior.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2015-10-23&quot;,
-    &quot;label&quot;: &quot;Beta 8&quot;,
-    &quot;summary&quot;: &quot;Added SMB, ps2host, and napLink backend work, and embedded the PFS wrapper.&quot;,
-    &quot;impact&quot;: &quot;SMB is a normal POPStarter feature from this line, not proof that a special debug-only build is required.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2015-11-11&quot;,
-    &quot;label&quot;: &quot;Beta 11&quot;,
-    &quot;summary&quot;: &quot;Added mc1 module fallback, SMB port selection, optional IPCONFIG.DAT behavior, and fixes for POPS# folder reads.&quot;,
-    &quot;impact&quot;: &quot;Documents why memory-card POPSTARTER folders can live on mc0 or mc1 and why POPS0..POPS9 support files matter.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2015-11-24&quot;,
-    &quot;label&quot;: &quot;Beta 12&quot;,
-    &quot;summary&quot;: &quot;Added $FORCEPAL, SMB authentication, and a working $SAFEMODE command.&quot;,
-    &quot;impact&quot;: &quot;Separates PAL-region forcing, SMB username/password lines, and raw-code timing behavior from earlier broken docs.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2015-12-07&quot;,
-    &quot;label&quot;: &quot;Beta 13&quot;,
-    &quot;summary&quot;: &quot;Added the mc0/mc1 BOOT.ELF exit chain, fixed cheat-engine hook+8 and $C0/$USBDELAY interactions, removed the old function skipper, and removed ps2host/napLink launchers.&quot;,
-    &quot;impact&quot;: &quot;Critical boundary for IGR exit behavior and the $412 correction: in r13, $412 is HDTVFIX, not the old function skipper.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;psx-place-popstarter-page-15&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2016-09-18&quot;,
-    &quot;label&quot;: &quot;Beta 15&quot;,
-    &quot;summary&quot;: &quot;Added CD-lid / DISCS.TXT multi-disc behavior and 480p calculations.&quot;,
-    &quot;impact&quot;: &quot;Explains DISCS.TXT/VMCDIR.TXT-era multi-disc handling and why 480p remains a compatibility-sensitive option.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;shaolin-bitbucket-wiki&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2016-11-20&quot;,
-    &quot;label&quot;: &quot;Beta 16&quot;,
-    &quot;summary&quot;: &quot;Integrated $IGR0 through $IGR5, $NOIGR, and $D2LS as CHEATS.TXT commands; repurposed $412 as HDTVFIX; added an untested software-reset combo.&quot;,
-    &quot;impact&quot;: &quot;Makes the CHEATS.TXT IGR commands canonical instead of requiring standalone TROJAN files for every IGR behavior.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2017-05-27&quot;,
-    &quot;label&quot;: &quot;Prototype 2&quot;,
-    &quot;summary&quot;: &quot;Added $42F value 0x04 as a diagnostic test mode.&quot;,
-    &quot;impact&quot;: &quot;The test mode disables normal auto fixes and should not be recommended for normal play.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2019-06-05&quot;,
-    &quot;label&quot;: &quot;r13 Beta final public build&quot;,
-    &quot;summary&quot;: &quot;Final public r13 build; recovered history says $IGR5 was fixed in this last build.&quot;,
-    &quot;impact&quot;: &quot;This is the canonical package identity to prefer over old RIP/WIP builds.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;retro-jogos-home&quot;,
-      &quot;psx-place-popstarter-thread&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2020-05-20&quot;,
-    &quot;label&quot;: &quot;TROJAN_7.BIN r7 fix pack&quot;,
-    &quot;summary&quot;: &quot;Recovered history identifies this as the last public fix-pack line.&quot;,
-    &quot;impact&quot;: &quot;Keep TROJAN_7 as a per-game fix-pack family, separate from IGR TROJAN_0..5 and compatibility PATCH_7 discussion.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;hugopocked-fixes&quot;
-    ]
-  },
-  {
-    &quot;date&quot;: &quot;2020-08-10&quot;,
-    &quot;label&quot;: &quot;uLE_kHn loader-address fix&quot;,
-    &quot;summary&quot;: &quot;uLE_kHn moved loader.elf to 0x00092000 to avoid kernel corruption.&quot;,
-    &quot;impact&quot;: &quot;Explains why later uLE_kHn packages are referenced in modern direct-VCD launch workflows.&quot;,
-    &quot;sourceIds&quot;: [
-      &quot;popsloader-docs-reference&quot;,
-      &quot;elotrolado-pops-thread&quot;
-    ]
-  }
-]</code></pre></article></article>
+        <article class="article-content"><section class="callout">
+        <h2 id="appendix-not-a-preset-pack">Appendix, not a preset pack<a class="heading-anchor" href="#appendix-not-a-preset-pack" aria-label="Link to Appendix, not a preset pack">#</a></h2>
+        <p>The recovered wiki includes visual-option pages and very large raw-code archives. This page preserves how to reason about them without dumping giant code lists into the public manual or implying that one global display/code preset fits every game.</p>
+      </section>
+<section>
+        <h2 id="widescreen-family">Widescreen family<a class="heading-anchor" href="#widescreen-family" aria-label="Link to Widescreen family">#</a></h2>
+        <p><code>$WIDESCREEN</code>, <code>$ULTRA_WIDESCREEN</code>, and <code>$EYEFINITY</code> are geometry/projection hacks. They can widen 3D scenes, but they do not repair 2D backgrounds, menus, fonts, HUD elements, prerendered screens, or every camera assumption a game makes.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Command</th><th>Intended shape</th><th>Do not expect</th></tr></thead>
+          <tbody>
+            <tr><td><code>$WIDESCREEN</code></td><td>16:9-style GTE/FOV adjustment.</td><td>Automatic HUD, text, menu, or 2D background correction.</td></tr>
+            <tr><td><code>$ULTRA_WIDESCREEN</code></td><td>Wider projection variant; older docs may contain spelling drift.</td><td>Proof that a given game is safe without testing.</td></tr>
+            <tr><td><code>$EYEFINITY</code></td><td>Extreme multi-display-style projection experiment.</td><td>A practical default for normal CRT, HDMI, or component setups.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+<section>
+        <h2 id="smoothing-and-scanlines">Smoothing and scanlines<a class="heading-anchor" href="#smoothing-and-scanlines" aria-label="Link to Smoothing and scanlines">#</a></h2>
+        <div class="compare">
+          <article><h3 id="smooth"><code>$SMOOTH</code><a class="heading-anchor" href="#smooth" aria-label="Link to $SMOOTH">#</a></h3><p>Enables POPS texture smoothing behavior. It is a visual preference and can make some 2D art look less crisp.</p></article>
+          <article><h3 id="scanlines"><code>$SCANLINES</code><a class="heading-anchor" href="#scanlines" aria-label="Link to $SCANLINES">#</a></h3><p>Adds a scanline effect. Treat it as a display/aesthetic setting, not as a compatibility fix.</p></article>
+          <article><h3 id="screenshot-pages">Screenshot pages<a class="heading-anchor" href="#screenshot-pages" aria-label="Link to Screenshot pages">#</a></h3><p>The old wiki preserved visual comparison pages. They are useful for understanding the effect, but the public site does not need to mirror every screenshot to document the command.</p></article>
+        </div>
+      </section>
+<section>
+        <h2 id="d2ls-and-digital-mode-behavior">D2LS and digital-mode behavior<a class="heading-anchor" href="#d2ls-and-digital-mode-behavior" aria-label="Link to D2LS and digital-mode behavior">#</a></h2>
+        <p><code>$D2LS</code> means left stick as D-pad. The recovered D2LS page ties the code family to PS2 Controller Remapper output and to games or controllers that need digital-style input behavior.</p>
+        <ul class="checklist">
+          <li>Use <code>$D2LS</code> per game, not globally.</li>
+          <li>Try <code>$D2LS_ALT</code> only when the normal command does not behave correctly for that title/controller path.</li>
+          <li>For DS3 module experiments, keep <code>$D2LS</code> in the game's <code>CHEATS.TXT</code> and the IRX modules in the POPS folder.</li>
+          <li>If a game already expects analog behavior, forcing digital mapping can create new input bugs.</li>
+        </ul>
+      </section>
+<section>
+        <h2 id="ps1-raw-and-ps2-raw-code-archives">PS1 RAW and PS2 RAW code archives<a class="heading-anchor" href="#ps1-raw-and-ps2-raw-code-archives" aria-label="Link to PS1 RAW and PS2 RAW code archives">#</a></h2>
+        <p>The recovered wiki includes huge PS1 RAW and PS2 RAW code archives. They are valuable as an index, but copying them wholesale into every page would make the manual worse: too large to search usefully, too easy to misapply, and too detached from game revision/region context.</p>
+        <ol>
+          <li>Identify the exact game ID, region, and disc revision before using a code.</li>
+          <li>Prefer a PS2 RAW code that is already documented for POPStarter/POPS when one exists.</li>
+          <li>Treat PS1 RAW codes as source material that may need conversion, master-code handling, or timing changes.</li>
+          <li>Use <code>$SAFEMODE</code> when applying raw cheat/code lines in <code>CHEATS.TXT</code>.</li>
+          <li>Test one code group at a time so a bad code does not get mistaken for a bad VCD or bad storage setup.</li>
+          <li>Record the source archive, code title, game ID, and observed result in any compatibility note.</li>
+        </ol>
+      </section>
+<section class="callout warning">
+        <h2 id="code-archive-rule">Code archive rule<a class="heading-anchor" href="#code-archive-rule" aria-label="Link to Code archive rule">#</a></h2>
+        <p>Raw codes are not compatibility modes. A wrong raw code can boot to black screen, corrupt runtime state, or hide the actual issue. Keep the <a href="cheat-engine.html">Cheat Engine</a> page as the operating manual and use this appendix as archive guidance.</p>
+      </section></article>
         <aside class="page-toc" aria-label="On this page">
           <strong>On this page</strong>
-          <a href="#source-file">Source file</a>
+          <a href="#appendix-not-a-preset-pack">Appendix, not a preset pack</a><a href="#widescreen-family">Widescreen family</a><a href="#smoothing-and-scanlines">Smoothing and scanlines</a><a href="#d2ls-and-digital-mode-behavior">D2LS and digital-mode behavior</a><a href="#ps1-raw-and-ps2-raw-code-archives">PS1 RAW and PS2 RAW code archives</a><a href="#code-archive-rule">Code archive rule</a>
         </aside>
       </div>
     </main>

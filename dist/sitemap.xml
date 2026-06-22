@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>index.html</loc></url>
   <url><loc>setup-paths.html</loc></url>
+  <url><loc>toolchain-utilities.html</loc></url>
+  <url><loc>advanced-launch-modes.html</loc></url>
   <url><loc>storage-overview.html</loc></url>
   <url><loc>reference-tables.html</loc></url>
   <url><loc>archive-provenance.html</loc></url>
@@ -12,6 +14,9 @@
   <url><loc>storage-matrix.html</loc></url>
   <url><loc>popsloader-guide.html</loc></url>
   <url><loc>launcher-matrix.html</loc></url>
+  <url><loc>device-irx-modules.html</loc></url>
+  <url><loc>display-code-appendix.html</loc></url>
+  <url><loc>version-integrity.html</loc></url>
   <url><loc>faq-known-bugs.html</loc></url>
   <url><loc>cheat-engine.html</loc></url>
   <url><loc>compatibility-deep-dive.html</loc></url>

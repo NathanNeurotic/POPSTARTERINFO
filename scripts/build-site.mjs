@@ -543,10 +543,10 @@ const allPages = [...pages, ...generatedPages];
 
 const navGroups = [
   { label: "0 Start Here", slugs: ["index", "quick-start"] },
-  { label: "1 Setup Paths", slugs: ["setup-paths", "launcher-matrix"] },
-  { label: "2 Storage Backends", slugs: ["storage-overview", "usb-storage", "internal-hdd", "smb-network", "bdm-exfat", "popsloader-guide", "storage-matrix"] },
-  { label: "3 Reference Tables", slugs: ["reference-tables", "command-reference", "cheat-engine", "config-table", "compatibility-map", "compatibility-deep-dive", "patches-fixes", "igr-exit", "multi-disc-vmc", "vmc-handlers", "video-display", "debugging", "troubleshooting", "faq-known-bugs"] },
-  { label: "4 Archive & Provenance", slugs: ["archive-provenance", "thread-study", "poc2-history", "download-inventory", "history-provenance", "wiki-coverage", "source-archive", "research-log", "credits"] },
+  { label: "1 Setup Paths", slugs: ["setup-paths", "launcher-matrix", "toolchain-utilities"] },
+  { label: "2 Storage Backends", slugs: ["storage-overview", "usb-storage", "internal-hdd", "smb-network", "bdm-exfat", "advanced-launch-modes", "popsloader-guide", "storage-matrix"] },
+  { label: "3 Reference Tables", slugs: ["reference-tables", "command-reference", "cheat-engine", "config-table", "compatibility-map", "compatibility-deep-dive", "patches-fixes", "igr-exit", "multi-disc-vmc", "vmc-handlers", "device-irx-modules", "display-code-appendix", "video-display", "debugging", "troubleshooting", "faq-known-bugs"] },
+  { label: "4 Archive & Provenance", slugs: ["archive-provenance", "thread-study", "poc2-history", "version-integrity", "download-inventory", "history-provenance", "wiki-coverage", "source-archive", "research-log", "credits"] },
   { label: "Appendices", slugs: ["glossary", "search", "archive", "data-browser"] }
 ];
 
