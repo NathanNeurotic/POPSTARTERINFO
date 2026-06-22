@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>docs/SOURCE INVENTORY.md - POPStarter Docs</title>
-  <meta name="description" content="Rendered local archive file: docs/SOURCE_INVENTORY.md">
+  <title>VMC and Handler Files - POPStarter Docs</title>
+  <meta name="description" content="Virtual memory cards, shared VMC routing, BIOS/OSD handlers, IGR textures, handler precedence, and support-file placement.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -21,43 +21,56 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="popsloader-guide.html">POPSLoader</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="cheat-engine.html">Cheat Engine</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="compatibility-deep-dive.html">Compatibility Deep Dive</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="vmc-handlers.html">VMC / Handlers</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="faq-known-bugs.html">FAQ</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="thread-study.html">Thread Study</a><a  href="poc2-history.html">POC2 History</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="credits.html">Credits</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
+    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="popsloader-guide.html">POPSLoader</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="cheat-engine.html">Cheat Engine</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="compatibility-deep-dive.html">Compatibility Deep Dive</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a aria-current="page" href="vmc-handlers.html">VMC / Handlers</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="faq-known-bugs.html">FAQ</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="thread-study.html">Thread Study</a><a  href="poc2-history.html">POC2 History</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="credits.html">Credits</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>docs/SOURCE INVENTORY.md</h1>
-          <p>Rendered local archive file: docs/SOURCE_INVENTORY.md</p>
+          <h1>VMC and Handler Files</h1>
+          <p>Virtual memory cards, shared VMC routing, BIOS/OSD handlers, IGR textures, handler precedence, and support-file placement.</p>
         </div>
       </section>
       <div class="content-layout">
-        <article class="article-content"><section class="callout"><h2 id="source-file">Source file<a class="heading-anchor" href="#source-file" aria-label="Link to Source file">#</a></h2><p><code>docs/SOURCE_INVENTORY.md</code></p></section>
-<article class="archive-doc"><h2 id="popstarter-source-inventory-seed">POPStarter Source Inventory Seed<a class="heading-anchor" href="#popstarter-source-inventory-seed" aria-label="Link to POPStarter Source Inventory Seed">#</a></h2>
-<p>Generated: 2026-06-21 14:01 UTC</p>
-<p>This is a seed inventory for Codex or another research agent. It is not complete; it captures the sources and findings gathered so far.</p>
-<h3 id="primary-high-value-sources">Primary / high-value sources<a class="heading-anchor" href="#primary-high-value-sources" aria-label="Link to Primary / high-value sources">#</a></h3>
-<h4>krHACKen PSX-Place POPStarter release thread</h4>
-<ul><li>Title observed: <code>PS2 - POPStarter 2019/06/05</code></li><li>Current URL: <code>https://www.psx-place.com/threads/popstarter.19139/</code></li><li>Importance:</li><li>Official release thread.</li><li>Defines POPStarter as a launcher for Sony's PS2 POPS emulator.</li><li>Warns not to redistribute Sony POPS binaries.</li><li>Links compatibility lists, IGR info, side projects, tools, translated threads.</li><li>As of the observed page, first post links: wLE_kHn, POPStarter Game Installer for OPL, POPSY-X, PSXVCD, BDMAssault, MMCEMAN for POPStarter, POPSLoader.</li><li>Observed attachments include:</li><li><code>POPSTARTER_MC-Network.zip</code></li><li><code>POPStarter_20190605.7z</code></li><li><code>POPSTARTER_MC-Network_BDM.7z</code></li><li><code>wLE_kHn_20200810.7z</code></li><li><code>MX4SIO for POPStarter.7z</code></li><li><code>MMCEMAN for POPStarter.7z</code></li><li>Notes:</li><li>The first post appeared last edited Jan 12, 2026 during research.</li><li>The thread is at least 19 pages; Codex should scrape/capture all pages if allowed.</li></ul>
-<h4>ShaolinAssassin Bitbucket POPStarter documentation</h4>
-<ul><li>Original main URL:</li><li><code>https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home</code></li><li>Important specific wiki pages from the old table of contents:</li><li><code>hdd-mode</code></li><li><code>usb-mode</code></li><li><code>smb-mode</code></li><li><code>compatibility</code></li><li><code>automated-fixes</code></li><li><code>vmc</code></li><li><code>hotkeys</code></li><li><code>cheat-engine</code></li><li><code>special-cheats</code></li><li><code>igr</code></li><li><code>swap-disc</code></li><li><code>ps1-cd-mode</code></li><li><code>irx-loader</code></li><li><code>bios-osd-handlers</code></li><li><code>debug-mode</code></li><li><code>ule-khn</code></li><li><code>advanced-settings</code></li><li><code>timeline</code></li><li><code>changelog</code></li><li><code>apps-last-version</code></li><li><code>multi-disc</code></li><li>Status:</li><li>Often 404/dead from Bitbucket.</li><li>Must use Web Archive and mirrors.</li></ul>
-<h4>Archive.org backup of ShaolinAssassin wiki</h4>
-<ul><li>URL observed via PSX-Place:</li><li><code>https://archive.org/details/backup-popstarter-documentation-stuff-wiki-from-2017-and-2020</code></li><li>Importance:</li><li>A PSX-Place user/developer reported uploading personal datahoard backups of the wiki.</li><li>Task:</li><li>Download metadata/files from archive.org.</li><li>Extract all pages and preserve them under <code>research/raw/archive_org_shaolin_wiki/</code>.</li></ul>
-<h4>Retro-Jogos POPStarter guide mirror</h4>
-<ul><li>Main index:</li><li><code>https://www.retro-jogos.com/PS2/pops/index.html</code></li><li>Home:</li><li><code>https://www.retro-jogos.com/PS2/pops/home.html</code></li><li>Importance:</li><li>Preserves a Portuguese &quot;Official POPStarter Guide&quot; table of contents.</li><li>States documentation was originally by krHACKen and updated by ShaolinAssassin.</li><li>States content was updated with Rev13 Beta 05/06/2019.</li><li>Exposes the old wiki structure even where Bitbucket pages are dead.</li><li>Task:</li><li>Crawl the <code>/PS2/pops/</code> directory if indexable.</li><li>If individual pages are not discoverable, use the table of contents slugs and Web Archive.</li></ul>
-<h4>ElOtroLado POPS/POPStarter thread by El_Patas</h4>
-<ul><li>URL:</li><li>mention-only source; no public outbound link</li><li>Importance:</li><li>Long-running Spanish scene documentation.</li><li>Observed first post edited many times, last edit visible as 2026-06-07 during research.</li><li>Includes:</li><li>version list</li><li>final beta changelog</li><li>install tutorials</li><li>command list</li><li>CHEATS.TXT behavior</li><li>IGR command list</li><li>troubleshooting</li><li>Task:</li><li>Scrape/capture the first post fully.</li><li>Translate into English with source line preservation.</li><li>Do not lose Spanish original.</li></ul>
-<h4>POPSLoader by El_isra</h4>
-<ul><li>URL:</li><li><code>https://www.psx-place.com/resources/popsloader.1396/</code></li><li>Importance:</li><li>Modern standalone POPStarter launcher.</li><li>Based on Enceladus, scripted in Lua.</li><li>Initial release supports USB/internal HDD; SMB was planned at that time.</li><li>Contains <code>PATCH_5.BIN</code> for custom POPStarter IGR textures.</li><li>Project is marked officially abandoned by its author.</li><li>Task:</li><li>Capture resource page, updates tab, discussion thread if available.</li></ul>
-<h4>POPSLoader fork by Ripto / NathanNeurotic</h4>
-<ul><li>URL:</li><li><code>https://www.psx-place.com/resources/fork-popsloader-for-mmce-mx4sio-usb-and-apahdd.1665/</code></li><li>Importance:</li><li>Modern fork supporting MMCE, MX4SIO, USB, APAHDD.</li><li>Contains current setup notes:</li><li>mc0 required for settings and BDMA.</li><li>BDMA required for all devices except HDD.</li><li>Supported POPSTARTER.ELF paths include MC, USB, MX4SIO, MMCE, etc.</li><li>HDD VCDs use <code>hdd:/__.POPS/&lt;Title&gt;.VCD</code>; art under <code>hdd:/__common/POPS/ART/&lt;Title&gt;.png</code>.</li><li>Observed note that BETA-10 fixed HDD launch handoff and BOOT.ELF exit behavior.</li><li>Task:</li><li>Treat as modern extension/fork documentation, not original POPStarter core docs.</li></ul>
-<h4>BDM Assault</h4>
-<ul><li>URL:</li><li><code>https://github.com/israpps/BDMAssault</code></li><li>Importance:</li><li>Brings exFAT USB support to old closed-source homebrew that can load external USB drivers, including POPStarter.</li><li>POPStarter placement:</li><li><code>bdm_assault.irx</code> -&gt; <code>mc?:/POPSTARTER/usbd.irx</code></li><li><code>usbd_bd_assault.irx</code> -&gt; <code>mc?:/POPSTARTER/usbhdfsd.irx</code></li><li>Task:</li><li>Capture README and releases.</li><li>Clarify that this is USB driver substitution, not native internal exFAT POPS support.</li></ul>
-<h4>Hugopocked POPStarter fixes</h4>
-<ul><li>URL:</li><li><code>https://www.psx-place.com/threads/hugopocked-fixes-for-popstarter.39750/</code></li><li>Importance:</li><li>Game-specific fixes for POPStarter compatibility.</li><li>Thread states it is not for emulator installation support; it is for patch/fix installation.</li><li>Patch placement belongs in the per-game VMC/game folder matching the VCD basename.</li><li>Task:</li><li>Capture current patch list, outdated patch pack links, newer single-game fixes, passwords, installation notes.</li><li>Mark external download links as volatile.</li></ul>
-<h4>Related sources to mine</h4>
-<ul><li>PS2-Home POPStarter IGR tutorials</li><li>MetaGames French POPStarter thread:</li><li><code>https://www.metagames-eu.com/forums/playstation-2/popstarter-revision-13-a-134569.html</code></li><li>CDRInfo Polish thread:</li><li><code>https://forum.cdrinfo.pl/f106/ps2-popstarter-95894/</code></li><li>PS2Home Portuguese thread:</li><li><code>https://ps2home.forumeiro.com/t27-popstarter-emulador-de-ps1-para-ps2</code></li><li>A9VG Chinese thread via Web Archive:</li><li><code>https://web.archive.org/web/20250428034525/https://bbs.a9vg.com/thread-4240514-1-1.html</code></li><li>AssemblerGames backup:</li><li>search Web Archive for <code>assemblergames.com/threads/ps2-pops-stuff-popstarter.45347/</code></li><li>PS2-home thread for IGR:</li><li>Search <code>POPStarter In-Game-Reset Trojans and Patches</code></li><li>GitHub:</li><li><code>https://github.com/israpps/BDMAssault</code></li><li><code>https://github.com/ps2homebrew/Open-PS2-Loader</code></li><li><code>https://github.com/NathanNeurotic/POPSLoader</code> if available/public</li></ul></article></article>
+        <article class="article-content"><section class="callout">
+        <h2 id="handlers-follow-the-support-folder-rule">Handlers follow the support-folder rule<a class="heading-anchor" href="#handlers-follow-the-support-folder-rule" aria-label="Link to Handlers follow the support-folder rule">#</a></h2>
+        <p>VMC files, <code>VMCDIR.TXT</code>, <code>BIOS.BIN</code>, <code>OSD.BIN</code>, patch files, and many handler assets belong where POPStarter will look for the current backend and game. The wrong folder can look exactly like an incompatible game.</p>
+      </section>
+<section>
+        <h2 id="virtual-memory-card-basics">Virtual memory card basics<a class="heading-anchor" href="#virtual-memory-card-basics" aria-label="Link to Virtual memory card basics">#</a></h2>
+        <ul class="checklist">
+          <li><code>SLOT0.VMC</code> and <code>SLOT1.VMC</code> are the normal per-game VMC files.</li>
+          <li><code>$NOVMC0</code> and <code>$NOVMC1</code> can disable individual virtual slots when a game or test requires that behavior.</li>
+          <li>SMB shares must be writable because POPStarter creates and updates VMC files over the network.</li>
+          <li>For multi-disc games, use <code>VMCDIR.TXT</code> in later-disc folders to point saves back to disc 1's VMC folder.</li>
+        </ul>
+      </section>
+<section>
+        <h2 id="pops-folder-priority">POPS folder priority<a class="heading-anchor" href="#pops-folder-priority" aria-label="Link to POPS folder priority">#</a></h2>
+        <p>USB split folders and HDD common folders are easy to misread. <code>POPS_IOX.PAK</code> and IGR textures can live in the main POPS folder, while per-game handlers and compatibility files often need to be copied into the specific folder being launched from.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Backend</th><th>VCD location</th><th>Typical support/handler location</th></tr></thead>
+          <tbody>
+            <tr><td>USB</td><td><code>mass:/POPS</code> or <code>mass:/POPS0..9</code></td><td><code>mass:/POPS#/&lt;VCD basename&gt;/</code> for per-game files.</td></tr>
+            <tr><td>HDD</td><td><code>hdd0:/__.POPS</code></td><td><code>hdd0:/__common/POPS/&lt;VCD basename&gt;/</code>.</td></tr>
+            <tr><td>SMB</td><td>Share <code>POPS/</code></td><td>Share <code>POPS/&lt;VCD basename&gt;/</code>.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+<section>
+        <h2 id="bios-and-osd-handlers">BIOS and OSD handlers<a class="heading-anchor" href="#bios-and-osd-handlers" aria-label="Link to BIOS and OSD handlers">#</a></h2>
+        <p>The recovered wiki coverage separates BIOS handler and OSD handler behavior. Keep those files as explicit per-game experiments, not global defaults. If both handler names appear in a source, preserve the source-specific priority note instead of guessing.</p>
+        <p>The recovered VMC/handler notes flag <code>OSD.BIN</code> and <code>BIOS.BIN</code> precedence as important enough to track. This site keeps it as a handler topic until package-level inspection confirms every edge case.</p>
+      </section>
+<section>
+        <h2 id="igr-textures">IGR textures<a class="heading-anchor" href="#igr-textures" aria-label="Link to IGR textures">#</a></h2>
+        <p>IGR texture loading is part of the later POPStarter line. Texture files such as <code>IGR_BG.TM2</code> belong to presentation, not compatibility. POPSLoader packages can also include similarly named texture patch artifacts, so keep texture files separate from compatibility <code>PATCH_#.BIN</code> meaning.</p>
+      </section>
+<section class="callout warning">
+        <h2 id="do-not-merge-support-file-families">Do not merge support-file families<a class="heading-anchor" href="#do-not-merge-support-file-families" aria-label="Link to Do not merge support-file families">#</a></h2>
+        <p><code>PATCH_5.BIN</code> as a compatibility mode, POPSLoader IGR texture resources, VMC routing files, and BIOS/OSD handlers are different families. Similar filenames do not prove similar behavior.</p>
+      </section></article>
         <aside class="page-toc" aria-label="On this page">
           <strong>On this page</strong>
-          <a href="#source-file">Source file</a><a href="#popstarter-source-inventory-seed">POPStarter Source Inventory Seed</a>
+          <a href="#handlers-follow-the-support-folder-rule">Handlers follow the support-folder rule</a><a href="#virtual-memory-card-basics">Virtual memory card basics</a><a href="#pops-folder-priority">POPS folder priority</a><a href="#bios-and-osd-handlers">BIOS and OSD handlers</a><a href="#igr-textures">IGR textures</a><a href="#do-not-merge-support-file-families">Do not merge support-file families</a>
         </aside>
       </div>
     </main>

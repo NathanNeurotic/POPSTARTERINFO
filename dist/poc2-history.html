@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>docs/SOURCE INVENTORY.md - POPStarter Docs</title>
-  <meta name="description" content="Rendered local archive file: docs/SOURCE_INVENTORY.md">
+  <title>POC2 and POPS-00001 History - POPStarter Docs</title>
+  <meta name="description" content="Historical context for the leaked POPS-00001 era, early HDD partition workflows, and why modern documentation should avoid reviving risky old packages.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -21,43 +21,104 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="popsloader-guide.html">POPSLoader</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="cheat-engine.html">Cheat Engine</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="compatibility-deep-dive.html">Compatibility Deep Dive</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="vmc-handlers.html">VMC / Handlers</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="faq-known-bugs.html">FAQ</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="thread-study.html">Thread Study</a><a  href="poc2-history.html">POC2 History</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="credits.html">Credits</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
+    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="popsloader-guide.html">POPSLoader</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="cheat-engine.html">Cheat Engine</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="compatibility-deep-dive.html">Compatibility Deep Dive</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="vmc-handlers.html">VMC / Handlers</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="faq-known-bugs.html">FAQ</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="thread-study.html">Thread Study</a><a aria-current="page" href="poc2-history.html">POC2 History</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="credits.html">Credits</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>docs/SOURCE INVENTORY.md</h1>
-          <p>Rendered local archive file: docs/SOURCE_INVENTORY.md</p>
+          <h1>POC2 and POPS-00001 History</h1>
+          <p>Historical context for the leaked POPS-00001 era, early HDD partition workflows, and why modern documentation should avoid reviving risky old packages.</p>
         </div>
       </section>
       <div class="content-layout">
-        <article class="article-content"><section class="callout"><h2 id="source-file">Source file<a class="heading-anchor" href="#source-file" aria-label="Link to Source file">#</a></h2><p><code>docs/SOURCE_INVENTORY.md</code></p></section>
-<article class="archive-doc"><h2 id="popstarter-source-inventory-seed">POPStarter Source Inventory Seed<a class="heading-anchor" href="#popstarter-source-inventory-seed" aria-label="Link to POPStarter Source Inventory Seed">#</a></h2>
-<p>Generated: 2026-06-21 14:01 UTC</p>
-<p>This is a seed inventory for Codex or another research agent. It is not complete; it captures the sources and findings gathered so far.</p>
-<h3 id="primary-high-value-sources">Primary / high-value sources<a class="heading-anchor" href="#primary-high-value-sources" aria-label="Link to Primary / high-value sources">#</a></h3>
-<h4>krHACKen PSX-Place POPStarter release thread</h4>
-<ul><li>Title observed: <code>PS2 - POPStarter 2019/06/05</code></li><li>Current URL: <code>https://www.psx-place.com/threads/popstarter.19139/</code></li><li>Importance:</li><li>Official release thread.</li><li>Defines POPStarter as a launcher for Sony's PS2 POPS emulator.</li><li>Warns not to redistribute Sony POPS binaries.</li><li>Links compatibility lists, IGR info, side projects, tools, translated threads.</li><li>As of the observed page, first post links: wLE_kHn, POPStarter Game Installer for OPL, POPSY-X, PSXVCD, BDMAssault, MMCEMAN for POPStarter, POPSLoader.</li><li>Observed attachments include:</li><li><code>POPSTARTER_MC-Network.zip</code></li><li><code>POPStarter_20190605.7z</code></li><li><code>POPSTARTER_MC-Network_BDM.7z</code></li><li><code>wLE_kHn_20200810.7z</code></li><li><code>MX4SIO for POPStarter.7z</code></li><li><code>MMCEMAN for POPStarter.7z</code></li><li>Notes:</li><li>The first post appeared last edited Jan 12, 2026 during research.</li><li>The thread is at least 19 pages; Codex should scrape/capture all pages if allowed.</li></ul>
-<h4>ShaolinAssassin Bitbucket POPStarter documentation</h4>
-<ul><li>Original main URL:</li><li><code>https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home</code></li><li>Important specific wiki pages from the old table of contents:</li><li><code>hdd-mode</code></li><li><code>usb-mode</code></li><li><code>smb-mode</code></li><li><code>compatibility</code></li><li><code>automated-fixes</code></li><li><code>vmc</code></li><li><code>hotkeys</code></li><li><code>cheat-engine</code></li><li><code>special-cheats</code></li><li><code>igr</code></li><li><code>swap-disc</code></li><li><code>ps1-cd-mode</code></li><li><code>irx-loader</code></li><li><code>bios-osd-handlers</code></li><li><code>debug-mode</code></li><li><code>ule-khn</code></li><li><code>advanced-settings</code></li><li><code>timeline</code></li><li><code>changelog</code></li><li><code>apps-last-version</code></li><li><code>multi-disc</code></li><li>Status:</li><li>Often 404/dead from Bitbucket.</li><li>Must use Web Archive and mirrors.</li></ul>
-<h4>Archive.org backup of ShaolinAssassin wiki</h4>
-<ul><li>URL observed via PSX-Place:</li><li><code>https://archive.org/details/backup-popstarter-documentation-stuff-wiki-from-2017-and-2020</code></li><li>Importance:</li><li>A PSX-Place user/developer reported uploading personal datahoard backups of the wiki.</li><li>Task:</li><li>Download metadata/files from archive.org.</li><li>Extract all pages and preserve them under <code>research/raw/archive_org_shaolin_wiki/</code>.</li></ul>
-<h4>Retro-Jogos POPStarter guide mirror</h4>
-<ul><li>Main index:</li><li><code>https://www.retro-jogos.com/PS2/pops/index.html</code></li><li>Home:</li><li><code>https://www.retro-jogos.com/PS2/pops/home.html</code></li><li>Importance:</li><li>Preserves a Portuguese &quot;Official POPStarter Guide&quot; table of contents.</li><li>States documentation was originally by krHACKen and updated by ShaolinAssassin.</li><li>States content was updated with Rev13 Beta 05/06/2019.</li><li>Exposes the old wiki structure even where Bitbucket pages are dead.</li><li>Task:</li><li>Crawl the <code>/PS2/pops/</code> directory if indexable.</li><li>If individual pages are not discoverable, use the table of contents slugs and Web Archive.</li></ul>
-<h4>ElOtroLado POPS/POPStarter thread by El_Patas</h4>
-<ul><li>URL:</li><li>mention-only source; no public outbound link</li><li>Importance:</li><li>Long-running Spanish scene documentation.</li><li>Observed first post edited many times, last edit visible as 2026-06-07 during research.</li><li>Includes:</li><li>version list</li><li>final beta changelog</li><li>install tutorials</li><li>command list</li><li>CHEATS.TXT behavior</li><li>IGR command list</li><li>troubleshooting</li><li>Task:</li><li>Scrape/capture the first post fully.</li><li>Translate into English with source line preservation.</li><li>Do not lose Spanish original.</li></ul>
-<h4>POPSLoader by El_isra</h4>
-<ul><li>URL:</li><li><code>https://www.psx-place.com/resources/popsloader.1396/</code></li><li>Importance:</li><li>Modern standalone POPStarter launcher.</li><li>Based on Enceladus, scripted in Lua.</li><li>Initial release supports USB/internal HDD; SMB was planned at that time.</li><li>Contains <code>PATCH_5.BIN</code> for custom POPStarter IGR textures.</li><li>Project is marked officially abandoned by its author.</li><li>Task:</li><li>Capture resource page, updates tab, discussion thread if available.</li></ul>
-<h4>POPSLoader fork by Ripto / NathanNeurotic</h4>
-<ul><li>URL:</li><li><code>https://www.psx-place.com/resources/fork-popsloader-for-mmce-mx4sio-usb-and-apahdd.1665/</code></li><li>Importance:</li><li>Modern fork supporting MMCE, MX4SIO, USB, APAHDD.</li><li>Contains current setup notes:</li><li>mc0 required for settings and BDMA.</li><li>BDMA required for all devices except HDD.</li><li>Supported POPSTARTER.ELF paths include MC, USB, MX4SIO, MMCE, etc.</li><li>HDD VCDs use <code>hdd:/__.POPS/&lt;Title&gt;.VCD</code>; art under <code>hdd:/__common/POPS/ART/&lt;Title&gt;.png</code>.</li><li>Observed note that BETA-10 fixed HDD launch handoff and BOOT.ELF exit behavior.</li><li>Task:</li><li>Treat as modern extension/fork documentation, not original POPStarter core docs.</li></ul>
-<h4>BDM Assault</h4>
-<ul><li>URL:</li><li><code>https://github.com/israpps/BDMAssault</code></li><li>Importance:</li><li>Brings exFAT USB support to old closed-source homebrew that can load external USB drivers, including POPStarter.</li><li>POPStarter placement:</li><li><code>bdm_assault.irx</code> -&gt; <code>mc?:/POPSTARTER/usbd.irx</code></li><li><code>usbd_bd_assault.irx</code> -&gt; <code>mc?:/POPSTARTER/usbhdfsd.irx</code></li><li>Task:</li><li>Capture README and releases.</li><li>Clarify that this is USB driver substitution, not native internal exFAT POPS support.</li></ul>
-<h4>Hugopocked POPStarter fixes</h4>
-<ul><li>URL:</li><li><code>https://www.psx-place.com/threads/hugopocked-fixes-for-popstarter.39750/</code></li><li>Importance:</li><li>Game-specific fixes for POPStarter compatibility.</li><li>Thread states it is not for emulator installation support; it is for patch/fix installation.</li><li>Patch placement belongs in the per-game VMC/game folder matching the VCD basename.</li><li>Task:</li><li>Capture current patch list, outdated patch pack links, newer single-game fixes, passwords, installation notes.</li><li>Mark external download links as volatile.</li></ul>
-<h4>Related sources to mine</h4>
-<ul><li>PS2-Home POPStarter IGR tutorials</li><li>MetaGames French POPStarter thread:</li><li><code>https://www.metagames-eu.com/forums/playstation-2/popstarter-revision-13-a-134569.html</code></li><li>CDRInfo Polish thread:</li><li><code>https://forum.cdrinfo.pl/f106/ps2-popstarter-95894/</code></li><li>PS2Home Portuguese thread:</li><li><code>https://ps2home.forumeiro.com/t27-popstarter-emulador-de-ps1-para-ps2</code></li><li>A9VG Chinese thread via Web Archive:</li><li><code>https://web.archive.org/web/20250428034525/https://bbs.a9vg.com/thread-4240514-1-1.html</code></li><li>AssemblerGames backup:</li><li>search Web Archive for <code>assemblergames.com/threads/ps2-pops-stuff-popstarter.45347/</code></li><li>PS2-home thread for IGR:</li><li>Search <code>POPStarter In-Game-Reset Trojans and Patches</code></li><li>GitHub:</li><li><code>https://github.com/israpps/BDMAssault</code></li><li><code>https://github.com/ps2homebrew/Open-PS2-Loader</code></li><li><code>https://github.com/NathanNeurotic/POPSLoader</code> if available/public</li></ul></article></article>
+        <article class="article-content"><section class="callout warning">
+        <h2 id="historical-context-not-an-install-recipe">Historical context, not an install recipe<a class="heading-anchor" href="#historical-context-not-an-install-recipe" aria-label="Link to Historical context, not an install recipe">#</a></h2>
+        <p>The POC2 / POPS-00001 era explains where POPStarter came from. It is not a recommendation to redistribute old packages, use unsafe repacks, or revive proprietary emulator bundles.</p>
+      </section>
+<section>
+        <h2 id="short-chronology">Short chronology<a class="heading-anchor" href="#short-chronology" aria-label="Link to Short chronology">#</a></h2>
+        <ol>
+          <li>Sony's POPS emulator existed as part of the PS2 ecosystem and later became the base around which community launchers were studied.</li>
+          <li>Early POC2 material circulated with instructions around HDD partitions and edited game dumps.</li>
+          <li>Community bundles then appeared under POPS-00001-style naming, often mixed with hex-edited or unsafe repacks.</li>
+          <li>POPStarter evolved as a launcher and patch layer so users did not have to keep relying on those crude early workflows.</li>
+          <li>The final public POPStarter line is r13 Beta 2019/06/05, with later fix-pack/community work documented separately.</li>
+        </ol>
+      </section>
+<section>
+        <h2 id="what-changed-from-the-early-era">What changed from the early era<a class="heading-anchor" href="#what-changed-from-the-early-era" aria-label="Link to What changed from the early era">#</a></h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Early POC2-style concern</th><th>Modern documentation stance</th></tr></thead>
+          <tbody>
+            <tr><td>Per-game HDD partitions and edited images.</td><td>Document legacy <code>PP.</code> and <code>__.</code> partition routes, but prefer clear modern <code>__.POPS</code> / <code>__common/POPS</code> recipes where supported.</td></tr>
+            <tr><td>Bundled proprietary emulator files.</td><td>Do not mirror or link binaries. Identify required files by role and verification hash only.</td></tr>
+            <tr><td>Risky repacks and old RIP/WIP confusion.</td><td>Use final r13 build identity as the public baseline and label old behavior by date/build.</td></tr>
+            <tr><td>Scattered compatibility folklore.</td><td>Separate built-in fixes, commands, patches, TROJAN files, and per-game community fixes.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+<section>
+        <h2 id="why-this-matters">Why this matters<a class="heading-anchor" href="#why-this-matters" aria-label="Link to Why this matters">#</a></h2>
+        <p>Many wrong guides mix early POPS-00001 assumptions with final POPStarter behavior. That is how old config-byte meanings, pre-final IGR behavior, unsafe package references, and broken HDD recipes keep resurfacing. Historical material belongs in provenance, not in the default quick-start path.</p>
+      </section>
+<div class="timeline"><article class="issue">
+    <h3 id="2014-08-22-wip02"><time>2014-08-22</time> WIP02<a class="heading-anchor" href="#2014-08-22-wip02" aria-label="Link to 2014-08-22 WIP02">#</a></h3>
+    <p>Added the 8-slot force-compatibility table and enabled IGR skin/IRX loaders by default.</p>
+    <p><strong>Why it matters:</strong> Explains the $418-$41F config array and why IGR texture loading is a default r13 behavior.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></p>
+  </article><article class="issue">
+    <h3 id="2015-10-23-beta-8"><time>2015-10-23</time> Beta 8<a class="heading-anchor" href="#2015-10-23-beta-8" aria-label="Link to 2015-10-23 Beta 8">#</a></h3>
+    <p>Added SMB, ps2host, and napLink backend work, and embedded the PFS wrapper.</p>
+    <p><strong>Why it matters:</strong> SMB is a normal POPStarter feature from this line, not proof that a special debug-only build is required.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+  </article><article class="issue">
+    <h3 id="2015-11-11-beta-11"><time>2015-11-11</time> Beta 11<a class="heading-anchor" href="#2015-11-11-beta-11" aria-label="Link to 2015-11-11 Beta 11">#</a></h3>
+    <p>Added mc1 module fallback, SMB port selection, optional IPCONFIG.DAT behavior, and fixes for POPS# folder reads.</p>
+    <p><strong>Why it matters:</strong> Documents why memory-card POPSTARTER folders can live on mc0 or mc1 and why POPS0..POPS9 support files matter.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+  </article><article class="issue">
+    <h3 id="2015-11-24-beta-12"><time>2015-11-24</time> Beta 12<a class="heading-anchor" href="#2015-11-24-beta-12" aria-label="Link to 2015-11-24 Beta 12">#</a></h3>
+    <p>Added $FORCEPAL, SMB authentication, and a working $SAFEMODE command.</p>
+    <p><strong>Why it matters:</strong> Separates PAL-region forcing, SMB username/password lines, and raw-code timing behavior from earlier broken docs.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+  </article><article class="issue">
+    <h3 id="2015-12-07-beta-13"><time>2015-12-07</time> Beta 13<a class="heading-anchor" href="#2015-12-07-beta-13" aria-label="Link to 2015-12-07 Beta 13">#</a></h3>
+    <p>Added the mc0/mc1 BOOT.ELF exit chain, fixed cheat-engine hook+8 and $C0/$USBDELAY interactions, removed the old function skipper, and removed ps2host/napLink launchers.</p>
+    <p><strong>Why it matters:</strong> Critical boundary for IGR exit behavior and the $412 correction: in r13, $412 is HDTVFIX, not the old function skipper.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-15" target="_blank" rel="noreferrer">PSX-Place POPStarter page 15 - IGR and BOOT.ELF discussion</a></p>
+  </article><article class="issue">
+    <h3 id="2016-09-18-beta-15"><time>2016-09-18</time> Beta 15<a class="heading-anchor" href="#2016-09-18-beta-15" aria-label="Link to 2016-09-18 Beta 15">#</a></h3>
+    <p>Added CD-lid / DISCS.TXT multi-disc behavior and 480p calculations.</p>
+    <p><strong>Why it matters:</strong> Explains DISCS.TXT/VMCDIR.TXT-era multi-disc handling and why 480p remains a compatibility-sensitive option.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></p>
+  </article><article class="issue">
+    <h3 id="2016-11-20-beta-16"><time>2016-11-20</time> Beta 16<a class="heading-anchor" href="#2016-11-20-beta-16" aria-label="Link to 2016-11-20 Beta 16">#</a></h3>
+    <p>Integrated $IGR0 through $IGR5, $NOIGR, and $D2LS as CHEATS.TXT commands; repurposed $412 as HDTVFIX; added an untested software-reset combo.</p>
+    <p><strong>Why it matters:</strong> Makes the CHEATS.TXT IGR commands canonical instead of requiring standalone TROJAN files for every IGR behavior.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+  </article><article class="issue">
+    <h3 id="2017-05-27-prototype-2"><time>2017-05-27</time> Prototype 2<a class="heading-anchor" href="#2017-05-27-prototype-2" aria-label="Link to 2017-05-27 Prototype 2">#</a></h3>
+    <p>Added $42F value 0x04 as a diagnostic test mode.</p>
+    <p><strong>Why it matters:</strong> The test mode disables normal auto fixes and should not be recommended for normal play.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></p>
+  </article><article class="issue">
+    <h3 id="2019-06-05-r13-beta-final-public-build"><time>2019-06-05</time> r13 Beta final public build<a class="heading-anchor" href="#2019-06-05-r13-beta-final-public-build" aria-label="Link to 2019-06-05 r13 Beta final public build">#</a></h3>
+    <p>Final public r13 build; recovered history says $IGR5 was fixed in this last build.</p>
+    <p><strong>Why it matters:</strong> This is the canonical package identity to prefer over old RIP/WIP builds.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.retro-jogos.com/PS2/pops/home.html" target="_blank" rel="noreferrer">Retro-Jogos POPStarter guide home</a> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/" target="_blank" rel="noreferrer">PSX-Place POPStarter release thread</a></p>
+  </article><article class="issue">
+    <h3 id="2020-05-20-trojan-7-bin-r7-fix-pack"><time>2020-05-20</time> TROJAN_7.BIN r7 fix pack<a class="heading-anchor" href="#2020-05-20-trojan-7-bin-r7-fix-pack" aria-label="Link to 2020-05-20 TROJAN_7.BIN r7 fix pack">#</a></h3>
+    <p>Recovered history identifies this as the last public fix-pack line.</p>
+    <p><strong>Why it matters:</strong> Keep TROJAN_7 as a per-game fix-pack family, separate from IGR TROJAN_0..5 and compatibility PATCH_7 discussion.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/hugopocked-fixes-for-popstarter.39750/" target="_blank" rel="noreferrer">Hugopocked fixes for POPStarter</a></p>
+  </article><article class="issue">
+    <h3 id="2020-08-10-ule-khn-loader-address-fix"><time>2020-08-10</time> uLE_kHn loader-address fix<a class="heading-anchor" href="#2020-08-10-ule-khn-loader-address-fix" aria-label="Link to 2020-08-10 uLE_kHn loader-address fix">#</a></h3>
+    <p>uLE_kHn moved loader.elf to 0x00092000 to avoid kernel corruption.</p>
+    <p><strong>Why it matters:</strong> Explains why later uLE_kHn packages are referenced in modern direct-VCD launch workflows.</p>
+    <p class="sources"><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></p>
+  </article></div></article>
         <aside class="page-toc" aria-label="On this page">
           <strong>On this page</strong>
-          <a href="#source-file">Source file</a><a href="#popstarter-source-inventory-seed">POPStarter Source Inventory Seed</a>
+          <a href="#historical-context-not-an-install-recipe">Historical context, not an install recipe</a><a href="#short-chronology">Short chronology</a><a href="#what-changed-from-the-early-era">What changed from the early era</a><a href="#why-this-matters">Why this matters</a>
         </aside>
       </div>
     </main>

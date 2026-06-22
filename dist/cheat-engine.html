@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>docs/SOURCE INVENTORY.md - POPStarter Docs</title>
-  <meta name="description" content="Rendered local archive file: docs/SOURCE_INVENTORY.md">
+  <title>Cheat Engine - POPStarter Docs</title>
+  <meta name="description" content="How CHEATS.TXT, special commands, raw PS1 codes, SAFEMODE, LibCrypt workarounds, and command timing fit together.">
   <meta name="generator" content="POPStarter zero-dependency static generator">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="POPStarter Docs">
@@ -21,43 +21,437 @@
     </div>
   </header>
   <div class="shell">
-    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="popsloader-guide.html">POPSLoader</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a  href="cheat-engine.html">Cheat Engine</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="compatibility-deep-dive.html">Compatibility Deep Dive</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="vmc-handlers.html">VMC / Handlers</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="faq-known-bugs.html">FAQ</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="thread-study.html">Thread Study</a><a  href="poc2-history.html">POC2 History</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="credits.html">Credits</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
+    <nav class="sidebar"><div class="nav-group"><div class="nav-heading">0 Start Here</div><a  href="index.html">Home</a><a  href="quick-start.html">Quick Start</a></div><div class="nav-group"><div class="nav-heading">1 Setup Paths</div><a  href="setup-paths.html">Setup Paths</a><a  href="launcher-matrix.html">Launcher Matrix</a></div><div class="nav-group"><div class="nav-heading">2 Storage Backends</div><a  href="storage-overview.html">Storage Overview</a><a  href="usb-storage.html">USB</a><a  href="internal-hdd.html">HDD</a><a  href="smb-network.html">SMB / Network</a><a  href="bdm-exfat.html">BDM / exFAT</a><a  href="popsloader-guide.html">POPSLoader</a><a  href="storage-matrix.html">Storage Matrix</a></div><div class="nav-group"><div class="nav-heading">3 Reference Tables</div><a  href="reference-tables.html">Reference Tables</a><a  href="command-reference.html">Command Reference</a><a aria-current="page" href="cheat-engine.html">Cheat Engine</a><a  href="config-table.html">Config Table</a><a  href="compatibility-map.html">Compatibility Map</a><a  href="compatibility-deep-dive.html">Compatibility Deep Dive</a><a  href="patches-fixes.html">Patches and Fixes</a><a  href="igr-exit.html">IGR and Exit Behavior</a><a  href="multi-disc-vmc.html">Multi-disc and VMC</a><a  href="vmc-handlers.html">VMC / Handlers</a><a  href="video-display.html">Video / Display</a><a  href="debugging.html">Debugging</a><a  href="troubleshooting.html">Troubleshooting</a><a  href="faq-known-bugs.html">FAQ</a></div><div class="nav-group"><div class="nav-heading">4 Archive &amp; Provenance</div><a  href="archive-provenance.html">Archive Overview</a><a  href="thread-study.html">Thread Study</a><a  href="poc2-history.html">POC2 History</a><a  href="download-inventory.html">Inventory</a><a  href="history-provenance.html">History</a><a  href="wiki-coverage.html">Wiki Coverage</a><a  href="source-archive.html">Source Archive</a><a  href="research-log.html">Research Log</a><a  href="credits.html">Credits</a></div><div class="nav-group"><div class="nav-heading">Appendices</div><a  href="glossary.html">Glossary</a><a  href="search.html">Search</a><a  href="archive.html">Archive</a><a  href="data-browser.html">Data</a></div></nav>
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <h1>docs/SOURCE INVENTORY.md</h1>
-          <p>Rendered local archive file: docs/SOURCE_INVENTORY.md</p>
+          <h1>Cheat Engine</h1>
+          <p>How CHEATS.TXT, special commands, raw PS1 codes, SAFEMODE, LibCrypt workarounds, and command timing fit together.</p>
         </div>
       </section>
       <div class="content-layout">
-        <article class="article-content"><section class="callout"><h2 id="source-file">Source file<a class="heading-anchor" href="#source-file" aria-label="Link to Source file">#</a></h2><p><code>docs/SOURCE_INVENTORY.md</code></p></section>
-<article class="archive-doc"><h2 id="popstarter-source-inventory-seed">POPStarter Source Inventory Seed<a class="heading-anchor" href="#popstarter-source-inventory-seed" aria-label="Link to POPStarter Source Inventory Seed">#</a></h2>
-<p>Generated: 2026-06-21 14:01 UTC</p>
-<p>This is a seed inventory for Codex or another research agent. It is not complete; it captures the sources and findings gathered so far.</p>
-<h3 id="primary-high-value-sources">Primary / high-value sources<a class="heading-anchor" href="#primary-high-value-sources" aria-label="Link to Primary / high-value sources">#</a></h3>
-<h4>krHACKen PSX-Place POPStarter release thread</h4>
-<ul><li>Title observed: <code>PS2 - POPStarter 2019/06/05</code></li><li>Current URL: <code>https://www.psx-place.com/threads/popstarter.19139/</code></li><li>Importance:</li><li>Official release thread.</li><li>Defines POPStarter as a launcher for Sony's PS2 POPS emulator.</li><li>Warns not to redistribute Sony POPS binaries.</li><li>Links compatibility lists, IGR info, side projects, tools, translated threads.</li><li>As of the observed page, first post links: wLE_kHn, POPStarter Game Installer for OPL, POPSY-X, PSXVCD, BDMAssault, MMCEMAN for POPStarter, POPSLoader.</li><li>Observed attachments include:</li><li><code>POPSTARTER_MC-Network.zip</code></li><li><code>POPStarter_20190605.7z</code></li><li><code>POPSTARTER_MC-Network_BDM.7z</code></li><li><code>wLE_kHn_20200810.7z</code></li><li><code>MX4SIO for POPStarter.7z</code></li><li><code>MMCEMAN for POPStarter.7z</code></li><li>Notes:</li><li>The first post appeared last edited Jan 12, 2026 during research.</li><li>The thread is at least 19 pages; Codex should scrape/capture all pages if allowed.</li></ul>
-<h4>ShaolinAssassin Bitbucket POPStarter documentation</h4>
-<ul><li>Original main URL:</li><li><code>https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home</code></li><li>Important specific wiki pages from the old table of contents:</li><li><code>hdd-mode</code></li><li><code>usb-mode</code></li><li><code>smb-mode</code></li><li><code>compatibility</code></li><li><code>automated-fixes</code></li><li><code>vmc</code></li><li><code>hotkeys</code></li><li><code>cheat-engine</code></li><li><code>special-cheats</code></li><li><code>igr</code></li><li><code>swap-disc</code></li><li><code>ps1-cd-mode</code></li><li><code>irx-loader</code></li><li><code>bios-osd-handlers</code></li><li><code>debug-mode</code></li><li><code>ule-khn</code></li><li><code>advanced-settings</code></li><li><code>timeline</code></li><li><code>changelog</code></li><li><code>apps-last-version</code></li><li><code>multi-disc</code></li><li>Status:</li><li>Often 404/dead from Bitbucket.</li><li>Must use Web Archive and mirrors.</li></ul>
-<h4>Archive.org backup of ShaolinAssassin wiki</h4>
-<ul><li>URL observed via PSX-Place:</li><li><code>https://archive.org/details/backup-popstarter-documentation-stuff-wiki-from-2017-and-2020</code></li><li>Importance:</li><li>A PSX-Place user/developer reported uploading personal datahoard backups of the wiki.</li><li>Task:</li><li>Download metadata/files from archive.org.</li><li>Extract all pages and preserve them under <code>research/raw/archive_org_shaolin_wiki/</code>.</li></ul>
-<h4>Retro-Jogos POPStarter guide mirror</h4>
-<ul><li>Main index:</li><li><code>https://www.retro-jogos.com/PS2/pops/index.html</code></li><li>Home:</li><li><code>https://www.retro-jogos.com/PS2/pops/home.html</code></li><li>Importance:</li><li>Preserves a Portuguese &quot;Official POPStarter Guide&quot; table of contents.</li><li>States documentation was originally by krHACKen and updated by ShaolinAssassin.</li><li>States content was updated with Rev13 Beta 05/06/2019.</li><li>Exposes the old wiki structure even where Bitbucket pages are dead.</li><li>Task:</li><li>Crawl the <code>/PS2/pops/</code> directory if indexable.</li><li>If individual pages are not discoverable, use the table of contents slugs and Web Archive.</li></ul>
-<h4>ElOtroLado POPS/POPStarter thread by El_Patas</h4>
-<ul><li>URL:</li><li>mention-only source; no public outbound link</li><li>Importance:</li><li>Long-running Spanish scene documentation.</li><li>Observed first post edited many times, last edit visible as 2026-06-07 during research.</li><li>Includes:</li><li>version list</li><li>final beta changelog</li><li>install tutorials</li><li>command list</li><li>CHEATS.TXT behavior</li><li>IGR command list</li><li>troubleshooting</li><li>Task:</li><li>Scrape/capture the first post fully.</li><li>Translate into English with source line preservation.</li><li>Do not lose Spanish original.</li></ul>
-<h4>POPSLoader by El_isra</h4>
-<ul><li>URL:</li><li><code>https://www.psx-place.com/resources/popsloader.1396/</code></li><li>Importance:</li><li>Modern standalone POPStarter launcher.</li><li>Based on Enceladus, scripted in Lua.</li><li>Initial release supports USB/internal HDD; SMB was planned at that time.</li><li>Contains <code>PATCH_5.BIN</code> for custom POPStarter IGR textures.</li><li>Project is marked officially abandoned by its author.</li><li>Task:</li><li>Capture resource page, updates tab, discussion thread if available.</li></ul>
-<h4>POPSLoader fork by Ripto / NathanNeurotic</h4>
-<ul><li>URL:</li><li><code>https://www.psx-place.com/resources/fork-popsloader-for-mmce-mx4sio-usb-and-apahdd.1665/</code></li><li>Importance:</li><li>Modern fork supporting MMCE, MX4SIO, USB, APAHDD.</li><li>Contains current setup notes:</li><li>mc0 required for settings and BDMA.</li><li>BDMA required for all devices except HDD.</li><li>Supported POPSTARTER.ELF paths include MC, USB, MX4SIO, MMCE, etc.</li><li>HDD VCDs use <code>hdd:/__.POPS/&lt;Title&gt;.VCD</code>; art under <code>hdd:/__common/POPS/ART/&lt;Title&gt;.png</code>.</li><li>Observed note that BETA-10 fixed HDD launch handoff and BOOT.ELF exit behavior.</li><li>Task:</li><li>Treat as modern extension/fork documentation, not original POPStarter core docs.</li></ul>
-<h4>BDM Assault</h4>
-<ul><li>URL:</li><li><code>https://github.com/israpps/BDMAssault</code></li><li>Importance:</li><li>Brings exFAT USB support to old closed-source homebrew that can load external USB drivers, including POPStarter.</li><li>POPStarter placement:</li><li><code>bdm_assault.irx</code> -&gt; <code>mc?:/POPSTARTER/usbd.irx</code></li><li><code>usbd_bd_assault.irx</code> -&gt; <code>mc?:/POPSTARTER/usbhdfsd.irx</code></li><li>Task:</li><li>Capture README and releases.</li><li>Clarify that this is USB driver substitution, not native internal exFAT POPS support.</li></ul>
-<h4>Hugopocked POPStarter fixes</h4>
-<ul><li>URL:</li><li><code>https://www.psx-place.com/threads/hugopocked-fixes-for-popstarter.39750/</code></li><li>Importance:</li><li>Game-specific fixes for POPStarter compatibility.</li><li>Thread states it is not for emulator installation support; it is for patch/fix installation.</li><li>Patch placement belongs in the per-game VMC/game folder matching the VCD basename.</li><li>Task:</li><li>Capture current patch list, outdated patch pack links, newer single-game fixes, passwords, installation notes.</li><li>Mark external download links as volatile.</li></ul>
-<h4>Related sources to mine</h4>
-<ul><li>PS2-Home POPStarter IGR tutorials</li><li>MetaGames French POPStarter thread:</li><li><code>https://www.metagames-eu.com/forums/playstation-2/popstarter-revision-13-a-134569.html</code></li><li>CDRInfo Polish thread:</li><li><code>https://forum.cdrinfo.pl/f106/ps2-popstarter-95894/</code></li><li>PS2Home Portuguese thread:</li><li><code>https://ps2home.forumeiro.com/t27-popstarter-emulador-de-ps1-para-ps2</code></li><li>A9VG Chinese thread via Web Archive:</li><li><code>https://web.archive.org/web/20250428034525/https://bbs.a9vg.com/thread-4240514-1-1.html</code></li><li>AssemblerGames backup:</li><li>search Web Archive for <code>assemblergames.com/threads/ps2-pops-stuff-popstarter.45347/</code></li><li>PS2-home thread for IGR:</li><li>Search <code>POPStarter In-Game-Reset Trojans and Patches</code></li><li>GitHub:</li><li><code>https://github.com/israpps/BDMAssault</code></li><li><code>https://github.com/ps2homebrew/Open-PS2-Loader</code></li><li><code>https://github.com/NathanNeurotic/POPSLoader</code> if available/public</li></ul></article></article>
+        <article class="article-content"><section class="callout">
+        <h2 id="cheats-txt-is-a-per-game-control-file">CHEATS.TXT is a per-game control file<a class="heading-anchor" href="#cheats-txt-is-a-per-game-control-file" aria-label="Link to CHEATS.TXT is a per-game control file">#</a></h2>
+        <p>Put <code>CHEATS.TXT</code> in the support folder matching the VCD basename. On case-sensitive paths, <code>CHEATS.txt</code> or <code>cheats.txt</code> can silently fail.</p>
+      </section>
+<section>
+        <h2 id="two-different-things-live-in-the-same-file">Two different things live in the same file<a class="heading-anchor" href="#two-different-things-live-in-the-same-file" aria-label="Link to Two different things live in the same file">#</a></h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Line type</th><th>What it controls</th><th>Timing rule</th></tr></thead>
+          <tbody>
+            <tr><td>POPStarter special command</td><td><code>$SMOOTH</code>, <code>$HDTVFIX</code>, <code>$IGR5</code>, <code>$COMPATIBILITY_0x04</code>, and similar directives.</td><td>Handled by POPStarter; no raw-code master command is required.</td></tr>
+            <tr><td>Raw PS1 cheat code</td><td>GameShark/Action Replay-style memory writes and converted PS1 codes.</td><td>Usually start the file with <code>$SAFEMODE</code> so codes are delayed until the game is ready.</td></tr>
+            <tr><td>C0/master-code line</td><td>External master-code behavior from old cheat ecosystems.</td><td>Keep source-specific; wrong master-code assumptions can prevent boot or hide the real issue.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+<section>
+        <h2 id="recommended-file-anatomy">Recommended file anatomy<a class="heading-anchor" href="#recommended-file-anatomy" aria-label="Link to Recommended file anatomy">#</a></h2>
+        <pre><code>$SAFEMODE
+$IGR5
+$SMOOTH
+$COMPATIBILITY_0x04
+
+# raw PS1 code lines below, only when needed
+# $address value</code></pre>
+        <p>Comments are shown here for readability. If a source-specific parser is suspected to reject comments, keep the real file to command/code lines only.</p>
+      </section>
+<section>
+        <h2 id="libcrypt-ladder">LibCrypt ladder<a class="heading-anchor" href="#libcrypt-ladder" aria-label="Link to LibCrypt ladder">#</a></h2>
+        <ol>
+          <li>First check whether the final r13 build already includes a built-in fix for that game/disc ID.</li>
+          <li>If a LibCrypt-sensitive disc still freezes, try <code>$FAKELC</code>.</li>
+          <li>Only use an explicit raw LibCrypt code block when the target disc revision is documented. Wrong anti-protection codes can break a good image.</li>
+        </ol>
+        <p>The recovered corpus calls out Jackie Chan Stuntmaster <code>SCES-01444</code> as a useful example: it has built-in LibCrypt coverage, but some disc batches may still require fallback handling.</p>
+      </section>
+<section>
+        <h2 id="common-cheat-engine-failures">Common cheat-engine failures<a class="heading-anchor" href="#common-cheat-engine-failures" aria-label="Link to Common cheat-engine failures">#</a></h2>
+        <ul class="checklist">
+          <li><strong>Wrong folder:</strong> support folder includes <code>.VCD</code> or uses a display title instead of the VCD basename.</li>
+          <li><strong>Wrong case:</strong> <code>CHEATS.TXT</code> is not uppercase.</li>
+          <li><strong>No <code>$SAFEMODE</code>:</strong> raw codes run before the game is ready.</li>
+          <li><strong>Global thinking:</strong> display or compatibility commands are copied to every game instead of applied to one symptom.</li>
+          <li><strong>Mode stacking:</strong> <code>0x01</code>, <code>0x02</code>, <code>0x03</code>, and <code>0x05</code> should not be stacked with each other.</li>
+        </ul>
+      </section>
+<section class="tool-panel">
+    <div class="filters" data-filter-table="commands-table">
+      <label>Search <input type="search" data-search placeholder="command, effect, source"></label>
+      <label>Category <select data-filter="category"><option value="">All</option><option>Audio</option><option>Audio/CDDA</option><option>CD/cache</option><option>CD/status</option><option>Cheat engine</option><option>Compatibility</option><option>Compatibility/fixes</option><option>Controller/input</option><option>IGR</option><option>LibCrypt</option><option>Recompiler/cache</option><option>Region/video</option><option>USB</option><option>VMC</option><option>Video geometry</option><option>Video/filter</option><option>Video/output</option><option>Video/texture</option><option>Video/widescreen</option></select></label>
+      <label>Confidence <select data-filter="confidence"><option value="">All</option><option>high</option><option>medium</option><option>low</option></select></label>
+      <label>Status <select data-filter="status"><option value="">All</option><option>conflicting</option><option>needs-archive-verification</option><option>recovered-cross-check</option><option>unverified-single-source</option><option>verified-cross-source</option><option>verified-single-source</option></select></label>
+    </div>
+    <div class="table-wrap">
+      <table id="commands-table">
+        <thead><tr><th>Command</th><th>Category</th><th>Placement</th><th>Effect</th><th>Notes</th><th>Conflicts</th><th>Status</th><th>Sources</th></tr></thead>
+        <tbody><tr data-category="Cheat engine" data-confidence="high" data-status="verified-cross-source" data-search="$safemode delays activation of raw gameshark/action replay style codes until after game startup. recommended when using raw cheat codes. special popstarter directives such as $smooth do not need it. cheat engine">
+      <td><code>$SAFEMODE</code></td>
+      <td>Cheat engine</td>
+      <td>Per-game VMC/game folder CHEATS.TXT</td>
+      <td>Delays activation of raw GameShark/Action Replay style codes until after game startup.</td>
+      <td>Recommended when using raw cheat codes. Special POPStarter directives such as $SMOOTH do not need it.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-cross-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-4" target="_blank" rel="noreferrer">PSX-Place POPStarter page 4 - PATCH_9.BIN loader-disable post</a></td>
+    </tr><tr data-category="Video/texture" data-confidence="high" data-status="verified-single-source" data-search="$smooth enables pops texture smoothing by default. seed notes record select+l1+r2 to enable and select+l2+r1 to disable at runtime. video/texture">
+      <td><code>$SMOOTH</code></td>
+      <td>Video/texture</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Enables POPS texture smoothing by default.</td>
+      <td>Seed notes record Select+L1+R2 to enable and Select+L2+R1 to disable at runtime.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="evidence/user_uploaded_notes_raw.md" target="_blank" rel="noreferrer">User uploaded operational notes</a></td>
+    </tr><tr data-category="Region/video" data-confidence="medium" data-status="conflicting" data-search="$nopal disables popstarter's automatic pal patch behavior. often paired with $ypos_## to recenter pal games after ntsc-style output. region/video">
+      <td><code>$NOPAL</code></td>
+      <td>Region/video</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Disables POPStarter's automatic PAL patch behavior.</td>
+      <td>Often paired with $YPOS_## to recenter PAL games after NTSC-style output.</td>
+      <td><ul><li>Seed notes say $NOPAL is equivalent to PATCH_9.BIN, but PSX-Place page 4 also identifies PATCH_9.BIN as the ELF-loader-disable patch.</li></ul></td>
+      <td><span class="badge medium">medium</span> <span class="badge ">conflicting</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-4" target="_blank" rel="noreferrer">PSX-Place POPStarter page 4 - PATCH_9.BIN loader-disable post</a></td>
+    </tr><tr data-category="LibCrypt" data-confidence="high" data-status="verified-single-source" data-search="$fakelc applies a null libcrypt value workaround. documented for games with libcrypt-sensitive behavior; exact game coverage still needs old-wiki confirmation. libcrypt">
+      <td><code>$FAKELC</code></td>
+      <td>LibCrypt</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Applies a null LibCrypt value workaround.</td>
+      <td>Documented for games with LibCrypt-sensitive behavior; exact game coverage still needs old-wiki confirmation.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Compatibility" data-confidence="high" data-status="recovered-cross-check" data-search="$compatibility_0x## enables a numbered compatibility mode as a cheats.txt directive. example: $compatibility_0x04 activates mode 4. recovered reference maps modes 0x01 through 0x07 to patch_1.bin through patch_7.bin and to the $418-$41f force-mode config slots. compatibility">
+      <td><code>$COMPATIBILITY_0x##</code></td>
+      <td>Compatibility</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Enables a numbered compatibility mode as a CHEATS.TXT directive.</td>
+      <td>Example: $COMPATIBILITY_0x04 activates mode 4. Recovered reference maps modes 0x01 through 0x07 to PATCH_1.BIN through PATCH_7.BIN and to the $418-$41F force-mode config slots.</td>
+      <td><ul><li>Modes 0x01, 0x02, 0x03, and 0x05 poke CD status and should not be combined. Modes 0x04, 0x06, and 0x07 combine more safely.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a> <span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+    </tr><tr data-category="USB" data-confidence="high" data-status="verified-cross-source" data-search="$usbdelay_# sets the usb delay applied inside pops/pfs-wrapper streaming behavior. this command patches pops streaming behavior. it is not the same as config byte $413, which affects popstarter's usb access/detection delay before reaching the device. usb">
+      <td><code>$USBDELAY_#</code></td>
+      <td>USB</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Sets the USB delay applied inside POPS/PFS-wrapper streaming behavior.</td>
+      <td>This command patches POPS streaming behavior. It is not the same as config byte $413, which affects POPStarter's USB access/detection delay before reaching the device.</td>
+      <td><ul><li>Do not use $USBDELAY_# to solve a drive-not-detected problem; tune config byte $413 for that case.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-cross-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/" target="_blank" rel="noreferrer">PSX-Place POPStarter release thread</a> <span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span></td>
+    </tr><tr data-category="Region/video" data-confidence="high" data-status="verified-single-source" data-search="$forcepal forces pal patching and europe bios region behavior for a vcd. useful when the vcd boot sector does not carry valid pal license text. region/video">
+      <td><code>$FORCEPAL</code></td>
+      <td>Region/video</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Forces PAL patching and Europe BIOS region behavior for a VCD.</td>
+      <td>Useful when the VCD boot sector does not carry valid PAL license text.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Video geometry" data-confidence="high" data-status="verified-single-source" data-search="$xpos_#### moves the horizontal screen position. seed notes record default 640; increase/decrease behavior should be tested per display. video geometry">
+      <td><code>$XPOS_####</code></td>
+      <td>Video geometry</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Moves the horizontal screen position.</td>
+      <td>Seed notes record default 640; increase/decrease behavior should be tested per display.</td>
+      <td><ul><li>Not compatible with $480p according to seed notes.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Video geometry" data-confidence="high" data-status="verified-single-source" data-search="$ypos_## moves the vertical screen position. common pal-to-ntsc recentering example from seed: $ypos_10. video geometry">
+      <td><code>$YPOS_##</code></td>
+      <td>Video geometry</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Moves the vertical screen position.</td>
+      <td>Common PAL-to-NTSC recentering example from seed: $YPOS_10.</td>
+      <td><ul><li>Not compatible with $480p according to seed notes.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Video geometry" data-confidence="high" data-status="verified-single-source" data-search="$dwstretch_#### horizontally stretches the rendered display. seed notes record default 2559. video geometry">
+      <td><code>$DWSTRETCH_####</code></td>
+      <td>Video geometry</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Horizontally stretches the rendered display.</td>
+      <td>Seed notes record default 2559.</td>
+      <td><ul><li>Not compatible with $480p according to seed notes.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Video geometry" data-confidence="high" data-status="verified-single-source" data-search="$dwcrop_#### adjusts display-width crop/area. seed notes record maximum 2560. video geometry">
+      <td><code>$DWCROP_####</code></td>
+      <td>Video geometry</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Adjusts display-width crop/area.</td>
+      <td>Seed notes record maximum 2560.</td>
+      <td><ul><li>Not compatible with $480p according to seed notes.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Video/output" data-confidence="high" data-status="verified-cross-source" data-search="$hdtvfix forces an interlaced output workaround for displays that reject 240p/288p. psx-place page 15 troubleshooting identified accidental $hdtvfix as a likely cause of a user seeing 480i instead of 240p. video/output">
+      <td><code>$HDTVFIX</code></td>
+      <td>Video/output</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Forces an interlaced output workaround for displays that reject 240p/288p.</td>
+      <td>PSX-Place page 15 troubleshooting identified accidental $HDTVFIX as a likely cause of a user seeing 480i instead of 240p.</td>
+      <td><ul><li>Do not apply globally; it can be undesirable on CRT/component setups that support 240p.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-cross-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-15" target="_blank" rel="noreferrer">PSX-Place POPStarter page 15 - IGR and BOOT.ELF discussion</a></td>
+    </tr><tr data-category="Video/output" data-confidence="high" data-status="verified-cross-source" data-search="$480p forces 480p output. marked low compatibility in the seed and retro-jogos feature list says 480p is not yet reliable. video/output">
+      <td><code>$480p</code></td>
+      <td>Video/output</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Forces 480p output.</td>
+      <td>Marked low compatibility in the seed and Retro-Jogos feature list says 480p is not yet reliable.</td>
+      <td><ul><li>Not compatible with X/Y position or DW stretch/crop commands according to seed notes.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-cross-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://www.retro-jogos.com/PS2/pops/home.html" target="_blank" rel="noreferrer">Retro-Jogos POPStarter guide home</a></td>
+    </tr><tr data-category="Video/filter" data-confidence="medium" data-status="unverified-single-source" data-search="$scanlines enables a scanline generator/filter. needs visual examples and hardware/display testing. video/filter">
+      <td><code>$SCANLINES</code></td>
+      <td>Video/filter</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Enables a scanline generator/filter.</td>
+      <td>Needs visual examples and hardware/display testing.</td>
+      <td>None recorded</td>
+      <td><span class="badge medium">medium</span> <span class="badge ">unverified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Recompiler/cache" data-confidence="high" data-status="verified-single-source" data-search="$codecache_addon_0 changes recompiler/code-cache behavior for selected slowdown or random-hang cases. do not use globally; seed warns many games can fail with this enabled. recompiler/cache">
+      <td><code>$CODECACHE_ADDON_0</code></td>
+      <td>Recompiler/cache</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Changes recompiler/code-cache behavior for selected slowdown or random-hang cases.</td>
+      <td>Do not use globally; seed warns many games can fail with this enabled.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="CD/cache" data-confidence="high" data-status="verified-single-source" data-search="$cache1 sets the pops buffer to 1 sector instead of 16. may help some video playback hangs. cd/cache">
+      <td><code>$CACHE1</code></td>
+      <td>CD/cache</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Sets the POPS buffer to 1 sector instead of 16.</td>
+      <td>May help some video playback hangs.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="CD/status" data-confidence="medium" data-status="needs-archive-verification" data-search="$subcdstatus cdrom status workaround related to hangs/timeouts. seed describes it as related to compatibility mode 5; archived wiki confirmation is still needed. cd/status">
+      <td><code>$SUBCDSTATUS</code></td>
+      <td>CD/status</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>CDROM status workaround related to hangs/timeouts.</td>
+      <td>Seed describes it as related to compatibility mode 5; archived wiki confirmation is still needed.</td>
+      <td><ul><li>Exact relationship to mode 5 is not recovered.</li></ul></td>
+      <td><span class="badge medium">medium</span> <span class="badge ">needs-archive-verification</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+    </tr><tr data-category="Audio" data-confidence="high" data-status="verified-single-source" data-search="$mute_vab mutes vab/vag/vb+vh based music or sound effects. can be used diagnostically for crashes caused by old game audio behavior. audio">
+      <td><code>$MUTE_VAB</code></td>
+      <td>Audio</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Mutes VAB/VAG/VB+VH based music or sound effects.</td>
+      <td>Can be used diagnostically for crashes caused by old game audio behavior.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Video/widescreen" data-confidence="high" data-status="verified-cross-source" data-search="$widescreen enables a gte widescreen hack. does not fix huds, fonts, 2d backgrounds, or menus. video/widescreen">
+      <td><code>$WIDESCREEN</code></td>
+      <td>Video/widescreen</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Enables a GTE widescreen hack.</td>
+      <td>Does not fix HUDs, fonts, 2D backgrounds, or menus.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-cross-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://www.retro-jogos.com/PS2/pops/home.html" target="_blank" rel="noreferrer">Retro-Jogos POPStarter guide home</a></td>
+    </tr><tr data-category="Video/widescreen" data-confidence="high" data-status="verified-single-source" data-search="$ultra_widescreen enables a wider variant of the gte widescreen hack. same 2d/hud caveats as $widescreen. video/widescreen">
+      <td><code>$ULTRA_WIDESCREEN</code></td>
+      <td>Video/widescreen</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Enables a wider variant of the GTE widescreen hack.</td>
+      <td>Same 2D/HUD caveats as $WIDESCREEN.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Video/widescreen" data-confidence="high" data-status="verified-single-source" data-search="$eyefinity enables a very wide multi-display style aspect hack. same 2d/hud caveats as $widescreen. video/widescreen">
+      <td><code>$EYEFINITY</code></td>
+      <td>Video/widescreen</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Enables a very wide multi-display style aspect hack.</td>
+      <td>Same 2D/HUD caveats as $WIDESCREEN.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Audio/CDDA" data-confidence="high" data-status="verified-single-source" data-search="$mute_cdda mutes/disables cdda audio tracks. seed notes say physical ps1 cdrom mode applies this automatically. audio/cdda">
+      <td><code>$MUTE_CDDA</code></td>
+      <td>Audio/CDDA</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Mutes/disables CDDA audio tracks.</td>
+      <td>Seed notes say physical PS1 CDROM mode applies this automatically.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Audio/CDDA" data-confidence="high" data-status="verified-single-source" data-search="$undo_mute_cdda counteracts $mute_cdda and re-enables cdda audio. use only when cdda muting was applied and audio behavior should be restored. audio/cdda">
+      <td><code>$UNDO_MUTE_CDDA</code></td>
+      <td>Audio/CDDA</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Counteracts $MUTE_CDDA and re-enables CDDA audio.</td>
+      <td>Use only when CDDA muting was applied and audio behavior should be restored.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="VMC" data-confidence="high" data-status="needs-archive-verification" data-search="$novmc0 disables vmc slot 0. interaction with physical cards and shared vmc layouts needs package/wiki confirmation. vmc">
+      <td><code>$NOVMC0</code></td>
+      <td>VMC</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Disables VMC slot 0.</td>
+      <td>Interaction with physical cards and shared VMC layouts needs package/wiki confirmation.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">needs-archive-verification</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="VMC" data-confidence="high" data-status="needs-archive-verification" data-search="$novmc1 disables vmc slot 1. interaction with physical cards and shared vmc layouts needs package/wiki confirmation. vmc">
+      <td><code>$NOVMC1</code></td>
+      <td>VMC</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Disables VMC slot 1.</td>
+      <td>Interaction with physical cards and shared VMC layouts needs package/wiki confirmation.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">needs-archive-verification</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Compatibility/fixes" data-confidence="high" data-status="verified-single-source" data-search="$undo_game_fixes disables built-in popstarter game fixes. use for diagnosis; it may not restore every original behavior if later fixes are deeper than the toggle. compatibility/fixes">
+      <td><code>$UNDO_GAME_FIXES</code></td>
+      <td>Compatibility/fixes</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Disables built-in POPStarter game fixes.</td>
+      <td>Use for diagnosis; it may not restore every original behavior if later fixes are deeper than the toggle.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/hugopocked-fixes-for-popstarter.39750/" target="_blank" rel="noreferrer">Hugopocked fixes for POPStarter</a></td>
+    </tr><tr data-category="Controller/input" data-confidence="high" data-status="verified-single-source" data-search="$d2ls maps digital d-pad behavior onto the left analog stick for non-analog games. seed notes say it leaves the controller in digital behavior. controller/input">
+      <td><code>$D2LS</code></td>
+      <td>Controller/input</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Maps digital D-pad behavior onto the left analog stick for non-analog games.</td>
+      <td>Seed notes say it leaves the controller in digital behavior.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="Controller/input" data-confidence="high" data-status="verified-single-source" data-search="$d2ls_alt alternative digital-to-left-stick mapping. use when $d2ls does not work. seed notes say it leaves the controller in analog behavior. controller/input">
+      <td><code>$D2LS_ALT</code></td>
+      <td>Controller/input</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Alternative digital-to-left-stick mapping.</td>
+      <td>Use when $D2LS does not work. Seed notes say it leaves the controller in analog behavior.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="IGR" data-confidence="high" data-status="verified-single-source" data-search="$igr0 l1+l2+r1+r2+x+down opens the igr menu. menu-opening igr profile. igr">
+      <td><code>$IGR0</code></td>
+      <td>IGR</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>L1+L2+R1+R2+X+Down opens the IGR menu.</td>
+      <td>Menu-opening IGR profile.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="IGR" data-confidence="high" data-status="verified-single-source" data-search="$igr1 start+select opens the igr menu. menu-opening igr profile. igr">
+      <td><code>$IGR1</code></td>
+      <td>IGR</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Start+Select opens the IGR menu.</td>
+      <td>Menu-opening IGR profile.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="IGR" data-confidence="high" data-status="verified-single-source" data-search="$igr2 l1+l2+r1+r2+start+select opens the igr menu. menu-opening igr profile. igr">
+      <td><code>$IGR2</code></td>
+      <td>IGR</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>L1+L2+R1+R2+Start+Select opens the IGR menu.</td>
+      <td>Menu-opening IGR profile.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="IGR" data-confidence="high" data-status="verified-single-source" data-search="$igr3 l1+l2+r1+r2+x+down closes pops without showing the igr menu. direct-close igr profile. igr">
+      <td><code>$IGR3</code></td>
+      <td>IGR</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>L1+L2+R1+R2+X+Down closes POPS without showing the IGR menu.</td>
+      <td>Direct-close IGR profile.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="IGR" data-confidence="high" data-status="verified-single-source" data-search="$igr4 start+select closes pops without showing the igr menu. direct-close igr profile. igr">
+      <td><code>$IGR4</code></td>
+      <td>IGR</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Start+Select closes POPS without showing the IGR menu.</td>
+      <td>Direct-close IGR profile.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-single-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span></td>
+    </tr><tr data-category="IGR" data-confidence="high" data-status="verified-cross-source" data-search="$igr5 l1+l2+r1+r2+start+select closes pops without showing the igr menu. krhacken described this as opl-like no-popup igr. retro-jogos/elotrolado note it was likely fixed in the 2019-06-05 beta. igr">
+      <td><code>$IGR5</code></td>
+      <td>IGR</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>L1+L2+R1+R2+Start+Select closes POPS without showing the IGR menu.</td>
+      <td>krHACKen described this as OPL-like no-popup IGR. Retro-Jogos/ElOtroLado note it was likely fixed in the 2019-06-05 beta.</td>
+      <td>None recorded</td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-cross-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-15" target="_blank" rel="noreferrer">PSX-Place POPStarter page 15 - IGR and BOOT.ELF discussion</a> <a class="source-chip" href="https://www.retro-jogos.com/PS2/pops/home.html" target="_blank" rel="noreferrer">Retro-Jogos POPStarter guide home</a></td>
+    </tr><tr data-category="IGR" data-confidence="high" data-status="verified-cross-source" data-search="$noigr disables popstarter's igr menu behavior. this is not the same as disabling popstarter's elf loader on exit. igr">
+      <td><code>$NOIGR</code></td>
+      <td>IGR</td>
+      <td>Per-game CHEATS.TXT</td>
+      <td>Disables POPStarter's IGR menu behavior.</td>
+      <td>This is not the same as disabling POPStarter's ELF loader on exit.</td>
+      <td><ul><li>Users often conflate this with the loader-disable PATCH_9.BIN workaround.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">verified-cross-source</span></td>
+      <td><span class="source-chip">ElOtroLado POPS emulator for PS2 thread (mention only)</span> <a class="source-chip" href="https://www.psx-place.com/threads/popstarter.19139/page-15" target="_blank" rel="noreferrer">PSX-Place POPStarter page 15 - IGR and BOOT.ELF discussion</a></td>
+    </tr><tr data-category="Cheat engine" data-confidence="high" data-status="recovered-cross-check" data-search="raw ps1 code line applies a raw ps1 gameshark/action replay style code line. recovered wiki notes support ps1 raw types 30, 50, 80, and d0. the line must begin with $ and include a space between address and value. cheat engine">
+      <td><code>Raw PS1 code line</code></td>
+      <td>Cheat engine</td>
+      <td>Per-game CHEATS.TXT, usually after $SAFEMODE</td>
+      <td>Applies a raw PS1 GameShark/Action Replay style code line.</td>
+      <td>Recovered wiki notes support PS1 RAW types 30, 50, 80, and D0. The line must begin with $ and include a space between address and value.</td>
+      <td><ul><li>Unsupported or unusual code types may crash emulation. Use $SAFEMODE for raw code blocks that touch startup/OSD memory.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+      <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+    </tr><tr data-category="Cheat engine" data-confidence="medium" data-status="recovered-cross-check" data-search="raw ps2 code line applies a raw ps2-style code line through popstarter's cheat engine. recovered wiki notes mention ps2 raw types 0, 1, and 2. keep syntax exact: $address value. cheat engine">
+      <td><code>Raw PS2 code line</code></td>
+      <td>Cheat engine</td>
+      <td>Per-game CHEATS.TXT, usually after $SAFEMODE</td>
+      <td>Applies a raw PS2-style code line through POPStarter's cheat engine.</td>
+      <td>Recovered wiki notes mention PS2 RAW types 0, 1, and 2. Keep syntax exact: $address value.</td>
+      <td><ul><li>Do not assume every PS2 RAW code type is supported.</li></ul></td>
+      <td><span class="badge medium">medium</span> <span class="badge ">recovered-cross-check</span></td>
+      <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+    </tr><tr data-category="Cheat engine" data-confidence="high" data-status="recovered-cross-check" data-search="$c0 master code provides the supported master/enable-code form for games that crash without one. only c0 master codes are supported. beta 13 fixed a c0 load-instruction bug and a $usbdelay/$c0 coexistence issue. cheat engine">
+      <td><code>$C0 master code</code></td>
+      <td>Cheat engine</td>
+      <td>Per-game CHEATS.TXT raw-code block</td>
+      <td>Provides the supported master/enable-code form for games that crash without one.</td>
+      <td>Only C0 master codes are supported. Beta 13 fixed a C0 load-instruction bug and a $USBDELAY/$C0 coexistence issue.</td>
+      <td><ul><li>C1 activation-on-delay-time codes are unsupported.</li></ul></td>
+      <td><span class="badge high">high</span> <span class="badge ">recovered-cross-check</span></td>
+      <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+    </tr><tr data-category="Cheat engine" data-confidence="medium" data-status="recovered-cross-check" data-search="rumble always-on raw codes forces pad rumble on for diagnostic or preference use. recovered examples include $00507028 00000001 for pad 1 and $005070b8 00000001 for pad 2. cheat engine">
+      <td><code>Rumble always-on raw codes</code></td>
+      <td>Cheat engine</td>
+      <td>Per-game CHEATS.TXT raw-code block</td>
+      <td>Forces pad rumble on for diagnostic or preference use.</td>
+      <td>Recovered examples include $00507028 00000001 for pad 1 and $005070B8 00000001 for pad 2.</td>
+      <td>None recorded</td>
+      <td><span class="badge medium">medium</span> <span class="badge ">recovered-cross-check</span></td>
+      <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+    </tr><tr data-category="LibCrypt" data-confidence="medium" data-status="recovered-cross-check" data-search="explicit libcrypt fix block uses a full raw-code libcrypt workaround when $fakelc and built-in cracking are not enough. recovered reference preserves jackie chan stuntmaster pal as the example case. keep game-specific blocks scoped to the exact game/revision. libcrypt">
+      <td><code>Explicit LibCrypt fix block</code></td>
+      <td>LibCrypt</td>
+      <td>Per-game CHEATS.TXT raw-code block</td>
+      <td>Uses a full raw-code LibCrypt workaround when $FAKELC and built-in cracking are not enough.</td>
+      <td>Recovered reference preserves Jackie Chan Stuntmaster PAL as the example case. Keep game-specific blocks scoped to the exact game/revision.</td>
+      <td><ul><li>Use only for documented disc batches; wrong LibCrypt codes can break otherwise working images.</li></ul></td>
+      <td><span class="badge medium">medium</span> <span class="badge ">recovered-cross-check</span></td>
+      <td><span class="source-chip">POPSLoader recovered POPStarter documentation site (mention only)</span> <a class="source-chip" href="https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home" target="_blank" rel="noreferrer">ShaolinAssassin POPStarter documentation wiki</a></td>
+    </tr></tbody>
+      </table>
+    </div>
+  </section></article>
         <aside class="page-toc" aria-label="On this page">
           <strong>On this page</strong>
-          <a href="#source-file">Source file</a><a href="#popstarter-source-inventory-seed">POPStarter Source Inventory Seed</a>
+          <a href="#cheats-txt-is-a-per-game-control-file">CHEATS.TXT is a per-game control file</a><a href="#two-different-things-live-in-the-same-file">Two different things live in the same file</a><a href="#recommended-file-anatomy">Recommended file anatomy</a><a href="#libcrypt-ladder">LibCrypt ladder</a><a href="#common-cheat-engine-failures">Common cheat-engine failures</a>
         </aside>
       </div>
     </main>

@@ -24,6 +24,15 @@ export const pages = [
           <a href="archive-provenance.html"><span>4</span><strong>Archive & Provenance</strong><em>Hashes, package inventory, recovered wiki coverage, timeline, source confidence.</em></a>
         </div>
       </section>`,
+      `<section>
+        <h2>Deep-dive shelves</h2>
+        <div class="chapter-table">
+          <a href="cheat-engine.html"><span>R1</span><strong>Cheat Engine</strong><em><code>CHEATS.TXT</code>, raw codes, <code>$SAFEMODE</code>, C0/master-code handling, LibCrypt notes.</em></a>
+          <a href="compatibility-deep-dive.html"><span>R2</span><strong>Compatibility Deep Dive</strong><em>2016 rates, mode stacking, Hugopocked fixes, TROJAN_7, and per-game examples.</em></a>
+          <a href="vmc-handlers.html"><span>R3</span><strong>VMC and Handlers</strong><em>VMC sharing, BIOS/OSD handlers, IGR textures, POPS folder priority, handler placement.</em></a>
+          <a href="thread-study.html"><span>A1</span><strong>Thread Study</strong><em>High-value PSX-Place findings, driver myths, dropped noise, and maintainer-confirmed details.</em></a>
+        </div>
+      </section>`,
       `<section class="architecture-panel">
         <h2>POPStarter, POPS, and POPSLoader are not the same thing</h2>
         <p class="lead">Most bad setup instructions blur three separate layers. This site keeps them split so a reader knows whether a rule belongs to original POPStarter, Sony's POPS emulator payload, or a modern launcher/fork workflow.</p>
@@ -123,6 +132,7 @@ export const pages = [
             <tr><td><a href="internal-hdd.html">HDD</a></td><td>Best performance and stable local library.</td><td><code>hdd0:/__.POPS</code>, <code>hdd0:/__common/POPS</code></td><td>Creating <code>+__.POPS</code> or putting support folders beside VCDs.</td></tr>
             <tr><td><a href="smb-network.html">SMB</a></td><td>Network library with easy file management.</td><td>Share root <code>POPS/</code>, <code>mc?:/POPSTARTER/</code></td><td>Read-only shares, missing modules, wrong <code>SB.</code> prefix.</td></tr>
             <tr><td><a href="bdm-exfat.html">BDM/exFAT</a></td><td>USB exFAT through driver substitution.</td><td><code>mc?:/POPSTARTER/usbd.irx</code>, <code>usbhdfsd.irx</code></td><td>Assuming it adds internal HDD exFAT support.</td></tr>
+            <tr><td><a href="popsloader-guide.html">POPSLoader</a></td><td>Modern launcher and fork workflows.</td><td><code>POPSLOADER.ELF</code>, <code>POPSLDR/</code>, fork device paths</td><td>Mixing fork-only behavior with original POPStarter core rules.</td></tr>
           </tbody>
         </table></div>
       </section>`,
@@ -143,12 +153,16 @@ export const pages = [
         <h2>Reference map</h2>
         <div class="chapter-table">
           <a href="command-reference.html"><span>3.1</span><strong>Commands</strong><em><code>CHEATS.TXT</code> directives, raw code forms, scope, conflicts, and source confidence.</em></a>
-          <a href="config-table.html"><span>3.2</span><strong>Config Bytes</strong><em>Recovered <code>$410-$42F</code> r13 byte table with defaults and aliases.</em></a>
-          <a href="compatibility-map.html"><span>3.3</span><strong>PATCH / TROJAN Map</strong><em>Crosswalk command aliases, standalone files, and config-byte equivalents.</em></a>
-          <a href="igr-exit.html"><span>3.4</span><strong>IGR and Exit</strong><em>Combos, no-popup exits, <code>BOOT.ELF</code> chain, and loader-disable conflict.</em></a>
-          <a href="video-display.html"><span>3.5</span><strong>Video / Display</strong><em>480p, HDTVFIX, geometry, scanlines, smoothing, widescreen.</em></a>
-          <a href="multi-disc-vmc.html"><span>3.6</span><strong>Multi-disc and VMC</strong><em><code>DISCS.TXT</code>, <code>VMCDIR.TXT</code>, shared saves, support folders.</em></a>
-          <a href="troubleshooting.html"><span>3.7</span><strong>Troubleshooting</strong><em>Known symptoms, likely causes, and source-tagged mitigations.</em></a>
+          <a href="cheat-engine.html"><span>3.2</span><strong>Cheat Engine</strong><em>Raw codes, <code>$SAFEMODE</code>, C0/master-code behavior, LibCrypt, file-case traps.</em></a>
+          <a href="config-table.html"><span>3.3</span><strong>Config Bytes</strong><em>Recovered <code>$410-$42F</code> r13 byte table with defaults and aliases.</em></a>
+          <a href="compatibility-map.html"><span>3.4</span><strong>PATCH / TROJAN Map</strong><em>Crosswalk command aliases, standalone files, and config-byte equivalents.</em></a>
+          <a href="compatibility-deep-dive.html"><span>3.5</span><strong>Compatibility Deep Dive</strong><em>Rates, mode stacking, per-game examples, Hugopocked and TROJAN_7 boundaries.</em></a>
+          <a href="igr-exit.html"><span>3.6</span><strong>IGR and Exit</strong><em>Combos, no-popup exits, <code>BOOT.ELF</code> chain, and loader-disable conflict.</em></a>
+          <a href="multi-disc-vmc.html"><span>3.7</span><strong>Multi-disc and VMC</strong><em><code>DISCS.TXT</code>, <code>VMCDIR.TXT</code>, shared saves, support folders.</em></a>
+          <a href="vmc-handlers.html"><span>3.8</span><strong>VMC and Handlers</strong><em>VMC control, BIOS/OSD handlers, IGR textures, POPS folder priority, handler placement.</em></a>
+          <a href="video-display.html"><span>3.9</span><strong>Video / Display</strong><em>480p, HDTVFIX, geometry, scanlines, smoothing, widescreen.</em></a>
+          <a href="troubleshooting.html"><span>3.10</span><strong>Troubleshooting</strong><em>Known symptoms, likely causes, and source-tagged mitigations.</em></a>
+          <a href="faq-known-bugs.html"><span>3.11</span><strong>FAQ and Known Bugs</strong><em>Fast answers for black screens, exFAT, saves, multitap, legal files, and final build identity.</em></a>
         </div>
       </section>`,
       `<section class="callout">
@@ -170,11 +184,14 @@ export const pages = [
       `<section>
         <h2>Archive map</h2>
         <div class="chapter-table">
-          <a href="download-inventory.html"><span>4.1</span><strong>Safe Inventory</strong><em>Recovered package names, roles, statuses, and safe hashes.</em></a>
-          <a href="history-provenance.html"><span>4.2</span><strong>History</strong><em>Build timeline, feature introductions, and final r13 boundary.</em></a>
-          <a href="wiki-coverage.html"><span>4.3</span><strong>Wiki Coverage</strong><em>63 recovered ShaolinAssassin wiki page slugs grouped by topic.</em></a>
-          <a href="source-archive.html"><span>4.4</span><strong>Sources</strong><em>Public and local evidence records with reliability labels.</em></a>
-          <a href="archive.html"><span>4.5</span><strong>Local Archive</strong><em>Rendered seed notes, research files, raw captures, and drafts.</em></a>
+          <a href="thread-study.html"><span>4.1</span><strong>Thread Study</strong><em>Maintainer-confirmed findings, thread-derived corrections, and low-confidence material intentionally dropped.</em></a>
+          <a href="poc2-history.html"><span>4.2</span><strong>POC2 History</strong><em>How the leaked POPS-00001 era led to POPStarter, and what not to revive.</em></a>
+          <a href="download-inventory.html"><span>4.3</span><strong>Safe Inventory</strong><em>Recovered package names, roles, statuses, and safe hashes.</em></a>
+          <a href="history-provenance.html"><span>4.4</span><strong>History</strong><em>Build timeline, feature introductions, and final r13 boundary.</em></a>
+          <a href="wiki-coverage.html"><span>4.5</span><strong>Wiki Coverage</strong><em>63 recovered ShaolinAssassin wiki page slugs grouped by topic.</em></a>
+          <a href="source-archive.html"><span>4.6</span><strong>Sources</strong><em>Public and local evidence records with reliability labels.</em></a>
+          <a href="credits.html"><span>4.7</span><strong>Credits</strong><em>People, projects, mirrors, fix authors, and recovery contributors named by role.</em></a>
+          <a href="archive.html"><span>4.8</span><strong>Local Archive</strong><em>Rendered seed notes, research files, raw captures, and drafts.</em></a>
         </div>
       </section>`,
       `<section class="callout legal">
@@ -444,6 +461,52 @@ usbd_bd_assault.irx -> mc?:/SYS-CONF/USBHDFSD.IRX</code></pre>
     ]
   },
   {
+    slug: "popsloader-guide",
+    title: "POPSLoader Guide",
+    nav: "POPSLoader",
+    description: "A boundary-focused guide to POPSLoader, the modern fork, device modes, BDMA, art paths, and what must not be attributed to stock POPStarter.",
+    blocks: [
+      `<section class="callout">
+        <h2>Not stock POPStarter</h2>
+        <p>POPSLoader is a separate launcher line. It can make a POPStarter library easier to browse, and modern forks add device support that stock POPStarter never had, but its folder rules and settings should not be presented as original POPStarter core behavior.</p>
+      </section>`,
+      `<section>
+        <h2>Original POPSLoader</h2>
+        <p>El_isra's POPSLoader is described as a Lua/Enceladus launcher for POPStarter. Its practical rule is simple: keep <code>POPSLOADER.ELF</code> and the <code>POPSLDR/</code> folder together. If that folder is missing or moved, the launcher may boot but lose its resources, list handling, or expected UI files.</p>
+        <pre><code>mass:/APPS/PS1_POPSLDR/POPSLOADER.ELF
+mass:/APPS/PS1_POPSLDR/POPSLDR/
+mass:/APPS/PS1_POPSLDR/title.cfg</code></pre>
+      </section>`,
+      `<section>
+        <h2>Modern fork boundary</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Capability</th><th>Where it belongs</th><th>Do not confuse it with</th></tr></thead>
+          <tbody>
+            <tr><td>MX4SIO / MMCE / expanded USB device flow</td><td>POPSLoader fork behavior.</td><td>Original POPStarter storage support.</td></tr>
+            <tr><td>BDMA mode selection</td><td>Fork setting for non-HDD devices; only one active BDMA mode should be selected.</td><td>Native exFAT support inside POPStarter core.</td></tr>
+            <tr><td>APAHDD support and HDD launch fixes</td><td>Fork release behavior and hardware-tested notes.</td><td>The older POPStarter HDDOSD/KELF install route.</td></tr>
+            <tr><td>Triangle exit-menu shortcut</td><td>POPSLoader fork exit menu behavior.</td><td>Stock POPStarter IGR menu commands.</td></tr>
+            <tr><td>Art paths and UI resources</td><td>Fork/launcher presentation layer.</td><td>POPStarter compatibility, VMC, or POPS emulator behavior.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Device-mode checklist</h2>
+        <ol>
+          <li>Confirm the fork expects <code>mc0</code> for the current setup before moving support files to <code>mc1</code>.</li>
+          <li>For USB, MX4SIO, or MMCE paths, enable BDMA only for the device family you are actually using.</li>
+          <li>Keep <code>POPSTARTER.ELF</code> on a path the fork documents for the selected backend.</li>
+          <li>Keep VCDs in the backend's normal POPS location: USB-style <code>POPS/</code> for removable devices or HDD <code>__.POPS</code> for APA/PFS.</li>
+          <li>If games vanish from the fork UI, debug the launcher device setting before rewriting POPStarter game folders.</li>
+        </ol>
+      </section>`,
+      `<section class="callout warning">
+        <h2>Documentation rule</h2>
+        <p>If a setup step names POPSLoader, BDMA, MX4SIO, MMCE, fork art, or fork exit-menu behavior, label it as launcher/fork behavior. If a setup step names <code>CHEATS.TXT</code>, <code>PATCH_#.BIN</code>, <code>TROJAN_#.BIN</code>, <code>DISCS.TXT</code>, <code>VMCDIR.TXT</code>, or POPStarter's storage prefixes, it may belong to POPStarter core.</p>
+      </section>`
+    ]
+  },
+  {
     slug: "launcher-matrix",
     title: "Launcher Matrix",
     description: "Understand which launcher model owns which file layout.",
@@ -465,6 +528,298 @@ usbd_bd_assault.irx -> mc?:/SYS-CONF/USBHDFSD.IRX</code></pre>
           <li>If the route uses POPSLoader or the POPSLoader fork, keep those paths separate from original POPStarter core claims.</li>
           <li>If a guide says "works on all OPL versions" in the raw notes, keep it as user-tested evidence and still preserve source confidence labels.</li>
         </ul>
+      </section>`
+    ]
+  },
+  {
+    slug: "faq-known-bugs",
+    title: "FAQ and Known Bugs",
+    nav: "FAQ",
+    description: "Fast answers for common POPStarter setup questions, known limitations, legal boundaries, and source-backed failure modes.",
+    blocks: [
+      `<section class="callout">
+        <h2>Use this page as a triage front door</h2>
+        <p>If the setup fails, start here before applying random commands. Most failures are path, prefix, file-case, share-permission, or old-build problems rather than true game incompatibility.</p>
+      </section>`,
+      `<section>
+        <h2>Questions and answers</h2>
+        <div class="issue-list">
+        <article class="issue"><h3>Why is my game a black screen?</h3><p>Separate boot black screens from IGR exit black screens. A HDD Apps launch with the HDD LED stuck often points to OPL devices left on Auto. A black screen after IGR usually points to the <code>BOOT.ELF</code> exit chain or the loader-disable <code>PATCH_9.BIN</code> issue.</p></article>
+        <article class="issue"><h3>How do I force PAL or fix 50/60 Hz?</h3><p>Use <code>$FORCEPAL</code>, <code>$NOPAL</code>, and <code>$YPOS_##</code> only for a specific region/display symptom. Do not globally add display commands just because a list mentions them.</p></article>
+        <article class="issue"><h3>Does POPStarter support exFAT?</h3><p>Stock POPStarter does not add internal HDD exFAT support. USB exFAT requires BDM Assault-style driver substitution or a modern launcher path that explicitly documents BDMA behavior.</p></article>
+        <article class="issue"><h3>My cheats do nothing. Why?</h3><p>Check uppercase <code>CHEATS.TXT</code>, the exact per-game support folder, and raw-code timing. Raw GameShark/Action Replay-style codes generally need <code>$SAFEMODE</code>; POPStarter special commands do not.</p></article>
+        <article class="issue"><h3>My USB drive is not detected.</h3><p>Config byte <code>$413</code> affects POPStarter USB access delay before the device is reached. The <code>$USBDELAY_#</code> command affects POPS streaming behavior later. They solve different classes of problems.</p></article>
+        <article class="issue"><h3>Saves disappear after reboot.</h3><p>Confirm <code>SLOT0.VMC</code> and <code>SLOT1.VMC</code> are being created in the expected per-game folder. On SMB, write permission is required. On multi-disc sets, later discs usually need <code>VMCDIR.TXT</code> pointing back to disc 1.</p></article>
+        <article class="issue"><h3>Does it support physical PS1 memory cards?</h3><p>No. The recovered FAQ material treats POPS saving as VMC-based; physical PS1 memory-card saving is not the route to debug.</p></article>
+        <article class="issue"><h3>Does it support multitap?</h3><p>The recovered FAQ material says no: only the first two controllers are recognized.</p></article>
+        <article class="issue"><h3>Which buttons open IGR?</h3><p>Use <code>$IGR0</code>, <code>$IGR1</code>, or <code>$IGR2</code> for menu IGR, and <code>$IGR3</code>, <code>$IGR4</code>, or <code>$IGR5</code> for no-popup direct close. The OPL-like macro is <code>L1+L2+R1+R2+Start+Select</code>.</p></article>
+        <article class="issue"><h3>What is the latest canonical POPStarter build?</h3><p>Use r13 Beta 2019/06/05 as the final public build unless you are deliberately testing older WIP/RIP behavior. Old instructions can describe pre-final byte meanings and broken commands.</p></article>
+        <article class="issue"><h3>Does widescreen work?</h3><p>Widescreen commands are GTE/FOV hacks. They do not repair HUDs, fonts, menus, 2D backgrounds, or every game. Treat them as per-game experiments.</p></article>
+        <article class="issue"><h3>Where are the emulator binaries?</h3><p>Not here. This site may identify proprietary POPS files by filename, role, and hash-style verification, but it must not host or link Sony emulator binaries or package mirrors.</p></article>
+        </div>
+      </section>`
+    ]
+  },
+  {
+    slug: "cheat-engine",
+    title: "Cheat Engine",
+    nav: "Cheat Engine",
+    description: "How CHEATS.TXT, special commands, raw PS1 codes, SAFEMODE, LibCrypt workarounds, and command timing fit together.",
+    blocks: [
+      `<section class="callout">
+        <h2>CHEATS.TXT is a per-game control file</h2>
+        <p>Put <code>CHEATS.TXT</code> in the support folder matching the VCD basename. On case-sensitive paths, <code>CHEATS.txt</code> or <code>cheats.txt</code> can silently fail.</p>
+      </section>`,
+      `<section>
+        <h2>Two different things live in the same file</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Line type</th><th>What it controls</th><th>Timing rule</th></tr></thead>
+          <tbody>
+            <tr><td>POPStarter special command</td><td><code>$SMOOTH</code>, <code>$HDTVFIX</code>, <code>$IGR5</code>, <code>$COMPATIBILITY_0x04</code>, and similar directives.</td><td>Handled by POPStarter; no raw-code master command is required.</td></tr>
+            <tr><td>Raw PS1 cheat code</td><td>GameShark/Action Replay-style memory writes and converted PS1 codes.</td><td>Usually start the file with <code>$SAFEMODE</code> so codes are delayed until the game is ready.</td></tr>
+            <tr><td>C0/master-code line</td><td>External master-code behavior from old cheat ecosystems.</td><td>Keep source-specific; wrong master-code assumptions can prevent boot or hide the real issue.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Recommended file anatomy</h2>
+        <pre><code>$SAFEMODE
+$IGR5
+$SMOOTH
+$COMPATIBILITY_0x04
+
+# raw PS1 code lines below, only when needed
+# $address value</code></pre>
+        <p>Comments are shown here for readability. If a source-specific parser is suspected to reject comments, keep the real file to command/code lines only.</p>
+      </section>`,
+      `<section>
+        <h2>LibCrypt ladder</h2>
+        <ol>
+          <li>First check whether the final r13 build already includes a built-in fix for that game/disc ID.</li>
+          <li>If a LibCrypt-sensitive disc still freezes, try <code>$FAKELC</code>.</li>
+          <li>Only use an explicit raw LibCrypt code block when the target disc revision is documented. Wrong anti-protection codes can break a good image.</li>
+        </ol>
+        <p>The recovered corpus calls out Jackie Chan Stuntmaster <code>SCES-01444</code> as a useful example: it has built-in LibCrypt coverage, but some disc batches may still require fallback handling.</p>
+      </section>`,
+      `<section>
+        <h2>Common cheat-engine failures</h2>
+        <ul class="checklist">
+          <li><strong>Wrong folder:</strong> support folder includes <code>.VCD</code> or uses a display title instead of the VCD basename.</li>
+          <li><strong>Wrong case:</strong> <code>CHEATS.TXT</code> is not uppercase.</li>
+          <li><strong>No <code>$SAFEMODE</code>:</strong> raw codes run before the game is ready.</li>
+          <li><strong>Global thinking:</strong> display or compatibility commands are copied to every game instead of applied to one symptom.</li>
+          <li><strong>Mode stacking:</strong> <code>0x01</code>, <code>0x02</code>, <code>0x03</code>, and <code>0x05</code> should not be stacked with each other.</li>
+        </ul>
+      </section>`,
+      { dynamic: "commandReference" }
+    ]
+  },
+  {
+    slug: "compatibility-deep-dive",
+    title: "Compatibility Deep Dive",
+    nav: "Compatibility Deep Dive",
+    description: "Compatibility rates, mode stacking, per-game examples, Hugopocked fixes, TROJAN_7, LibCrypt coverage, and fix provenance.",
+    blocks: [
+      `<section class="callout">
+        <h2>Compatibility is not one switch</h2>
+        <p>POPStarter compatibility can come from automatic built-in fixes, <code>CHEATS.TXT</code> commands, forced config bytes, standalone <code>PATCH_#.BIN</code> files, <code>TROJAN_#.BIN</code> files, or per-game community fix packs. Record which layer you changed before testing.</p>
+      </section>`,
+      `<section>
+        <h2>2016 compatibility snapshot</h2>
+        <p>The recovered 2017 wiki snapshot preserved compatibility-rate figures dated 2016-04-21. Treat them as a historical benchmark, not a current guarantee.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Backend / region</th><th>Playable rate</th><th>Count</th></tr></thead>
+          <tbody>
+            <tr><td>HDD PAL</td><td>78%</td><td>343 / 438</td></tr>
+            <tr><td>HDD NTSC</td><td>75%</td><td>165 / 219</td></tr>
+            <tr><td>USB PAL</td><td>79%</td><td>298 / 377</td></tr>
+            <tr><td>USB NTSC</td><td>83%</td><td>211 / 252</td></tr>
+            <tr><td>SMB PAL</td><td>76%</td><td>133 / 174</td></tr>
+            <tr><td>SMB NTSC</td><td>80%</td><td>92 / 114</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Mode stacking rule</h2>
+        <p>Modes <code>0x01</code>, <code>0x02</code>, <code>0x03</code>, and <code>0x05</code> touch CD-status behavior and should not be combined with each other. Modes <code>0x04</code>, <code>0x06</code>, and <code>0x07</code> are more likely to combine safely, but still test per title.</p>
+        <p>Tekken 3 is preserved in the corpus as a useful example for combining <code>0x06</code> and <code>0x04</code>. That does not mean every game should receive that pair.</p>
+      </section>`,
+      `<section>
+        <h2>Hugopocked versus TROJAN_7</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Fix family</th><th>Scope</th><th>Placement</th><th>Trap</th></tr></thead>
+          <tbody>
+            <tr><td>Hugopocked per-game fixes</td><td>Specific games and revisions.</td><td>Per-game support folder matching the VCD basename.</td><td>Using the fix as a universal patch.</td></tr>
+            <tr><td><code>TROJAN_7.BIN</code> cumulative fix pack</td><td>Global POPStarter-side cumulative line after the final r13 build.</td><td>POPS folder, pending package verification for exact public recipe.</td><td>Stacking it with a per-game Hugopocked fix for the same game can add crashes.</td></tr>
+            <tr><td><code>PATCH_#.BIN</code> compatibility files</td><td>Mode or behavior-specific patch layer.</td><td>POPS folder or support path as documented by the package.</td><td>Filename/header mismatches and number collisions.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Per-game datapoints to preserve</h2>
+        <ul class="checklist">
+          <li><strong>Crash Bash:</strong> treat as title-specific. The corpus preserves several eras of fixes and warns against expecting one universal mode.</li>
+          <li><strong>Tekken 3:</strong> mode <code>0x06</code> plus <code>0x04</code> is a useful community example of allowed stacking.</li>
+          <li><strong>Jackie Chan Stuntmaster PAL:</strong> built-in LibCrypt coverage exists for <code>SCES-01444</code>, but disc-batch differences may still require <code>$FAKELC</code> or explicit codes.</li>
+          <li><strong>Tomb Raider 1/2 CDDA desync:</strong> recorded as an emulation limitation; do not misdiagnose it as a layout problem.</li>
+          <li><strong>Spyro 2/3, Gran Turismo 2, Dino Crisis, Parasite Eve II:</strong> old snapshots name them as difficult or historically problematic. Re-test before publishing current absolute claims.</li>
+        </ul>
+      </section>`,
+      { dynamic: "compatibilityMap" }
+    ]
+  },
+  {
+    slug: "vmc-handlers",
+    title: "VMC and Handler Files",
+    nav: "VMC / Handlers",
+    description: "Virtual memory cards, shared VMC routing, BIOS/OSD handlers, IGR textures, handler precedence, and support-file placement.",
+    blocks: [
+      `<section class="callout">
+        <h2>Handlers follow the support-folder rule</h2>
+        <p>VMC files, <code>VMCDIR.TXT</code>, <code>BIOS.BIN</code>, <code>OSD.BIN</code>, patch files, and many handler assets belong where POPStarter will look for the current backend and game. The wrong folder can look exactly like an incompatible game.</p>
+      </section>`,
+      `<section>
+        <h2>Virtual memory card basics</h2>
+        <ul class="checklist">
+          <li><code>SLOT0.VMC</code> and <code>SLOT1.VMC</code> are the normal per-game VMC files.</li>
+          <li><code>$NOVMC0</code> and <code>$NOVMC1</code> can disable individual virtual slots when a game or test requires that behavior.</li>
+          <li>SMB shares must be writable because POPStarter creates and updates VMC files over the network.</li>
+          <li>For multi-disc games, use <code>VMCDIR.TXT</code> in later-disc folders to point saves back to disc 1's VMC folder.</li>
+        </ul>
+      </section>`,
+      `<section>
+        <h2>POPS folder priority</h2>
+        <p>USB split folders and HDD common folders are easy to misread. <code>POPS_IOX.PAK</code> and IGR textures can live in the main POPS folder, while per-game handlers and compatibility files often need to be copied into the specific folder being launched from.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Backend</th><th>VCD location</th><th>Typical support/handler location</th></tr></thead>
+          <tbody>
+            <tr><td>USB</td><td><code>mass:/POPS</code> or <code>mass:/POPS0..9</code></td><td><code>mass:/POPS#/&lt;VCD basename&gt;/</code> for per-game files.</td></tr>
+            <tr><td>HDD</td><td><code>hdd0:/__.POPS</code></td><td><code>hdd0:/__common/POPS/&lt;VCD basename&gt;/</code>.</td></tr>
+            <tr><td>SMB</td><td>Share <code>POPS/</code></td><td>Share <code>POPS/&lt;VCD basename&gt;/</code>.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>BIOS and OSD handlers</h2>
+        <p>The recovered wiki coverage separates BIOS handler and OSD handler behavior. Keep those files as explicit per-game experiments, not global defaults. If both handler names appear in a source, preserve the source-specific priority note instead of guessing.</p>
+        <p>The recovered VMC/handler notes flag <code>OSD.BIN</code> and <code>BIOS.BIN</code> precedence as important enough to track. This site keeps it as a handler topic until package-level inspection confirms every edge case.</p>
+      </section>`,
+      `<section>
+        <h2>IGR textures</h2>
+        <p>IGR texture loading is part of the later POPStarter line. Texture files such as <code>IGR_BG.TM2</code> belong to presentation, not compatibility. POPSLoader packages can also include similarly named texture patch artifacts, so keep texture files separate from compatibility <code>PATCH_#.BIN</code> meaning.</p>
+      </section>`,
+      `<section class="callout warning">
+        <h2>Do not merge support-file families</h2>
+        <p><code>PATCH_5.BIN</code> as a compatibility mode, POPSLoader IGR texture resources, VMC routing files, and BIOS/OSD handlers are different families. Similar filenames do not prove similar behavior.</p>
+      </section>`
+    ]
+  },
+  {
+    slug: "thread-study",
+    title: "Community Thread Study",
+    nav: "Thread Study",
+    description: "High-value PSX-Place thread findings, maintainer-confirmed corrections, driver myths, dropped noise, and next research priorities.",
+    blocks: [
+      `<section class="callout">
+        <h2>Why the thread matters</h2>
+        <p>The recovered wiki is essential, but the PSX-Place release/support thread contains maintainer corrections that never fit neatly into old static pages. This page turns those thread findings into actionable documentation without treating every forum claim as equal.</p>
+      </section>`,
+      `<section>
+        <h2>Evidence tiers</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Tier</th><th>Use</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td>Tier 0</td><td>Maintainer-confirmed behavior.</td><td>krHACKen posts about <code>PATCH_9.BIN</code>, IGR exit chain, config offsets, driver myths.</td></tr>
+            <tr><td>Tier 1</td><td>Recovered wiki or package evidence.</td><td>ShaolinAssassin wiki pages, mirrored command tables, package readmes.</td></tr>
+            <tr><td>Tier 2</td><td>Community-tested recipes.</td><td>OPL Apps layouts, specific game fixes, fork hardware testing.</td></tr>
+            <tr><td>Dropped</td><td>Noise, off-topic advice, or unverifiable claims.</td><td>Generic PS3 advice, vague "community hacks fix everything" claims, unanswered file folklore.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Highest-value corrections</h2>
+        <ul class="checklist">
+          <li><strong><code>CHEATS.TXT</code> uppercase:</strong> a silent failure source behind many "cheat does not work" reports.</li>
+          <li><strong><code>$IGR5</code> and exit black screens:</strong> no-popup exit is separate from the bugged <code>BOOT.ELF</code> chain.</li>
+          <li><strong><code>PATCH_9.BIN</code> collision:</strong> stock <code>$NOPAL</code> mapping and later loader-disable artifact must be documented as a conflict until package inspection resolves filenames.</li>
+          <li><strong>Merged multi-disc images:</strong> can break game-ID or disc-specific fixes; keep disc identities and per-game folders explicit.</li>
+          <li><strong>Hugopocked versus <code>TROJAN_7.BIN</code>:</strong> per-game fixes and global cumulative fix packs should not be stacked blindly.</li>
+        </ul>
+      </section>`,
+      `<section>
+        <h2>Driver myths corrected</h2>
+        <p>Thread evidence says dropping external HDD drivers into <code>__common/POPS</code> does not magically fix HDD mode. Renamed USB modules are not a generic HDD solution, and some modules belong to boot/MBR or EE-side flows rather than POPStarter's runtime loader. Keep driver-substitution claims tied to the exact backend that documents them.</p>
+      </section>`,
+      `<section>
+        <h2>Dropped or parked material</h2>
+        <ul>
+          <li>Off-topic console advice that does not improve POPStarter documentation.</li>
+          <li>Unanswered questions such as whether an old wrapper file is still needed, unless package inspection can turn it into a real finding.</li>
+          <li>Low-confidence "probably" hardware claims without a source, test, or exact trigger.</li>
+          <li>Old RIP-build gossip beyond the practical rule: prefer the final 2019 r13 beta.</li>
+        </ul>
+      </section>`
+    ]
+  },
+  {
+    slug: "poc2-history",
+    title: "POC2 and POPS-00001 History",
+    nav: "POC2 History",
+    description: "Historical context for the leaked POPS-00001 era, early HDD partition workflows, and why modern documentation should avoid reviving risky old packages.",
+    blocks: [
+      `<section class="callout warning">
+        <h2>Historical context, not an install recipe</h2>
+        <p>The POC2 / POPS-00001 era explains where POPStarter came from. It is not a recommendation to redistribute old packages, use unsafe repacks, or revive proprietary emulator bundles.</p>
+      </section>`,
+      `<section>
+        <h2>Short chronology</h2>
+        <ol>
+          <li>Sony's POPS emulator existed as part of the PS2 ecosystem and later became the base around which community launchers were studied.</li>
+          <li>Early POC2 material circulated with instructions around HDD partitions and edited game dumps.</li>
+          <li>Community bundles then appeared under POPS-00001-style naming, often mixed with hex-edited or unsafe repacks.</li>
+          <li>POPStarter evolved as a launcher and patch layer so users did not have to keep relying on those crude early workflows.</li>
+          <li>The final public POPStarter line is r13 Beta 2019/06/05, with later fix-pack/community work documented separately.</li>
+        </ol>
+      </section>`,
+      `<section>
+        <h2>What changed from the early era</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Early POC2-style concern</th><th>Modern documentation stance</th></tr></thead>
+          <tbody>
+            <tr><td>Per-game HDD partitions and edited images.</td><td>Document legacy <code>PP.</code> and <code>__.</code> partition routes, but prefer clear modern <code>__.POPS</code> / <code>__common/POPS</code> recipes where supported.</td></tr>
+            <tr><td>Bundled proprietary emulator files.</td><td>Do not mirror or link binaries. Identify required files by role and verification hash only.</td></tr>
+            <tr><td>Risky repacks and old RIP/WIP confusion.</td><td>Use final r13 build identity as the public baseline and label old behavior by date/build.</td></tr>
+            <tr><td>Scattered compatibility folklore.</td><td>Separate built-in fixes, commands, patches, TROJAN files, and per-game community fixes.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Why this matters</h2>
+        <p>Many wrong guides mix early POPS-00001 assumptions with final POPStarter behavior. That is how old config-byte meanings, pre-final IGR behavior, unsafe package references, and broken HDD recipes keep resurfacing. Historical material belongs in provenance, not in the default quick-start path.</p>
+      </section>`,
+      { dynamic: "historyTimeline" }
+    ]
+  },
+  {
+    slug: "credits",
+    title: "Credits",
+    nav: "Credits",
+    description: "People, projects, mirrors, and recovery sources that make the preserved POPStarter documentation usable.",
+    blocks: [
+      `<section class="callout">
+        <h2>Preservation needs attribution</h2>
+        <p>This site is a synthesis of recovered documentation, maintainer posts, community testing, local notes, and modern launcher/fork material. Credits are grouped by contribution area rather than treated as download endorsements.</p>
+      </section>`,
+      `<section class="compare">
+        <article><h2>Original documentation</h2><p>ShaolinAssassin preserved and organized a large body of POPStarter wiki material. krHACKen authored POPStarter and many of the authoritative technical explanations behind the command, config, patch, and IGR behavior.</p></article>
+        <article><h2>Regional guides and mirrors</h2><p>El_Patas and other regional guide authors kept long-form setup knowledge alive. Retro-Jogos and archive captures preserve important wiki-era pages when original hosts are gone or inconsistent.</p></article>
+        <article><h2>Compatibility work</h2><p>Hugopocked, krHACKen fix-pack notes, and title-specific community testing preserve the practical game-fix layer. These sources are valuable precisely because they are per-game, not universal magic patches.</p></article>
+        <article><h2>Modern launchers and devices</h2><p>El_isra's POPSLoader, Ripto/NathanNeurotic fork work, BDM Assault, wLE_kHn, OPL fork behavior, and hardware testers expanded practical launch options beyond the old wiki's original scope.</p></article>
+        <article><h2>Current archive work</h2><p>The local research pack, uploaded notes, source inventories, and validation scripts keep the public site searchable while respecting binary and link boundaries.</p></article>
+      </section>`,
+      `<section class="callout legal">
+        <h2>Credit is not redistribution</h2>
+        <p>Naming a project or source does not mean this site can host proprietary packages or link unsafe mirrors. The public archive stays focused on instructions, hashes, provenance, and safe source labels.</p>
       </section>`
     ]
   },
@@ -531,6 +886,22 @@ usbd_bd_assault.irx -> mc?:/SYS-CONF/USBHDFSD.IRX</code></pre>
       </section>`,
       { dynamic: "hotkeys" },
       `<section>
+        <h2>IGR texture and handler layer</h2>
+        <p>IGR is not only a button combo. Later POPStarter builds also load IGR texture resources and handler files. Keep texture files and compatibility files separate: an IGR background texture does not mean the same thing as a numbered compatibility patch.</p>
+        <p>For more support-file placement rules, see <a href="vmc-handlers.html">VMC and Handler Files</a>.</p>
+      </section>`,
+      `<section>
+        <h2>Failure signatures</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Symptom</th><th>Likely layer</th><th>Next check</th></tr></thead>
+          <tbody>
+            <tr><td>IGR menu appears, YES exits to black screen.</td><td><code>BOOT.ELF</code> exit chain or internal ELF loader.</td><td>Try <code>$IGR5</code>, loader-disable patch, or a different/repacked <code>BOOT.ELF</code>.</td></tr>
+            <tr><td>No IGR menu at all.</td><td>Command, combo, or disabled IGR.</td><td>Check <code>$NOIGR</code> and whether the selected <code>$IGR#</code> command matches the combo being pressed.</td></tr>
+            <tr><td>Exit drops to Browser instead of OPL.</td><td>Expected fallback when the loader path is disabled or no compatible <code>BOOT.ELF</code> is found.</td><td>Do not treat Browser fallback as proof the game failed.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
         <h2>Practical exit recipe</h2>
         <p>For OPL-like no-popup exit, put <code>$IGR5</code> in the game's <code>CHEATS.TXT</code>. If the exit still black-screens because POPStarter chains into an incompatible <code>BOOT.ELF</code>, use the loader-disable patch or replace/recompress the BOOT.ELF target. The patch may exit to the PS2 Browser rather than back to OPL.</p>
       </section>`
@@ -561,6 +932,18 @@ usbd_bd_assault.irx -> mc?:/SYS-CONF/USBHDFSD.IRX</code></pre>
         <h2>How to read this table</h2>
         <p><code>PATCH_X.BIN</code> and <code>TROJAN_X.BIN</code> are not fully recovered yet. The table preserves what is known, what conflicts, and what still needs package inspection. Do not use a low-confidence row as a universal install instruction.</p>
       </section>`,
+      `<section>
+        <h2>Hugopocked fix placement</h2>
+        <p>Hugopocked-style fixes are per-game material. Put them in the game's support folder, not in a global folder, unless the package explicitly says otherwise. The support folder is based on the VCD basename, which is why merged or renamed images can break fix lookup.</p>
+      </section>`,
+      `<section class="callout warning">
+        <h2>TROJAN_7 is a different scope</h2>
+        <p>The recovered thread study treats <code>TROJAN_7.BIN</code> as a cumulative/global fix-pack line that post-dates the final r13 launcher. Do not stack it blindly with per-game Hugopocked fixes for the same title. If both are mentioned for a game, preserve the source and test each layer separately.</p>
+      </section>`,
+      `<section>
+        <h2>Filename and header discipline</h2>
+        <p>Thread evidence says POPStarter validates the number inside a patch/trojan header against the filename. A renamed file with mismatched internal identity is not a harmless cosmetic change; it can fail to load or produce misleading results.</p>
+      </section>`,
       { dynamic: "patchTable" }
     ]
   },
@@ -580,6 +963,10 @@ Final Fantasy VII D3.VCD</code></pre>
         <h2>What VMCDIR.TXT does</h2>
         <p><code>VMCDIR.TXT</code> points later discs at the VMC folder for disc 1, so saves stay unified across the set. Put <code>VMCDIR.TXT</code> in later-disc support folders, not in the first-disc folder unless a source-specific recipe says otherwise.</p>
         <pre><code>Final Fantasy VII D1.VCD</code></pre>
+      </section>`,
+      `<section>
+        <h2>Why merged multi-disc images are risky</h2>
+        <p>Thread-study notes flag merged multi-disc images as a source of broken per-game or per-disc fixes. POPStarter support folders, fix lookup, and VMC routing are based on filenames and disc identity. Keeping separate VCDs with exact names gives <code>DISCS.TXT</code> and <code>VMCDIR.TXT</code> something reliable to reference.</p>
       </section>`,
       `<section>
         <h2>USB example</h2>
@@ -602,6 +989,16 @@ hdd0:/__common/POPS/Final Fantasy VII D2/DISCS.TXT
 hdd0:/__common/POPS/Final Fantasy VII D3/DISCS.TXT
 hdd0:/__common/POPS/Final Fantasy VII D2/VMCDIR.TXT
 hdd0:/__common/POPS/Final Fantasy VII D3/VMCDIR.TXT</code></pre>
+      </section>`,
+      `<section>
+        <h2>VMC and handler checklist</h2>
+        <ul class="checklist">
+          <li>Each disc support folder should have the same <code>DISCS.TXT</code> list unless a source-specific recipe says otherwise.</li>
+          <li>Later-disc folders use <code>VMCDIR.TXT</code> to point back to the first disc's VMC folder.</li>
+          <li>Per-game patches or handlers still belong to the relevant disc/game support folder.</li>
+          <li>For USB split folders, do not assume handler files in <code>mass:/POPS</code> are inherited by <code>POPS0</code> through <code>POPS9</code>.</li>
+          <li>For HDD, VCDs live in <code>__.POPS</code>, while support files live under <code>__common/POPS</code>.</li>
+        </ul>
       </section>`,
       `<section class="callout"><h2>Evidence status</h2><p>The user notes preserve working USB and HDD examples, with the old Bitbucket multi-disc page named as the source to recover. Treat the examples as user-tested until the archived page is extracted. The support-folder rule is still valuable because it matches the broader POPStarter basename pattern.</p></section>`
     ]
@@ -817,6 +1214,27 @@ For SMB: IPCONFIG.DAT, SMBCONFIG.DAT, host OS/NAS, share name, port, auth mode, 
         <h2>Start with the path, not the command list</h2>
         <p>Most POPStarter failures in the local notes are layout failures: wrong folder, wrong prefix, wrong <code>boot=</code>, wrong share name, wrong <code>__.POPS</code> spelling, or support files placed under the VCD folder instead of the per-game folder. Only tune commands after the file tree is known-good.</p>
       </section>`,
+      `<section>
+        <h2>First split the symptom</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Symptom</th><th>Do first</th><th>Do not do first</th></tr></thead>
+          <tbody>
+            <tr><td>Black screen launching HDD from OPL Apps with HDD LED stuck.</td><td>Set unused OPL devices such as network/BDM/SMB to Manual or Disabled.</td><td>Start stacking compatibility modes.</td></tr>
+            <tr><td>Black screen after choosing IGR exit.</td><td>Check <code>$IGR5</code>, <code>BOOT.ELF</code>, and the loader-disable path.</td><td>Rewrite storage folders.</td></tr>
+            <tr><td>USB not detected.</td><td>Check drive format/fragmentation and config byte <code>$413</code>.</td><td>Use <code>$USBDELAY_#</code> as a device-detection fix.</td></tr>
+            <tr><td>Game boots but cheats/fixes do nothing.</td><td>Check uppercase filenames and basename support folder.</td><td>Assume the compatibility command is wrong.</td></tr>
+            <tr><td>SMB boots but saves fail.</td><td>Check share write permission and per-game folder creation.</td><td>Change POPStarter build first.</td></tr>
+          </tbody>
+        </table></div>
+      </section>`,
+      `<section>
+        <h2>Game-specific lore is not a preset pack</h2>
+        <p>Some reference examples are valuable because they demonstrate a rule, not because they should be copied globally. Tekken 3 shows that <code>0x06</code> and <code>0x04</code> can combine. Crash Bash shows why title-specific fix threads matter. Tomb Raider CDDA desync shows that some issues are POPS emulation limits rather than POPStarter setup errors.</p>
+      </section>`,
+      `<section class="callout">
+        <h2>When in doubt, make a support report</h2>
+        <p>A useful report includes exact storage backend, frontend, POPStarter build, VCD basename, renamed ELF, support folder path, <code>CHEATS.TXT</code>, <code>DISCS.TXT</code>, <code>VMCDIR.TXT</code>, last visible screen, and for SMB the two config files plus auth/write-permission details.</p>
+      </section>`,
       { dynamic: "issueList" }
     ]
   },
@@ -851,6 +1269,23 @@ For SMB: IPCONFIG.DAT, SMBCONFIG.DAT, host OS/NAS, share name, port, auth mode, 
       `<section class="callout">
         <h2>Why the dates matter</h2>
         <p>POPStarter instructions drift because old WIP/Beta behavior is often repeated as if it applies to the final 2019 r13 build. This timeline keeps the major behavior changes attached to dates and build labels.</p>
+      </section>`,
+      `<section>
+        <h2>Historical layers</h2>
+        <div class="chapter-table">
+          <a href="poc2-history.html"><span>H1</span><strong>POC2 / POPS-00001 era</strong><em>Early leak-era context, legacy HDD workflows, and why unsafe old packages are not install instructions.</em></a>
+          <a href="thread-study.html"><span>H2</span><strong>PSX-Place thread study</strong><em>Maintainer posts, driver myths, dropped noise, and high-value corrections.</em></a>
+          <a href="download-inventory.html"><span>H3</span><strong>Safe package inventory</strong><em>Names, roles, statuses, and hashes without binary links.</em></a>
+        </div>
+      </section>`,
+      `<section>
+        <h2>Build-boundary rules</h2>
+        <ul class="checklist">
+          <li>Old POC2/POPS-00001 notes belong in history unless a modern final-build recipe explicitly reuses them.</li>
+          <li>Pre-Beta-13 config-byte meanings should not be applied to final r13 without a date/build label.</li>
+          <li>Final r13 Beta 2019/06/05 is the public baseline for normal documentation.</li>
+          <li>Fix packs and Hugopocked per-game updates that post-date final r13 are documented as external fix layers, not as part of the original ELF.</li>
+        </ul>
       </section>`,
       { dynamic: "historyTimeline" }
     ]
