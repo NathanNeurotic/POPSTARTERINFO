@@ -3,7 +3,7 @@
     return String(value || "").toLowerCase();
   }
 
-  document.querySelectorAll("pre").forEach((pre) => {
+  document.querySelectorAll("pre:not(.inline-pre)").forEach((pre) => {
     const button = document.createElement("button");
     button.className = "copy-button";
     button.type = "button";

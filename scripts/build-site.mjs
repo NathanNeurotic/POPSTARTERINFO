@@ -86,6 +86,16 @@ function codeBlock(lines) {
   return `<pre><code>${esc(text)}</code></pre>`;
 }
 
+function compactList(items) {
+  return Array.isArray(items) && items.length
+    ? `<ul class="compact-list">${items.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>`
+    : "None recorded";
+}
+
+function pageLink(slug, label) {
+  return `<a href="${slugToHref(slug)}">${esc(label)}</a>`;
+}
+
 function inlineMarkdown(text) {
   return esc(text)
     .replace(/`([^`]+)`/g, "<code>$1</code>")
@@ -268,33 +278,32 @@ function commandReference() {
 function storageMatrix() {
   const backends = [...new Set(data.storageLayouts.map((layout) => layout.storageBackend))].sort();
   const launchers = [...new Set(data.storageLayouts.map((layout) => layout.launcherFrontend))].sort();
-  const cards = data.storageLayouts
-    .map((layout) => `<article class="layout-card" data-backend="${esc(layout.storageBackend)}" data-launcher="${esc(layout.launcherFrontend)}" data-confidence="${esc(layout.confidence)}" data-search="${esc([layout.name, layout.storageBackend, layout.launcherFrontend, layout.filesystem, layout.warnings.join(" ")].join(" ").toLowerCase())}">
-      <div class="card-head">
-        <h3>${esc(layout.name)}</h3>
-        <div>${badge(layout.confidence, layout.confidence)} ${badge(layout.verificationStatus)}</div>
-      </div>
-      <dl class="compact">
-        <dt>Backend</dt><dd>${esc(layout.storageBackend)}</dd>
-        <dt>Launcher</dt><dd>${esc(layout.launcherFrontend)}</dd>
-        <dt>Filesystem</dt><dd>${esc(layout.filesystem)}</dd>
-      </dl>
-      <h4>Required files</h4>${list(layout.requiredFiles)}
-      <h4>Exact paths</h4>${codeBlock(layout.exactPaths)}
-${layout.sampleConfig ? `      <h4>Sample config</h4>${codeBlock(layout.sampleConfig)}` : ""}
-      <h4>Warnings</h4>${list(layout.warnings)}
-      <p class="sources">${sourceLinks(layout.sourceIds)}</p>
-    </article>`)
+  const rows = data.storageLayouts
+    .map((layout) => `<tr data-backend="${esc(layout.storageBackend)}" data-launcher="${esc(layout.launcherFrontend)}" data-confidence="${esc(layout.confidence)}" data-search="${esc([layout.name, layout.storageBackend, layout.launcherFrontend, layout.filesystem, layout.warnings.join(" "), layout.exactPaths.join(" ")].join(" ").toLowerCase())}">
+      <td><strong>${esc(layout.name)}</strong><br>${badge(layout.confidence, layout.confidence)} ${badge(layout.verificationStatus)}</td>
+      <td>${esc(layout.storageBackend)}</td>
+      <td>${esc(layout.launcherFrontend)}</td>
+      <td>${esc(layout.filesystem)}</td>
+      <td>${compactList(layout.requiredFiles)}</td>
+      <td><pre class="inline-pre"><code>${esc(layout.exactPaths.join("\n"))}</code></pre>${layout.sampleConfig ? `<h4>Sample config</h4><pre class="inline-pre"><code>${esc(layout.sampleConfig)}</code></pre>` : ""}</td>
+      <td>${compactList(layout.warnings)}</td>
+      <td>${sourceLinks(layout.sourceIds)}</td>
+    </tr>`)
     .join("");
 
   return `<section class="tool-panel">
-    <div class="filters" data-filter-cards="storage-grid">
+    <div class="filters" data-filter-table="storage-matrix-table">
       <label>Search <input type="search" data-search placeholder="backend, launcher, file"></label>
       <label>Backend <select data-filter="backend"><option value="">All</option>${backends.map((backend) => `<option>${esc(backend)}</option>`).join("")}</select></label>
       <label>Launcher <select data-filter="launcher"><option value="">All</option>${launchers.map((launcher) => `<option>${esc(launcher)}</option>`).join("")}</select></label>
       <label>Confidence <select data-filter="confidence"><option value="">All</option><option>high</option><option>medium</option><option>low</option></select></label>
     </div>
-    <div class="grid layouts" id="storage-grid">${cards}</div>
+    <div class="table-wrap">
+      <table id="storage-matrix-table" class="wide-table">
+        <thead><tr><th>Workflow</th><th>Backend</th><th>Launcher</th><th>Filesystem</th><th>Required files</th><th>Exact paths / config</th><th>Warnings</th><th>Sources</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
   </section>`;
 }
 
@@ -312,50 +321,57 @@ function patchTable() {
 }
 
 function issueList() {
-  return `<div class="issue-list">${data.knownIssues.map((issue) => `<article class="issue">
-    <h3>${esc(issue.title)}</h3>
-    <p><strong>Symptom:</strong> ${esc(issue.symptom)}</p>
-    <p><strong>Likely causes:</strong></p>${list(issue.likelyCauses)}
-    <p><strong>Mitigation:</strong> ${esc(issue.mitigation)}</p>
-    <p>${badge(issue.confidence, issue.confidence)} ${badge(issue.verificationStatus)}</p>
-    <p class="sources">${sourceLinks(issue.sourceIds)}</p>
-  </article>`).join("")}</div>`;
+  const rows = data.knownIssues.map((issue) => `<tr>
+    <td><strong>${esc(issue.title)}</strong><br>${badge(issue.confidence, issue.confidence)} ${badge(issue.verificationStatus)}</td>
+    <td>${esc(issue.symptom)}</td>
+    <td>${compactList(issue.likelyCauses)}</td>
+    <td>${esc(issue.mitigation)}</td>
+    <td>${sourceLinks(issue.sourceIds)}</td>
+  </tr>`).join("");
+  return `<div class="table-wrap"><table><thead><tr><th>Issue</th><th>Symptom</th><th>Likely causes</th><th>Mitigation</th><th>Sources</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 function sourceArchive() {
-  return `<div class="grid sources-grid">${data.sources.map((source) => `<article class="source-card">
-    <h3>${isLinkableUrl(source.url) ? `<a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.title)}</a>` : esc(sourceLabel(source))}</h3>
-    <p>${esc(source.notes)}</p>
-    <p>${badge(source.type)} ${badge(source.status)} ${badge(source.reliability)}</p>
-  </article>`).join("")}</div>`;
+  const rows = data.sources.map((source) => `<tr>
+    <td>${isLinkableUrl(source.url) ? `<a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.title)}</a>` : esc(sourceLabel(source))}</td>
+    <td>${badge(source.type)} ${badge(source.status)} ${badge(source.reliability)}</td>
+    <td>${esc(source.notes)}</td>
+  </tr>`).join("");
+  return `<div class="table-wrap"><table><thead><tr><th>Source</th><th>Status</th><th>Notes</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 function archiveIndex() {
   return `<section class="tool-panel">
-    <div class="filters" data-filter-cards="archive-grid">
+    <div class="filters" data-filter-table="archive-table">
       <label>Search <input type="search" data-search placeholder="source file, notes, raw text"></label>
     </div>
-    <div class="grid sources-grid" id="archive-grid">
-      ${archiveEntries.map((entry) => `<article class="source-card" data-search="${esc(`${entry.title} ${entry.sourcePath} ${entry.raw.slice(0, 3000)}`.toLowerCase())}">
-        <h3><a href="${esc(entry.href)}">${esc(entry.title)}</a></h3>
-        <p><code>${esc(entry.sourcePath)}</code></p>
-        <p>${esc(entry.raw.replace(/\s+/g, " ").slice(0, 220))}${entry.raw.length > 220 ? "..." : ""}</p>
-      </article>`).join("")}
+    <div class="table-wrap">
+      <table id="archive-table">
+        <thead><tr><th>Rendered file</th><th>Source path</th><th>Preview</th></tr></thead>
+        <tbody>${archiveEntries.map((entry) => `<tr data-search="${esc(`${entry.title} ${entry.sourcePath} ${entry.raw.slice(0, 3000)}`.toLowerCase())}">
+          <td><a href="${esc(entry.href)}">${esc(entry.title)}</a></td>
+          <td><code>${esc(entry.sourcePath)}</code></td>
+          <td>${esc(entry.raw.replace(/\s+/g, " ").slice(0, 260))}${entry.raw.length > 260 ? "..." : ""}</td>
+        </tr>`).join("")}</tbody>
+      </table>
     </div>
   </section>`;
 }
 
 function dataBrowser() {
   return `<section class="tool-panel">
-    <div class="filters" data-filter-cards="data-grid">
+    <div class="filters" data-filter-table="data-table">
       <label>Search <input type="search" data-search placeholder="commands, sources, layouts"></label>
     </div>
-    <div class="grid sources-grid" id="data-grid">
-      ${dataEntries.map((entry) => `<article class="source-card" data-search="${esc(`${entry.title} ${entry.sourcePath} ${entry.raw.slice(0, 3000)}`.toLowerCase())}">
-        <h3><a href="${esc(entry.href)}">${esc(entry.title)}</a></h3>
-        <p><code>${esc(entry.sourcePath)}</code></p>
-        <p>${badge(`${entry.raw.split("\n").length} lines`)}</p>
-      </article>`).join("")}
+    <div class="table-wrap">
+      <table id="data-table">
+        <thead><tr><th>Data file</th><th>Source path</th><th>Size</th></tr></thead>
+        <tbody>${dataEntries.map((entry) => `<tr data-search="${esc(`${entry.title} ${entry.sourcePath} ${entry.raw.slice(0, 3000)}`.toLowerCase())}">
+          <td><a href="${esc(entry.href)}">${esc(entry.title)}</a></td>
+          <td><code>${esc(entry.sourcePath)}</code></td>
+          <td>${badge(`${entry.raw.split("\n").length} lines`)}</td>
+        </tr>`).join("")}</tbody>
+      </table>
     </div>
   </section>`;
 }
@@ -368,11 +384,11 @@ function searchPage() {
 }
 
 function glossary() {
-  return `<div class="glossary">${data.glossary.map((item) => `<article>
-    <h3>${esc(item.term)}</h3>
-    <p>${esc(item.definition)}</p>
-    <p class="sources">${sourceLinks(item.sourceIds)}</p>
-  </article>`).join("")}</div>`;
+  return `<div class="table-wrap"><table><thead><tr><th>Term</th><th>Definition</th><th>Sources</th></tr></thead><tbody>${data.glossary.map((item) => `<tr>
+    <td><strong>${esc(item.term)}</strong></td>
+    <td>${esc(item.definition)}</td>
+    <td>${sourceLinks(item.sourceIds)}</td>
+  </tr>`).join("")}</tbody></table></div>`;
 }
 
 function hotkeys() {
@@ -380,20 +396,39 @@ function hotkeys() {
 }
 
 function researchGaps() {
-  return `<div class="issue-list">${data.researchGaps.map((gap) => `<article class="issue">
-    <h3>${esc(gap.title)}</h3>
-    <p>${esc(gap.whyItMatters)}</p>
-    <p><strong>Next step:</strong> ${esc(gap.nextStep)}</p>
-    <p>${badge(gap.status)}</p>
-  </article>`).join("")}</div>`;
+  return `<div class="table-wrap"><table><thead><tr><th>Gap</th><th>Why it matters</th><th>Next step</th><th>Status</th></tr></thead><tbody>${data.researchGaps.map((gap) => `<tr>
+    <td><strong>${esc(gap.title)}</strong></td>
+    <td>${esc(gap.whyItMatters)}</td>
+    <td>${esc(gap.nextStep)}</td>
+    <td>${badge(gap.status)}</td>
+  </tr>`).join("")}</tbody></table></div>`;
 }
 
 function homeStats() {
   return `<section class="home-stats" aria-label="Recovered documentation summary">
-    <article><strong>${allPages.length}</strong><span>searchable pages</span></article>
-    <article><strong>${data.commands.length}</strong><span>commands and code forms</span></article>
-    <article><strong>${data.configBytes.length}</strong><span>config-byte records</span></article>
-    <article><strong>${data.wikiCoverage.length}</strong><span>recovered wiki pages indexed</span></article>
+    <p><strong>${allPages.length}</strong> searchable pages</p>
+    <p><strong>${data.commands.length}</strong> command/code records</p>
+    <p><strong>${data.configBytes.length}</strong> config-byte records</p>
+    <p><strong>${data.wikiCoverage.length}</strong> recovered wiki pages indexed</p>
+  </section>`;
+}
+
+function manualLedger() {
+  const pagesBySlug = new Map(allPages.filter((item) => !item.noNav).map((item) => [item.slug, item]));
+  const rows = navGroups.flatMap((group) => group.slugs.map((slug, index) => {
+    const page = pagesBySlug.get(slug);
+    if (!page) return "";
+    return `<tr>
+      <td><code>${esc(group.label.split(" ")[0])}.${index + 1}</code></td>
+      <td><a href="${slugToHref(page.slug)}">${esc(page.nav || page.title)}</a></td>
+      <td>${esc(group.label.replace(/^\d+\s*/, ""))}</td>
+      <td>${esc(page.description || "")}</td>
+    </tr>`;
+  })).join("");
+  return `<section>
+    <h2>Complete Manual Ledger</h2>
+    <p>This is the public reading order. It is intentionally table-first so new users can scan the whole manual before choosing a path.</p>
+    <div class="table-wrap"><table><thead><tr><th>Order</th><th>Page</th><th>Section</th><th>Purpose</th></tr></thead><tbody>${rows}</tbody></table></div>
   </section>`;
 }
 
@@ -446,31 +481,107 @@ function downloadInventory() {
 
 function wikiCoverage() {
   const categories = [...new Set(data.wikiCoverage.map((item) => item.category))].sort();
-  const cards = data.wikiCoverage.map((item) => `<article class="source-card" data-category="${esc(item.category)}" data-search="${esc([item.slug, item.title, item.category, item.status].join(" ").toLowerCase())}">
-    <h3>${esc(item.title)}</h3>
-    <p><code>${esc(item.slug)}</code></p>
-    <p>${badge(item.category)} ${badge(item.status)}</p>
-  </article>`).join("");
+  const coverageMap = {
+    "apps-last-version": ["toolchain-utilities", "App/tool inventory"],
+    "automated": ["compatibility-map", "Automated patch/code behavior"],
+    "bios-osd-handlers": ["vmc-handlers", "BIOS/OSD handler placement"],
+    "cheat-engine": ["cheat-engine", "CHEATS.TXT and raw-code rules"],
+    "chronology": ["history-provenance", "Timeline and build chronology"],
+    "compatibility": ["compatibility-deep-dive", "Compatibility rates and caveats"],
+    "configuration-table": ["config-table", "Config byte table"],
+    "cue2pops-and-toolbox-changelogs": ["toolchain-utilities", "CUE2POPS/toolbox workflow"],
+    "d2ls": ["display-code-appendix", "D2LS input mapping"],
+    "debug-mode": ["debugging", "Debug and support-report behavior"],
+    "ds34": ["device-irx-modules", "DS3/DS4 module notes"],
+    "faqs": ["faq-known-bugs", "FAQ triage"],
+    "game-compatibility": ["compatibility-deep-dive", "Game-specific compatibility"],
+    "general-note": ["setup-paths", "General setup rules"],
+    "hdd-mode": ["internal-hdd", "Internal HDD setup"],
+    "help": ["quick-start", "Beginner route selection"],
+    "history": ["history-provenance", "History overview"],
+    "home": ["index", "Homepage manual ledger"],
+    "hotkeys": ["igr-exit", "Hotkeys and IGR behavior"],
+    "igr": ["igr-exit", "IGR command and exit chain"],
+    "igr-textures": ["vmc-handlers", "IGR texture/resource layer"],
+    "index": ["index", "Homepage manual ledger"],
+    "irx-loader": ["device-irx-modules", "IRX loader rule"],
+    "known-bugs": ["faq-known-bugs", "Known bug triage"],
+    "multi-disc": ["multi-disc-vmc", "DISCS.TXT and VMCDIR.TXT"],
+    "pfsshell": ["toolchain-utilities", "PFSSHELL transfer path"],
+    "pmc-to-vmc": ["toolchain-utilities", "Save conversion appendix"],
+    "poc2-pops-00001-era": ["poc2-history", "POC2 history"],
+    "popstarter-batcher": ["toolchain-utilities", "Batcher role"],
+    "popstarter-changelog": ["history-provenance", "Changelog/timeline"],
+    "popstarter-hddosd": ["advanced-launch-modes", "HDDOSD/KELF route"],
+    "popstarter10": ["history-provenance", "Old build history"],
+    "popstarter11": ["history-provenance", "Old build history"],
+    "popstarter12": ["history-provenance", "Old build history"],
+    "popstarter9": ["history-provenance", "Old build history"],
+    "popstarter-batcher-2": ["toolchain-utilities", "Batcher 2 role"],
+    "proto": ["version-integrity", "Prototype caution"],
+    "ps1-codes-in-ps1-raw-format": ["display-code-appendix", "RAW code archive handling"],
+    "ps1-codes-in-ps2-raw-format": ["display-code-appendix", "RAW code archive handling"],
+    "ps1-special-devices": ["device-irx-modules", "Special-device IRX flow"],
+    "ps1-widescreen-codes": ["display-code-appendix", "Widescreen code caveats"],
+    "ps1-buttons": ["device-irx-modules", "Input/device behavior"],
+    "ps1cd-mode": ["advanced-launch-modes", "PS1 CD mode"],
+    "quickstart-hdd": ["internal-hdd", "HDD quick start"],
+    "quickstart-smb": ["smb-network", "SMB quick start"],
+    "quickstart-usb": ["usb-storage", "USB quick start"],
+    "radhostclient": ["toolchain-utilities", "RadHostClient transfer path"],
+    "related-stuff": ["toolchain-utilities", "Related tools"],
+    "rip-off": ["version-integrity", "Tampered-bundle warning"],
+    "scanlines": ["display-code-appendix", "Scanline visual option"],
+    "smb-mode": ["smb-network", "SMB mode"],
+    "smooth": ["display-code-appendix", "Smooth visual option"],
+    "special-cheats": ["cheat-engine", "Special commands"],
+    "timeline": ["history-provenance", "Timeline"],
+    "toolbox-commands": ["toolchain-utilities", "Toolbox commands"],
+    "troubleshooting-games": ["troubleshooting", "Troubleshooting"],
+    "ule-khn": ["advanced-launch-modes", "uLE_kHn launch route"],
+    "usb-mode": ["usb-storage", "USB mode"],
+    "vcd": ["toolchain-utilities", "VCD conversion"],
+    "version": ["version-integrity", "Build ID and version checks"],
+    "vmc": ["vmc-handlers", "VMC behavior"],
+    "vmc-to-pmc": ["toolchain-utilities", "Save conversion appendix"],
+    "widescreen": ["display-code-appendix", "Widescreen command caveats"]
+  };
+  const rows = data.wikiCoverage.map((item) => {
+    const target = coverageMap[item.slug];
+    const covered = Boolean(target);
+    return `<tr data-category="${esc(item.category)}" data-coverage="${covered ? "covered" : "indexed"}" data-search="${esc([item.slug, item.title, item.category, item.status, target?.join(" ")].join(" ").toLowerCase())}">
+      <td><strong>${esc(item.title)}</strong><br><code>${esc(item.slug)}</code></td>
+      <td>${badge(item.category)} ${badge(item.status)}</td>
+      <td>${covered ? `${pageLink(target[0], allPages.find((page) => page.slug === target[0])?.title || target[0])}<br><span class="muted">${esc(target[1])}</span>` : `<span class="muted">Indexed only; needs dedicated expansion</span>`}</td>
+    </tr>`;
+  }).join("");
   return `<section class="tool-panel">
-    <div class="filters" data-filter-cards="wiki-coverage-grid">
+    <div class="filters" data-filter-table="wiki-coverage-table">
       <label>Search <input type="search" data-search placeholder="wiki page, topic, slug"></label>
       <label>Category <select data-filter="category"><option value="">All</option>${categories.map((category) => `<option>${esc(category)}</option>`).join("")}</select></label>
+      <label>Coverage <select data-filter="coverage"><option value="">All</option><option value="covered">Covered</option><option value="indexed">Indexed only</option></select></label>
     </div>
-    <div class="grid sources-grid" id="wiki-coverage-grid">${cards}</div>
+    <div class="table-wrap">
+      <table id="wiki-coverage-table">
+        <thead><tr><th>Recovered wiki page</th><th>Source category/status</th><th>Where this site covers it</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
   </section>`;
 }
 
 function historyTimeline() {
-  return `<div class="timeline">${data.historyTimeline.map((item) => `<article class="issue">
-    <h3><time>${esc(item.date)}</time> ${esc(item.label)}</h3>
-    <p>${esc(item.summary)}</p>
-    <p><strong>Why it matters:</strong> ${esc(item.impact)}</p>
-    <p class="sources">${sourceLinks(item.sourceIds)}</p>
-  </article>`).join("")}</div>`;
+  return `<div class="table-wrap"><table><thead><tr><th>Date / label</th><th>Summary</th><th>Why it matters</th><th>Sources</th></tr></thead><tbody>${data.historyTimeline.map((item) => `<tr>
+    <td><time>${esc(item.date)}</time><br><strong>${esc(item.label)}</strong></td>
+    <td>${esc(item.summary)}</td>
+    <td>${esc(item.impact)}</td>
+    <td>${sourceLinks(item.sourceIds)}</td>
+  </tr>`).join("")}</tbody></table></div>`;
 }
 
 const dynamicBlocks = {
   homeStats,
+  manualLedger,
   commandReference,
   storageMatrix,
   patchTable,

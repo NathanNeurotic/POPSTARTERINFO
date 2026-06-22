@@ -7,70 +7,44 @@ export const pages = [
     blocks: [
       { dynamic: "homeStats" },
       `<section class="decision-panel">
-        <h2>Start Here: choose your path</h2>
-        <p>Pick the storage backend first. The launcher, folder names, support files, and troubleshooting path all depend on that decision.</p>
-        <div class="decision-grid">
-          <a href="usb-storage.html"><strong>USB</strong><span>FAT32 baseline, POPS0-POPS9, OPL Apps, wLE_kHn, POPSLoader, BDM/exFAT.</span></a>
-          <a href="internal-hdd.html"><strong>HDD</strong><span>Modern <code>__.POPS</code>, <code>__common/POPS</code>, legacy <code>PP.</code> partitions, KELF notes.</span></a>
-          <a href="smb-network.html"><strong>SMB</strong><span><code>SB.</code> launchers, memory-card network modules, auth, ports, writable VMC share.</span></a>
-        </div>
+        <h2>Start Here</h2>
+        <p>Pick the storage backend and launcher first. The folder names, support files, VMC location, and troubleshooting path all depend on that choice.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Reader goal</th><th>Start with</th><th>First files to verify</th><th>Do not mix it with</th></tr></thead>
+          <tbody>
+            <tr><td>First working setup on USB</td><td><a href="usb-storage.html">USB Setup</a></td><td><code>mass:/POPS/POPS_IOX.PAK</code>, one <code>.VCD</code>, matching support folder, renamed <code>XX.</code> ELF or launcher path.</td><td>HDD <code>__common/POPS</code> support folders.</td></tr>
+            <tr><td>Fast internal HDD library</td><td><a href="internal-hdd.html">Internal HDD Setup</a></td><td><code>hdd0:/__.POPS</code> for VCDs and <code>hdd0:/__common/POPS</code> for POPS/support files.</td><td>Legacy per-game <code>PP.</code> partitions unless doing HDDOSD/KELF.</td></tr>
+            <tr><td>Network library over SMB</td><td><a href="smb-network.html">SMB / Network</a></td><td><code>SB.</code> launcher, writable share, <code>IPCONFIG.DAT</code>, <code>SMBCONFIG.DAT</code>, and <code>mc?:/POPSTARTER</code> modules.</td><td>USB <code>XX.</code> prefixes or read-only shares.</td></tr>
+            <tr><td>Commands, fixes, video, IGR, VMC</td><td><a href="reference-tables.html">Reference Tables</a></td><td>Exact <code>CHEATS.TXT</code> path, config-byte/build version, and per-game support folder.</td><td>Global preset packs copied to every game.</td></tr>
+            <tr><td>Verify old files and source claims</td><td><a href="archive-provenance.html">Archive &amp; Provenance</a></td><td>Filename, hash/source label, build ID offsets, and package role.</td><td>Binary mirror links or unidentified repacks.</td></tr>
+          </tbody>
+        </table></div>
       </section>`,
-      `<section>
-        <h2>Manual chapters</h2>
-        <div class="chapter-table">
-          <a href="setup-paths.html"><span>1</span><strong>Setup Paths</strong><em>Boot flow, launcher choices, minimal files, memory card layout, verification.</em></a>
-          <a href="storage-overview.html"><span>2</span><strong>Storage Backends</strong><em>USB, HDD, SMB, BDM/exFAT, split folders, performance and failure boundaries.</em></a>
-          <a href="reference-tables.html"><span>3</span><strong>Reference Tables</strong><em>Commands, config bytes, PATCH/TROJAN map, IGR, video, VMC, troubleshooting.</em></a>
-          <a href="archive-provenance.html"><span>4</span><strong>Archive & Provenance</strong><em>Hashes, package inventory, recovered wiki coverage, timeline, source confidence.</em></a>
-          <a href="toolchain-utilities.html"><span>5</span><strong>Toolchain and Utilities</strong><em>CUE2POPS, VCD conversion, POPStarter batchers, PFSSHELL, RadHostClient, VMC/PMC movement.</em></a>
-          <a href="advanced-launch-modes.html"><span>6</span><strong>Advanced Launch Modes</strong><em>PS1 CD mode, HDDOSD/KELF, legacy partitions, ps2host-era tools, and route boundaries.</em></a>
-        </div>
-      </section>`,
-      `<section>
-        <h2>Deep-dive shelves</h2>
-        <div class="chapter-table">
-          <a href="cheat-engine.html"><span>R1</span><strong>Cheat Engine</strong><em><code>CHEATS.TXT</code>, raw codes, <code>$SAFEMODE</code>, C0/master-code handling, LibCrypt notes.</em></a>
-          <a href="compatibility-deep-dive.html"><span>R2</span><strong>Compatibility Deep Dive</strong><em>2016 rates, mode stacking, Hugopocked fixes, TROJAN_7, and per-game examples.</em></a>
-          <a href="vmc-handlers.html"><span>R3</span><strong>VMC and Handlers</strong><em>VMC sharing, BIOS/OSD handlers, IGR textures, POPS folder priority, handler placement.</em></a>
-          <a href="device-irx-modules.html"><span>R4</span><strong>Device and IRX Modules</strong><em><code>MODULE_0.IRX</code> through <code>MODULE_9.IRX</code>, DS3 modules, special-device experiments.</em></a>
-          <a href="display-code-appendix.html"><span>R5</span><strong>Display and Code Appendix</strong><em>Widescreen, smooth, scanlines, D2LS, PS1 RAW/PS2 RAW code archive handling.</em></a>
-          <a href="thread-study.html"><span>A1</span><strong>Thread Study</strong><em>High-value PSX-Place findings, driver myths, dropped noise, and maintainer-confirmed details.</em></a>
-          <a href="version-integrity.html"><span>A2</span><strong>Version and Integrity</strong><em>Build ID offsets, final-build boundary, old RIP/WIP caution, and tampered bundle warnings.</em></a>
-        </div>
-      </section>`,
+      { dynamic: "manualLedger" },
       `<section class="architecture-panel">
         <h2>POPStarter, POPS, and POPSLoader are not the same thing</h2>
         <p class="lead">Most bad setup instructions blur three separate layers. This site keeps them split so a reader knows whether a rule belongs to original POPStarter, Sony's POPS emulator payload, or a modern launcher/fork workflow.</p>
-        <div class="compare">
-          <article>
-            <h3>POPStarter</h3>
-            <p>krHACKen's launcher and patch layer. It mounts the target <code>.VCD</code>, reads per-game folders, applies commands/fixes, handles IGR support files, then hands execution to POPS.</p>
-          </article>
-          <article>
-            <h3>POPS</h3>
-            <p>The PS1-on-PS2 emulator payload. This repository documents expected filenames, paths, and verification identifiers only. It does not host or link proprietary binaries.</p>
-          </article>
-          <article>
-            <h3>POPSLoader</h3>
-            <p>A separate modern Lua/Enceladus launcher lineage. Its USB, MMCE, MX4SIO, BDM, and APA-HDD notes are useful, but they are not original POPStarter core behavior.</p>
-          </article>
-        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Layer</th><th>What it owns</th><th>Documentation rule</th></tr></thead>
+          <tbody>
+            <tr><td>POPStarter</td><td>Launcher and patch layer: mount target <code>.VCD</code>, read support folders, apply commands/fixes, handle IGR files, then hand execution to POPS.</td><td>Document storage prefixes, <code>CHEATS.TXT</code>, VMC, patches, TROJAN files, and handler placement here.</td></tr>
+            <tr><td>POPS</td><td>Sony's PS1-on-PS2 emulator payload.</td><td>Identify by filename, role, build data, and hash/source reference only. Do not host or link proprietary binaries.</td></tr>
+            <tr><td>POPSLoader</td><td>Separate Lua/Enceladus launcher lineage and modern fork workflows.</td><td>Keep BDMA, MX4SIO, MMCE, art paths, and fork exit-menu behavior labeled as launcher/fork behavior.</td></tr>
+          </tbody>
+        </table></div>
       </section>`,
-      `<section class="evidence-grid">
-        <article class="callout">
-          <h2>Reference anchors</h2>
-          <ul class="checklist">
-            <li><strong>Final public beta:</strong> r13 Beta 2019/06/05 is repeatedly identified as the final POPStarter build in the seed, Retro-Jogos mirror, and ElOtroLado first-post capture.</li>
-            <li><strong>Loader-disable artifact:</strong> krHACKen identifies <code>PATCH_9.BIN</code> in the POPS folder as the workaround for the bugged ELF loader, but seed notes also associate <code>PATCH_9.BIN</code> with <code>$NOPAL</code>.</li>
-            <li><strong>SMB typo correction:</strong> <code>IPCONFIG.DAT</code>, <code>SMBCONFIG.DAT</code>, and <code>poweroff.irx</code> are the recommended spellings; <code>.DAY</code> and <code>.irc</code> are kept only as raw-note conflicts.</li>
-            <li><strong>Modern workflow boundary:</strong> POPSLoader, BDM Assault, MX4SIO/MMCE support, and fork-specific BOOT.ELF behavior are documented as side-project or fork-specific behavior.</li>
-          </ul>
-        </article>
-        <article class="callout legal">
-          <h2>Preservation boundary</h2>
-          <p>No Sony POPS emulator binaries, BIOS files, decrypted libraries, proprietary package mirrors, or direct binary download links belong in this repository.</p>
-          <p>Required files may be identified by filename, SHA/hash, package role, or source-reference identifier only.</p>
-        </article>
+      `<section>
+        <h2>Reference anchors</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Anchor</th><th>Current site stance</th><th>Where to inspect</th></tr></thead>
+          <tbody>
+            <tr><td>Final public beta</td><td>r13 Beta 2019/06/05 is the normal documentation baseline.</td><td><a href="version-integrity.html">Version and Integrity</a></td></tr>
+            <tr><td><code>PATCH_9.BIN</code> conflict</td><td>Maintainer post says loader-disable workaround; seed notes also preserve <code>$NOPAL</code> association. The conflict is retained instead of flattened.</td><td><a href="patches-fixes.html">Patches and Fixes</a></td></tr>
+            <tr><td>SMB typo correction</td><td>Use <code>IPCONFIG.DAT</code>, <code>SMBCONFIG.DAT</code>, and <code>poweroff.irx</code>; old <code>.DAY</code>/<code>.irc</code> strings are raw-note conflicts.</td><td><a href="smb-network.html">SMB / Network</a></td></tr>
+            <tr><td>Modern workflow boundary</td><td>POPSLoader, BDM Assault, MX4SIO/MMCE, BDMA, and fork art/exit behavior are not stock POPStarter core.</td><td><a href="popsloader-guide.html">POPSLoader Guide</a></td></tr>
+            <tr><td>Preservation boundary</td><td>No Sony POPS emulator binaries, BIOS files, decrypted libraries, proprietary package mirrors, or direct binary download links are included.</td><td><a href="download-inventory.html">Safe Archive Inventory</a></td></tr>
+          </tbody>
+        </table></div>
       </section>`
     ]
   },
